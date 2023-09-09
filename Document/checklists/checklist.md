@@ -22,7 +22,7 @@
 |**IOT-MEM-INFO**|**情報収集 (Information Gathering)**|||
 |IOT-MEM-INFO-001|ソースコードの開示 (Disclosure of Source Code)|||
 |IOT-MEM-INFO-002|実装内容の開示 (Disclosure of Implementation Details)|||
-|IOT-MEM-INFO-003|エコシステムの開示 (Disclosure of Ecosystem Details)|||
+|IOT-MEM-INFO-003|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |IOT-MEM-INFO-004|ユーザーデータの開示 (Disclosure of User Data)|||
 |**IOT-MEM-SCRT**|**シークレット (Secrets)**|||
 |IOT-MEM-SCRT-001|シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets)|||
@@ -35,7 +35,7 @@
 |**IOT-FW-INFO**|**情報収集 (Information Gathering)**|||
 |IOT-FW-INFO-001|ソースコードの開示 (Disclosure of Source Code)|||
 |IOT-FW-INFO-002|実装内容の開示 (Disclosure of Implementation Details)|||
-|IOT-FW-INFO-003|エコシステムの開示 (Disclosure of Ecosystem Details)|||
+|IOT-FW-INFO-003|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |**IOT-FW-CONF**|**構成とパッチ管理 (Configuration and Patch Management)**|||
 |IOT-FW-CONF-001|古いソフトウェアの使用 (Usage of Outdated Software)|||
 |IOT-FW-CONF-002|不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities)|||
@@ -78,7 +78,7 @@
 |IOT-DES-AUTHZ-002|権限昇格 (Privilege Escalation)|||
 |**IOT-DES-INFO**|**情報収集 (Information Gathering)**|||
 |IOT-DES-INFO-001|実装内容の開示 (Disclosure of Implementation Details)|||
-|IOT-DES-INFO-002|エコシステムの開示 (Disclosure of Ecosystem Details)|||
+|IOT-DES-INFO-002|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |IOT-DES-INFO-003|ユーザーデータの開示 (Disclosure of User Data)|||
 |**IOT-DES-CONF**|**構成とパッチ管理 (Configuration and Patch Management)**|||
 |IOT-DES-CONF-001|古いソフトウェアの使用 (Usage of Outdated Software)|||
@@ -101,7 +101,7 @@
 |IOT-INT-AUTHZ-002|権限昇格 (Privilege Escalation)|||
 |**IOT-INT-INFO**|**情報収集 (Information Gathering)**|||
 |IOT-INT-INFO-001|実装内容の開示 (Disclosure of Implementation Details)|||
-|IOT-INT-INFO-002|エコシステムの開示 (Disclosure of Ecosystem Details)|||
+|IOT-INT-INFO-002|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |IOT-INT-INFO-003|ユーザーデータの開示 (Disclosure of User Data)|||
 |**IOT-INT-CONF**|**構成とパッチ管理 (Configuration and Patch Management)**|||
 |IOT-INT-CONF-001|古いソフトウェアの使用 (Usage of Outdated Software)|||
@@ -124,7 +124,7 @@
 |IOT-PHY-AUTHZ-002|権限昇格 (Privilege Escalation)|||
 |**IOT-PHY-INFO**|**情報収集 (Information Gathering)**|||
 |IOT-PHY-INFO-001|実装内容の開示 (Disclosure of Implementation Details)|||
-|IOT-PHY-INFO-002|エコシステムの開示 (Disclosure of Ecosystem Details)|||
+|IOT-PHY-INFO-002|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |IOT-PHY-INFO-003|ユーザーデータの開示 (Disclosure of User Data)|||
 |**IOT-PHY-CONF**|**構成とパッチ管理 (Configuration and Patch Management)**|||
 |IOT-PHY-CONF-001|古いソフトウェアの使用 (Usage of Outdated Software)|||
@@ -147,7 +147,7 @@
 |IOT-WRLS-AUTHZ-002|権限昇格 (Privilege Escalation)|||
 |**IOT-WRLS-INFO**|**情報収集 (Information Gathering)**|||
 |IOT-WRLS-INFO-001|実装内容の開示 (Disclosure of Implementation Details)|||
-|IOT-WRLS-INFO-002|エコシステムの開示 (Disclosure of Ecosystem Details)|||
+|IOT-WRLS-INFO-002|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |IOT-WRLS-INFO-003|ユーザーデータの開示 (Disclosure of User Data)|||
 |**IOT-WRLS-CONF**|**構成とパッチ管理 (Configuration and Patch Management)**|||
 |IOT-WRLS-CONF-001|古いソフトウェアの使用 (Usage of Outdated Software)|||
@@ -170,7 +170,7 @@
 |IOT-UI-AUTHZ-002|権限昇格 (Privilege Escalation)|||
 |**IOT-UI-INFO**|**情報収集 (Information Gathering)**|||
 |IOT-UI-INFO-001|実装内容の開示 (Disclosure of Implementation Details)|||
-|IOT-UI-INFO-002|エコシステムの開示 (Disclosure of Ecosystem Details)|||
+|IOT-UI-INFO-002|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |IOT-UI-INFO-003|ユーザーデータの開示 (Disclosure of User Data)|||
 |**IOT-UI-CONF**|**構成とパッチ管理 (Configuration and Patch Management)**|||
 |IOT-UI-CONF-001|古いソフトウェアの使用 (Usage of Outdated Software)|||
