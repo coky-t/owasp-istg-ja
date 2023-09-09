@@ -1,21 +1,21 @@
 # 3.2. メモリ (Memory) (IOT-MEM)
 
-## Table of Contents
-* [Overview](#overview)
-* [Information Gathering (IOT-MEM-INFO)](#information-gathering-iot-mem-info)
-  * [Disclosure of Source Code (IOT-MEM-INFO-001)](#disclosure-of-source-code-iot-mem-info-001)
-  * [Disclosure of Implementation Details (IOT-MEM-INFO-002)](#disclosure-of-implementation-details-iot-mem-info-002)
-  * [Disclosure of Ecosystem Details (IOT-MEM-INFO-003)](#disclosure-of-ecosystem-details-iot-mem-info-003)
-  * [Disclosure of User Data (IOT-MEM-INFO-004)](#disclosure-of-user-data-iot-mem-info-004)
-* [Secrets (IOT-MEM-SCRT)](#secrets-iot-mem-scrt)
-  * [Unencrypted Storage of Secrets (IOT-MEM-SCRT-001)](#unencrypted-storage-of-secrets-iot-mem-scrt-001)
-* [Cryptography (IOT-MEM-CRYPT)](#cryptography-iot-mem-crypt)
-  * [Usage of Weak Cryptographic Algorithms (IOT-MEM-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-mem-crypt-001)
+## 目次
+* [概要](#overview)
+* [情報収集 (Information Gathering) (IOT-MEM-INFO)](#information-gathering-iot-mem-info)
+  * [ソースコードの開示 (Disclosure of Source Code) (IOT-MEM-INFO-001)](#disclosure-of-source-code-iot-mem-info-001)
+  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-MEM-INFO-002)](#disclosure-of-implementation-details-iot-mem-info-002)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-MEM-INFO-003)](#disclosure-of-ecosystem-details-iot-mem-info-003)
+  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-MEM-INFO-004)](#disclosure-of-user-data-iot-mem-info-004)
+* [シークレット (Secrets) (IOT-MEM-SCRT)](#secrets-iot-mem-scrt)
+  * [シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-MEM-SCRT-001)](#unencrypted-storage-of-secrets-iot-mem-scrt-001)
+* [暗号技術 (Cryptography) (IOT-MEM-CRYPT)](#cryptography-iot-mem-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-MEM-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-mem-crypt-001)
 
 
 
 
-## Overview
+## 概要
 
 This section includes test cases and categories for the component memory. Similar to the processing unit, the memory is a device-internal element that can only be accessed with *PA-4*. Establishing a direct connection to the memory might require specific hardware equipment (e.g., a debugging board or test probes).
 
@@ -29,13 +29,13 @@ In regards to test case categories that are relevant for memory, the following w
 
 
 
-## Information Gathering (IOT-MEM-INFO)
+## 情報収集 (Information Gathering) (IOT-MEM-INFO)
 
 The memory of an IoT device can include various data, which, if disclosed, could reveal details regarding the inner workings of the device or the underlying IoT ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
 
 Tests on the device memory are performed by directly accessing the memory chips. Thus, invasive physical access (*PA-4*) is required while no user accounts are used (*LA-1*).
 
-### Disclosure of Source Code (IOT-MEM-INFO-001)
+### ソースコードの開示 (Disclosure of Source Code) (IOT-MEM-INFO-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -78,7 +78,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-of-source-code-iot-fw-info-001).
 
-### Disclosure of Implementation Details (IOT-MEM-INFO-002)
+### 実装内容の開示 (Disclosure of Implementation Details) (IOT-MEM-INFO-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -119,7 +119,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002).
 
-### Disclosure of Ecosystem Details (IOT-MEM-INFO-003)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-MEM-INFO-003)
 **Required Access Levels**
 
 <table width="100%">
@@ -156,7 +156,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
 
-### Disclosure of User Data (IOT-MEM-INFO-004)
+### ユーザーデータの開示 Disclosure of User Data (IOT-MEM-INFO-004)
 **Required Access Levels**
 
 <table width="100%">
@@ -193,11 +193,11 @@ This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmwa
 
 
 
-## Secrets (IOT-MEM-SCRT)
+## シークレット (Secrets) (IOT-MEM-SCRT)
 
 IoT devices are often operated outside of the control space their manufacturer. Still, they need to establish connections to other network nodes within the IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device can provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
 
-### Unencrypted Storage of Secrets (IOT-MEM-SCRT-001)
+### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-MEM-SCRT-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -235,11 +235,11 @@ This test case is based on: [IOT-FW-SCRT-002](../firmware/README.md#unencrypted-
 
 
 
-## Cryptography (IOT-MEM-CRYPT)
+## 暗号技術 (Cryptography) (IOT-MEM-CRYPT)
 
 Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
-### Usage of Weak Cryptographic Algorithms (IOT-MEM-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-MEM-CRYPT-001)
 **Required Access Levels**
 
 <table width="100%">

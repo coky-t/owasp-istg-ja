@@ -1,30 +1,30 @@
 # 3.8. ユーザーインタフェース (User Interfaces) (IOT-UI)
 
-## Table of Contents
-* [Overview](#overview)
-* [Authorization (IOT-UI-AUTHZ)](#authorization-iot-ui-authz)
-  * [Unauthorized Access to the Interface (IOT-UI-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-ui-authz-001)
-  * [Privilege Escalation (IOT-UI-AUTHZ-002)](#privilege-escalation-iot-ui-authz-002)
-* [Information Gathering (IOT-UI-INFO)](#information-gathering-iot-ui-info)
-  * [Disclosure of Implementation Details (IOT-UI-INFO-001)](#disclosure-of-implementation-details-iot-ui-info-001)
-  * [Disclosure of Ecosystem Details (IOT-UI-INFO-002)](#disclosure-of-ecosystem-details-iot-ui-info-002)
-  * [Disclosure of User Data (IOT-UI-INFO-003)](#disclosure-of-user-data-iot-ui-info-003)
-* [Configuration and Patch Management (IOT-UI-CONF)](#configuration-and-patch-management-iot-ui-conf)
-  * [Usage of Outdated Software (IOT-UI-CONF-001)](#usage-of-outdated-software-iot-ui-conf-001)
-  * [Presence of Unnecessary Software and Functionalities (IOT-UI-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-ui-conf-002)
-* [Secrets (IOT-UI-SCRT)](#secrets-iot-ui-scrt)
-  * [Access to Confidential Data (IOT-UI-SCRT-001)](#access-to-confidential-data-iot-ui-scrt-001)
-* [Cryptography (IOT-UI-CRYPT)](#cryptography-iot-ui-crypt)
-  * [Usage of Weak Cryptographic Algorithms (IOT-UI-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-ui-crypt-001)
-* [Business Logic (IOT-UI-LOGIC)](#business-logic-iot-ui-logic)
-  * [Circumvention of the Intended Business Logic (IOT-UI-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-ui-logic-001)
-* [Input Validation (IOT-UI-INVAL)](#input-validation-iot-ui-inval)
-  * [Insufficient Input Validation (IOT-UI-INVAL-001)](#insufficient-input-validation-iot-ui-inval-001)
-  * [Code or Command Injection (IOT-UI-INVAL-002)](#code-or-command-injection-iot-ui-inval-002)
+## 目次
+* [概要](#overview)
+* [認可 (Authorization) (IOT-UI-AUTHZ)](#authorization-iot-ui-authz)
+  * [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-UI-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-ui-authz-001)
+  * [権限昇格 (Privilege Escalation) (IOT-UI-AUTHZ-002)](#privilege-escalation-iot-ui-authz-002)
+* [情報収集 (Information Gathering) (IOT-UI-INFO)](#information-gathering-iot-ui-info)
+  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-UI-INFO-001)](#disclosure-of-implementation-details-iot-ui-info-001)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-UI-INFO-002)](#disclosure-of-ecosystem-details-iot-ui-info-002)
+  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-UI-INFO-003)](#disclosure-of-user-data-iot-ui-info-003)
+* [構成とパッチ管理 (Configuration and Patch Management) (IOT-UI-CONF)](#configuration-and-patch-management-iot-ui-conf)
+  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-UI-CONF-001)](#usage-of-outdated-software-iot-ui-conf-001)
+  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-UI-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-ui-conf-002)
+* [シークレット (Secrets) (IOT-UI-SCRT)](#secrets-iot-ui-scrt)
+  * [機密データへのアクセス (Access to Confidential Data) (IOT-UI-SCRT-001)](#access-to-confidential-data-iot-ui-scrt-001)
+* [暗号技術 (Cryptography) (IOT-UI-CRYPT)](#cryptography-iot-ui-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-UI-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-ui-crypt-001)
+* [ビジネスロジック (Business Logic) (IOT-UI-LOGIC)](#business-logic-iot-ui-logic)
+  * [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-UI-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-ui-logic-001)
+* [入力バリデーション (Input Validation) (IOT-UI-INVAL)](#input-validation-iot-ui-inval)
+  * [不十分な入力バリデーション (Insufficient Input Validation) (IOT-UI-INVAL-001)](#insufficient-input-validation-iot-ui-inval-001)
+  * [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-UI-INVAL-002)](#code-or-command-injection-iot-ui-inval-002)
 
 
 
-## Overview
+## 概要
 
 This section includes test cases and categories for the component user interface. Based on its implementation and intended use, a user interface might be accessible with all physical access levels.
 
@@ -46,11 +46,11 @@ In regards to test case categories that are relevant for a user interface, the f
 
 
 
-## Authorization (IOT-UI-AUTHZ)
+## 認可 (Authorization) (IOT-UI-AUTHZ)
 
 Depending on the access model for a given device, only certain individuals might be allowed to access a user interface. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access.
 
-### Unauthorized Access to the Interface (IOT-UI-AUTHZ-001)
+### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-UI-AUTHZ-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -90,7 +90,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
 
-### Privilege Escalation (IOT-UI-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (IOT-UI-AUTHZ-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -130,11 +130,11 @@ This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README
 
 
 
-## Information Gathering (IOT-UI-INFO)
+## 情報収集 (Information Gathering) (IOT-UI-INFO)
 
 User interface might disclose various information, which could reveal details regarding the inner workings of the device or the surrounding IoT-ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
 
-### Disclosure of Implementation Details (IOT-UI-INFO-001)
+### 実装内容の開示 (Disclosure of Implementation Details) (IOT-UI-INFO-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -180,7 +180,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002).
 
-### Disclosure of Ecosystem Details (IOT-UI-INFO-002)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-UI-INFO-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -220,7 +220,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
 
-### Disclosure of User Data (IOT-UI-INFO-003)
+### ユーザーデータの開示 (Disclosure of User Data) (IOT-UI-INFO-003)
 **Required Access Levels**
 
 <table width="100%">
@@ -260,11 +260,11 @@ This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmwa
 
 
 
-## Configuration and Patch Management (IOT-UI-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (IOT-UI-CONF)
 
 Since IoT-devices can have a long lifespan, it is important to make sure that the software, running on the device, is regularly updated in order to apply the latest security patches. The update process of the firmware itself will be covered by [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md). However, it must also be verified that software packages, which are running on the device and listening on interfaces, are up-to-date as well.
 
-### Usage of Outdated Software (IOT-UI-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-UI-CONF-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -304,7 +304,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-iot-fw-conf-001).
 
-### Presence of Unnecessary Software and Functionalities (IOT-UI-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-UI-CONF-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -344,11 +344,11 @@ This test case is based on: [IOT-FW-CONF-002](../firmware/README.md#presence-of-
 
 
 
-## Secrets (IOT-UI-SCRT)
+## シークレット (Secrets) (IOT-UI-SCRT)
 
 IoT-devices are often operated outside of the control space of their manufacturer. Still, they need to establish connections to other network nodes within the IoT-ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device has to provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
 
-### Access to Confidential Data (IOT-UI-SCRT-001)
+### 機密データへのアクセス (Access to Confidential Data) (IOT-UI-SCRT-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -388,11 +388,11 @@ This test case is based on: [IOT-DES-SCRT-001](../data_exchange_services/README.
 
 
 
-## Cryptography (IOT-UI-CRYPT)
+## 暗号技術 (Cryptography) (IOT-UI-CRYPT)
 
 Many IoT-devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
-### Usage of Weak Cryptographic Algorithms (IOT-UI-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-UI-CRYPT-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -434,11 +434,11 @@ This test case is based on: [IOT-FW-CRYPT-001](../firmware/README.md#usage-of-we
 
 
 
-## Business Logic (IOT-UI-LOGIC)
+## ビジネスロジック (Business Logic) (IOT-UI-LOGIC)
 
 Even if all other aspects of the user interface are securely implemented and configured, issues in the underlying logic itself might render the device vulnerable to attacks. Thus, it must be verified if the user interface and its functionalities are working as intended and if exceptions are detected and properly handled.
 
-### Circumvention of the Intended Business Logic (IOT-UI-LOGIC-001)
+### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-UI-LOGIC-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -478,11 +478,11 @@ This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README
 
 
 
-## Input Validation (IOT-UI-INVAL)
+## 入力バリデーション (Input Validation) (IOT-UI-INVAL)
 
 In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
 
-### Insufficient Input Validation (IOT-UI-INVAL-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-UI-INVAL-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -522,7 +522,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-DES-INVAL-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inval-001).
 
-### Code or Command Injection (IOT-UI-INVAL-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-UI-INVAL-002)
 **Required Access Levels**
 
 <table width="100%">

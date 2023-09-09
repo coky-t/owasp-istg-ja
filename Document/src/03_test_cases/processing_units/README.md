@@ -1,19 +1,19 @@
 # 3.1. 処理装置 (Processing Units) (IOT-PROC)
 
-## Table of Contents
-* [Overview](#overview)
-* [Authorization (IOT-PROC-AUTHZ)](#authorization-iot-proc-authz)
-  * [Unauthorized Access to the Processing Unit (IOT-PROC-AUTHZ-001)](#unauthorized-access-to-the-processing-unit-iot-proc-authz-001)
-  * [Privilege Escalation (IOT-PROC-AUTHZ-002)](#privilege-escalation-iot-proc-authz-002)
-* [Business Logic (IOT-PROC-LOGIC)](#business-logic-iot-proc-logic)
-  * [Insecure Implementation of Instructions (IOT-PROC-LOGIC-001)](#insecure-implementation-of-instructions-iot-proc-logic-001)
-* [Side-Channel Attacks (IOT-PROC-SIDEC)](#side-channel-attacks-iot-proc-sidec)
-  * [Insufficient Protection Against Side-Channel Attacks (IOT-PROC-SIDEC-001)](#insufficient-protection-against-side-channel-attacks-iot-proc-sidec-001)
+## 目次
+* [概要](#overview)
+* [認可 (Authorization) (IOT-PROC-AUTHZ)](#authorization-iot-proc-authz)
+  * [処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (IOT-PROC-AUTHZ-001)](#unauthorized-access-to-the-processing-unit-iot-proc-authz-001)
+  * [権限昇格 (Privilege Escalation) (IOT-PROC-AUTHZ-002)](#privilege-escalation-iot-proc-authz-002)
+* [ビジネスロジック (Business Logic) (IOT-PROC-LOGIC)](#business-logic-iot-proc-logic)
+  * [インストラクションの安全でない実装 (Insecure Implementation of Instructions) (IOT-PROC-LOGIC-001)](#insecure-implementation-of-instructions-iot-proc-logic-001)
+* [サイドチャネル攻撃 (Side-Channel Attacks) (IOT-PROC-SIDEC)](#side-channel-attacks-iot-proc-sidec)
+  * [サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (IOT-PROC-SIDEC-001)](#insufficient-protection-against-side-channel-attacks-iot-proc-sidec-001)
 
 
 
 
-## Overview
+## 概要
 
 This section includes test cases and categories for the component processing unit. A processing unit is a device-internal element that can only be accessed with *PA-4*. Establishing a direct connection to the processing unit might require specific hardware equipment (e.g., a debugging board, an oscilloscope or test probes). 
 
@@ -27,11 +27,11 @@ The following test case categories, relevant for processing units, were identifi
 
 
 
-## Authorization (IOT-PROC-AUTHZ)
+## 認可 (Authorization) (IOT-PROC-AUTHZ)
 
 Depending on the access model for a given device, only certain individuals might be allowed to access a processing unit directly. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized entities can get access.
 
-### Unauthorized Access to the Processing Unit (IOT-PROC-AUTHZ-001)
+### 処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (IOT-PROC-AUTHZ-001)
 
 **Required Access Levels**
 
@@ -64,7 +64,7 @@ Proper authorization checks need to be implemented, which ensure that access to 
 
 This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
 
-### Privilege Escalation (IOT-PROC-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (IOT-PROC-AUTHZ-002)
 
 **Required Access Levels**
 
@@ -97,11 +97,11 @@ This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README
 
 
 
-## Business Logic (IOT-PROC-LOGIC)
+## ビジネスロジック (Business Logic) (IOT-PROC-LOGIC)
 
 Issues in the underlying logic of a processing unit might render the device vulnerable to attacks. Thus, it must be verified if the processing unit and its functionalities are working as intended and if exceptions are detected and properly handled.
 
-### Insecure Implementation of Instructions (IOT-PROC-LOGIC-001)
+### インストラクションの安全でない実装 (Insecure Implementation of Instructions) (IOT-PROC-LOGIC-001)
 
 **Required Access Levels**
 
@@ -135,11 +135,11 @@ This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README
 
 
 
-## Side-Channel Attacks (IOT-PROC-SIDEC)
+## サイドチャネル攻撃 (Side-Channel Attacks) (IOT-PROC-SIDEC)
 
 Side-channel attacks, such as timing and glitching attacks, are usually targeted against the physical implementation of a device or more specifically a processing unit instead of the device firmware or its interfaces. The goal of such attacks is to gather information about cryptographic algorithms and operations, performed by a processing unit, in order to retrieve key material, manipulate the cryptographic calculations or gain access to protected information.
 
-### Insufficient Protection Against Side-Channel Attacks (IOT-PROC-SIDEC-001)
+### サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (IOT-PROC-SIDEC-001)
 
 **Required Access Levels**
 

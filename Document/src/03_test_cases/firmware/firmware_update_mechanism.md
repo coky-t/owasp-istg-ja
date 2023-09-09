@@ -1,20 +1,20 @@
 # 3.3.2. ファームウェア更新メカニズム (Firmware Update Mechanism) (IOT-FW[UPDT])
 
-## Table of Contents
-* [Overview](#overview)
-* [Authorization (IOT-FW-AUTHZ)](#authorization-iot-fw[updt]-authz)
-  * [Unauthorized Firmware Update (IOT-FW-AUTHZ-001)](#unauthorized-firmware-update-iot-fw[updt]-authz-001)
-* [Cryptography (IOT-FW-CRYPT)](#cryptography-iot-fw[updt]-crypt)
-  * [Insufficient Firmware Update Signature (IOT-FW-CRYPT-001)](#insufficient-firmware-update-signature-iot-fw[updt]-crypt-001)
-  * [Insufficient Firmware Update Encryption (IOT-FW-CRYPT-002)](#insufficient-firmware-update-encryption-iot-fw[updt]-crypt-002)
-  * [Insecure Transmission of the Firmware Update (IOT-FW-CRYPT-003)](#insecure-transmission-of-the-firmware-update-iot-fw[updt]-crypt-003)
-  * [Insufficient Verification of the Firmware Update Signature (IOT-FW-CRYPT-004)](#insufficient-verification-of-the-firmware-update-signature-iot-fw[updt]-crypt-004)
-* [Business Logic (IOT-FW-LOGIC)](#business-logic-iot-fw[updt]-logic)
-  * [Insufficient Rollback Protection (IOT-FW-LOGIC-001)](#insufficient-rollback-protection-iot-fw[updt]-logic-001)
+## 目次
+* [概要](#overview)
+* [認可 (Authorization) (IOT-FW-AUTHZ)](#authorization-iot-fw[updt]-authz)
+  * [認可されていないファームウェア更新 (Unauthorized Firmware Update) (IOT-FW-AUTHZ-001)](#unauthorized-firmware-update-iot-fw[updt]-authz-001)
+* [暗号技術 (Cryptography) (IOT-FW-CRYPT)](#cryptography-iot-fw[updt]-crypt)
+  * [不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (IOT-FW-CRYPT-001)](#insufficient-firmware-update-signature-iot-fw[updt]-crypt-001)
+  * [不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (IOT-FW-CRYPT-002)](#insufficient-firmware-update-encryption-iot-fw[updt]-crypt-002)
+  * [ファームウェア更新の安全でない転送 (Insecure Transmission of the Firmware Update) (IOT-FW-CRYPT-003)](#insecure-transmission-of-the-firmware-update-iot-fw[updt]-crypt-003)
+  * [ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (IOT-FW-CRYPT-004)](#insufficient-verification-of-the-firmware-update-signature-iot-fw[updt]-crypt-004)
+* [ビジネスロジック (Business Logic) (IOT-FW-LOGIC)](#business-logic-iot-fw[updt]-logic)
+  * [不十分なロールバック保護 (Insufficient Rollback Protection) (IOT-FW-LOGIC-001)](#insufficient-rollback-protection-iot-fw[updt]-logic-001)
 
 
 
-## Overview
+## 概要
 
 Another important aspect of the device firmware is the firmware update mechanism. Failing to implement a secure update mechanism might enable attackers to install a custom, manipulated firmware on the device, thus gaining complete control over it.
 
@@ -26,11 +26,11 @@ The following categories are not inherited by the specialization [IOT-FW[UPDT]](
 
 
 
-## Authorization (IOT-FW[UPDT]-AUTHZ)
+## 認可 (Authorization) (IOT-FW[UPDT]-AUTHZ)
 
 Since the test of the firmware update mechanism is also a dynamic analysis, it is possible to check if only authorized individuals can initialize and perform an update.
 
-### Unauthorized Firmware Update (IOT-FW[UPDT]-AUTHZ-001)
+### 認可されていないファームウェア更新 (Unauthorized Firmware Update) (IOT-FW[UPDT]-AUTHZ-001)
 
 **Required Access Levels**
 
@@ -68,11 +68,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Cryptography (IOT-FW[UPDT]-CRYPT)
+## 暗号技術 (Cryptography) (IOT-FW[UPDT]-CRYPT)
 
 During the firmware update process, cryptographic algorithms are used to verify the integrity of the new firmware and to ensure that no sensitive data is disclosed in transit.
 
-### Insufficient Firmware Update Signature (IOT-FW[UPDT]-CRYPT-001)
+### 不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (IOT-FW[UPDT]-CRYPT-001)
 
 **Required Access Levels**
 
@@ -112,7 +112,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Insufficient Firmware Update Encryption (IOT-FW[UPDT]-CRYPT-002)
+### 不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (IOT-FW[UPDT]-CRYPT-002)
 
 **Required Access Levels**
 
@@ -154,7 +154,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Insecure Transmission of the Firmware Update (IOT-FW[UPDT]-CRYPT-003)
+### ファームウェア更新の安全でない転送 (Insecure Transmission of the Firmware Update) (IOT-FW[UPDT]-CRYPT-003)
 
 **Required Access Levels**
 
@@ -194,7 +194,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Insufficient Verification of the Firmware Update Signature (IOT-FW[UPDT]-CRYPT-004)
+### ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (IOT-FW[UPDT]-CRYPT-004)
 
 **Required Access Levels**
 
@@ -232,11 +232,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Business Logic (IOT-FW[UPDT]-LOGIC)
+## ビジネスロジック (Business Logic) (IOT-FW[UPDT]-LOGIC)
 
 Even if all other aspects of the firmware update are securely implemented, issues in the underlying logic of the update process itself might render the device vulnerable to attacks. Thus, it must be verified if the process is working as intended and if exceptions are detected and properly handled.
 
-### Insufficient Rollback Protection (IOT-FW[UPDT]-LOGIC-001)
+### 不十分なロールバック保護 (Insufficient Rollback Protection) (IOT-FW[UPDT]-LOGIC-001)
 
 **Required Access Levels**
 

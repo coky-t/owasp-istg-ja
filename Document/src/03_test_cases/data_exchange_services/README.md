@@ -1,38 +1,38 @@
 # 3.4. データ交換サービス (Data Exchange Services) (IOT-DES)
 
-## Table of Contents
-* [Overview](#overview)
-* [Authorization (IOT-DES-AUTHZ)](#authorization-iot-des-authz)
-  * [Unauthorized Access to the Data Exchange Service (IOT-DES-AUTHZ-001)](#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001)
-  * [Privilege Escalation (IOT-DES-AUTHZ-002)](#privilege-escalation-iot-des-authz-002)
+## 目次
+* [概要](#overview)
+* [認可 (Authorization) (IOT-DES-AUTHZ)](#authorization-iot-des-authz)
+  * [データ交換サービスへの認可されていないアクセス (Unauthorized Access to the Data Exchange Service) (IOT-DES-AUTHZ-001)](#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001)
+  * [権限昇格 (Privilege Escalation) (IOT-DES-AUTHZ-002)](#privilege-escalation-iot-des-authz-002)
 
-* [Information Gathering (IOT-DES-INFO)](#information-gathering-iot-des-info)
-  * [Disclosure of Implementation Details (IOT-DES-INFO-001)](#disclosure-of-implementation-details-iot-des-info-001)
-  * [Disclosure of Ecosystem Details (IOT-DES-INFO-002)](#disclosure-of-ecosystem-details-iot-des-info-002)
-  * [Disclosure of User Data (IOT-DES-INFO-003)](#disclosure-of-user-data-iot-des-info-003)
+* [情報収集 (Information Gathering) (IOT-DES-INFO)](#information-gathering-iot-des-info)
+  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-DES-INFO-001)](#disclosure-of-implementation-details-iot-des-info-001)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-DES-INFO-002)](#disclosure-of-ecosystem-details-iot-des-info-002)
+  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-DES-INFO-003)](#disclosure-of-user-data-iot-des-info-003)
 
-* [Configuration and Patch Management (IOT-DES-CONF)](#configuration-and-patch-management-iot-des-conf)
-  * [Usage of Outdated Software (IOT-DES-CONF-001)](#usage-of-outdated-software-iot-des-conf-001)
-  * [Presence of Unnecessary Software and Functionalities (IOT-DES-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-des-conf-002)
+* [構成とパッチ管理 (Configuration and Patch Management) (IOT-DES-CONF)](#configuration-and-patch-management-iot-des-conf)
+  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-DES-CONF-001)](#usage-of-outdated-software-iot-des-conf-001)
+  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-DES-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-des-conf-002)
 
-* [Secrets (IOT-DES-SCRT)](#secrets-iot-des-scrt)
-  * [Access to Confidential Data (IOT-DES-SCRT-001)](#access-to-confidential-data-iot-des-scrt-001)
+* [シークレット (Secrets) (IOT-DES-SCRT)](#secrets-iot-des-scrt)
+  * [機密データへのアクセス (Access to Confidential Data) (IOT-DES-SCRT-001)](#access-to-confidential-data-iot-des-scrt-001)
 
-* [Cryptography (IOT-DES-CRYPT)](#cryptography-iot-des-crypt)
-  * [Usage of Weak Cryptographic Algorithms  (IOT-DES-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-des-crypt-001)
+* [暗号技術 (Cryptography) (IOT-DES-CRYPT)](#cryptography-iot-des-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-DES-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-des-crypt-001)
 
-* [Business Logic  (IOT-DES-LOGIC)](#business-logic-iot-des-logic)
-  * [Circumvention of the Intended Business Logic  (IOT-DES-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-des-logic-001)
+* [ビジネスロジック (Business Logic) (IOT-DES-LOGIC)](#business-logic-iot-des-logic)
+  * [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-DES-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-des-logic-001)
 
-* [Input Validation (IOT-DES-INVAL)](#input-validation-iot-des-inval)
-  * [Insufficient Input Validation (IOT-DES-INVAL-001)](#insufficient-input-validation-iot-des-inval-001)
-  * [Code or Command Injection (IOT-DES-INVAL-002)](#code-or-command-injection-iot-des-inval-002)
-
-
+* [入力バリデーション (Input Validation) (IOT-DES-INVAL)](#input-validation-iot-des-inval)
+  * [不十分な入力バリデーション (Insufficient Input Validation) (IOT-DES-INVAL-001)](#insufficient-input-validation-iot-des-inval-001)
+  * [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-DES-INVAL-002)](#code-or-command-injection-iot-des-inval-002)
 
 
 
-## Overview
+
+
+## 概要
 
 This section includes test cases and categories for the component memory. Similar to the processing unit, the memory is a device-internal element that can only be accessed with *PA-4*. Establishing a direct connection to the memory might require specific hardware equipment (e.g., a debugging board or test probes).
 
@@ -46,11 +46,11 @@ In regards to test case categories that are relevant for memory, the following w
 
 
 
-## Authorization (IOT-DES-AUTHZ)
+## 認可 (Authorization) (IOT-DES-AUTHZ)
 
 Depending on the access model for a given device, only certain individuals might be allowed to access a data exchange service. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access.
 
-### Unauthorized Access to the Data Exchange Service (IOT-DES-AUTHZ-001)
+### データ交換サービスへの認可されていないアクセス (Unauthorized Access to the Data Exchange Service) (IOT-DES-AUTHZ-001)
 
 **Required Access Levels**
 
@@ -91,7 +91,7 @@ For this test case, data from the following sources was consolidated:
 
 
 
-### Privilege Escalation (IOT-DES-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (IOT-DES-AUTHZ-002)
 
 **Required Access Levels**
 
@@ -126,11 +126,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Information Gathering (IOT-DES-INFO)
+## 情報収集 (Information Gathering) (IOT-DES-INFO)
 
 Data exchange service might disclose various information, which could reveal details regarding the inner workings of the device or the surrounding IoT ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
 
-### Disclosure of Implementation Details (IOT-DES-INFO-001)
+### 実装内容の開示 (Disclosure of Implementation Details) (IOT-DES-INFO-001)
 
 **Required Access Levels**
 
@@ -176,7 +176,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-of-source-code-iot-fw-info-001).
 
-### Disclosure of Ecosystem Details (IOT-DES-INFO-002)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-DES-INFO-002)
 
 **Required Access Levels**
 
@@ -216,7 +216,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
 
-### Disclosure of User Data (IOT-DES-INFO-003)
+### ユーザーデータの開示 (Disclosure of User Data) (IOT-DES-INFO-003)
 
 **Required Access Levels**
 
@@ -256,11 +256,11 @@ This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmwa
 
 
 
-## Configuration and Patch Management (IOT-DES-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (IOT-DES-CONF)
 
 Since IoT devices can have a long lifespan, it is important to make sure that the software, running on the device, is regularly updated in order to apply the latest security patches. The update process of the firmware itself will be covered by [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md). However, it must also be verified that software packages, which are running on the device and are handling data exchange processes, are up-to-date as well.
 
-### Usage of Outdated Software (IOT-DES-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-DES-CONF-001)
 
 **Required Access Levels**
 
@@ -302,7 +302,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-iot-fw-conf-001).
 
-### Presence of Unnecessary Software and Functionalities (IOT-DES-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-DES-CONF-002)
 
 **Required Access Levels**
 
@@ -344,11 +344,11 @@ This test case is based on: [IOT-FW-CONF-002](../firmware/README.md#presence-of-
 
 
 
-## Secrets (IOT-DES-SCRT)
+## シークレット (Secrets) (IOT-DES-SCRT)
 
 IoT devices are often operated outside of the control space of their manufacturer. Still, they need to establish connections to other network nodes withinthe IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device has to provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
 
-### Access to Confidential Data (IOT-DES-SCRT-001)
+### 機密データへのアクセス (Access to Confidential Data) (IOT-DES-SCRT-001)
 
 **Required Access Levels**
 
@@ -387,11 +387,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Cryptography (IOT-DES-CRYPT)
+## 暗号技術 (Cryptography) (IOT-DES-CRYPT)
 
 Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
-### Usage of Weak Cryptographic Algorithms (IOT-DES-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-DES-CRYPT-001)
 
 **Required Access Levels**
 
@@ -436,11 +436,11 @@ This test case is based on: [IOT-FW-CRYPT-001](../firmware/README.md#usage-of-we
 
 
 
-## Business Logic (IOT-DES-LOGIC)
+## ビジネスロジック (Business Logic) (IOT-DES-LOGIC)
 
 Even if all other aspects of the data exchange service are securely implemented and configured, issues in the underlying logic itself might render the device vulnerable to attacks. Thus, it must be verified if the data exchange service and its functionalities are working as intended and if exceptions are detected and properly handled.
 
-### Circumvention of the Intended Business Logic (IOT-DES-LOGIC-001)
+### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-DES-LOGIC-001)
 
 **Required Access Levels**
 
@@ -479,11 +479,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Input Validation (IOT-DES-INVAL)
+## 入力バリデーション (Input Validation) (IOT-DES-INVAL)
 
 In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
 
-### Insufficient Input Validation (IOT-DES-INVAL-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-DES-INVAL-001)
 
 **Required Access Levels**
 
@@ -522,7 +522,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Code or Command Injection (IOT-DES-INVAL-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-DES-INVAL-002)
 
 **Required Access Levels**
 

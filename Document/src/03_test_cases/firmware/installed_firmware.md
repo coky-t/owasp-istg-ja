@@ -1,29 +1,29 @@
 # 3.3.1. インストール済みファームウェア (Installed Firmware) (IOT-FW[INST])
 
-## Table of Contents
-* [Overview](#overview)
-* [Authorization (IOT-FW-AUTHZ)](#authorization-iot-fw[inst]-authz)
-  * [Unauthorized Access to the Firmware (IOT-FW-AUTHZ-001)](#unauthorized-access-to-the-firmware-iot-fw[inst]-authz-001)
-  * [Privilege Escalation (IOT-FW-AUTHZ-002)](#privilege-escalation-iot-fw[inst]-authz-002)
-* [Information Gathering (IOT-FW-INFO)](#information-gathering-iot-fw[inst]-info)
-  * [Disclosure of User Data (IOT-FW-INFO-001)](#disclosure-of-user-data-iot-fw[inst]-info-001)
-* [Cryptography (IOT-FW-CRYPT)](#cryptography-iot-fw[inst]-crypt)
-  * [Insufficient Verification of the Bootloader Signature (IOT-FW-CRYPT-001)](#insufficient-verification-of-the-bootloader-signature-iot-fw[inst]-crypt-001)
+## 目次
+* [概要](#overview)
+* [認可 (Authorization) (IOT-FW-AUTHZ)](#authorization-iot-fw[inst]-authz)
+  * [ファームウェアへの認可されていないアクセス (Unauthorized Access to the Firmware) (IOT-FW-AUTHZ-001)](#unauthorized-access-to-the-firmware-iot-fw[inst]-authz-001)
+  * [権限昇格 (Privilege Escalation) (IOT-FW-AUTHZ-002)](#privilege-escalation-iot-fw[inst]-authz-002)
+* [情報収集 (Information Gathering) (IOT-FW-INFO)](#information-gathering-iot-fw[inst]-info)
+  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-FW-INFO-001)](#disclosure-of-user-data-iot-fw[inst]-info-001)
+* [暗号技術 (Cryptography) (IOT-FW-CRYPT)](#cryptography-iot-fw[inst]-crypt)
+  * [ブートローダーシグネチャの不十分な検証 (Insufficient Verification of the Bootloader Signature) (IOT-FW-CRYPT-001)](#insufficient-verification-of-the-bootloader-signature-iot-fw[inst]-crypt-001)
 
 
 
 
-## Overview
+## 概要
 
 One specialization of the component firmware is the installed form of a firmware, which might be the subject of a dynamic analysis. The dynamic analysis allows to test the handling of data during runtime. This way, the processing and storing of user data can also be analyzed. As a pre-requisite for the dynamic analysis, a device, which is running the target firmware version, must be provided.
 
 
 
-## Authorization (IOT-FW[INST]-AUTHZ)
+## 認可 (Authorization) (IOT-FW[INST]-AUTHZ)
 
 Usually, only certain individuals, e.g., administrators, should be allowed to access the device firmware during runtime. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access to the firmware.
 
-### Unauthorized Access to the Firmware (IOT-FW[INST]-AUTHZ-001)
+### ファームウェアへの認可されていないアクセス (Unauthorized Access to the Firmware) (IOT-FW[INST]-AUTHZ-001)
 
 **Required Access Levels**
 
@@ -64,7 +64,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
 
-### Privilege Escalation (IOT-FW[INST]-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (IOT-FW[INST]-AUTHZ-002)
 
 **Required Access Levels**
 
@@ -97,11 +97,11 @@ This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README
 
 
 
-## Information Gathering (IOT-FW[INST]-INFO)
+## 情報収集 (Information Gathering) (IOT-FW[INST]-INFO)
 
 As mentioned above, during the dynamic analysis, it is also possible to test whether user data is securely stored on the device during runtime.
 
-### Disclosure of User Data (IOT-FW[INST]-INFO-001)
+### ユーザーデータの開示 (Disclosure of User Data) (IOT-FW[INST]-INFO-001)
 
 **Required Access Levels**
 
@@ -140,11 +140,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Cryptography (IOT-FW[INST]-CRYPT)
+## 暗号技術 (Cryptography) (IOT-FW[INST]-CRYPT)
 
 Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
-### Insufficient Verification of the Bootloader Signature (IOT-FW[INST]-CRYPT-001)
+### ブートローダーシグネチャの不十分な検証 (Insufficient Verification of the Bootloader Signature) (IOT-FW[INST]-CRYPT-001)
 
 **Required Access Levels**
 

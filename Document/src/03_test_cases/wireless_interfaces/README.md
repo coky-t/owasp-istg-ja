@@ -1,31 +1,31 @@
 # 3.7. 無線インタフェース (Wireless Interfaces) (IOT-WRLS)
 
-## Table of Contents
-* [Overview](#overview)
-* [Authorization (IOT-WRLS-AUTHZ)](#authorization-iot-wrls-authz)
-  * [Unauthorized Access to the Interface (IOT-WRLS-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-wrls-authz-001)
-  * [Privilege Escalation (IOT-WRLS-AUTHZ-002)](#privilege-escalation-iot-wrls-authz-002)
-* [Information Gathering (IOT-WRLS-INFO)](#information-gathering-iot-wrls-info)
-  * [Disclosure of Implementation Details (IOT-WRLS-INFO-001)](#disclosure-of-implementation-details-iot-wrls-info-001)
-  * [Disclosure of Ecosystem Details (IOT-WRLS-INFO-002)](#disclosure-of-ecosystem-details-iot-wrls-info-002)
-  * [Disclosure of User Data (IOT-WRLS-INFO-003)](#disclosure-of-user-data-iot-wrls-info-003)
-* [Configuration and Patch Management (IOT-WRLS-CONF)](#configuration-and-patch-management-iot-wrls-conf)
-  * [Usage of Outdated Software (IOT-WRLS-CONF-001)](#usage-of-outdated-software-iot-wrls-conf-001)
-  * [Presence of Unnecessary Software and Functionalities (IOT-WRLS-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-wrls-conf-002)
-* [Secrets (IOT-WRLS-SCRT)](#secrets-iot-wrls-scrt)
-  * [Access to Confidential Data (IOT-WRLS-SCRT-001)](#access-to-confidential-data-iot-wrls-scrt-001)
-* [Cryptography (IOT-WRLS-CRYPT)](#cryptography-iot-wrls-crypt)
-  * [Usage of Weak Cryptographic Algorithms (IOT-WRLS-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-wrls-crypt-001)
-* [Business Logic (IOT-WRLS-LOGIC)](#business-logic-iot-wrls-logic)
-  * [Circumvention of the Intended Business Logic (IOT-WRLS-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-wrls-logic-001)
-* [Input Validation (IOT-WRLS-INVAL)](#input-validation-iot-wrls-inval)
-  * [Insufficient Input Validation (IOT-WRLS-INVAL-001)](#insufficient-input-validation-iot-wrls-inval-001)
-  * [Code or Command Injection (IOT-WRLS-INVAL-002)](#code-or-command-injection-iot-wrls-inval-002)
+## 目次
+* [概要](#overview)
+* [認可 (Authorization) (IOT-WRLS-AUTHZ)](#authorization-iot-wrls-authz)
+  * [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-WRLS-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-wrls-authz-001)
+  * [権限昇格 (Privilege Escalation) (IOT-WRLS-AUTHZ-002)](#privilege-escalation-iot-wrls-authz-002)
+* [情報収集 (Information Gathering) (IOT-WRLS-INFO)](#information-gathering-iot-wrls-info)
+  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-WRLS-INFO-001)](#disclosure-of-implementation-details-iot-wrls-info-001)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-WRLS-INFO-002)](#disclosure-of-ecosystem-details-iot-wrls-info-002)
+  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-WRLS-INFO-003)](#disclosure-of-user-data-iot-wrls-info-003)
+* [構成とパッチ管理 (Configuration and Patch Management) (IOT-WRLS-CONF)](#configuration-and-patch-management-iot-wrls-conf)
+  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-WRLS-CONF-001)](#usage-of-outdated-software-iot-wrls-conf-001)
+  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-WRLS-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-wrls-conf-002)
+* [シークレット (Secrets) (IOT-WRLS-SCRT)](#secrets-iot-wrls-scrt)
+  * [機密データへのアクセス (Access to Confidential Data) (IOT-WRLS-SCRT-001)](#access-to-confidential-data-iot-wrls-scrt-001)
+* [暗号技術 (Cryptography) (IOT-WRLS-CRYPT)](#cryptography-iot-wrls-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-WRLS-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-wrls-crypt-001)
+* [ビジネスロジック (Business Logic) (IOT-WRLS-LOGIC)](#business-logic-iot-wrls-logic)
+  * [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-WRLS-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-wrls-logic-001)
+* [入力バリデーション (Input Validation) (IOT-WRLS-INVAL)](#input-validation-iot-wrls-inval)
+  * [不十分な入力バリデーション (Insufficient Input Validation) (IOT-WRLS-INVAL-001)](#insufficient-input-validation-iot-wrls-inval-001)
+  * [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-WRLS-INVAL-002)](#code-or-command-injection-iot-wrls-inval-002)
 
 
 
 
-## Overview
+## 概要
 
 This section includes test cases and categories for the component wireless interface. A wireless interface is accessible with *PA-2*, *PA-3* or *PA-4*. Establishing a connection to a wireless interface might require specific hardware equipment (e.g., a dongle or software-defined radio).
 
@@ -47,11 +47,11 @@ In regards of test case categories that are relevant for a wireless interface, t
 
 
 
-## Authorization (IOT-WRLS-AUTHZ)
+## 認可 (Authorization) (IOT-WRLS-AUTHZ)
 
 Depending on the access model for a given device, only certain individuals might be allowed to access a wireless interface. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access.
 
-### Unauthorized Access to the Interface (IOT-WRLS-AUTHZ-001)
+### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-WRLS-AUTHZ-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -89,7 +89,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
 
-### Privilege Escalation (IOT-WRLS-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (IOT-WRLS-AUTHZ-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -128,11 +128,11 @@ This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README
 
 
 
-## Information Gathering (IOT-WRLS-INFO)
+## 情報収集 (Information Gathering) (IOT-WRLS-INFO)
 
 Wireless interface might disclose various information, which could reveal details regarding the inner workings of the device or the surrounding IoT ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
 
-### Disclosure of Implementation Details (IOT-WRLS-INFO-001)
+### 実装内容の開示 (Disclosure of Implementation Details) (IOT-WRLS-INFO-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -177,7 +177,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002).
 
-### Disclosure of Ecosystem Details (IOT-WRLS-INFO-002)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-WRLS-INFO-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -216,7 +216,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
 
-### Disclosure of User Data (IOT-WRLS-INFO-003)
+### ユーザーデータの開示 (Disclosure of User Data) (IOT-WRLS-INFO-003)
 **Required Access Levels**
 
 <table width="100%">
@@ -255,11 +255,11 @@ This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmwa
 
 
 
-## Configuration and Patch Management (IOT-WRLS-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (IOT-WRLS-CONF)
 
 Since IoT devices can have a long lifespan, it is important to make sure that the software, running on the device, is regularly updated in order to apply the latest security patches. The update process of the firmware itself will be covered by [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md). However, it must also be verified that software packages, which are running on the device and listening on interfaces, are up-to-date as well.
 
-### Usage of Outdated Software (IOT-WRLS-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-WRLS-CONF-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -302,7 +302,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-iot-fw-conf-001).
 
-### Presence of Unnecessary Software and Functionalities (IOT-WRLS-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-WRLS-CONF-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -345,11 +345,11 @@ This test case is based on: [IOT-FW-CONF-002](../firmware/README.md#presence-of-
 
 
 
-## Secrets (IOT-WRLS-SCRT)
+## シークレット (Secrets) (IOT-WRLS-SCRT)
 
 IoT devices are often operated outside of the control space of their manufacturer. Still, they need to establish connections to other network nodes within the IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device has to provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
 
-### Access to Confidential Data (IOT-WRLS-SCRT-001)
+### 機密データへのアクセス (Access to Confidential Data) (IOT-WRLS-SCRT-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -388,11 +388,11 @@ This test case is based on: [IOT-DES-SCRT-001](../data_exchange_services/README.
 
 
 
-## Cryptography (IOT-WRLS-CRYPT)
+## 暗号技術 (Cryptography) (IOT-WRLS-CRYPT)
 
 Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
-### Usage of Weak Cryptographic Algorithms (IOT-WRLS-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-WRLS-CRYPT-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -437,11 +437,11 @@ This test case is based on: [IOT-FW-CRYPT-001](../firmware/README.md#usage-of-we
 
 
 
-## Business Logic (IOT-WRLS-LOGIC)
+## ビジネスロジック (Business Logic) (IOT-WRLS-LOGIC)
 
 Even if all other aspects of the wireless interface are securely implemented and configured, issues in the underlying logic itself might render the device vulnerable to attacks. Thus, it must be verified if the wireless interface and its functionalities are working as intended and if exceptions are detected and properly handled.
 
-### Circumvention of the Intended Business Logic (IOT-WRLS-LOGIC-001)
+### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-WRLS-LOGIC-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -480,11 +480,11 @@ This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README
 
 
 
-## Input Validation (IOT-WRLS-INVAL)
+## 入力バリデーション (Input Validation) (IOT-WRLS-INVAL)
 
 In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
 
-### Insufficient Input Validation (IOT-WRLS-INVAL-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-WRLS-INVAL-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -523,7 +523,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-DES-INVAL-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inval-001).
 
-### Code or Command Injection (IOT-WRLS-INVAL-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-WRLS-INVAL-002)
 **Required Access Levels**
 
 <table width="100%">

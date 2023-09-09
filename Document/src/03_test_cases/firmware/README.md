@@ -1,25 +1,25 @@
 # 3.3. ファームウェア (Firmware) (IOT-FW)
 
-## Table of Contents
-* [Overview](#overview)
-* [Information Gathering (IOT-FW-INFO)](#information-gathering-iot-fw-info)
-  * [Disclosure of Source Code (IOT-FW-INFO-001)](#disclosure-of-source-code-iot-fw-info-001)
-  * [Disclosure of Implementation Details (IOT-FW-INFO-002)](#disclosure-of-implementation-details-iot-fw-info-002)
-  * [Disclosure of Ecosystem Details (IOT-FW-INFO-003)](#disclosure-of-ecosystem-details-iot-fw-info-003)
-* [Configuration and Patch Management (IOT-FW-CONF)](#configuration-and-patch-management-iot-fw-conf)
-  * [Usage of Outdated Software (IOT-FW-CONF-001)](#usage-of-outdated-software-iot-fw-conf-001)
-  * [Presence of Unnecessary Software and Functionalities (IOT-FW-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-fw-conf-002)
-* [Secrets (IOT-FW-SCRT)](#secrets-iot-fw-scrt)
-  * [Secrets Stored in Public Storage (IOT-FW-SCRT-001)](#secrets-stored-in-public-storage-iot-fw-scrt-001)
-  * [Unencrypted Storage of Secrets (IOT-FW-SCRT-002)](#unencrypted-storage-of-secrets-iot-fw-scrt-002)
-  * [Usage of Hardcoded Secrets (IOT-FW-SCRT-003)](#usage-of-hardcoded-secrets-iot-fw-scrt-003)
-* [Cryptography (IOT-FW-CRYPT)](#cryptography-iot-fw-crypt)
-  * [Usage of Weak Cryptographic Algorithms (IOT-FW-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001)
+## 目次
+* [概要](#overview)
+* [情報収集 (Information Gathering) (IOT-FW-INFO)](#information-gathering-iot-fw-info)
+  * [ソースコードの開示 (Disclosure of Source Code) (IOT-FW-INFO-001)](#disclosure-of-source-code-iot-fw-info-001)
+  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-FW-INFO-002)](#disclosure-of-implementation-details-iot-fw-info-002)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-FW-INFO-003)](#disclosure-of-ecosystem-details-iot-fw-info-003)
+* [構成とパッチ管理 (Configuration and Patch Management) (IOT-FW-CONF)](#configuration-and-patch-management-iot-fw-conf)
+  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-FW-CONF-001)](#usage-of-outdated-software-iot-fw-conf-001)
+  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-FW-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-fw-conf-002)
+* [シークレット (Secrets) (IOT-FW-SCRT)](#secrets-iot-fw-scrt)
+  * [パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (IOT-FW-SCRT-001)](#secrets-stored-in-public-storage-iot-fw-scrt-001)
+  * [シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-FW-SCRT-002)](#unencrypted-storage-of-secrets-iot-fw-scrt-002)
+  * [ハードコードされたシークレットの使用 (Usage of Hardcoded Secrets) (IOT-FW-SCRT-003)](#usage-of-hardcoded-secrets-iot-fw-scrt-003)
+* [暗号技術 (Cryptography) (IOT-FW-CRYPT)](#cryptography-iot-fw-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-FW-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001)
 
 
 
 
-## Overview
+## 概要
 
 This section includes test cases and categories for the component firmware and the component specializations installed firmware ([IOT-FW[INST]](./installed_firmware.md)) and firmware update mechanism ([IOT-FW[UPDT]](./firmware_update_mechanism.md)) respectively. The firmware might be accessible with all physical access levels, depending on how this access is implemented in detail.
 
@@ -41,11 +41,11 @@ All test cases and categories for the component [IOT-FW](./README.md) focus on 
 
 
 
-## Information Gathering (IOT-FW-INFO)
+## 情報収集 (Information Gathering) (IOT-FW-INFO)
 
 The firmware of an IoT device can include various information, which, if disclosed, could reveal details regarding the inner workings of the device or the surrounding IoT ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
 
-### Disclosure of Source Code (IOT-FW-INFO-001)
+### ソースコードの開示 (Disclosure of Source Code) (IOT-FW-INFO-001)
 
 **Required Access Levels**
 
@@ -91,7 +91,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Disclosure of Implementation Details (IOT-FW-INFO-002)
+### 実装内容の開示 (Disclosure of Implementation Details) (IOT-FW-INFO-002)
 
 **Required Access Levels**
 
@@ -137,7 +137,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Disclosure of Ecosystem Details (IOT-FW-INFO-003)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-FW-INFO-003)
 
 **Required Access Levels**
 
@@ -179,11 +179,11 @@ For this test case, data from the following available sources was consolidated:
 
 
 
-## Configuration and Patch Management (IOT-FW-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (IOT-FW-CONF)
 
 Since IoT devices can have a long lifespan, it is important to make sure that the software, running on the device, is regularly updated in order to apply the latest security patches. The update process of the firmware itself will be covered by [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md). However, it must also be verified that software packages, which are included in the firmware, are up-to-date as well.
 
-### Usage of Outdated Software (IOT-FW-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-FW-CONF-001)
 
 **Required Access Levels**
 
@@ -225,7 +225,7 @@ For this test case, data from the following available sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Presence of Unnecessary Software and Functionalities (IOT-FW-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-FW-CONF-002)
 
 **Required Access Levels**
 
@@ -267,11 +267,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Secrets (IOT-FW-SCRT)
+## シークレット (Secrets) (IOT-FW-SCRT)
 
 IoT devices are often operated outside of the control space of their manufacturer. Still, they need to establish connections to other network nodes within the IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device has to provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
 
-### Secrets Stored in Public Storage (IOT-FW-SCRT-001)
+### パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (IOT-FW-SCRT-001)
 
 **Required Access Levels**
 
@@ -309,7 +309,7 @@ For this test case, data from the following available sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Unencrypted Storage of Secrets (IOT-FW-SCRT-002)
+### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-FW-SCRT-002)
 
 **Required Access Levels**
 
@@ -349,7 +349,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### Usage of Hardcoded Secrets (IOT-FW-SCRT-003)
+### ハードコードされたシークレットの使用 (Usage of Hardcoded Secrets) (IOT-FW-SCRT-003)
 
 **Required Access Levels**
 
@@ -395,11 +395,11 @@ For this test case, data from the following available sources was consolidated:
 
 
 
-## Cryptography (IOT-FW-CRYPT)
+## 暗号技術 (Cryptography) (IOT-FW-CRYPT)
 
 Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
-### Usage of Weak Cryptographic Algorithms (IOT-FW-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-FW-CRYPT-001)
 
 **Required Access Levels**
 

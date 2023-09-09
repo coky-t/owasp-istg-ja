@@ -1,31 +1,31 @@
 # 3.6. 物理インタフェース (Physical Interfaces) (IOT-PHY)
 
-## Table of Contents
-* [Overview](#overview)
-* [Authorization (IOT-PHY-AUTHZ)](#authorization-iot-phy-authz)
-  * [Unauthorized Access to the Interface (IOT-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-phy-authz-001)
-  * [Privilege Escalation (IOT-PHY-AUTHZ-002)](#privilege-escalation-iot-phy-authz-002)
-* [Information Gathering (IOT-PHY-INFO)](#information-gathering-iot-phy-info)
-  * [Disclosure of Implementation Details (IOT-PHY-INFO-001)](#disclosure-of-implementation-details-iot-phy-info-001)
-  * [Disclosure of Ecosystem Details (IOT-PHY-INFO-002)](#disclosure-of-ecosystem-details-iot-phy-info-002)
-  * [Disclosure of User Data (IOT-PHY-INFO-003)](#disclosure-of-user-data-iot-phy-info-003)
-* [Configuration and Patch Management (IOT-PHY-CONF)](#configuration-and-patch-management-iot-phy-conf)
-  * [Usage of Outdated Software (IOT-PHY-CONF-001)](#usage-of-outdated-software-iot-phy-conf-001)
-  * [Presence of Unnecessary Software and Functionalities (IOT-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-phy-conf-002)
-* [Secrets (IOT-PHY-SCRT)](#secrets-iot-phy-scrt)
-  * [Access to Confidential Data (IOT-PHY-SCRT-001)](#access-to-confidential-data-iot-phy-scrt-001)
-* [Cryptography (IOT-PHY-CRYPT)](#cryptography-iot-phy-crypt)
-  * [Usage of Weak Cryptographic Algorithms (IOT-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-phy-crypt-001)
-* [Business Logic (IOT-PHY-LOGIC)](#business-logic-iot-phy-logic)
-  * [Circumvention of the Intended Business Logic (IOT-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-phy-logic-001)
-* [Input Validation (IOT-PHY-INVAL)](#input-validation-iot-phy-inval)
-  * [Insufficient Input Validation (IOT-PHY-INVAL-001)](#insufficient-input-validation-iot-phy-inval-001)
-  * [Code or Command Injection (IOT-PHY-INVAL-002)](#code-or-command-injection-iot-phy-inval-002)
+## 目次
+* [概要](#overview)
+* [認可 (Authorization) (IOT-PHY-AUTHZ)](#authorization-iot-phy-authz)
+  * [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-phy-authz-001)
+  * [権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)](#privilege-escalation-iot-phy-authz-002)
+* [情報収集 (Information Gathering) (IOT-PHY-INFO)](#information-gathering-iot-phy-info)
+  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)](#disclosure-of-implementation-details-iot-phy-info-001)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)](#disclosure-of-ecosystem-details-iot-phy-info-002)
+  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)](#disclosure-of-user-data-iot-phy-info-003)
+* [構成とパッチ管理 (Configuration and Patch Management) (IOT-PHY-CONF)](#configuration-and-patch-management-iot-phy-conf)
+  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)](#usage-of-outdated-software-iot-phy-conf-001)
+  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-phy-conf-002)
+* [シークレット (Secrets) (IOT-PHY-SCRT)](#secrets-iot-phy-scrt)
+  * [機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)](#access-to-confidential-data-iot-phy-scrt-001)
+* [暗号技術 (Cryptography) (IOT-PHY-CRYPT)](#cryptography-iot-phy-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-phy-crypt-001)
+* [ビジネスロジック (Business Logic) (IOT-PHY-LOGIC)](#business-logic-iot-phy-logic)
+  * [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-phy-logic-001)
+* [入力バリデーション (Input Validation) (IOT-PHY-INVAL)](#input-validation-iot-phy-inval)
+  * [不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INVAL-001)](#insufficient-input-validation-iot-phy-inval-001)
+  * [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INVAL-002)](#code-or-command-injection-iot-phy-inval-002)
 
 
 
 
-## Overview
+## 概要
 
 This section includes test cases and categories for the component physical interface. Depending on whether the interface is connected to a network or not, it might be accessible with *PA-2*, *PA-3* or *PA-4*. Establishing a direct connection to a physical interface might require specific hardware equipment (e.g., a connector or adapter cable).
 
@@ -47,11 +47,11 @@ In regards of test case categories that are relevant for a physical interface, t
 
 
 
-## Authorization (IOT-PHY-AUTHZ)
+## 認可 (Authorization) (IOT-PHY-AUTHZ)
 
 Depending on the access model for a given device, only certain individuals might be allowed to access a physical interface. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access.
 
-### Unauthorized Access to the Interface (IOT-PHY-AUTHZ-001)
+### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -88,7 +88,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
 
-### Privilege Escalation (IOT-PHY-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -124,11 +124,11 @@ This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README
 
 
 
-## Information Gathering (IOT-PHY-INFO)
+## 情報収集 (Information Gathering) (IOT-PHY-INFO)
 
 Physical interfaces might disclose various information, which could reveal details regarding the inner workings of the device or the surrounding IoT ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
 
-### Disclosure of Implementation Details (IOT-PHY-INFO-001)
+### 実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -170,7 +170,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002).
 
-### Disclosure of Ecosystem Details (IOT-PHY-INFO-002)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -206,7 +206,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
 
-### Disclosure of User Data (IOT-PHY-INFO-003)
+### ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)
 **Required Access Levels**
 
 <table width="100%">
@@ -242,11 +242,11 @@ This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmwa
 
 
 
-## Configuration and Patch Management (IOT-PHY-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (IOT-PHY-CONF)
 
 Since IoT devices can have a long lifespan, it is important to make sure that the software, running on the device, is regularly updated in order to apply the latest security patches. The update process of the firmware itself will be covered by [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md). However, it must also be verified that software packages, which are running on the device and listening on interfaces, are up-to-date as well.
 
-### Usage of Outdated Software (IOT-PHY-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -286,7 +286,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-iot-fw-conf-001).
 
-### Presence of Unnecessary Software and Functionalities (IOT-PHY-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)
 **Required Access Levels**
 
 <table width="100%">
@@ -326,11 +326,11 @@ This test case is based on: [IOT-FW-CONF-002](../firmware/README.md#presence-of-
 
 
 
-## Secrets (IOT-PHY-SCRT)
+## シークレット (Secrets) (IOT-PHY-SCRT)
 
 IoT devices are often operated outside of the control space of their manufacturer. Still, they need to establish connections to other network nodes within the IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device has to provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
 
-### Access to Confidential Data (IOT-PHY-SCRT-001)
+### 機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -366,11 +366,11 @@ This test case is based on: [IOT-DES-SCRT-001](../data_exchange_services/README.
 
 
 
-## Cryptography (IOT-PHY-CRYPT)
+## 暗号技術 (Cryptography) (IOT-PHY-CRYPT)
 
 Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
-### Usage of Weak Cryptographic Algorithms (IOT-PHY-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -412,11 +412,11 @@ This test case is based on: [IOT-FW-CRYPT-001](../firmware/README.md#usage-of-we
 
 
 
-## Business Logic (IOT-PHY-LOGIC)
+## ビジネスロジック (Business Logic) (IOT-PHY-LOGIC)
 
 Even if all other aspects of the physical interface are securely implemented and configured, issues in the underlying logic itself might render the device vulnerable to attacks. Thus, it must be verified if the physical interface and its functionalities are working as intended and if exceptions are detected and properly handled.
 
-### Circumvention of the Intended Business Logic (IOT-PHY-LOGIC-001)
+### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -452,11 +452,11 @@ This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README
 
 
 
-## Input Validation (IOT-PHY-INVAL)
+## 入力バリデーション (Input Validation) (IOT-PHY-INVAL)
 
 In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
 
-### Insufficient Input Validation (IOT-PHY-INVAL-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INVAL-001)
 **Required Access Levels**
 
 <table width="100%">
@@ -492,7 +492,7 @@ For this test case, data from the following sources was consolidated:
 
 This test case is based on: [IOT-DES-INVAL-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inval-001).
 
-### Code or Command Injection (IOT-PHY-INVAL-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INVAL-002)
 **Required Access Levels**
 
 <table width="100%">
