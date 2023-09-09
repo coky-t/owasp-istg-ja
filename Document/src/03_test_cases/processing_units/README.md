@@ -33,7 +33,7 @@ Depending on the access model for a given device, only certain individuals might
 
 ### 処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (IOT-PROC-AUTHZ-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -46,27 +46,27 @@ Depending on the access model for a given device, only certain individuals might
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Depending on the specific implementation of a given device, access to a processing unit might be restricted to entities with a certain logical access level, e.g., *LA-2*, *LA-3* or *LA-4*. If the device fails to correctly verify access permissions, any attacker (*LA-1*) might be able to get access.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be checked if authorization checks for access to the processing unit are implemented.
 
 - In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
 
-**Remediation**
+**対応策**
 
 Proper authorization checks need to be implemented, which ensure that access to the processing unit is only possible for authorized entities.
 
-**References**
+**参考情報**
 
 This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
 
 ### 権限昇格 (Privilege Escalation) (IOT-PROC-AUTHZ-002)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -79,19 +79,19 @@ This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Depending on the specific implementation of a given device, access to some functionalities of a processing unit might be restricted to individuals with a certain logical access level, e.g., *LA-3* or *LA-4*. If the processing unit fails to correctly verify access permissions, an attacker with a lower logical access level than intended might be able to get access to the restricted functionalities.
 
-**Test Objectives**
+**テスト目的**
 
 - Based on [IOT-PROC-AUTHZ-001](#unauthorized-access-to-the-processing-unit-iot-proc-authz-001), it must be determined whether there is a way to elevate the given access privileges and thus to access restricted functionalities.
 
-**Remediation**
+**対応策**
 
 Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required logical access levels.
 
-**References**
+**参考情報**
 
 This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002).
 
@@ -103,7 +103,7 @@ Issues in the underlying logic of a processing unit might render the device vuln
 
 ### インストラクションの安全でない実装 (Insecure Implementation of Instructions) (IOT-PROC-LOGIC-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -115,21 +115,21 @@ Issues in the underlying logic of a processing unit might render the device vuln
 		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on what level of privileges is required to successfully submit instructions to the processing unit)</td>
 	</tr>
 </table>
-**Summary**
+**要旨**
 
 Flaws in the implementation of the business logic might result in unintended behavior or malfunctions of the device. For example, if an attacker intentionally tries to skip or change important instructions in the processing workflow, the device might end up in an unknown, potentially insecure state.
 
-**Test Objectives**
+**テスト目的**
 
 - Based on the specific implementation, it has to be determined whether instructions can be misused to manipulate the behavior of the device.
 
 - It must be checked if the processing unit in use supports undocumented, potentially vulnerable instructions. For example, this can be done by fuzzing instructions or performing research regarding the processing unit model.
 
-**Remediation**
+**対応策**
 
 The device should not end up in an unknown state. Anomalies in the workflow must be detected and exceptions have to be handled properly.
 
-**References**
+**参考情報**
 
 This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001).
 
@@ -141,7 +141,7 @@ Side-channel attacks, such as timing and glitching attacks, are usually targeted
 
 ### サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (IOT-PROC-SIDEC-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -153,23 +153,23 @@ Side-channel attacks, such as timing and glitching attacks, are usually targeted
 		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on how the attack is being performed; see summary for more details)</td>
 	</tr>
 </table>
-**Summary**
+**要旨**
 
 As mentioned above, side-channel attacks can be used by an attacker to get access to sensitive data or to manipulate the device operation. Usually, side-channel attacks are customized attacks tailored to a specific hardware implementation.
 
 Depending on how the attack is being performed, different levels of logical access might be required. Some side-channel attacks, such as glitching attacks, do not require logical access at all since the attack is performed on a physical level by manipulating the power supply. Other side-channel attack vectors, such as the Meltdown vulnerability, require the execution of code by an attacker. Thus, some kind of logical access is necessary.
 
-**Test Objectives**
+**テスト目的**
 
 - It has to be determined whether the processing unit is affected by known vulnerabilities, such as Meltdown and Spectre.
 
 - During the testing period, the behavior of the processing unit has to be analyzed in order to assess the probability of successful side-channel attacks like timing or glitching attacks.
 
-**Remediation**
+**対応策**
 
 Based on the results of the analysis, the hardware design should be adjusted to be resilient against side-channel attacks. Furthermore, if publicly known vulnerabilities exist, the latest patches should be installed.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 

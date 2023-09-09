@@ -32,7 +32,7 @@ Since the test of the firmware update mechanism is also a dynamic analysis, it i
 
 ### 認可されていないファームウェア更新 (Unauthorized Firmware Update) (IOT-FW[UPDT]-AUTHZ-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -45,21 +45,21 @@ Since the test of the firmware update mechanism is also a dynamic analysis, it i
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Depending on the specific implementation of a given device, the permission to perform firmware updates might be restricted to individuals with a certain logical access level, e.g., *LA-2*, *LA-3* or *LA-4*. If the device firmware fails to correctly verify these permissions, any attacker (*LA-1*) or an attacker with a lower logical access level than intended might be able to perform unintended firmware updates.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be checked if authorization checks for performing a firmware update are implemented.
 
 - In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
 
-**Remediation**
+**対応策**
 
 Proper authorization checks need to be implemented, which ensure that a firmware update can only be performed by individuals with certain logical access levels.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -74,7 +74,7 @@ During the firmware update process, cryptographic algorithms are used to verify 
 
 ### 不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (IOT-FW[UPDT]-CRYPT-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -87,11 +87,11 @@ During the firmware update process, cryptographic algorithms are used to verify 
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 One way to manipulate a device would be to install a manipulated firmware package. In order to enable the detection of modifications, the firmware update package needs to be digitally signed. This way, the validity of the package can be verified during the installation or update process.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be determined if a digital signature for the firmware update package is available.
 
@@ -99,11 +99,11 @@ One way to manipulate a device would be to install a manipulated firmware packag
 
 - Based on [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001), the cryptographic algorithm, used for generating the digital signature, has to be assessed in order to determine whether a weak our outdated algorithm was used.
 
-**Remediation**
+**対応策**
 
 A valid digital signature must be available for the firmware update package. Furthermore, it must be possible to verify the validity of the digital signature.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -114,7 +114,7 @@ For this test case, data from the following sources was consolidated:
 
 ### 不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (IOT-FW[UPDT]-CRYPT-002)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -127,11 +127,11 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Firmware update packages might include confidential data of the soft- and hardware developer, e.g., intellectual property. Hence, it might be required to encrypt the package itself.
 
-**Test Objectives**
+**テスト目的**
 
 - It has to be clarified with the firmware developer whether the firmware update package needs to be encrypted.
 
@@ -139,11 +139,11 @@ Firmware update packages might include confidential data of the soft- and hardwa
 
 - Based on [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001), it has to be determined whether proper algorithms were used for encryption.
 
-**Remediation**
+**対応策**
 
 The firmware update package should be encrypted using state of the art cryptographic algorithms.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -156,7 +156,7 @@ For this test case, data from the following sources was consolidated:
 
 ### ファームウェア更新の安全でない転送 (Insecure Transmission of the Firmware Update) (IOT-FW[UPDT]-CRYPT-003)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -169,11 +169,11 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 If the firmware update process is not performed via a secure channel or if no further measures are in place to ensure the confidentiality and to detect modifications of the transmitted data, an attacker with access to the communication channel might be able to interfere with the update process.
 
-**Test Objectives**
+**テスト目的**
 
 - It has to be determined whether the firmware update is performed over a secure channel.
 
@@ -181,11 +181,11 @@ If the firmware update process is not performed via a secure channel or if no fu
 
 - If, for example, the communication channel is secured using TLS, it must be checked which cipher suites are supported and if the server certificate is validated by the client.
 
-**Remediation**
+**対応策**
 
 If feasible, the firmware update should be performed via a secure channel. Otherwise, proper measures need to be implemented in order to prevent or detect interferences with potential attackers.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -196,7 +196,7 @@ For this test case, data from the following sources was consolidated:
 
 ### ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (IOT-FW[UPDT]-CRYPT-004)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -209,19 +209,19 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Even if the firmware update package is digitally signed, an attacker could install a manipulated firmware package on the device in case that the digital signature is not properly validated. For example, the device might not reject the update if no signature is provided.
 
-**Test Objectives**
+**テスト目的**
 
 - Based on [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001), it must be checked if the signature of the firmware update package is properly verified by the device during the update process.
 
-**Remediation**
+**対応策**
 
 The device must properly verify the digital signature of an update package before the installation process is started. Any update package without a valid signature or with no signature at all should be rejected.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -238,7 +238,7 @@ Even if all other aspects of the firmware update are securely implemented, issue
 
 ### 不十分なロールバック保護 (Insufficient Rollback Protection) (IOT-FW[UPDT]-LOGIC-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -251,19 +251,19 @@ Even if all other aspects of the firmware update are securely implemented, issue
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Some manufacturers implement a rollback protection for their devices. This rollback protection prevents updating a device firmware to an older version than the currently installed one. This way, an attacker can not install a valid but outdated firmware in order to exploit known vulnerabilities of that version.
 
-**Test Objectives**
+**テスト目的**
 
 - It must has to be assessed whether it is possible to install older versions of the firmware.
 
-**Remediation**
+**対応策**
 
 A proper rollback protection mechanism verifying that the firmware version to be installed is newer than the currently installed version should be implemented.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 

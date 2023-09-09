@@ -36,7 +36,7 @@ The memory of an IoT device can include various data, which, if disclosed, coul
 Tests on the device memory are performed by directly accessing the memory chips. Thus, invasive physical access (*PA-4*) is required while no user accounts are used (*LA-1*).
 
 ### ソースコードの開示 (Disclosure of Source Code) (IOT-MEM-INFO-001)
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -48,13 +48,13 @@ Tests on the device memory are performed by directly accessing the memory chips.
 		<td><i>LA-1</i></tr>
 </table>
 
-**Summary**
+**要旨**
 
 The disclosure of uncompiled source code could accelerate the exploitation of the software implementation since vulnerabilities can be directly identified in the code without the need to perform tests in a trial and error manner. Furthermore, left-over source code might include internal development information, developer comments or hard-coded sensitive data, which were not intended for productive use.
 
 Similar to uncompiled source code, compiled binaries might also disclose relevant information. However, reverse-engineering might be required to retrieve useful data, which could take a considerable amount of time. Thus, the tester has to assess which binaries might be worth analyzing, ideally in coordination with the device manufacturer.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be checked if uncompiled source code can be identified within the device memory.
 
@@ -62,13 +62,13 @@ Similar to uncompiled source code, compiled binaries might also disclose relevan
 
 - Reverse-engineering of selected binaries should be performed in order to obtain useful information regarding the device implementation and the processing of sensitive data.
 
-**Remediation**
+**対応策**
 
 If possible, uncompiled source code should be removed from devices, intended for productive use. If the source code has to be included, it must be verified that all internal development data is removed before releasing the device.
 
 Since it is not possible to prevent reverse-engineering completely, measures to restrict access to the device memory in general should be implemented to reduce the attack surface. Furthermore, the reverse-engineering process can be impeded, e.g., by obfuscating the code.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -79,7 +79,7 @@ For this test case, data from the following sources was consolidated:
 This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-of-source-code-iot-fw-info-001).
 
 ### 実装内容の開示 (Disclosure of Implementation Details) (IOT-MEM-INFO-002)
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -91,11 +91,11 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 		<td><i>LA-1</i></tr>
 </table>
 
-**Summary**
+**要旨**
 
 If details about the implementation, e.g., algorithms in use or the authentication procedure, are available to potential attackers, flaws and entry points for successful attacks are easier to detect. While the disclosure of such details alone is not considered to be a vulnerability, it facilitates the identification of potential attack vectors, thus allowing an attacker to exploit insecure implementations faster.
 
-**Test Objectives**
+**テスト目的**
 
 - Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
 
@@ -105,11 +105,11 @@ If details about the implementation, e.g., algorithms in use or the authenticati
 
  - Local paths and environment details
 
-**Remediation**
+**対応策**
 
 As mentioned above, the disclosure of such information is not considered a vulnerability. However, in order to impede exploitation attempts, only information necessary for the device operation should be stored on it.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -120,7 +120,7 @@ For this test case, data from the following sources was consolidated:
 This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002).
 
 ### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-MEM-INFO-003)
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -132,21 +132,21 @@ This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-o
 		<td><i>LA-1</i></tr>
 </table>
 
-**Summary**
+**要旨**
 
 The contents of the device memory might disclose information about the surrounding IoT ecosystem, e.g., sensitive URLs, IP addresses, software in use etc. An attacker might be able to use this information to prepare and execute attacks against the ecosystem.
 
 For example, relevant information might be included in files of various types like configuration files and text files.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be determined if the data stored in the device memory, e.g., configuration files, contain relevant information about the surrounding ecosystem.
 
-**Remediation**
+**対応策**
 
 The disclosure of information should be reduced to the minimum, which is required for operating the device. The disclosed information has to be assessed and all unnecessarily included data should be removed.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -157,7 +157,7 @@ For this test case, data from the following sources was consolidated:
 This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
 
 ### ユーザーデータの開示 Disclosure of User Data (IOT-MEM-INFO-004)
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -169,19 +169,19 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
 		<td><i>LA-1</i></tr>
 </table>
 
-**Summary**
+**要旨**
 
 During runtime, a device is accumulating and processing data of different kinds, such as personal data of its users. If this data is not stored securely, an attacker might be able to recover it from the device.
 
-**Test Objectives**
+**テスト目的**
 
 - It has to be checked whether user data can be accessed by unauthorized individuals.
 
-**Remediation**
+**対応策**
 
 Access to user data should only be granted to individuals and processes that need to have access to it. No unauthorized or not properly authorized individual should be able to recover user data.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -198,7 +198,7 @@ This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmwa
 IoT devices are often operated outside of the control space their manufacturer. Still, they need to establish connections to other network nodes within the IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device can provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
 
 ### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-MEM-SCRT-001)
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -210,21 +210,21 @@ IoT devices are often operated outside of the control space their manufacturer.
 		<td><i>LA-1</i></tr>
 </table>
 
-**Summary**
+**要旨**
 
 Sensitive data and secrets should be stored in an encrypted manner, so that even if an attacker has managed to get access to the memory, he has no access to the respective plaintext data.
 
 The strength of the cryptographic algorithms in use will be covered by [IOT-MEM-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-mem-crypt-001) and has no relevance for this test case.
 
-**Test Objectives**
+**テスト目的**
 
 - By searching the contents of the device memory, it must be determined whether it includes secrets in plaintext form.
 
-**Remediation**
+**対応策**
 
 Secrets have to be stored using proper cryptographic algorithms. Only the encrypted form of the secret should be stored.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -240,7 +240,7 @@ This test case is based on: [IOT-FW-SCRT-002](../firmware/README.md#unencrypted-
 Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
 
 ### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-MEM-CRYPT-001)
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -252,13 +252,13 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 		<td><i>LA-1</i></tr>
 </table>
 
-**Summary**
+**要旨**
 
 Cryptography can be implemented in various ways. However, due to evolving technologies, new algorithms and more computing power becoming available, many old cryptographic algorithms are nowadays considered weak or insecure. Thus, either new and stronger cryptographic algorithms have to be used or existing algorithms must be adapted, e.g., by increasing the key length or using alternative modes of operation.
 
 The usage of weak cryptographic algorithms might allow an attacker to recover the plaintext from a given ciphertext in a timely manner.
 
-**Test Objectives**
+**テスト目的**
 
 - The data, stored on the device, must be checked for the presence of encrypted data segments. In case that encrypted data segments are found, it must be checked whether the cryptographic algorithms in use can be identified.
 
@@ -266,11 +266,11 @@ The usage of weak cryptographic algorithms might allow an attacker to recover th
 
 - In case that cryptographic algorithms can be identified, it must be determined whether the algorithms in use and their configuration are providing a sufficient level of security at the time of testing, e.g., by consulting cryptography guidelines like the technical guideline [TR-02102-1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10) by the BSI.
 
-**Remediation**
+**対応策**
 
 Only strong, state of the art cryptographic algorithms should be used. Furthermore, these algorithms must be used in a secure manner by setting proper parameters, such as an appropriate key length or mode ofoperation.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 

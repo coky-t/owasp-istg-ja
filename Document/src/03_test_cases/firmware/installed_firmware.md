@@ -25,7 +25,7 @@ Usually, only certain individuals, e.g., administrators, should be allowed to ac
 
 ### ファームウェアへの認可されていないアクセス (Unauthorized Access to the Firmware) (IOT-FW[INST]-AUTHZ-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -38,21 +38,21 @@ Usually, only certain individuals, e.g., administrators, should be allowed to ac
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Depending on the specific implementation of a given device, access to the firmware or its functions might be restricted to individuals with a certain logical access level, e.g., *LA-2*, *LA-3* or *LA-4*. If the device firmware fails to correctly verify access permissions, any attacker (*LA-1*) might be able to get access to the firmware.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be checked if authorization checks for access to the firmware are implemented.
 
 - In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
 
-**Remediation**
+**対応策**
 
 Proper authorization checks need to be implemented, which ensure that access to the firmware is only possible for authorized individuals.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -66,7 +66,7 @@ This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README
 
 ### 権限昇格 (Privilege Escalation) (IOT-FW[INST]-AUTHZ-002)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -79,19 +79,19 @@ This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Depending on the specific implementation of a given device, access to parts of the firmware or its functions might be restricted to individuals with a certain logical access level, e.g., *LA-3* or *LA-4*. If the device firmware fails to correctly verify access permissions, an attacker with a lower logical access level than intended might be able to get access to the restricted firmware parts.
 
-**Test Objectives**
+**テスト目的**
 
 - Based on *IOT-FW-AUTHZ-001*, it must be determined whether there is a way to elevate the given access privileges and thus to access restricted functions or parts of the firmware.
 
-**Remediation**
+**対応策**
 
 Proper authorization checks need to be implemented, which ensure that access to restricted parts of the firmware is only possible for individuals with the required logical access levels.
 
-**References**
+**参考情報**
 
 This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002).
 
@@ -103,7 +103,7 @@ As mentioned above, during the dynamic analysis, it is also possible to test whe
 
 ### ユーザーデータの開示 (Disclosure of User Data) (IOT-FW[INST]-INFO-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -116,19 +116,19 @@ As mentioned above, during the dynamic analysis, it is also possible to test whe
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 During runtime, a device is accumulating and processing data of different kinds, such as personal data of its users. If this data is not stored securely, an attacker might be able to recover it from the device.
 
-**Test Objectives**
+**テスト目的**
 
 - It has to be checked whether user data can be accessed by unauthorized individuals.
 
-**Remediation**
+**対応策**
 
 Access to user data should only be granted to individuals and processes that need to have access to it. No unauthorized or not properly authorized individual should be able to recover user data.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -146,7 +146,7 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 
 ### ブートローダーシグネチャの不十分な検証 (Insufficient Verification of the Bootloader Signature) (IOT-FW[INST]-CRYPT-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -159,15 +159,15 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Verifying the digital signature of the bootloader is an important measure to detect manipulations of the bootloader, thus preventing the execution of manipulated firmware on a device.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be checked if the signature of the bootloader is properly verified by the device during the boot process.
 
-**Remediation**
+**対応策**
 
 The device must properly verify the digital signature of a bootloader before it is executed. A bootloader without a valid signature should not be executed.
 

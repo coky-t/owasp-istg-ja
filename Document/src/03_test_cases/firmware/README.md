@@ -47,7 +47,7 @@ The firmware of an IoT device can include various information, which, if disclo
 
 ### ソースコードの開示 (Disclosure of Source Code) (IOT-FW-INFO-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -60,13 +60,13 @@ The firmware of an IoT device can include various information, which, if disclo
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 The disclosure of uncompiled source code could accelerate the exploitation of the software implementation since vulnerabilities can be directly identified in the code without the need to perform tests in a trial and error manner. Furthermore, left-over source code might include internal development information, developer comments or hard-coded sensitive data, which were not intended for productive use.
 
 Similar to uncompiled source code, compiled binaries might also disclose relevant information. However, reverse-engineering might be required to retrieve useful data, which could take a considerable amount of time. Thus, the tester has to assess which binaries might be worth analyzing, ideally in coordination with the firmware manufacturer.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be checked if uncompiled source code can be identified within the firmware.
 
@@ -74,13 +74,13 @@ Similar to uncompiled source code, compiled binaries might also disclose relevan
 
 - Reverse-engineering of selected binaries should be performed in order to obtain useful information regarding the firmware implementation and the processing of sensitive data.
 
-**Remediation**
+**対応策**
 
 If possible, uncompiled source code should be removed from firmware, intended for productive use. If the source code has to be included, it must be verified that all internal development data is removed before the firmware is released.
 
 Since it is not possible to prevent reverse-engineering completely, measures to restrict access to the firmware in general should be implemented to reduce the attack surface. Furthermore, the reverse-engineering process can be impeded, e.g., by obfuscating the code.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -93,7 +93,7 @@ For this test case, data from the following sources was consolidated:
 
 ### 実装内容の開示 (Disclosure of Implementation Details) (IOT-FW-INFO-002)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -106,13 +106,13 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 If details about the implementation, e.g., algorithms in use or the authentication procedure, are available to potential attackers, flaws and entry points for successful attacks are easier to detect. While the disclosure of such details alone is not considered to be a vulnerability, it facilitates the identification of potential attack vectors, thus allowing an attacker to exploit insecure implementations faster.
 
 For example, relevant information might be included in files of various types like configuration files, text files, system settings or databases.
 
-**Test Objectives**
+**テスト目的**
 
 - Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
 
@@ -122,11 +122,11 @@ For example, relevant information might be included in files of various types li
 
  - Local paths and environment details
 
-**Remediation**
+**対応策**
 
 As mentioned above, the disclosure of such information is not considered a vulnerability. However, in order to impede exploitation attempts, only information, necessary for the device operation, should be accessible.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -139,7 +139,7 @@ For this test case, data from the following sources was consolidated:
 
 ### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-FW-INFO-003)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -152,21 +152,21 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 The contents of the device firmware might disclose information about the surrounding IoT ecosystem, e.g., sensitive URLs, IP addresses, software in use etc. An attacker might be able to use this information to prepare and execute attacks against the ecosystem.
 
 For example, relevant information might be included in files of various types like configuration files and text files.
 
-**Test Objectives**
+**テスト目的**
 
 - It must be determined if (parts of) the firmware, e.g., configuration files, contain relevant information about the surrounding ecosystem.
 
-**Remediation**
+**対応策**
 
 The disclosure of information should be reduced to the minimum, which is required for operating the device. The disclosed information has to be assessed and all unnecessarily included data should be removed.
 
-**References**
+**参考情報**
 
 For this test case, data from the following available sources was consolidated:
 
@@ -185,7 +185,7 @@ Since IoT devices can have a long lifespan, it is important to make sure that t
 
 ### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-FW-CONF-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -198,13 +198,13 @@ Since IoT devices can have a long lifespan, it is important to make sure that t
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Every piece of software is potentially vulnerable to attacks. For example, coding errors could lead to undefined program behavior, which then can be exploited by an attacker to gain access to data, processed by the application, or to perform actions in the context of the runtime environment. Furthermore, vulnerabilities in the used frameworks, libraries and other technologies might also affect the security level of a given piece of software.
 
 Usually, developers release an update once a vulnerability was detected in their software. These updates should be installed as soon as possible in order to reduce the probability of successful attacks. Otherwise, attackers could use known vulnerabilities to perform attacks against the device.
 
-**Test Objectives**
+**テスト目的**
 
 - The version identifiers of installed software packages as well as libraries and frameworks in use must be determined.
 
@@ -212,11 +212,11 @@ Usually, developers release an update once a vulnerability was detected in their
 
 - By using vulnerability databases, such as the [National Vulnerability Database](https://nvd.nist.gov) of the NIST, it has to be checked whether any vulnerabilities are known for the detected software versions.
 
-**Remediation**
+**対応策**
 
 The firmware should not include any outdated software packages. A proper patch management process, which ensures that applicable updates are installed once being available, should be implemented.
 
-**References**
+**参考情報**
 
 For this test case, data from the following available sources was consolidated:
 
@@ -227,7 +227,7 @@ For this test case, data from the following available sources was consolidated:
 
 ### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-FW-CONF-002)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -240,23 +240,23 @@ For this test case, data from the following available sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Every piece of software, which is included in the firmware, broadens the attack surface since it might be used to perform attacks against the device. Even if the installed software is up-to-date, it might still be affected by unpublished vulnerabilities. It is also possible that a software program facilitates an attack without being vulnerable, e.g., by providing access to specific files or processes.
 
-**Test Objectives**
+**テスト目的**
 
 - A list of software packages, that are included in the firmware, should be assembled.
 
 - Based on the device documentation, its behavior and the intended use cases, it must be determined whether any of the installed software packages are not mandatory for the device operation.
 
-**Remediation**
+**対応策**
 
 The attack surface should be minimized as much as possible by removing or disabling every software that is not required for the device operation.
 
 Especially in case of general-purpose operating systems, such as Windows and Linux systems, it must be ensured that any unnecessary operating system features are disabled.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -273,7 +273,7 @@ IoT devices are often operated outside of the control space of their manufactur
 
 ### パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (IOT-FW-SCRT-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -286,19 +286,19 @@ IoT devices are often operated outside of the control space of their manufactur
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Generally, there are multiple kinds of storage spaces within a file system, some of which are publicly available and some that can only be accessed with a certain level of privileges. If sensitive data or secrets are stored in publicly accessible storage spaces, users who should not have access to this data but who have access to the file system could read or modify it. In case of a successful attack, it is very likely that secrets, stored in public storage, are disclosed.
 
-**Test Objectives**
+**テスト目的**
 
 - Files and databases within public storage spaces must be checked for the presence of secrets, such as passwords, symmetric or private keys and tokens.
 
-**Remediation**
+**対応策**
 
 Access to secrets should only be granted to the accounts or processes with proper privileges. Thus, secrets should be stored in protected storage areas or designated key stores that are only available to certain entities.
 
-**References**
+**参考情報**
 
 For this test case, data from the following available sources was consolidated:
 
@@ -311,7 +311,7 @@ For this test case, data from the following available sources was consolidated:
 
 ### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-FW-SCRT-002)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -324,21 +324,21 @@ For this test case, data from the following available sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Sensitive data and secrets should be stored in an encrypted manner, so that even if an attacker has managed to get access to it, he has no access to the respective plaintext data.
 
 Contrary to [IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001), it does not matter if the secrets are stored in public or restricted storage spaces, since it is assumed that the attacker has already gotten access to the data, e.g., by circumventing access restrictions or by exploiting a process with access to the restricted storage. Furthermore, the strength of the cryptographic algorithms in use will be covered by [IOT-FW-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) and has no relevance for this test case.
 
-**Test Objectives**
+**テスト目的**
 
 - By searching public and restricted storage spaces, it must be determined whether the firmware includes secrets in plaintext form.
 
-**Remediation**
+**対応策**
 
 Secrets have to be stored using proper cryptographic algorithms. Only the encrypted form of the secret should be stored.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -351,7 +351,7 @@ For this test case, data from the following sources was consolidated:
 
 ### ハードコードされたシークレットの使用 (Usage of Hardcoded Secrets) (IOT-FW-SCRT-003)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -364,7 +364,7 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Sometimes, developers tend to incorporate secrets directly into the source code of their software. This can lead to a variety of security issues like:
 
@@ -374,15 +374,15 @@ Sometimes, developers tend to incorporate secrets directly into the source code 
 
 - impeding reactive measures in case of the secret being compromised since changing the secret requires a software update.
 
-**Test Objectives**
+**テスト目的**
 
 - Based on [IOT-FW-INFO-001](#disclosure-of-source-code-iot-fw-info-001), it must be checked if any hard-coded secrets can be identified.
 
-**Remediation**
+**対応策**
 
 Secrets should not be hard-coded into the source code. Instead, secrets should be stored in a secure manner (see [IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001) and [IOT-FW-SCRT-002](#unencrypted-storage-of-secrets-iot-fw-scrt-002)) and the software process should dynamically retrieve the secrets from the secure storage during runtime.
 
-**References**
+**参考情報**
 
 For this test case, data from the following available sources was consolidated:
 
@@ -401,7 +401,7 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 
 ### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-FW-CRYPT-001)
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -414,13 +414,13 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 Cryptography can be implemented in various ways. However, due to evolving technologies, new algorithms and more computing power becoming available, many old cryptographic algorithms are nowadays considered weak or insecure. Thus, either new and stronger cryptographic algorithms have to be used or existing algorithms must be adapted, e.g., by increasing the key length or using alternative modes of operation.
 
 The usage of weak cryptographic algorithms might allow an attacker to recover the plaintext from a given ciphertext in a timely manner.
 
-**Test Objectives**
+**テスト目的**
 
 - The data, stored by or within the firmware, must be checked for the presence of encrypted data segments. In case that encrypted data segments are found, it must be checked whether the cryptographic algorithms in use can be identified.
 
@@ -428,11 +428,11 @@ The usage of weak cryptographic algorithms might allow an attacker to recover th
 
 - In case that cryptographic algorithms can be identified, it must be determined whether the algorithms in use and their configuration are providing a sufficient level of security at the time of testing, e.g., by consulting cryptography guidelines like the technical guideline [TR-02102-1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10) by the BSI.
 
-**Remediation**
+**対応策**
 
 Only strong, state of the art cryptographic algorithms should be used. Furthermore, these algorithms must be used in a secure manner by setting proper parameters, such as an appropriate key length or mode of operation.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
