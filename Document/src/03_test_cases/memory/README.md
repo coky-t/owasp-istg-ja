@@ -17,15 +17,15 @@
 
 ## 概要
 
-This section includes test cases and categories for the component memory. Similar to the processing unit, the memory is a device-internal element that can only be accessed with *PA-4*. Establishing a direct connection to the memory might require specific hardware equipment (e.g., a debugging board or test probes).
+このセクションにはコンポーネントのメモリに関するテストケースとカテゴリが含まれます。処理装置と同様に、メモリは *PA-4* でのみアクセスできるデバイス内部要素です。メモリへの直接接続を確立するにはハードウェア機器 (デバッグボードやテストプローブ) を必要とすることがあります。
 
-In regards to test case categories that are relevant for memory, the following were identified:
+メモリに関連するテストケースカテゴリには、以下のものが特定されています。
 
-- **Information Gathering:** Focuses on information that is stored on the memory chip and that might be disclosed to potential attackers if not being properly protected or removed.
+- **情報収集 (Information Gathering):** メモリチップ上に保存され、適切に保護または削除されていない場合に潜在的な攻撃者に開示される可能性がある情報に焦点を当てています。
 
-- **Secrets:** Focuses on secrets that are stored on the memory chip in an insecure manner.
+- **シークレット (Secrets):** メモリチップ上に安全でない方法で保存されているシークレットに焦点を当てています。
 
-- **Cryptography:** Focuses on vulnerabilities in the cryptographic implementation.
+- **暗号技術 (Cryptography):** 暗号実装の脆弱性に焦点を当てています。
 
 
 
