@@ -15,7 +15,7 @@
 
 ## 概要
 
-One specialization of the component firmware is the installed form of a firmware, which might be the subject of a dynamic analysis. The dynamic analysis allows to test the handling of data during runtime. This way, the processing and storing of user data can also be analyzed. As a pre-requisite for the dynamic analysis, a device, which is running the target firmware version, must be provided.
+コンポーネントのファームウェアの特化した一つにはファームウェアのインストール形態であり、動的解析の対象となる可能性があります。動的解析により実行時のデータ処理をテストできます。このようにして、ユーザーデータの処理と保存も解析できます。動的解析の前提条件として、ターゲットファームウェアバージョンを実行しているデバイスを提供しなければなりません。
 
 
 
