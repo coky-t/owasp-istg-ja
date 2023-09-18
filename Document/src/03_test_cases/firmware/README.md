@@ -21,23 +21,23 @@
 
 ## 概要
 
-This section includes test cases and categories for the component firmware and the component specializations installed firmware ([IOT-FW[INST]](./installed_firmware.md)) and firmware update mechanism ([IOT-FW[UPDT]](./firmware_update_mechanism.md)) respectively. The firmware might be accessible with all physical access levels, depending on how this access is implemented in detail.
+このセクションではコンポーネントのファームウェアとコンポーネントに特化したインストール済みファームウェア ([IOT-FW[INST]](./installed_firmware.md)) とファームウェア更新メカニズム ([IOT-FW[UPDT]](./firmware_update_mechanism.md)) それぞれのテストケースとカテゴリが含まれます。ファームウェアはこのアクセスがどのように実装されるかの詳細に応じて、すべての物理アクセスレベルでアクセスできる可能性があります。
 
-In regards to test case categories that are relevant for processing units, the following were identified:
+処理装置に関連するテストケースカテゴリには、以下のものが特定されています。
 
-- **Information Gathering:** Focuses on information that is stored within the firmware and that might be disclosed to potential attackers if not being properly protected or removed.
+- **情報収集 (Information Gathering):** ファームウェア内に保存され、適切に保護または削除されていない場合に潜在的な攻撃者に開示される可能性がある情報に焦点を当てています。
 
-- **Configuration and Patch Management:** Focuses on vulnerabilities and issues in the configuration of a firmware and its software components.
+- **構成とパッチ管理 (Configuration and Patch Management):** ファームウェアとそのソフトウェアコンポーネントの構成における脆弱性と問題に焦点を当てています。
 
-- **Secrets:** Focuses on secrets that are stored within the firmware in an insecure manner.
+- **シークレット (Secrets):** ファームウェア内に安全でない方法で保存されているシークレットに焦点を当てています。
 
-- **Cryptography:** Focuses on vulnerabilities in the cryptographic implementation.
+- **暗号技術 (Cryptography):** 暗号実装の脆弱性に焦点を当てています。
 
-- **Authorization  (Installed Firmware):** Focuses on vulnerabilities that allow to get unauthorized access to the firmware or to elevate privileges in order to access restricted functionalities.
+- **認可 (Authorization) (インストール済みファームウェア):** ファームウェアへの認可されていないアクセスや制限された機能にアクセスするために権限を昇格することを可能にする脆弱性に焦点を当てています。
 
-- **Business Logic  (Firmware Update Process):** Focuses on vulnerabilities in the design and implementation of the firmware update process.
+- **ビジネスロジック (Business Logic) (ファームウェア更新プロセス):** ファームウェア更新プロセスの設計と実装における脆弱性に焦点を当てています。
 
-All test cases and categories for the component [IOT-FW](./README.md) focus on generic firmware analysis aspects, without regards to the specifics of specializations for this component.
+コンポーネント [IOT-FW](./README.md) のすべてのテストケースとカテゴリはこのコンポーネントに特化した仕様には関係なく、一般的なファームウェア解析の側面に焦点を当てています。
 
 
 
