@@ -16,13 +16,13 @@
 
 ## 概要
 
-Another important aspect of the device firmware is the firmware update mechanism. Failing to implement a secure update mechanism might enable attackers to install a custom, manipulated firmware on the device, thus gaining complete control over it.
+デバイスファームウェアのもう一つの重要な側面はファームウェア更新メカニズムです。安全な更新メカニズムの実装に失敗すると、攻撃者がデバイスにカスタムの操作されたファームウェアをインストールすることが可能になり、その結果、デバイスを完全に制御できるようになるかもしれません。
 
-The following categories are not inherited by the specialization [IOT-FW[UPDT]](./firmware_update_mechanism.md):
+以下のカテゴリは特化した [IOT-FW[UPDT]](./firmware_update_mechanism.md) には継承されません。
 
-- **Configuration and Patch Management ([IOT-FW-CONF](./README.md#configuration-and-patch-management-iot-fw-conf))**: This category focuses on the configuration and patch management aspects of a firmware file. Since [IOT-FW[UPDT]](./firmware_update_mechanism.md) focuses on the firmware update mechanism rather than a specific firmware file, the respective test cases are not applicable.
+- **構成とパッチ管理 (Configuration and Patch Management) ([IOT-FW-CONF](./README.md#configuration-and-patch-management-iot-fw-conf))**: このカテゴリはファームウェアファイルの構成とパッチ管理の側面に焦点を当てています。[IOT-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
 
-- **Secrets ([IOT-FW-SCRT](./README.md#secrets-iot-fw-scrt))**: This category focuses on the handling of secrets within a firmware file. Since [IOT-FW[UPDT]](./firmware_update_mechanism.md) focuses on the firmware update mechanism rather than a specific firmware file, the respective test cases are not applicable.
+- **Secrets ([IOT-FW-SCRT](./README.md#secrets-iot-fw-scrt))**: このカテゴリはファームウェアファイル内のシークレットの処理に焦点を当てています。[IOT-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
 
 
 
