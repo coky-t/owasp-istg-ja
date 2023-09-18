@@ -26,23 +26,23 @@
 
 ## 概要
 
-This section includes test cases and categories for the component user interface. Based on its implementation and intended use, a user interface might be accessible with all physical access levels.
+このセクションにはコンポーネントのユーザーインタフェースに関するテストケースとカテゴリが含まれます。その実装と使用目的に基づいて、ユーザーインタフェースはすべての物理アクセスレベルでアクセスできるかもしれません。
 
-In regards to test case categories that are relevant for a user interface, the following were identified:
+ユーザーインタフェースに関連するテストケースカテゴリには、以下のものが特定されています。
 
-- **Authorization:** Focuses on vulnerabilities that allow to get unauthorized access to the user interface or to elevate privileges in order to access restricted functionalities.
+- **認可 (Authorization):** ユーザーインタフェースへの認可されていないアクセスや制限された機能にアクセスするために権限を昇格することを可能にする脆弱性に焦点を当てています。
 
-- **Information Gathering:** Focuses on information that is handled by the user interface and that might be disclosed to potential attackers if not being properly protected or removed.
+- **情報収集 (Information Gathering):** ユーザーインタフェースによって処理され、適切に保護または削除されていない場合に潜在的な攻撃者に開示される可能性がある情報に焦点を当てています。
 
-- **Configuration and Patch Management:** Focuses on vulnerabilities and issues in the configuration of a user interface and its software components.
+- **構成とパッチ管理 (Configuration and Patch Management):** ユーザーインタフェースとそのソフトウェアコンポーネントの構成における脆弱性と問題に焦点を当てています。
 
-- **Secrets:** Focuses on secrets that are handled by the user interface in an insecure manner.
+- **シークレット (Secrets):** ユーザーインタフェースによって安全でない方法で処理されているシークレットに焦点を当てています。
 
-- **Cryptography:** Focuses on vulnerabilities in the cryptographic implementation.
+- **暗号技術 (Cryptography):** 暗号実装の脆弱性に焦点を当てています。
 
-- **Business Logic:** Focuses on vulnerabilities in the implementation of the user interface.
+- **ビジネスロジック (Business Logic):** ユーザーインタフェースの実装における脆弱性に焦点を当てています。
 
-- **Input Validation:** Focuses on vulnerabilities regarding the validation and processing of input from untrustworthy sources.
+- **入力バリデーション (Input Validation):** 信頼できないソースからの入力のバリデーションと処理に関する脆弱性に焦点を当てています。
 
 
 
