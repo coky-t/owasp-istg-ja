@@ -27,23 +27,23 @@
 
 ## 概要
 
-This section includes test cases and categories for the component wireless interface. A wireless interface is accessible with *PA-2*, *PA-3* or *PA-4*. Establishing a connection to a wireless interface might require specific hardware equipment (e.g., a dongle or software-defined radio).
+このセクションにはコンポーネントの無線インタフェースに関するテストケースとカテゴリが含まれます。無線インタフェースは *PA-2*, *PA-3*, *PA-4* でアクセスできます。無線インタフェースへの直接接続を確立するには特定のハードウェア機器 (ドングル、ソフトウェア無線など) を必要とすることがあります。
 
-In regards of test case categories that are relevant for a wireless interface, the following were identified:
+無線インタフェースに関連するテストケースカテゴリには、以下のものが特定されています。
 
-- **Authorization:** Focuses on vulnerabilities that allow to get unauthorized access to the wireless interface or to elevate privileges in order to access restricted functionalities.
+- **認可 (Authorization):** 無線インタフェースへの認可されていないアクセスや制限された機能にアクセスするために権限を昇格することを可能にする脆弱性に焦点を当てています。
 
-- **Information Gathering:** Focuses on information that is handled by the wireless interface and that might be disclosed to potential attackers if not being properly protected or removed.
+- **情報収集 (Information Gathering):** 無線インタフェースよって処理され、適切に保護または削除されていない場合に潜在的な攻撃者に開示される可能性がある情報に焦点を当てています。
 
-- **Configuration and Patch Management:** Focuses on vulnerabilities and issues in the configuration of a wireless interface and its software components.
+- **構成とパッチ管理 (Configuration and Patch Management):** 無線インタフェースとそのソフトウェアコンポーネントの構成における脆弱性と問題に焦点を当てています。
 
-- **Secrets:** Focuses on secrets that are handled by the wireless interface in an insecure manner.
+- **シークレット (Secrets):** 無線インタフェースによって安全でない方法で処理されているシークレットに焦点を当てています。
 
-- **Cryptography:** Focuses on vulnerabilities in the cryptographic implementation.
+- **暗号技術 (Cryptography):** 暗号実装の脆弱性に焦点を当てています。
 
-- **Business Logic:** Focuses on vulnerabilities in the implementation of the wireless interface.
+- **ビジネスロジック (Business Logic):** 無線インタフェースの実装における脆弱性に焦点を当てています。
 
-- **Input Validation:** Focuses on vulnerabilities regarding the validation and processing of input from untrustworthy sources.
+- **入力バリデーション (Input Validation):** 信頼できないソースからの入力のバリデーションと処理に関する脆弱性に焦点を当てています。
 
 
 
