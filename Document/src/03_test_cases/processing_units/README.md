@@ -15,15 +15,15 @@
 
 ## 概要
 
-This section includes test cases and categories for the component processing unit. A processing unit is a device-internal element that can only be accessed with *PA-4*. Establishing a direct connection to the processing unit might require specific hardware equipment (e.g., a debugging board, an oscilloscope or test probes). 
+このセクションにはコンポーネントの処理装置に関するテストケースとカテゴリが含まれます。処理装置は *PA-4* でのみアクセスできるデバイス内部要素です。処理装置への直接接続を確立するには特定のハードウェア機器 (デバッグボード、オシロスコープ、テストプローブなど) を必要とすることがあります。
 
-The following test case categories, relevant for processing units, were identified:
+処理装置に関連するテストケースカテゴリには、以下のものが特定されています。
 
-- **Authorization:** Focuses on vulnerabilities that allow to get unauthorized access to the processing unit or to elevate privileges in order to access restricted functionalities.
+- **認可 (Authorization):** 処理装置への認可されていないアクセスや制限された機能にアクセスするために権限を昇格することを可能にする脆弱性に焦点を当てています。
 
-- **Business Logic:** Focuses on vulnerabilities in the design and implementation of instructions as well as the presence of undocumented, potentially vulnerable, instructions.
+- **ビジネスロジック (Business Logic):** インストラクションの設計と実装における脆弱性と、文書化されていない潜在的に脆弱なインストラクションの存在に焦点を当てています。
 
-- **Side-channel Attacks:** Focuses on the resilience against side-channel attacks like timing and glitching attacks.
+- **サイドチャネル攻撃 (Side-channel Attacks):** タイミング攻撃やグリッチ攻撃などのサイドチャネル攻撃に対する耐性に焦点を当てています。
 
 
 
