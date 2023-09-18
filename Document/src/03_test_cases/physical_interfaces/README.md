@@ -27,23 +27,23 @@
 
 ## 概要
 
-This section includes test cases and categories for the component physical interface. Depending on whether the interface is connected to a network or not, it might be accessible with *PA-2*, *PA-3* or *PA-4*. Establishing a direct connection to a physical interface might require specific hardware equipment (e.g., a connector or adapter cable).
+このセクションにはコンポーネントの物理インタフェースに関するテストケースとカテゴリが含まれます。インタフェースがネットワークに接続されているかどうかに応じて、*PA-2*, *PA-3*, *PA-4* でアクセスできるかもしれません。物理インタフェースへの直接接続を確立するには特定のハードウェア機器 (コネクタやアダプタケーブルなど) を必要とすることがあります。
 
-In regards of test case categories that are relevant for a physical interface, the following were identified:
+物理インタフェースに関連するテストケースカテゴリには、以下のものが特定されています。
 
-- **Authorization:** Focuses on vulnerabilities that allow to get unauthorized access to the physical interface or to elevate privileges in order to access restricted functionalities.
+- **認可 (Authorization):** 物理インタフェースへの認可されていないアクセスや制限された機能にアクセスするために権限を昇格することを可能にする脆弱性に焦点を当てています。
 
-- **Information Gathering:** Focuses on information that is handled by the physical interface and that might be disclosed to potential attackers if not being properly protected or removed.
+- **情報収集 (Information Gathering):** 物理インタフェースによって処理され、適切に保護または削除されていない場合に潜在的な攻撃者に開示される可能性がある情報に焦点を当てています。
 
-- **Configuration and Patch Management:** Focuses on vulnerabilities and issues in the configuration of a physical interface and its software components.
+- **構成とパッチ管理 (Configuration and Patch Management):** 物理インタフェースとそのソフトウェアコンポーネントの構成における脆弱性と問題に焦点を当てています。
 
-- **Secrets:** Focuses on secrets that are handled by the physical interface in an insecure manner.
+- **シークレット (Secrets):** 物理インタフェースによって安全でない方法で処理されているシークレットに焦点を当てています。
 
-- **Cryptography:** Focuses on vulnerabilities in the cryptographic implementation.
+- **暗号技術 (Cryptography):** 暗号実装の脆弱性に焦点を当てています。
 
-- **Business Logic:** Focuses on vulnerabilities in the implementation of the physical interface.
+- **ビジネスロジック (Business Logic):** 物理インタフェースの実装における脆弱性に焦点を当てています。
 
-- **Input Validation:** Focuses on vulnerabilities regarding the validation and processing of input from untrustworthy sources.
+- **入力バリデーション (Input Validation):** 信頼できないソースからの入力のバリデーションと処理に関する脆弱性に焦点を当てています。
 
 
 
