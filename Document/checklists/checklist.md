@@ -89,9 +89,9 @@
 |IOT-DES-CRYPT-001|脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms)|||
 |**IOT-DES-LOGIC**|**ビジネスロジック (Business Logic)**|||
 |IOT-DES-LOGIC-001|意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic)|||
-|**IOT-DES-INVAL**|**入力バリデーション (Input Validation)**|||
-|IOT-DES-INVAL-001|不十分な入力バリデーション (Insufficient Input Validation)|||
-|IOT-DES-INVAL-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
+|**IOT-DES-INPV**|**入力バリデーション (Input Validation)**|||
+|IOT-DES-INPV-001|不十分な入力バリデーション (Insufficient Input Validation)|||
+|IOT-DES-INPV-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
 
 ## 内部インタフェース (Internal Interfaces) (IOT-INT)
 |テスト ID|テスト名|ステータス|備考|
@@ -112,9 +112,9 @@
 |IOT-INT-CRYPT-001|脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms)|||
 |**IOT-INT-LOGIC**|**ビジネスロジック (Business Logic)**|||
 |IOT-INT-LOGIC-001|意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic)|||
-|**IOT-INT-INVAL**|**入力バリデーション (Input Validation)**|||
-|IOT-INT-INVAL-001|不十分な入力バリデーション (Insufficient Input Validation)|||
-|IOT-INT-INVAL-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
+|**IOT-INT-INPV**|**入力バリデーション (Input Validation)**|||
+|IOT-INT-INPV-001|不十分な入力バリデーション (Insufficient Input Validation)|||
+|IOT-INT-INPV-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
 
 ## 物理インタフェース (Physical Interfaces) (IOT-PHY)
 |テスト ID|テスト名|ステータス|備考|
@@ -135,9 +135,9 @@
 |IOT-PHY-CRYPT-001|脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms)|||
 |**IOT-PHY-LOGIC**|**ビジネスロジック (Business Logic)**|||
 |IOT-PHY-LOGIC-001|意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic)|||
-|**IOT-PHY-INVAL**|**入力バリデーション (Input Validation)**|||
-|IOT-PHY-INVAL-001|不十分な入力バリデーション (Insufficient Input Validation)|||
-|IOT-PHY-INVAL-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
+|**IOT-PHY-INPV**|**入力バリデーション (Input Validation)**|||
+|IOT-PHY-INPV-001|不十分な入力バリデーション (Insufficient Input Validation)|||
+|IOT-PHY-INPV-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
 
 ## 無線インタフェース (Wireless Interfaces) (IOT-WRLS)
 |テスト ID|テスト名|ステータス|備考|
@@ -158,9 +158,9 @@
 |IOT-WRLS-CRYPT-001|脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms)|||
 |**IOT-WRLS-LOGIC**|**ビジネスロジック (Business Logic)**|||
 |IOT-WRLS-LOGIC-001|意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic)|||
-|**IOT-WRLS-INVAL**|**入力バリデーション (Input Validation)**|||
-|IOT-WRLS-INVAL-001|不十分な入力バリデーション (Insufficient Input Validation)|||
-|IOT-WRLS-INVAL-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
+|**IOT-WRLS-INPV**|**入力バリデーション (Input Validation)**|||
+|IOT-WRLS-INPV-001|不十分な入力バリデーション (Insufficient Input Validation)|||
+|IOT-WRLS-INPV-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
 
 ## ユーザーインタフェース (User Interfaces) (IOT-UI)
 |テスト ID|テスト名|ステータス|備考|
@@ -181,6 +181,6 @@
 |IOT-UI-CRYPT-001|脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms)|||
 |**IOT-UI-LOGIC**|**ビジネスロジック (Business Logic)**|||
 |IOT-UI-LOGIC-001|意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic)|||
-|**IOT-UI-INVAL**|**入力バリデーション (Input Validation)**|||
-|IOT-UI-INVAL-001|不十分な入力バリデーション (Insufficient Input Validation)|||
-|IOT-UI-INVAL-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
+|**IOT-UI-INPV**|**入力バリデーション (Input Validation)**|||
+|IOT-UI-INPV-001|不十分な入力バリデーション (Insufficient Input Validation)|||
+|IOT-UI-INPV-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
