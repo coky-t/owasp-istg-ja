@@ -1,32 +1,28 @@
 # 3.4. データ交換サービス (Data Exchange Services) (IOT-DES)
 
 ## 目次
-* [概要](#overview)
-* [認可 (Authorization) (IOT-DES-AUTHZ)](#authorization-iot-des-authz)
-  * [データ交換サービスへの認可されていないアクセス (Unauthorized Access to the Data Exchange Service) (IOT-DES-AUTHZ-001)](#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001)
-  * [権限昇格 (Privilege Escalation) (IOT-DES-AUTHZ-002)](#privilege-escalation-iot-des-authz-002)
-
-* [情報収集 (Information Gathering) (IOT-DES-INFO)](#information-gathering-iot-des-info)
-  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-DES-INFO-001)](#disclosure-of-implementation-details-iot-des-info-001)
-  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-DES-INFO-002)](#disclosure-of-ecosystem-details-iot-des-info-002)
-  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-DES-INFO-003)](#disclosure-of-user-data-iot-des-info-003)
-
-* [構成とパッチ管理 (Configuration and Patch Management) (IOT-DES-CONF)](#configuration-and-patch-management-iot-des-conf)
-  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-DES-CONF-001)](#usage-of-outdated-software-iot-des-conf-001)
-  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-DES-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-des-conf-002)
-
-* [シークレット (Secrets) (IOT-DES-SCRT)](#secrets-iot-des-scrt)
-  * [機密データへのアクセス (Access to Confidential Data) (IOT-DES-SCRT-001)](#access-to-confidential-data-iot-des-scrt-001)
-
-* [暗号技術 (Cryptography) (IOT-DES-CRYPT)](#cryptography-iot-des-crypt)
-  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-DES-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-des-crypt-001)
-
-* [ビジネスロジック (Business Logic) (IOT-DES-LOGIC)](#business-logic-iot-des-logic)
-  * [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-DES-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-des-logic-001)
-
-* [入力バリデーション (Input Validation) (IOT-DES-INVAL)](#input-validation-iot-des-inval)
-  * [不十分な入力バリデーション (Insufficient Input Validation) (IOT-DES-INVAL-001)](#insufficient-input-validation-iot-des-inval-001)
-  * [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-DES-INVAL-002)](#code-or-command-injection-iot-des-inval-002)
+- [3.4. データ交換サービス (Data Exchange Services) (IOT-DES)](#34-data-exchange-services-iot-des)
+	- [目次](#table-of-contents)
+	- [概要](#overview)
+	- [認可 (Authorization) (IOT-DES-AUTHZ)](#authorization-iot-des-authz)
+		- [データ交換サービスへの認可されていないアクセス (Unauthorized Access to the Data Exchange Service) (IOT-DES-AUTHZ-001)](#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001)
+		- [権限昇格 (Privilege Escalation) (IOT-DES-AUTHZ-002)](#privilege-escalation-iot-des-authz-002)
+	- [情報収集 (Information Gathering) (IOT-DES-INFO)](#information-gathering-iot-des-info)
+		- [実装内容の開示 (Disclosure of Implementation Details) (IOT-DES-INFO-001)](#disclosure-of-implementation-details-iot-des-info-001)
+		- [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-DES-INFO-002)](#disclosure-of-ecosystem-details-iot-des-info-002)
+		- [ユーザーデータの開示 (Disclosure of User Data) (IOT-DES-INFO-003)](#disclosure-of-user-data-iot-des-info-003)
+	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-DES-CONF)](#configuration-and-patch-management-iot-des-conf)
+		- [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-DES-CONF-001)](#usage-of-outdated-software-iot-des-conf-001)
+		- [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-DES-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-des-conf-002)
+	- [シークレット (Secrets) (IOT-DES-SCRT)](#secrets-iot-des-scrt)
+		- [機密データへのアクセス (Access to Confidential Data) (IOT-DES-SCRT-001)](#access-to-confidential-data-iot-des-scrt-001)
+	- [暗号技術 (Cryptography) (IOT-DES-CRYPT)](#cryptography-iot-des-crypt)
+		- [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-DES-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-des-crypt-001)
+	- [ビジネスロジック (Business Logic) (IOT-DES-LOGIC)](#business-logic-iot-des-logic)
+		- [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-DES-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-des-logic-001)
+	- [入力バリデーション (Input Validation) (IOT-DES-INPV)](#input-validation-iot-des-inpv)
+		- [不十分な入力バリデーション (Insufficient Input Validation) (IOT-DES-INPV-001)](#insufficient-input-validation-iot-des-inpv-001)
+		- [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-DES-INPV-002)](#code-or-command-injection-iot-des-inpv-002)
 
 
 
@@ -60,13 +56,14 @@ Depending on the access model for a given device, only certain individuals might
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i></td>
+		<th>Authorization</th>
+		<td><i>AA-1</i></td>
 	</tr>
 </table>
+
 **要旨**
 
-Depending on the specific implementation of a given device, access to a data exchange service might be restricted to individuals with a certain logical access level, e.g., *LA-2*, *LA-3* or *LA-4*. If the device fails to correctly verify access permissions, any attacker (*LA-1*) might be able to get access.
+Depending on the specific implementation of a given device, access to a data exchange service might be restricted to individuals with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, any attacker (*AA-1*) might be able to get access.
 
 **テスト目的**
 
@@ -101,13 +98,14 @@ For this test case, data from the following sources was consolidated:
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-2</i> - <i>LA-3</i><br>(depending on the access model for the given device)</td>
+		<th>Authorization</th>
+		<td><i>AA-2</i> - <i>AA-3</i><br>(depending on the access model for the given device)</td>
 	</tr>
 </table>
+
 **要旨**
 
-Depending on the specific implementation of a given device, access to some functionalities via a data exchange service might be restricted to individuals with a certain logical access level, e.g., *LA-3* or *LA-4*. If the device fails to correctly verify access permissions, an attacker with a lower logical access level than intended might be able to get access to the restricted functionalities.
+Depending on the specific implementation of a given device, access to some functionalities via a data exchange service might be restricted to individuals with a certain authorization access level, e.g., *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, an attacker with a lower authorization access level than intended might be able to get access to the restricted functionalities.
 
 **テスト目的**
 
@@ -115,7 +113,7 @@ Depending on the specific implementation of a given device, access to some funct
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required logical access levels.
+Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required access levels.
 
 **参考情報**
 
@@ -140,10 +138,11 @@ Data exchange service might disclose various information, which could reveal det
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
+
 **要旨**
 
 If details about the implementation, e.g., algorithms in use or the authentication procedure, are available to potential attackers, flaws and entry points for successful attacks are easier to detect. While the disclosure of such details alone is not considered to be a vulnerability, it facilitates the identification of potential attack vectors, thus allowing an attacker to exploit insecure implementations faster.
@@ -186,10 +185,11 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
+
 **要旨**
 
 A data exchange service might disclose information about the surrounding IoT ecosystem, e.g., sensitive URLs, IP addresses, software in use etc. An attacker might be able to use this information to prepare and execute attacks against the ecosystem.
@@ -226,10 +226,11 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
+
 **要旨**
 
 During runtime, a device is accumulating and processing data of different kinds, such as personal data of its users. If this data is disclosed, an attacker might be able to get access to it.
@@ -270,8 +271,8 @@ Since IoT devices can have a long lifespan, it is important to make sure that th
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
 
@@ -312,8 +313,8 @@ This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-out
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
 
@@ -358,8 +359,8 @@ IoT devices are often operated outside of the control space of their manufacture
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
 
@@ -401,8 +402,8 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely s
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
 
@@ -450,8 +451,8 @@ Even if all other aspects of the data exchange service are securely implemented 
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
 
@@ -479,11 +480,11 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## 入力バリデーション (Input Validation) (IOT-DES-INVAL)
+## 入力バリデーション (Input Validation) (IOT-DES-INPV)
 
 In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
 
-### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-DES-INVAL-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-DES-INPV-001)
 
 **必要なアクセスレベル**
 
@@ -493,8 +494,8 @@ In order to ensure that only valid and well-formed data enters the processing fl
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
 
@@ -522,7 +523,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-DES-INVAL-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-DES-INPV-002)
 
 **必要なアクセスレベル**
 
@@ -532,8 +533,8 @@ For this test case, data from the following sources was consolidated:
  <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
 	</tr>
 	<tr valign="top">
-		<th>Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device) </td>
+		<th>Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
 	</tr>
 </table>
 
@@ -543,7 +544,7 @@ If no input validation is performed or only an insufficient input validation mec
 
 **テスト目的**
 
-- Based on [IOT-DES-INVAL-001](#insufficient-input-validation-iot-des-inval-001), it must be checked whether it is possible to submit code or commands, which are then executed by the system.
+- Based on [IOT-DES-INPV-001](#insufficient-input-validation-iot-des-inpv-001), it must be checked whether it is possible to submit code or commands, which are then executed by the system.
 
 **対応策**
 
