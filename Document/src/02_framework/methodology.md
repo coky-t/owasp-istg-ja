@@ -166,7 +166,7 @@ Another way to expand the catalog is to add custom components, categories and te
             <td>Business Logic</td>
         </tr>
         <tr>
-            <td>IOT-*-INVAL</td>
+            <td>IOT-*-INPV</td>
             <td>Input Validation</td>
         </tr>
         <tr>
@@ -221,4 +221,3 @@ Each individual test case, which is represented by a leaf node, is divided into 
 [bsi_pentest]: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/Penetration/penetration_pdf.pdf?__blob=publicationFile&v=1	"Study: A Penetration Testing Model"
 [nvd]: https://nvd.nist.gov	"National Vulnerability Database"
 [owasp_fuzzing]: https://owasp.org/www-community/Fuzzing	"Fuzzing"
-
