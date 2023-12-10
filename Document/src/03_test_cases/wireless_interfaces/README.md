@@ -1,26 +1,28 @@
 # 3.7. 無線インタフェース (Wireless Interfaces) (IOT-WRLS)
 
 ## 目次
-* [概要](#overview)
-* [認可 (Authorization) (IOT-WRLS-AUTHZ)](#authorization-iot-wrls-authz)
-  * [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-WRLS-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-wrls-authz-001)
-  * [権限昇格 (Privilege Escalation) (IOT-WRLS-AUTHZ-002)](#privilege-escalation-iot-wrls-authz-002)
-* [情報収集 (Information Gathering) (IOT-WRLS-INFO)](#information-gathering-iot-wrls-info)
-  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-WRLS-INFO-001)](#disclosure-of-implementation-details-iot-wrls-info-001)
-  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-WRLS-INFO-002)](#disclosure-of-ecosystem-details-iot-wrls-info-002)
-  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-WRLS-INFO-003)](#disclosure-of-user-data-iot-wrls-info-003)
-* [構成とパッチ管理 (Configuration and Patch Management) (IOT-WRLS-CONF)](#configuration-and-patch-management-iot-wrls-conf)
-  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-WRLS-CONF-001)](#usage-of-outdated-software-iot-wrls-conf-001)
-  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-WRLS-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-wrls-conf-002)
-* [シークレット (Secrets) (IOT-WRLS-SCRT)](#secrets-iot-wrls-scrt)
-  * [機密データへのアクセス (Access to Confidential Data) (IOT-WRLS-SCRT-001)](#access-to-confidential-data-iot-wrls-scrt-001)
-* [暗号技術 (Cryptography) (IOT-WRLS-CRYPT)](#cryptography-iot-wrls-crypt)
-  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-WRLS-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-wrls-crypt-001)
-* [ビジネスロジック (Business Logic) (IOT-WRLS-LOGIC)](#business-logic-iot-wrls-logic)
-  * [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-WRLS-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-wrls-logic-001)
-* [入力バリデーション (Input Validation) (IOT-WRLS-INVAL)](#input-validation-iot-wrls-inval)
-  * [不十分な入力バリデーション (Insufficient Input Validation) (IOT-WRLS-INVAL-001)](#insufficient-input-validation-iot-wrls-inval-001)
-  * [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-WRLS-INVAL-002)](#code-or-command-injection-iot-wrls-inval-002)
+- [3.7. 無線インタフェース (Wireless Interfaces) (IOT-WRLS)](#37-wireless-interfaces-iot-wrls)
+	- [目次](#table-of-contents)
+	- [概要](#overview)
+	- [認可 (Authorization) (IOT-WRLS-AUTHZ)](#authorization-iot-wrls-authz)
+		- [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-WRLS-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-wrls-authz-001)
+		- [権限昇格 (Privilege Escalation) (IOT-WRLS-AUTHZ-002)](#privilege-escalation-iot-wrls-authz-002)
+	- [情報収集 (Information Gathering) (IOT-WRLS-INFO)](#information-gathering-iot-wrls-info)
+		- [実装内容の開示 (Disclosure of Implementation Details) (IOT-WRLS-INFO-001)](#disclosure-of-implementation-details-iot-wrls-info-001)
+		- [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-WRLS-INFO-002)](#disclosure-of-ecosystem-details-iot-wrls-info-002)
+		- [ユーザーデータの開示 (Disclosure of User Data) (IOT-WRLS-INFO-003)](#disclosure-of-user-data-iot-wrls-info-003)
+	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-WRLS-CONF)](#configuration-and-patch-management-iot-wrls-conf)
+		- [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-WRLS-CONF-001)](#usage-of-outdated-software-iot-wrls-conf-001)
+		- [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-WRLS-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-wrls-conf-002)
+	- [シークレット (Secrets) (IOT-WRLS-SCRT)](#secrets-iot-wrls-scrt)
+		- [機密データへのアクセス (Access to Confidential Data) (IOT-WRLS-SCRT-001)](#access-to-confidential-data-iot-wrls-scrt-001)
+	- [暗号技術 (Cryptography) (IOT-WRLS-CRYPT)](#cryptography-iot-wrls-crypt)
+		- [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-WRLS-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-wrls-crypt-001)
+	- [ビジネスロジック (Business Logic) (IOT-WRLS-LOGIC)](#business-logic-iot-wrls-logic)
+		- [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-WRLS-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-wrls-logic-001)
+	- [入力バリデーション (Input Validation) (IOT-WRLS-INPV)](#input-validation-iot-wrls-inpv)
+		- [不十分な入力バリデーション (Insufficient Input Validation) (IOT-WRLS-INPV-001)](#insufficient-input-validation-iot-wrls-inpv-001)
+		- [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-WRLS-INPV-002)](#code-or-command-injection-iot-wrls-inpv-002)
 
 
 
@@ -60,12 +62,13 @@ Depending on the access model for a given device, only certain individuals might
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i></tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i></tr>
 </table>
+
 **要旨**
 
-Depending on the specific implementation of a given device, access to a wireless interface might be restricted to individuals with a certain logical access level, e.g., *LA-2*, *LA-3* or *LA-4*. If the device fails to correctly verify access permissions, any attacker (*LA-1*) might be able to get access.
+Depending on the specific implementation of a given device, access to a wireless interface might be restricted to individuals with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, any attacker (*AA-1*) might be able to get access.
 
 **テスト目的**
 
@@ -98,13 +101,13 @@ This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-2</i> - <i>LA-3</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-2</i> - <i>AA-3</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to some functionalities via a wireless interface might be restricted to individuals with a certain logical access level, e.g., *LA-3* or *LA-4*. If the interface fails to correctly verify access permissions, an attacker with a lower logical access level than intended might be able to get access to the restricted functionalities.
+Depending on the specific implementation of a given device, access to some functionalities via a wireless interface might be restricted to individuals with a certain authorization access level, e.g., *AA-3* or *AA-4*. If the interface fails to correctly verify access permissions, an attacker with a lower authorization access level than intended might be able to get access to the restricted functionalities.
 
 **テスト目的**
 
@@ -112,7 +115,7 @@ Depending on the specific implementation of a given device, access to some funct
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required logical access levels.
+Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required access levels.
 
 **参考情報**
 
@@ -141,8 +144,8 @@ Wireless interface might disclose various information, which could reveal detail
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -186,8 +189,8 @@ This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-o
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -225,8 +228,8 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -268,8 +271,8 @@ Since IoT devices can have a long lifespan, it is important to make sure that th
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -311,8 +314,8 @@ This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-out
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -358,8 +361,8 @@ IoT devices are often operated outside of the control space of their manufacture
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -401,8 +404,8 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely s
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -450,8 +453,8 @@ Even if all other aspects of the wireless interface are securely implemented and
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -480,11 +483,11 @@ This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README
 
 
 
-## 入力バリデーション (Input Validation) (IOT-WRLS-INVAL)
+## 入力バリデーション (Input Validation) (IOT-WRLS-INPV)
 
 In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
 
-### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-WRLS-INVAL-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-WRLS-INPV-001)
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -493,8 +496,8 @@ In order to ensure that only valid and well-formed data enters the processing fl
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -521,9 +524,9 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-INVAL-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inval-001).
+This test case is based on: [IOT-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inpv-001).
 
-### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-WRLS-INVAL-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-WRLS-INPV-002)
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -532,8 +535,8 @@ This test case is based on: [IOT-DES-INVAL-001](../data_exchange_services/README
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -542,7 +545,7 @@ If no input validation is performed or only an insufficient input validation mec
 
 **テスト目的**
 
-- Based on [IOT-WRLS-INVAL-001](#insufficient-input-validation-iot-wrls-inval-001), it must be checked whether it is possible to submit code or commands, which are then executed by the system.
+- Based on [IOT-WRLS-INPV-001](#insufficient-input-validation-iot-wrls-inpv-001), it must be checked whether it is possible to submit code or commands, which are then executed by the system.
 
 **対応策**
 
@@ -558,7 +561,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-INVAL-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inval-002).
+This test case is based on: [IOT-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inpv-002).
 
 
 
