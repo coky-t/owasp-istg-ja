@@ -1,26 +1,28 @@
 # 3.6. 物理インタフェース (Physical Interfaces) (IOT-PHY)
 
 ## 目次
-* [概要](#overview)
-* [認可 (Authorization) (IOT-PHY-AUTHZ)](#authorization-iot-phy-authz)
-  * [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-phy-authz-001)
-  * [権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)](#privilege-escalation-iot-phy-authz-002)
-* [情報収集 (Information Gathering) (IOT-PHY-INFO)](#information-gathering-iot-phy-info)
-  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)](#disclosure-of-implementation-details-iot-phy-info-001)
-  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)](#disclosure-of-ecosystem-details-iot-phy-info-002)
-  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)](#disclosure-of-user-data-iot-phy-info-003)
-* [構成とパッチ管理 (Configuration and Patch Management) (IOT-PHY-CONF)](#configuration-and-patch-management-iot-phy-conf)
-  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)](#usage-of-outdated-software-iot-phy-conf-001)
-  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-phy-conf-002)
-* [シークレット (Secrets) (IOT-PHY-SCRT)](#secrets-iot-phy-scrt)
-  * [機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)](#access-to-confidential-data-iot-phy-scrt-001)
-* [暗号技術 (Cryptography) (IOT-PHY-CRYPT)](#cryptography-iot-phy-crypt)
-  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-phy-crypt-001)
-* [ビジネスロジック (Business Logic) (IOT-PHY-LOGIC)](#business-logic-iot-phy-logic)
-  * [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-phy-logic-001)
-* [入力バリデーション (Input Validation) (IOT-PHY-INVAL)](#input-validation-iot-phy-inval)
-  * [不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INVAL-001)](#insufficient-input-validation-iot-phy-inval-001)
-  * [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INVAL-002)](#code-or-command-injection-iot-phy-inval-002)
+- [3.6. 物理インタフェース (Physical Interfaces) (IOT-PHY)](#36-physical-interfaces-iot-phy)
+	- [目次](#table-of-contents)
+	- [概要](#overview)
+	- [認可 (Authorization) (IOT-PHY-AUTHZ)](#authorization-iot-phy-authz)
+		- [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-phy-authz-001)
+		- [権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)](#privilege-escalation-iot-phy-authz-002)
+	- [情報収集 (Information Gathering) (IOT-PHY-INFO)](#information-gathering-iot-phy-info)
+		- [実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)](#disclosure-of-implementation-details-iot-phy-info-001)
+		- [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)](#disclosure-of-ecosystem-details-iot-phy-info-002)
+		- [ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)](#disclosure-of-user-data-iot-phy-info-003)
+	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-PHY-CONF)](#configuration-and-patch-management-iot-phy-conf)
+		- [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)](#usage-of-outdated-software-iot-phy-conf-001)
+		- [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-phy-conf-002)
+	- [シークレット (Secrets) (IOT-PHY-SCRT)](#secrets-iot-phy-scrt)
+		- [機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)](#access-to-confidential-data-iot-phy-scrt-001)
+	- [暗号技術 (Cryptography) (IOT-PHY-CRYPT)](#cryptography-iot-phy-crypt)
+		- [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-phy-crypt-001)
+	- [ビジネスロジック (Business Logic) (IOT-PHY-LOGIC)](#business-logic-iot-phy-logic)
+		- [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-phy-logic-001)
+	- [入力バリデーション (Input Validation) (IOT-PHY-INPV)](#input-validation-iot-phy-inpv)
+		- [不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INPV-001)](#insufficient-input-validation-iot-phy-inpv-001)
+		- [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INPV-002)](#code-or-command-injection-iot-phy-inpv-002)
 
 
 
@@ -60,14 +62,14 @@ Depending on the access model for a given device, only certain individuals might
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i></tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i></tr>
 </table>
 
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to a physical interface might be restricted to individuals with a certain logical access level, e.g., *LA-2*, *LA-3* or *LA-4*. If the device fails to correctly verify access permissions, any attacker (*LA-1*) might be able to get access.
+Depending on the specific implementation of a given device, access to a physical interface might be restricted to individuals with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, any attacker (*AA-1*) might be able to get access.
 
 **テスト目的**
 
@@ -97,13 +99,13 @@ This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-2</i> - <i>LA-3</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-2</i> - <i>AA-3</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to some functionalities via a physical interface might be restricted to individuals with a certain logical access level, e.g., *LA-3* or *LA-4*. If the interface fails to correctly verify access permissions, an attacker with a lower logical access level than intended might be able to get access to the restricted functionalities.
+Depending on the specific implementation of a given device, access to some functionalities via a physical interface might be restricted to individuals with a certain authorization access level, e.g., *AA-3* or *AA-4*. If the interface fails to correctly verify access permissions, an attacker with a lower authorization access level than intended might be able to get access to the restricted functionalities.
 
 **テスト目的**
 
@@ -111,7 +113,7 @@ Depending on the specific implementation of a given device, access to some funct
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required logical access levels.
+Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required access levels.
 
 **参考情報**
 
@@ -137,8 +139,8 @@ Physical interfaces might disclose various information, which could reveal detai
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -179,8 +181,8 @@ This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-o
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -215,8 +217,8 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -255,8 +257,8 @@ Since IoT devices can have a long lifespan, it is important to make sure that th
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -295,8 +297,8 @@ This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-out
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -339,8 +341,8 @@ IoT devices are often operated outside of the control space of their manufacture
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -379,8 +381,8 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely s
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -425,8 +427,8 @@ Even if all other aspects of the physical interface are securely implemented and
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -452,11 +454,11 @@ This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README
 
 
 
-## 入力バリデーション (Input Validation) (IOT-PHY-INVAL)
+## 入力バリデーション (Input Validation) (IOT-PHY-INPV)
 
 In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
 
-### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INVAL-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INPV-001)
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -465,8 +467,8 @@ In order to ensure that only valid and well-formed data enters the processing fl
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -490,9 +492,9 @@ For this test case, data from the following sources was consolidated:
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-INVAL-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inval-001).
+This test case is based on: [IOT-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inpv-001).
 
-### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INVAL-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INPV-002)
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -501,8 +503,8 @@ This test case is based on: [IOT-DES-INVAL-001](../data_exchange_services/README
  <td><i>PA-2</i> - <i>PA-4</i><br>(depending on whether the interface is connected to a network or not)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Logical</th>
-		<td><i>LA-1</i> - <i>LA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">Authorization</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
 </table>
 
 **要旨**
@@ -511,7 +513,7 @@ If no input validation is performed or only an insufficient input validation mec
 
 **テスト目的**
 
-- Based on [IOT-PHY-INVAL-001](#insufficient-input-validation-iot-phy-inval-001), it must be checked whether it is possible to submit code or commands, which are then executed by the system.
+- Based on [IOT-PHY-INPV-001](#insufficient-input-validation-iot-phy-inpv-001), it must be checked whether it is possible to submit code or commands, which are then executed by the system.
 
 **対応策**
 
@@ -524,7 +526,7 @@ For this test case, data from the following sources was consolidated:
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-INVAL-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inval-002).
+This test case is based on: [IOT-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inpv-002).
 
 
 
