@@ -113,7 +113,7 @@ Depending on the specific implementation of a given device, access to some funct
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required access levels.
+Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required authorization access levels.
 
 **参考情報**
 
