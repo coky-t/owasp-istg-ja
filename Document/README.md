@@ -8,7 +8,9 @@ OWASP IoT セキュリティテストガイドは IoT 分野におけるペネ�
 
 ![コンポーネント概要](./src/img/Component_Overview.png)
 
-🔔[OWASP ISTG を読むにはここをクリック 📖📚]( https://owasp.org/owasp-istg/)🔔
+- 🔔[OWASP ISTG を読むにはここをクリック 📖📚]( https://owasp.org/owasp-istg/)🔔
+- ✅ [最新のISTG チェックリストを入手する](https://github.com/OWASP/owasp-istg/tree/main/checklists)✅ 
+- 📝 🔍 [ISTG に貢献する](https://owasp.org/www-project-iot-security-testing-guide/#div-contributing)
 
 ## 目次
 
