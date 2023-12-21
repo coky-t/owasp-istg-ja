@@ -5,24 +5,24 @@
 	- [目次](#table-of-contents)
 	- [概要](#overview)
 	- [認可 (Authorization) (IOT-UI-AUTHZ)](#authorization-iot-ui-authz)
-		- [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-UI-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-ui-authz-001)
-		- [権限昇格 (Privilege Escalation) (IOT-UI-AUTHZ-002)](#privilege-escalation-iot-ui-authz-002)
+	  - [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-UI-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-ui-authz-001)
+	  - [権限昇格 (Privilege Escalation) (IOT-UI-AUTHZ-002)](#privilege-escalation-iot-ui-authz-002)
 	- [情報収集 (Information Gathering) (IOT-UI-INFO)](#information-gathering-iot-ui-info)
-		- [実装内容の開示 (Disclosure of Implementation Details) (IOT-UI-INFO-001)](#disclosure-of-implementation-details-iot-ui-info-001)
-		- [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-UI-INFO-002)](#disclosure-of-ecosystem-details-iot-ui-info-002)
-		- [ユーザーデータの開示 (Disclosure of User Data) (IOT-UI-INFO-003)](#disclosure-of-user-data-iot-ui-info-003)
+	  - [実装内容の開示 (Disclosure of Implementation Details) (IOT-UI-INFO-001)](#disclosure-of-implementation-details-iot-ui-info-001)
+	  - [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-UI-INFO-002)](#disclosure-of-ecosystem-details-iot-ui-info-002)
+	  - [ユーザーデータの開示 (Disclosure of User Data) (IOT-UI-INFO-003)](#disclosure-of-user-data-iot-ui-info-003)
 	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-UI-CONF)](#configuration-and-patch-management-iot-ui-conf)
-		- [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-UI-CONF-001)](#usage-of-outdated-software-iot-ui-conf-001)
-		- [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-UI-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-ui-conf-002)
+	  - [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-UI-CONF-001)](#usage-of-outdated-software-iot-ui-conf-001)
+	  - [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-UI-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-ui-conf-002)
 	- [シークレット (Secrets) (IOT-UI-SCRT)](#secrets-iot-ui-scrt)
-		- [機密データへのアクセス (Access to Confidential Data) (IOT-UI-SCRT-001)](#access-to-confidential-data-iot-ui-scrt-001)
+	  - [機密データへのアクセス (Access to Confidential Data) (IOT-UI-SCRT-001)](#access-to-confidential-data-iot-ui-scrt-001)
 	- [暗号技術 (Cryptography) (IOT-UI-CRYPT)](#cryptography-iot-ui-crypt)
-		- [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-UI-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-ui-crypt-001)
+	  - [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-UI-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-ui-crypt-001)
 	- [ビジネスロジック (Business Logic) (IOT-UI-LOGIC)](#business-logic-iot-ui-logic)
-		- [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-UI-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-ui-logic-001)
+	  - [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-UI-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-ui-logic-001)
 	- [入力バリデーション (Input Validation) (IOT-UI-INPV)](#input-validation-iot-ui-inpv)
-		- [不十分な入力バリデーション (Insufficient Input Validation) (IOT-UI-INPV-001)](#insufficient-input-validation-iot-ui-inpv-001)
-		- [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-UI-INPV-002)](#code-or-command-injection-iot-ui-inpv-002)
+	  - [不十分な入力バリデーション (Insufficient Input Validation) (IOT-UI-INPV-001)](#insufficient-input-validation-iot-ui-inpv-001)
+	  - [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-UI-INPV-002)](#code-or-command-injection-iot-ui-inpv-002)
 
 
 
@@ -158,12 +158,12 @@ For example, relevant information might be included in service banners, response
 **テスト目的**
 
 - Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
+  - Cryptographic algorithms in use
 
- - Cryptographic algorithms in use
+  - Authentication and authorization mechanisms
 
- - Authentication and authorization mechanisms
+  - Local paths and environment details
 
- - Local paths and environment details
 
 **対応策**
 
