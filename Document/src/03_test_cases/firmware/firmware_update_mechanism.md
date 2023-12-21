@@ -257,7 +257,7 @@ Some manufacturers implement a rollback protection for their devices. This rollb
 
 **テスト目的**
 
-- It must has to be assessed whether it is possible to install older versions of the firmware.
+- It has to be assessed whether it is possible to install older versions of the firmware.
 
 **対応策**
 
