@@ -98,12 +98,12 @@ If details about the implementation, e.g., algorithms in use or the authenticati
 **テスト目的**
 
 - Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
+  - Cryptographic algorithms in use
 
- - Cryptographic algorithms in use
+  - Authentication and authorization mechanism
 
- - Authentication and authorization mechanism
+  - Local paths and environment details
 
- - Local paths and environment details
 
 **対応策**
 
