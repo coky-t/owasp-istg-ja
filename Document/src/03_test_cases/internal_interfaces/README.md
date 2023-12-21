@@ -5,24 +5,24 @@
 	- [目次](#table-of-contents)
 	- [概要](#overview)
 	- [認可 (Authorization) (IOT-INT-AUTHZ)](#authorization-iot-int-authz)
-		- [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-INT-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-int-authz-001)
-		- [権限昇格 (Privilege Escalation) (IOT-INT-AUTHZ-002)](#privilege-escalation-iot-int-authz-002)
+	  - [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-INT-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-int-authz-001)
+	  - [権限昇格 (Privilege Escalation) (IOT-INT-AUTHZ-002)](#privilege-escalation-iot-int-authz-002)
 	- [情報収集 (Information Gathering) (IOT-INT-INFO)](#information-gathering-iot-int-info)
-		- [実装内容の開示 (Disclosure of Implementation Details) (IOT-INT-INFO-001)](#disclosure-of-implementation-details-iot-int-info-001)
-		- [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-INT-INFO-002)](#disclosure-of-ecosystem-details-iot-int-info-002)
-		- [ユーザーデータの開示 (Disclosure of User Data) (IOT-INT-INFO-003)](#disclosure-of-user-data-iot-int-info-003)
+	  - [実装内容の開示 (Disclosure of Implementation Details) (IOT-INT-INFO-001)](#disclosure-of-implementation-details-iot-int-info-001)
+	  - [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-INT-INFO-002)](#disclosure-of-ecosystem-details-iot-int-info-002)
+	  - [ユーザーデータの開示 (Disclosure of User Data) (IOT-INT-INFO-003)](#disclosure-of-user-data-iot-int-info-003)
 	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-INT-CONF)](#configuration-and-patch-management-iot-int-conf)
-		- [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-INT-CONF-001)](#usage-of-outdated-software-iot-int-conf-001)
-		- [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-INT-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-int-conf-002)
+	  - [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-INT-CONF-001)](#usage-of-outdated-software-iot-int-conf-001)
+	  - [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-INT-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-int-conf-002)
 	- [シークレット (Secrets) (IOT-INT-SCRT)](#secrets-iot-int-scrt)
-		- [機密データへのアクセス (Access to Confidential Data) (IOT-INT-SCRT-001)](#access-to-confidential-data-iot-int-scrt-001)
+	  - [機密データへのアクセス (Access to Confidential Data) (IOT-INT-SCRT-001)](#access-to-confidential-data-iot-int-scrt-001)
 	- [暗号技術 (Cryptography) (IOT-INT-CRYPT)](#cryptography-iot-int-crypt)
-		- [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-INT-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-int-crypt-001)
+	  - [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-INT-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-int-crypt-001)
 	- [ビジネスロジック (Business Logic) (IOT-INT-LOGIC)](#business-logic-iot-int-logic)
-		- [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-INT-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-int-logic-001)
+	  - [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-INT-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-int-logic-001)
 	- [入力バリデーション (Input Validation) (IOT-INT-INPV)](#input-validation-iot-int-inpv)
-		- [不十分な入力バリデーション (Insufficient Input Validation) (IOT-INT-INPV-001)](#insufficient-input-validation-iot-int-inpv-001)
-		- [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-INT-INPV-002)](#code-or-command-injection-iot-int-inpv-002)
+	  - [不十分な入力バリデーション (Insufficient Input Validation) (IOT-INT-INPV-001)](#insufficient-input-validation-iot-int-inpv-001)
+	  - [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-INT-INPV-002)](#code-or-command-injection-iot-int-inpv-002)
 
 
 
@@ -148,12 +148,12 @@ For example, relevant information might be included in service banners, console 
 **テスト目的**
 
 - Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
+  - Cryptographic algorithms in use
 
- - Cryptographic algorithms in use
+  - Authentication and authorization mechanisms
 
- - Authentication and authorization mechanisms
+  - Local paths and environment details
 
- - Local paths and environment details
 
 **対応策**
 
