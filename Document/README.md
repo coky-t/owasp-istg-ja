@@ -1,3 +1,5 @@
+<a href="https://owasp.org/owasp-istg/"><img width="180px" align="right" style="float: right;" src="src/img/istg_cover.png"></a>
+
 # OWASP IoT セキュリティテストガイド (OWASP IoT Security Testing Guide)
 
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
@@ -6,11 +8,18 @@ OWASP IoT セキュリティテストガイドは IoT 分野におけるペネ�
 
 セキュリティ保証とテストカバレッジは、以下の IoT コンポーネントとそれぞれに適用されるテストケースカテゴリの概要で示すことができます。方法論、基礎となるモデル、テストケースのカタログは、個別に使用することも互いに連携して使用することもできるツールを提示します。
 
-![コンポーネント概要](./src/img/Component_Overview.png)
+
+
+![コンポーネント概要](src/img/Component_Overview.png)
+
+
+
 
 - 🔔[OWASP ISTG を読むにはここをクリック 📖📚]( https://owasp.org/owasp-istg/)🔔
 - ✅ [最新のISTG チェックリストを入手する](https://github.com/OWASP/owasp-istg/tree/main/checklists)✅ 
 - 📝 🔍 [ISTG に貢献する](https://owasp.org/www-project-iot-security-testing-guide/#div-contributing)
+
+
 
 ## 目次
 
