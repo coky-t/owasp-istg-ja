@@ -5,24 +5,24 @@
 	- [目次](#table-of-contents)
 	- [概要](#overview)
 	- [認可 (Authorization) (IOT-PHY-AUTHZ)](#authorization-iot-phy-authz)
-		- [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-phy-authz-001)
-		- [権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)](#privilege-escalation-iot-phy-authz-002)
+	  - [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-phy-authz-001)
+	  - [権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)](#privilege-escalation-iot-phy-authz-002)
 	- [情報収集 (Information Gathering) (IOT-PHY-INFO)](#information-gathering-iot-phy-info)
-		- [実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)](#disclosure-of-implementation-details-iot-phy-info-001)
-		- [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)](#disclosure-of-ecosystem-details-iot-phy-info-002)
-		- [ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)](#disclosure-of-user-data-iot-phy-info-003)
+	  - [実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)](#disclosure-of-implementation-details-iot-phy-info-001)
+	  - [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)](#disclosure-of-ecosystem-details-iot-phy-info-002)
+	  - [ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)](#disclosure-of-user-data-iot-phy-info-003)
 	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-PHY-CONF)](#configuration-and-patch-management-iot-phy-conf)
-		- [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)](#usage-of-outdated-software-iot-phy-conf-001)
-		- [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-phy-conf-002)
+	  - [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)](#usage-of-outdated-software-iot-phy-conf-001)
+	  - [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-phy-conf-002)
 	- [シークレット (Secrets) (IOT-PHY-SCRT)](#secrets-iot-phy-scrt)
-		- [機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)](#access-to-confidential-data-iot-phy-scrt-001)
+	  - [機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)](#access-to-confidential-data-iot-phy-scrt-001)
 	- [暗号技術 (Cryptography) (IOT-PHY-CRYPT)](#cryptography-iot-phy-crypt)
-		- [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-phy-crypt-001)
+	  - [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-phy-crypt-001)
 	- [ビジネスロジック (Business Logic) (IOT-PHY-LOGIC)](#business-logic-iot-phy-logic)
-		- [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-phy-logic-001)
+	  - [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-phy-logic-001)
 	- [入力バリデーション (Input Validation) (IOT-PHY-INPV)](#input-validation-iot-phy-inpv)
-		- [不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INPV-001)](#insufficient-input-validation-iot-phy-inpv-001)
-		- [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INPV-002)](#code-or-command-injection-iot-phy-inpv-002)
+	  - [不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INPV-001)](#insufficient-input-validation-iot-phy-inpv-001)
+	  - [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INPV-002)](#code-or-command-injection-iot-phy-inpv-002)
 
 
 
@@ -152,12 +152,12 @@ For example, relevant information might be included in service banners, response
 **テスト目的**
 
 - Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
+  - Cryptographic algorithms in use
 
- - Cryptographic algorithms in use
+  - Authentication and authorization mechanisms
 
- - Authentication and authorization mechanisms
+  - Local paths and environment details
 
- - Local paths and environment details
 
 **対応策**
 
