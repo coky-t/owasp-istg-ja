@@ -128,7 +128,7 @@
 
 ## 情報収集 (Information Gathering) (IOT-PHY-INFO)
 
-Physical interfaces might disclose various information, which could reveal details regarding the inner workings of the device or the surrounding IoT ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
+物理インタフェースはさまざまな情報を開示する可能性があり、デバイスの内部動作や周囲の IoT エコシステムに関する詳細を潜在的な攻撃者に明らかにする可能性があります。これにより、さらに高度な攻撃が可能になり、より容易になります。
 
 ### 実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)
 **必要なアクセスレベル**
@@ -145,23 +145,23 @@ Physical interfaces might disclose various information, which could reveal detai
 
 **要旨**
 
-If details about the implementation, e.g., algorithms in use or the authentication procedure, are available to potential attackers, flaws and entry points for successful attacks are easier to detect. While the disclosure of such details alone is not considered to be a vulnerability, it facilitates the identification of potential attack vectors, thus allowing an attacker to exploit insecure implementations faster.
+使用されているアルゴリズムや認証手順など、実装に関する詳細が潜在的な攻撃者に入手されると、攻撃を成功させるための欠陥やエントリポイントを検出しやすくなります。このような詳細の開示だけでは脆弱性とはみなされませんが、潜在的な攻撃ベクトルの特定が容易になり、攻撃者が安全でない実装をより早く悪用できるようになります。
 
-For example, relevant information might be included in service banners, response headers or error messages.
+たとえば、関連情報がサービスバナー、レスポンスヘッダ、エラーメッセージに含まれるかもしれません。
 
 **テスト目的**
 
-- Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
-  - Cryptographic algorithms in use
+- さらなるテストを準備するために、実装に関するアクセス可能な詳細を評価しなければなりません。たとえば、これには以下があります。
+  - 使用されている暗号アルゴリズム
 
-  - Authentication and authorization mechanisms
+  - 認証および認可のメカニズム
 
-  - Local paths and environment details
+  - ローカルパスと環境の詳細
 
 
 **対応策**
 
-As mentioned above, the disclosure of such information is not considered a vulnerability. However, in order to impede exploitation attempts, only information, necessary for the device operation, should be displayed.
+前述のように、そのような情報の開示は脆弱性とはみなされません。しかし、悪用の試みを阻止するために、デバイス操作に必要な情報のみを表示すべきです。
 
 **参考情報**
 
@@ -170,7 +170,7 @@ As mentioned above, the disclosure of such information is not considered a vulne
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002).
+このテストケースは [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002) をベースとしています。
 
 ### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)
 **必要なアクセスレベル**
@@ -187,17 +187,17 @@ This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-o
 
 **要旨**
 
-A physical interface might disclose information about the surrounding IoT ecosystem, e.g., sensitive URLs, IP addresses, software in use etc. An attacker might be able to use this information to prepare and execute attacks against the ecosystem.
+物理インタフェースは、機密性の高い URL、IP アドレス、使用しているソフトウェアなど、周囲の IoT エコシステムに関する情報を開示するかもしれません。攻撃者はこの情報を使用して、エコシステムに対する攻撃を準備して実行できるかもしれません。
 
-For example, relevant information might be included in service banners, response headers or error messages.
+たとえば、関連情報がサービスバナー、レスポンスヘッダ、エラーメッセージに含まれるかもしれません。
 
 **テスト目的**
 
-- It must be determined if the physical interface discloses relevant information about the surrounding ecosystem.
+- 物理インタフェースが周囲のエコシステムに関する関連情報を開示するかどうかを判断しなければなりません。
 
 **対応策**
 
-The disclosure of information should be reduced to the minimum, which is required for operating the device. The disclosed information it has to be assessed and all unnecessarily included data should be removed.
+情報の開示はデバイスの操作に必要な最小限に抑えるべきです。開示された情報は評価され、含まれている不要なデータをすべて削除すべきです。
 
 **参考情報**
 
@@ -206,7 +206,7 @@ The disclosure of information should be reduced to the minimum, which is require
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
+このテストケースは [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003) をベースとしています。
 
 ### ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)
 **必要なアクセスレベル**
@@ -223,15 +223,15 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
 
 **要旨**
 
-During runtime, a device is accumulating and processing data of different kinds, such as personal data of its users. If this data is disclosed, an attacker might be able to get access to it.
+実行時に、デバイスはそのユーザーの個人データなどのさまざまな種類のデータを蓄積して処理しています。このデータが開示されると、攻撃者はデータにアクセスできるかもしれません。
 
 **テスト目的**
 
-- It has to be checked whether user data can be accessed by unauthorized individuals.
+- ユーザーデータが認可されていない個人によってアクセスできるかどうかをチェックする必要があります。
 
 **対応策**
 
-Access to user data should only be granted to individuals and processes that need to have access to it. No unauthorized or not properly authorized individual should be able to access user data.
+ユーザーデータへのアクセスは、そのデータにアクセスする必要がある個人およびプロセスにのみ許可されるべきです。認可されていない個人や適切な認可がない個人はユーザーデータにアクセスできるべきではありません。
 
 **参考情報**
 
@@ -240,7 +240,7 @@ Access to user data should only be granted to individuals and processes that nee
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-iot-fw[inst]-info-001).
+このテストケースは [IOT-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-iot-fw[inst]-info-001) をベースとしています。
 
 
 

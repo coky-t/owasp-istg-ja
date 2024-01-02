@@ -31,9 +31,9 @@
 
 ## 情報収集 (Information Gathering) (IOT-MEM-INFO)
 
-The memory of an IoT device can include various data, which, if disclosed, could reveal details regarding the inner workings of the device or the underlying IoT ecosystem to potential attackers. This could enable and facilitate further, more advanced attacks.
+IoT デバイスのメモリにはさまざまな情報を含む可能性があり、開示された場合、デバイスの内部動作や基盤となる IoT エコシステムに関する詳細を潜在的な攻撃者に明らかにする可能性があります。これにより、さらに高度な攻撃が可能になり、より容易になります。
 
-Tests on the device memory are performed by directly accessing the memory chips. Thus, invasive physical access (*PA-4*) is required while no user accounts are used (*AA-1*).
+デバイスメモリのテストはメモリチップに直接アクセスすることで実行されます。したがって、ユーザーアカウントは使用されず (*AA-1*)、侵入的な物理アクセス (*PA-4*) が必要になります。
 
 ### ソースコードの開示 (Disclosure of Source Code) (IOT-MEM-INFO-001)
 **必要なアクセスレベル**
@@ -50,23 +50,23 @@ Tests on the device memory are performed by directly accessing the memory chips.
 
 **要旨**
 
-The disclosure of uncompiled source code could accelerate the exploitation of the software implementation since vulnerabilities can be directly identified in the code without the need to perform tests in a trial and error manner. Furthermore, left-over source code might include internal development information, developer comments or hard-coded sensitive data, which were not intended for productive use.
+コンパイルされていないソースコードが開示されると、試行錯誤的な方法でテストを実行する必要なしでコード内の脆弱性を直接特定できるため、ソフトウェア実装の悪用を加速する可能性があります。さらに、残されたソースコードには、生産的な使用を目的としていない内部開発情報、開発者コメント、ハードコードされた機密データを含むかもしれません。
 
-Similar to uncompiled source code, compiled binaries might also disclose relevant information. However, reverse-engineering might be required to retrieve useful data, which could take a considerable amount of time. Thus, the tester has to assess which binaries might be worth analyzing, ideally in coordination with the device manufacturer.
+コンパイルされていないソースコードと同様に、コンパイルされたバイナリも関連情報を開示するかもしれません。しかし、有用なデータを取得するにはリバースエンジニアリングを必要とし、かなりの時間がかかる可能性があります。したがって、テスト担当者は、理想的にはデバイス製造業者と協力して、どのバイナリに解析する価値があるかを評価する必要があります。
 
 **テスト目的**
 
-- It must be checked if uncompiled source code can be identified within the device memory.
+- コンパイルされていないソースコードがデバイスメモリ内にあるかどうかをチェックしなければなりません。
 
-- If uncompiled source code is detected, its content must be analyzed for the presence of sensitive data, which might be useful for potential attackers.
+- コンパイルされていないソースコードが検出された場合、その内容に機密データの存在するかどうかを分析しなければなりません。これは潜在的な攻撃者に有用かもしれません。
 
-- Reverse-engineering of selected binaries should be performed in order to obtain useful information regarding the device implementation and the processing of sensitive data.
+- デバイス実装と機密データの処理に関する有用な情報を取得するには、選択したバイナリのリバースエンジニアリングを実行すべきです。
 
 **対応策**
 
-If possible, uncompiled source code should be removed from devices, intended for productive use. If the source code has to be included, it must be verified that all internal development data is removed before releasing the device.
+可能であれば、コンパイルされていないソースコードは生産的な使用を目的としたデバイスから削除すべきです。ソースコードを含める必要がある場合は、デバイスをリリースする前にすべての内部開発データが削除されていることを検証しなければなりません。
 
-Since it is not possible to prevent reverse-engineering completely, measures to restrict access to the device memory in general should be implemented to reduce the attack surface. Furthermore, the reverse-engineering process can be impeded, e.g., by obfuscating the code.
+リバースエンジニアリングを完全に防ぐことは不可能であるため、デバイスメモリへのアクセスを全般的に制限する対策を実装して、攻撃対象領域を減らすべきです。さらに、コードを難読化することなどで、リバースエンジニアリングプロセスを邪魔できます。
 
 **参考情報**
 
@@ -93,21 +93,21 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 
 **要旨**
 
-If details about the implementation, e.g., algorithms in use or the authentication procedure, are available to potential attackers, flaws and entry points for successful attacks are easier to detect. While the disclosure of such details alone is not considered to be a vulnerability, it facilitates the identification of potential attack vectors, thus allowing an attacker to exploit insecure implementations faster.
+使用されているアルゴリズムや認証手順など、実装に関する詳細が潜在的な攻撃者に入手されると、攻撃を成功させるための欠陥やエントリポイントを検出しやすくなります。このような詳細の開示だけでは脆弱性とはみなされませんが、潜在的な攻撃ベクトルの特定が容易になり、攻撃者が安全でない実装をより早く悪用できるようになります。
 
 **テスト目的**
 
-- Accessible details regarding the implementation must be assessed in order to prepare further tests. For example, this includes:
-  - Cryptographic algorithms in use
+- さらなるテストを準備するために、実装に関するアクセス可能な詳細を評価しなければなりません。たとえば、これには以下があります。
+  - 使用されている暗号アルゴリズム
 
-  - Authentication and authorization mechanism
+  - 認証および認可のメカニズム
 
-  - Local paths and environment details
+  - ローカルパスと環境の詳細
 
 
 **対応策**
 
-As mentioned above, the disclosure of such information is not considered a vulnerability. However, in order to impede exploitation attempts, only information necessary for the device operation should be stored on it.
+前述のように、そのような情報の開示は脆弱性とはみなされません。しかし、悪用の試みを阻止するために、デバイス操作に必要な情報のみを保存すべきです。
 
 **参考情報**
 
@@ -117,7 +117,7 @@ As mentioned above, the disclosure of such information is not considered a vulne
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["The IoT Hacker's Handbook"][iot_hackers_handbook] by Aditya Gupta
 
-This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002).
+このテストケースは [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002) をベースとしています。
 
 ### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-MEM-INFO-003)
 **必要なアクセスレベル**
@@ -134,17 +134,17 @@ This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-o
 
 **要旨**
 
-The contents of the device memory might disclose information about the surrounding IoT ecosystem, e.g., sensitive URLs, IP addresses, software in use etc. An attacker might be able to use this information to prepare and execute attacks against the ecosystem.
+デバイスメモリの内容は、機密性の高い URL、IP アドレス、使用しているソフトウェアなど、周囲の IoT エコシステムに関する情報を開示するかもしれません。攻撃者はこの情報を使用して、エコシステムに対する攻撃を準備して実行できるかもしれません。
 
-For example, relevant information might be included in files of various types like configuration files and text files.
+たとえば、関連情報が設定ファイルやテキストファイルなどのさまざまなタイプのファイルに含まれるかもしれません。
 
 **テスト目的**
 
-- It must be determined if the data stored in the device memory, e.g., configuration files, contain relevant information about the surrounding ecosystem.
+- 設定ファイルなど、デバイスメモリに保存されるデータが周囲のエコシステムに関する関連情報を含むかどうかを判断しなければなりません。
 
 **対応策**
 
-The disclosure of information should be reduced to the minimum, which is required for operating the device. The disclosed information has to be assessed and all unnecessarily included data should be removed.
+情報の開示はデバイスの操作に必要な最小限に抑えるべきです。開示された情報は評価され、含まれている不要なデータをすべて削除すべきです。
 
 **参考情報**
 
@@ -154,7 +154,7 @@ The disclosure of information should be reduced to the minimum, which is require
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["The IoT Hacker's Handbook"][iot_hackers_handbook] by Aditya Gupta
 
-This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003).
+このテストケースは [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003) をベースとしています。
 
 ### ユーザーデータの開示 Disclosure of User Data (IOT-MEM-INFO-004)
 **必要なアクセスレベル**
@@ -171,15 +171,15 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
 
 **要旨**
 
-During runtime, a device is accumulating and processing data of different kinds, such as personal data of its users. If this data is not stored securely, an attacker might be able to recover it from the device.
+実行時に、デバイスはそのユーザーの個人データなどのさまざまな種類のデータを蓄積して処理しています。このデータが安全に保存されないと、攻撃者はデバイスからデータを復元できるかもしれません。
 
 **テスト目的**
 
-- It has to be checked whether user data can be accessed by unauthorized individuals.
+- ユーザーデータが認可されていない個人によってアクセスできるかどうかをチェックする必要があります。
 
 **対応策**
 
-Access to user data should only be granted to individuals and processes that need to have access to it. No unauthorized or not properly authorized individual should be able to recover user data.
+ユーザーデータへのアクセスは、そのデータにアクセスする必要がある個人およびプロセスにのみ許可されるべきです。認可されていない個人や適切な認可がない個人はユーザーデータにアクセスできるべきではありません。
 
 **参考情報**
 
@@ -189,7 +189,7 @@ Access to user data should only be granted to individuals and processes that nee
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["The IoT Hacker's Handbook"][iot_hackers_handbook] by Aditya Gupta
 
-This test case is based on: [IOT-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-iot-fw[inst]-info-001).
+このテストケースは [IOT-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-iot-fw[inst]-info-001) をベースとしています。
 
 
 

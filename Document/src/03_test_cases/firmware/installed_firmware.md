@@ -99,7 +99,7 @@
 
 ## 情報収集 (Information Gathering) (IOT-FW[INST]-INFO)
 
-As mentioned above, during the dynamic analysis, it is also possible to test whether user data is securely stored on the device during runtime.
+前述したように、動的解析では、実行時にユーザーデータがデバイスに安全に保存されているかどうかをテストすることも可能です。
 
 ### ユーザーデータの開示 (Disclosure of User Data) (IOT-FW[INST]-INFO-001)
 
@@ -118,15 +118,15 @@ As mentioned above, during the dynamic analysis, it is also possible to test whe
 
 **要旨**
 
-During runtime, a device is accumulating and processing data of different kinds, such as personal data of its users. If this data is not stored securely, an attacker might be able to recover it from the device.
+実行時に、デバイスはそのユーザーの個人データなどのさまざまな種類のデータを蓄積して処理しています。このデータが安全に保存されないと、攻撃者はデバイスからデータを復元できるかもしれません。
 
 **テスト目的**
 
-- It has to be checked whether user data can be accessed by unauthorized individuals.
+- ユーザーデータが認可されていない個人によってアクセスできるかどうかをチェックする必要があります。
 
 **対応策**
 
-Access to user data should only be granted to individuals and processes that need to have access to it. No unauthorized or not properly authorized individual should be able to recover user data.
+ユーザーデータへのアクセスは、そのデータにアクセスする必要がある個人およびプロセスにのみ許可されるべきです。認可されていない個人や適切な認可がない個人はユーザーデータに復元できるべきではありません。
 
 **参考情報**
 

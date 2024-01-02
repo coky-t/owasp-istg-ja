@@ -1,6 +1,6 @@
 # サマリー
 
-[OWASP IoT セキュリティテストガイド](./README.md)
+[OWASP IoT セキュリティテストガイド](../README.md)
 [謝辞](../acknowledgements.md)
 [ライセンス](../LICENSE.md)
 
