@@ -22,13 +22,13 @@
 
 - **構成とパッチ管理 (Configuration and Patch Management) ([IOT-FW-CONF](./README.md#configuration-and-patch-management-iot-fw-conf))**: このカテゴリはファームウェアファイルの構成とパッチ管理の側面に焦点を当てています。[IOT-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
 
-- **Secrets ([IOT-FW-SCRT](./README.md#secrets-iot-fw-scrt))**: このカテゴリはファームウェアファイル内のシークレットの処理に焦点を当てています。[IOT-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
+- **シークレット (Secrets) ([IOT-FW-SCRT](./README.md#secrets-iot-fw-scrt))**: このカテゴリはファームウェアファイル内のシークレットの処理に焦点を当てています。[IOT-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
 
 
 
 ## 認可 (Authorization) (IOT-FW[UPDT]-AUTHZ)
 
-Since the test of the firmware update mechanism is also a dynamic analysis, it is possible to check if only authorized individuals can initialize and perform an update.
+ファームウェア更新メカニズムのテストは動的解析でもあるため、認可された個人のみが初期化および更新を実行できるかどうかをチェックすべきです。
 
 ### 認可されていないファームウェア更新 (Unauthorized Firmware Update) (IOT-FW[UPDT]-AUTHZ-001)
 
@@ -36,32 +36,32 @@ Since the test of the firmware update mechanism is also a dynamic analysis, it i
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-3</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-3</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, the permission to perform firmware updates might be restricted to individuals with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device firmware fails to correctly verify these permissions, any attacker (*AA-1*) or an attacker with a lower authorization access level than intended might be able to perform unintended firmware updates.
+特定のデバイスの具体的な実装によって、ファームウェア更新を実行するパーミッションは特定の認可アクセスレベル (*AA-2*, *AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。デバイスファームウェアがこれらのパーミッションを正しく検証できない場合、攻撃者 (*AA-1*) や意図したよりも低い認可アクセスレベルを持つ攻撃者が意図しないファームウェア更新を実行できるかもしれません。
 
 **テスト目的**
 
-- It must be checked if authorization checks for performing a firmware update are implemented.
+- ファームウェア更新の実行に対する認可チェックが実装されているかどうかをチェックしなければなりません。
 
-- In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
+- 認可チェックが行われている場合、それをバイパスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that a firmware update can only be performed by individuals with certain authorization access levels.
+適切な認可チェックが実装されている必要があり、ファームウェア更新は特定の認可アクセスレベルを持つ個人のみが実行できることを確保します。
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
@@ -78,12 +78,12 @@ During the firmware update process, cryptographic algorithms are used to verify 
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -105,7 +105,7 @@ A valid digital signature must be available for the firmware update package. Fur
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -118,12 +118,12 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -145,7 +145,7 @@ The firmware update package should be encrypted using state of the art cryptogra
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
@@ -160,12 +160,12 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -187,7 +187,7 @@ If feasible, the firmware update should be performed via a secure channel. Other
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -200,12 +200,12 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -223,7 +223,7 @@ The device must properly verify the digital signature of an update package befor
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -242,12 +242,12 @@ Even if all other aspects of the firmware update are securely implemented, issue
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -265,7 +265,7 @@ A proper rollback protection mechanism verifying that the firmware version to be
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH

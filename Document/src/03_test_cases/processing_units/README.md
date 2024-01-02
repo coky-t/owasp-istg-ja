@@ -29,7 +29,7 @@
 
 ## 認可 (Authorization) (IOT-PROC-AUTHZ)
 
-Depending on the access model for a given device, only certain individuals might be allowed to access a processing unit directly. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized entities can get access.
+特定のデバイスのアクセスモデルによっては、特定の個人のみが処理装置への直接アクセスを許可されるかもしれません。そのため、適切な認証と認可の手順を設け、認可されたエンティティのみがアクセスできるようにする必要があります。
 
 ### 処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (IOT-PROC-AUTHZ-001)
 
@@ -37,32 +37,32 @@ Depending on the access model for a given device, only certain individuals might
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to a processing unit might be restricted to entities with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, any attacker (*AA-1*) might be able to get access.
+特定のデバイスの具体的な実装によって、処理装置へのアクセスは特定の認可アクセスレベル (*AA-2*, *AA-3*, *AA-4* など) を持つエンティティに制限されるかもしれません。デバイスがアクセスパーミッションを正しく検証できない場合、攻撃者 (*AA-1*) がアクセスできるかもしれません。
 
 **テスト目的**
 
-- It must be checked if authorization checks for access to the processing unit are implemented.
+- 処理装置へのアクセスに対する認可チェックが実装されているかどうかをチェックしなければなりません。
 
-- In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
+- 認可チェックが行われている場合、それをバイパスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to the processing unit is only possible for authorized entities.
+適切な認可チェックが実装されている必要があり、処理装置へのアクセスは認可されたエンティティのみが可能であることを確保します。
 
 **参考情報**
 
-This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
+このテストケースは [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001) をベースとしています。
 
 ### 権限昇格 (Privilege Escalation) (IOT-PROC-AUTHZ-002)
 
@@ -70,30 +70,30 @@ This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
 		<td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-2</i> - <i>AA-3</i><br>(depending on the access model for the given device)</td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-2</i> - <i>AA-3</i><br>(特定のデバイスのアクセスモデルによる)</td>
 	</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to some functionalities of a processing unit might be restricted to individuals with a certain authorization access level, e.g., *AA-3* or *AA-4*. If the processing unit fails to correctly verify access permissions, an attacker with a lower authorization access level than intended might be able to get access to the restricted functionalities.
+特定のデバイスの具体的な実装によって、処理装置の一部の機能へのアクセスは特定の認可アクセスレベル (*AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。処理装置がアクセスパーミッションを正しく検証できない場合、意図したより低い認可アクセスレベルを持つ攻撃者が制限された機能にアクセスできるかもしれません。
 
 **テスト目的**
 
-- Based on [IOT-PROC-AUTHZ-001](#unauthorized-access-to-the-processing-unit-iot-proc-authz-001), it must be determined whether there is a way to elevate the given access privileges and thus to access restricted functionalities.
+- [IOT-PROC-AUTHZ-001](#unauthorized-access-to-the-processing-unit-iot-proc-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required authorization access levels.
+適切な認可チェックが実装されている必要があり、制限された機能へのアクセスは必要な認可アクセスレベルを持つ個人のみが可能であることを確保します。
 
 **参考情報**
 
-This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002).
+このテストケースは [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002) をベースとしています。
 
 
 
@@ -107,11 +107,11 @@ Issues in the underlying logic of a processing unit might render the device vuln
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
 		<td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on what level of privileges is required to successfully submit instructions to the processing unit)</td>
 	</tr>
 </table>
@@ -145,11 +145,11 @@ Side-channel attacks, such as timing and glitching attacks, are usually targeted
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
 		<td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on how the attack is being performed; see summary for more details)</td>
 	</tr>
 </table>
@@ -171,7 +171,7 @@ Based on the results of the analysis, the hardware design should be adjusted to 
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["A practical implementation of the timing attack"][timing_attack] by Jean-François Dhem, François Koeune, Philippe-Alexandre Leroux, Patrick Mestré, Jean-Jacques Quisquater, and Jean-Louis Willems *(In Jean-Jacques Quisquater and Bruce Schneier, editors, Smart Card Research and Applications, pages 167 - 182, Berlin, Heidelberg, 2000. Springer Berlin Heidelberg.)*
 * ["Injecting Power Attacks with Voltage Glitching and Generation of Clock Attacks for Testing Fault Injection Attacks"][power_glitching_attack] by Shaminder Kaur, Balwinder Singh, Harsimranjit Kaur, and Lipika Gupta *(In Pradeep Kumar Singh, Arti Noor, Maheshkumar H. Kolekar, Sudeep Tanwar, Raj K. Bhatnagar, and Shaweta Khanna, editors, Evolving Technologies for Computing, Communication and Smart World, pages 23 - 37, Singapore, 2021. Springer Singapore.)*

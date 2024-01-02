@@ -51,12 +51,12 @@ The firmware of an IoT device can include various information, which, if disclo
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on which component specialization should be tested and how it can be accessed)</td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(どのコンポーネントの特殊性をテストすべきか、およびアクセス方法による)</td>
 	</tr>
 </table>
 
@@ -82,7 +82,7 @@ Since it is not possible to prevent reverse-engineering completely, measures to 
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
@@ -97,12 +97,12 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -128,7 +128,7 @@ As mentioned above, the disclosure of such information is not considered a vulne
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
@@ -143,12 +143,12 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -189,12 +189,12 @@ Since IoT devices can have a long lifespan, it is important to make sure that t
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -231,12 +231,12 @@ For this test case, data from the following available sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -258,7 +258,7 @@ Especially in case of general-purpose operating systems, such as Windows and Lin
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -277,12 +277,12 @@ IoT devices are often operated outside of the control space of their manufactur
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -315,12 +315,12 @@ For this test case, data from the following available sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -340,7 +340,7 @@ Secrets have to be stored using proper cryptographic algorithms. Only the encryp
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
@@ -355,12 +355,12 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -405,12 +405,12 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -434,7 +434,7 @@ Only strong, state of the art cryptographic algorithms should be used. Furthermo
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta

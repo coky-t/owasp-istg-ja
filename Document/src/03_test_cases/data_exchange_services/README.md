@@ -44,7 +44,7 @@
 
 ## 認可 (Authorization) (IOT-DES-AUTHZ)
 
-Depending on the access model for a given device, only certain individuals might be allowed to access a data exchange service. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access.
+特定のデバイスのアクセスモデルによっては、特定の個人のみがデータ交換サービスへのアクセスを許可されるかもしれません。そのため、適切な認証と認可の手順を設け、認可されたユーザーのみがアクセスできるようにする必要があります。
 
 ### データ交換サービスへの認可されていないアクセス (Unauthorized Access to the Data Exchange Service) (IOT-DES-AUTHZ-001)
 
@@ -52,33 +52,33 @@ Depending on the access model for a given device, only certain individuals might
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
+		<th>認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to a data exchange service might be restricted to individuals with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, any attacker (*AA-1*) might be able to get access.
+特定のデバイスの具体的な実装によって、データ交換サービスへのアクセスは特定の認可アクセスレベル (*AA-2*, *AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。デバイスがアクセスパーミッションを正しく検証できない場合、攻撃者 (*AA-1*) がアクセスできるかもしれません。
 
 **テスト目的**
 
-- It must be checked if authorization checks for access to the data exchange service are implemented.
+- データ交換サービスへのアクセスに対する認可チェックが実装されているかどうかをチェックしなければなりません。
 
-- In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
+- 認可チェックが行われている場合、それをバイパスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to the data exchange service is only possible for authorized
-individuals.
+適切な認可チェックが実装されている必要があり、データ交換サービスへのアクセスは認可された個人のみが可能であることを確保します。
+
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -94,30 +94,30 @@ For this test case, data from the following sources was consolidated:
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-2</i> - <i>AA-3</i><br>(depending on the access model for the given device)</td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-2</i> - <i>AA-3</i><br>(特定のデバイスのアクセスモデルによる)</td>
 	</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to some functionalities via a data exchange service might be restricted to individuals with a certain authorization access level, e.g., *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, an attacker with a lower authorization access level than intended might be able to get access to the restricted functionalities.
+特定のデバイスの具体的な実装によって、データ交換サービスを介した一部の機能へのアクセスは特定の認可アクセスレベル (*AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。デバイスがアクセスパーミッションを正しく検証できない場合、意図したより低い認可アクセスレベルを持つ攻撃者が制限された機能にアクセスできるかもしれません。
 
 **テスト目的**
 
-- Based on [IOT-DES-AUTHZ-001](#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001), it must be determined whether there is a way to elevate the given access privileges and thus to access restricted functionalities.
+- [IOT-DES-AUTHZ-001](#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required authorization access levels.
+適切な認可チェックが実装されている必要があり、制限された機能へのアクセスは必要な認可アクセスレベルを持つ個人のみが可能であることを確保します。
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
@@ -134,12 +134,12 @@ Data exchange service might disclose various information, which could reveal det
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -165,7 +165,7 @@ As mentioned above, the disclosure of such information is not considered a vulne
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -181,12 +181,12 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -206,7 +206,7 @@ The disclosure of information should be reduced to the minimum, which is require
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -222,12 +222,12 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -245,7 +245,7 @@ Access to user data should only be granted to individuals and processes that nee
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -267,12 +267,12 @@ Since IoT devices can have a long lifespan, it is important to make sure that th
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -296,7 +296,7 @@ No outdated software packages should be running on the device. A proper patch ma
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
@@ -309,12 +309,12 @@ This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-out
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -336,7 +336,7 @@ Especially in case of general-purpose operating systems, such as Windows and Lin
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
@@ -355,12 +355,12 @@ IoT devices are often operated outside of the control space of their manufacture
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -378,7 +378,7 @@ Access to secrets should only be granted to individuals and processes that need 
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -398,12 +398,12 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely s
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -428,7 +428,7 @@ Only strong, state of the art cryptographic algorithms should be used. Furthermo
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
@@ -447,12 +447,12 @@ Even if all other aspects of the data exchange service are securely implemented 
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -470,7 +470,7 @@ The device should not end up in an unknown state. Anomalies in the workflow must
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -490,12 +490,12 @@ In order to ensure that only valid and well-formed data enters the processing fl
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -515,7 +515,7 @@ The device has to validate all input from untrustworthy sources. Malformed or ot
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -529,12 +529,12 @@ For this test case, data from the following sources was consolidated:
 
 <table>
 	<tr valign="top">
-		<th width="1%">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the data exchange service can be accessed, e.g., if it was designed for remote access)</td>
+		<th width="1%">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(データ交換サービスへのアクセス方法による。たとえば、リモートアクセス用に設定されているかどうか。)</td>
 	</tr>
 	<tr valign="top">
-		<th>Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th>認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -552,7 +552,7 @@ The device has to validate all input from untrustworthy sources. Malformed or ot
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Web Security Testing Guide"][owasp_wstg]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta

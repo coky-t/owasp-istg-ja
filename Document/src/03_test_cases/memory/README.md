@@ -40,11 +40,11 @@ Tests on the device memory are performed by directly accessing the memory chips.
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></tr>
 </table>
 
@@ -70,7 +70,7 @@ Since it is not possible to prevent reverse-engineering completely, measures to 
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -83,11 +83,11 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></tr>
 </table>
 
@@ -111,7 +111,7 @@ As mentioned above, the disclosure of such information is not considered a vulne
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -124,11 +124,11 @@ This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-o
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></tr>
 </table>
 
@@ -148,7 +148,7 @@ The disclosure of information should be reduced to the minimum, which is require
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -161,11 +161,11 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></tr>
 </table>
 
@@ -183,7 +183,7 @@ Access to user data should only be granted to individuals and processes that nee
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -202,11 +202,11 @@ IoT devices are often operated outside of the control space their manufacturer.
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></tr>
 </table>
 
@@ -226,7 +226,7 @@ Secrets have to be stored using proper cryptographic algorithms. Only the encryp
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -244,11 +244,11 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></tr>
 </table>
 
@@ -272,7 +272,7 @@ Only strong, state of the art cryptographic algorithms should be used. Furthermo
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta

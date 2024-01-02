@@ -51,38 +51,38 @@
 
 ## 認可 (Authorization) (IOT-WRLS-AUTHZ)
 
-Depending on the access model for a given device, only certain individuals might be allowed to access a wireless interface. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access.
+特定のデバイスのアクセスモデルによっては、特定の個人のみが無線インタフェースへのアクセスを許可されるかもしれません。そのため、適切な認証と認可の手順を設け、認可されたユーザーのみがアクセスできるようにする必要があります。
 
 ### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-WRLS-AUTHZ-001)
 **必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to a wireless interface might be restricted to individuals with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device fails to correctly verify access permissions, any attacker (*AA-1*) might be able to get access.
+特定のデバイスの具体的な実装によって、無線インタフェースへのアクセスは特定の認可アクセスレベル (*AA-2*, *AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。デバイスがアクセスパーミッションを正しく検証できない場合、攻撃者 (*AA-1*) がアクセスできるかもしれません。
 
 **テスト目的**
 
-- It must be checked if authorization checks for access to the wireless interface are implemented.
+- 無線インタフェースへのアクセスに対する認可チェックが実装されているかどうかをチェックしなければなりません。
 
-- In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
+- 認可チェックが行われている場合、それをバイパスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to the wireless interface is only possible for authorized individuals.
+適切な認可チェックが実装されている必要があり、無線インタフェースへのアクセスは認可された個人のみが可能であることを確保します。
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -90,36 +90,36 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
+このテストケースは [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001) をベースとしています。
 
 ### 権限昇格 (Privilege Escalation) (IOT-WRLS-AUTHZ-002)
 **必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-2</i> - <i>AA-3</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-2</i> - <i>AA-3</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to some functionalities via a wireless interface might be restricted to individuals with a certain authorization access level, e.g., *AA-3* or *AA-4*. If the interface fails to correctly verify access permissions, an attacker with a lower authorization access level than intended might be able to get access to the restricted functionalities.
+特定のデバイスの具体的な実装によって、無線インタフェースを介した一部の機能へのアクセスは特定の認可アクセスレベル (*AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。インタフェースがアクセスパーミッションを正しく検証できない場合、意図したより低い認可アクセスレベルを持つ攻撃者が制限された機能にアクセスできるかもしれません。
 
 **テスト目的**
 
-- Based on [IOT-WRLS-AUTHZ-001](#unauthorized-access-to-the-interface-iot-wrls-authz-001), it must be determined whether there is a way to elevate the given access privileges and thus to access restricted functionalities.
+- [IOT-WRLS-AUTHZ-001](#unauthorized-access-to-the-interface-iot-wrls-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted functionalities is only possible for individuals with the required authorization access levels.
+適切な認可チェックが実装されている必要があり、制限された機能へのアクセスは必要な認可アクセスレベルを持つ個人のみが可能であることを確保します。
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -127,7 +127,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002).
+このテストケースは [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002) をベースとしています。
 
 
 
@@ -140,12 +140,12 @@ Wireless interface might disclose various information, which could reveal detail
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -170,7 +170,7 @@ As mentioned above, the disclosure of such information is not considered a vulne
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -185,12 +185,12 @@ This test case is based on: [IOT-FW-INFO-002](../firmware/README.md#disclosure-o
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -209,7 +209,7 @@ The disclosure of information should be reduced to the minimum, which is require
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -224,12 +224,12 @@ This test case is based on: [IOT-FW-INFO-003](../firmware/README.md#disclosure-o
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -246,7 +246,7 @@ Access to user data should only be granted to individuals and processes that nee
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -267,12 +267,12 @@ Since IoT devices can have a long lifespan, it is important to make sure that th
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -295,7 +295,7 @@ No outdated software packages should be running on the device. A proper patch ma
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -310,12 +310,12 @@ This test case is based on: [IOT-FW-CONF-001](../firmware/README.md#usage-of-out
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -336,7 +336,7 @@ Especially in case of general-purpose operating systems, such as Windows and Lin
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -357,12 +357,12 @@ IoT devices are often operated outside of the control space of their manufacture
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -379,7 +379,7 @@ Access to secrets should only be granted to individuals and processes that need 
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -400,12 +400,12 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely s
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -428,7 +428,7 @@ Only strong, state of the art cryptographic algorithms should be used. Furthermo
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -449,12 +449,12 @@ Even if all other aspects of the wireless interface are securely implemented and
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -471,7 +471,7 @@ The device should not end up in an unknown state. Anomalies in the workflow must
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -492,12 +492,12 @@ In order to ensure that only valid and well-formed data enters the processing fl
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -516,7 +516,7 @@ The device has to validate all input from untrustworthy sources. Malformed or ot
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -531,12 +531,12 @@ This test case is based on: [IOT-DES-INPV-001](../data_exchange_services/README.
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-2</i> - <i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device)</tr>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる)</tr>
 </table>
 
 **要旨**
@@ -553,7 +553,7 @@ The device has to validate all input from untrustworthy sources. Malformed or ot
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta

@@ -21,7 +21,7 @@
 
 ## 認可 (Authorization) (IOT-FW[INST]-AUTHZ)
 
-Usually, only certain individuals, e.g., administrators, should be allowed to access the device firmware during runtime. Thus, proper authentication and authorization procedures need to be in place, which ensure that only authorized users can get access to the firmware.
+通常、管理者などの特定の個人のみが実行時にデバイスファームウェアへのアクセスを許可されるべきです。そのため、適切な認証と認可の手順を設け、認可されたユーザーのみがファームウェアへのアクセスを取得できるようにする必要があります。
 
 ### ファームウェアへの認可されていないアクセス (Unauthorized Access to the Firmware) (IOT-FW[INST]-AUTHZ-001)
 
@@ -29,32 +29,32 @@ Usually, only certain individuals, e.g., administrators, should be allowed to ac
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to the firmware or its functions might be restricted to individuals with a certain authorization access level, e.g., *AA-2*, *AA-3* or *AA-4*. If the device firmware fails to correctly verify access permissions, any attacker (*AA-1*) might be able to get access to the firmware.
+特定のデバイスの具体的な実装によって、ファームウェアやその機能へのアクセスは特定の認可アクセスレベル (*AA-2*, *AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。デバイスファームウェアがアクセスパーミッションを正しく検証できない場合、攻撃者 (*AA-1*) がファームウェアにアクセスできるかもしれません。
 
 **テスト目的**
 
-- It must be checked if authorization checks for access to the firmware are implemented.
+- ファームウェアへのアクセスに対する認可チェックが実装されているかどうかをチェックしなければなりません。
 
-- In case that authorization checks are in place, it must be determined whether there is a way to bypass them.
+- 認可チェックが行われている場合、それをバイパスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to the firmware is only possible for authorized individuals.
+適切な認可チェックが実装されている必要があり、ファームウェアへのアクセスは認可された個人のみが可能であることを確保します。
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -62,7 +62,7 @@ For this test case, data from the following sources was consolidated:
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001).
+このテストケースは [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001) をベースとしています。
 
 ### 権限昇格 (Privilege Escalation) (IOT-FW[INST]-AUTHZ-002)
 
@@ -70,30 +70,30 @@ This test case is based on: [IOT-DES-AUTHZ-001](../data_exchange_services/README
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-3</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-3</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
 **要旨**
 
-Depending on the specific implementation of a given device, access to parts of the firmware or its functions might be restricted to individuals with a certain authorization access level, e.g., *AA-3* or *AA-4*. If the device firmware fails to correctly verify access permissions, an attacker with a lower authorization access level than intended might be able to get access to the restricted firmware parts.
+特定のデバイスの具体的な実装によって、ファームウェアやその機能の一部へのアクセスは特定の認可アクセスレベル (*AA-3*, *AA-4* など) を持つ個人に制限されるかもしれません。デバイスファームウェアがアクセスパーミッションを正しく検証できない場合、意図したより低い認可アクセスレベルを持つ攻撃者が制限されたファームウェアの一部にアクセスできるかもしれません。
 
 **テスト目的**
 
-- Based on *IOT-FW-AUTHZ-001*, it must be determined whether there is a way to elevate the given access privileges and thus to access restricted functions or parts of the firmware.
+- *IOT-FW-AUTHZ-001* をベースとして、与えられたアクセス権限を昇格して制限された機能やファームウェアの一部にアクセスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
-Proper authorization checks need to be implemented, which ensure that access to restricted parts of the firmware is only possible for individuals with the required authorization access levels.
+適切な認可チェックが実装されている必要があり、制限されたファームウェアの一部へのアクセスは必要な認可アクセスレベルを持つ個人のみが可能であることを確保します。
 
 **参考情報**
 
-This test case is based on: [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002).
+このテストケースは [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002) をベースとしています。
 
 
 
@@ -107,12 +107,12 @@ As mentioned above, during the dynamic analysis, it is also possible to test whe
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
@@ -130,7 +130,7 @@ Access to user data should only be granted to individuals and processes that nee
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -150,12 +150,12 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
