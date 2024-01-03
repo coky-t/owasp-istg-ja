@@ -347,7 +347,7 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 
 ## シークレット (Secrets) (IOT-DES-SCRT)
 
-IoT devices are often operated outside of the control space of their manufacturer. Still, they need to establish connections to other network nodes withinthe IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device has to provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
+IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
 ### 機密データへのアクセス (Access to Confidential Data) (IOT-DES-SCRT-001)
 
@@ -366,15 +366,15 @@ IoT devices are often operated outside of the control space of their manufacture
 
 **要旨**
 
-Malfunctions, unintended behavior or improper implementation of a data exchange service might enable an attacker to get access to secrets.
+データ交換サービスの誤動作、意図しない挙動、不適切な実装により、攻撃者がシークレットにアクセスできるかもしれません。
 
 **テスト目的**
 
-- It has to be determined whether secrets can be accessed via the data exchange service.
+- データ交換サービスを介してシークレットにアクセスできるかどうかを判断する必要があります。
 
 **対応策**
 
-Access to secrets should only be granted to individuals and processes that need to have access to them. No unauthorized or not properly authorized individual should be able to access secrets.
+シークレットへのアクセスは、そのシークレットにアクセスする必要がある個人およびプロセスにのみ許可すべきです。認可されていない個人や適切な認可がない個人はシークレットにアクセスできるべきではありません。
 
 **参考情報**
 

@@ -269,7 +269,7 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 
 ## シークレット (Secrets) (IOT-FW-SCRT)
 
-IoT devices are often operated outside of the control space of their manufacturer. Still, they need to establish connections to other network nodes within the IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device has to provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
+IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
 ### パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (IOT-FW-SCRT-001)
 
@@ -288,19 +288,19 @@ IoT devices are often operated outside of the control space of their manufactur
 
 **要旨**
 
-Generally, there are multiple kinds of storage spaces within a file system, some of which are publicly available and some that can only be accessed with a certain level of privileges. If sensitive data or secrets are stored in publicly accessible storage spaces, users who should not have access to this data but who have access to the file system could read or modify it. In case of a successful attack, it is very likely that secrets, stored in public storage, are disclosed.
+一般的に、ファイルシステム内には複数種類の記憶領域があり、その中には一般に利用可能なものと、特定レベルの権限でのみアクセスできるものがあります。機密データやシークレットが一般にアクセス可能な記憶領域に保存されている場合、このデータにアクセスすべきではないが、ファイルシステムにアクセスできるユーザーがそのデータを読み取ったり変更する可能性があります。攻撃が成功した場合、パブリックストレージに保存されているシークレットが開示される可能性が非常に高くなります。
 
 **テスト目的**
 
-- Files and databases within public storage spaces must be checked for the presence of secrets, such as passwords, symmetric or private keys and tokens.
+- パブリックストレージ領域内のファイルとデータベースは、パスワード、対称鍵、秘密鍵、トークンなどのシークレットの存在をチェックしなければなりません。
 
 **対応策**
 
-Access to secrets should only be granted to the accounts or processes with proper privileges. Thus, secrets should be stored in protected storage areas or designated key stores that are only available to certain entities.
+シークレットへのアクセスは適切な権限を持つアカウントやプロセスにのみ許可すべきです。そのため、シークレットは特定のエンティティのみが利用できる保護されたストレージ領域や指定されたキーストアに保存すべきです。
 
 **参考情報**
 
-For this test case, data from the following available sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
@@ -326,17 +326,17 @@ For this test case, data from the following available sources was consolidated:
 
 **要旨**
 
-Sensitive data and secrets should be stored in an encrypted manner, so that even if an attacker has managed to get access to it, he has no access to the respective plaintext data.
+機密データやシークレットは暗号化して保存すべきであり、その結果、たとえ攻撃者がアクセスできたとしても、それぞれのプレーンテキストデータにはアクセスできなくなります。
 
-Contrary to [IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001), it does not matter if the secrets are stored in public or restricted storage spaces, since it is assumed that the attacker has already gotten access to the data, e.g., by circumventing access restrictions or by exploiting a process with access to the restricted storage. Furthermore, the strength of the cryptographic algorithms in use will be covered by [IOT-FW-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) and has no relevance for this test case.
+[IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001) とは異なり、アクセス制限を回避したり、制限されたストレージにアクセスするプロセスを悪用して、攻撃者はすでにデータにアクセスしていると想定しているため、シークレットがパブリックストレージ領域に保存されるか制限されたストレージ領域に保存されるかは問題ではありません。さらに、使用する暗号アルゴリズムの強度は [IOT-FW-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) でカバーされ、このテストケースには関係しません。
 
 **テスト目的**
 
-- By searching public and restricted storage spaces, it must be determined whether the firmware includes secrets in plaintext form.
+- パブリックストレージ領域と制限されたストレージ領域を検索して、ファームウェアにプレーンテキスト形式のシークレットが含まれているかどうかを判断しなければなりません。
 
 **対応策**
 
-Secrets have to be stored using proper cryptographic algorithms. Only the encrypted form of the secret should be stored.
+シークレットは適切な暗号アルゴリズムを使用して保存する必要があります。暗号形式のシークレットのみを保存すべきです。
 
 **参考情報**
 
@@ -366,25 +366,25 @@ Secrets have to be stored using proper cryptographic algorithms. Only the encryp
 
 **要旨**
 
-Sometimes, developers tend to incorporate secrets directly into the source code of their software. This can lead to a variety of security issues like:
+時として、開発者はソフトウェアのソースコードに直接シークレットを組み込む傾向があります。これにより以下のようなさまざまなセキュリティ問題につながる可能性があります。
 
-- the disclosure of secrets via published source code snippets or decompiled source code,
+- 公開されたソースコードスニペットや逆コンパイルされたソースコードを介してシークレットを開示します
 
-- endangering all devices that are using the given software since it is very likely that the same secret is used on all devices (otherwise, the source code needs to be changed and compiled for every device individually) and
+- すべてのデバイスで同じシークレットを使用する可能性が非常に高いため、特定のソフトウェアを使用しているすべてのデバイスを危険にさらします (さもないと、すべてのデバイスごと個別にソースコードを変更してコンパイルする必要があります)
 
-- impeding reactive measures in case of the secret being compromised since changing the secret requires a software update.
+- シークレットが漏洩した場合、シークレットの変更にはソフトウェアアップデートが必要なため、事後対応を妨げます
 
 **テスト目的**
 
-- Based on [IOT-FW-INFO-001](#disclosure-of-source-code-iot-fw-info-001), it must be checked if any hard-coded secrets can be identified.
+- [IOT-FW-INFO-001](#disclosure-of-source-code-iot-fw-info-001) をベースとして、ハードコードされたシークレットを特定できるかどうかをチェックしなければなりません。
 
 **対応策**
 
-Secrets should not be hard-coded into the source code. Instead, secrets should be stored in a secure manner (see [IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001) and [IOT-FW-SCRT-002](#unencrypted-storage-of-secrets-iot-fw-scrt-002)) and the software process should dynamically retrieve the secrets from the secure storage during runtime.
+シークレットはソースコードにハードコードすべきではありません。代わりに、シークレットを安全な方法 ([IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001) および [IOT-FW-SCRT-002](#unencrypted-storage-of-secrets-iot-fw-scrt-002) を参照) で保存すべきであり、ソフトウェアプロセスは実行時にセキュアストレージから動的にシークレットを取得すべきです。
 
 **参考情報**
 
-For this test case, data from the following available sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta

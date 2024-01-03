@@ -195,7 +195,7 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 
 ## シークレット (Secrets) (IOT-MEM-SCRT)
 
-IoT devices are often operated outside of the control space their manufacturer. Still, they need to establish connections to other network nodes within the IoT ecosystem, e.g., to request and receive firmware updates or to send data to a cloud API. Hence, it might be required that the device can provide some kind of authentication credential or secret. These secrets need to be stored on the device in a secure manner to prevent them from being stolen and used to impersonate the device.
+IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
 ### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-MEM-SCRT-001)
 **必要なアクセスレベル**
@@ -212,17 +212,17 @@ IoT devices are often operated outside of the control space their manufacturer.
 
 **要旨**
 
-Sensitive data and secrets should be stored in an encrypted manner, so that even if an attacker has managed to get access to the memory, he has no access to the respective plaintext data.
+機密データやシークレットは暗号化して保存すべきであり、その結果、たとえ攻撃者がメモリにアクセスできたとしても、それぞれのプレーンテキストデータにはアクセスできなくなります。
 
-The strength of the cryptographic algorithms in use will be covered by [IOT-MEM-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-mem-crypt-001) and has no relevance for this test case.
+使用する暗号アルゴリズムの強度は [IOT-MEM-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-mem-crypt-001) でカバーされ、このテストケースには関係しません。
 
 **テスト目的**
 
-- By searching the contents of the device memory, it must be determined whether it includes secrets in plaintext form.
+- デバイスメモリの内容を検索して、プレーンテキスト形式のシークレットが含まれているかどうかを判断しなければなりません。
 
 **対応策**
 
-Secrets have to be stored using proper cryptographic algorithms. Only the encrypted form of the secret should be stored.
+シークレットは適切な暗号アルゴリズムを使用して保存する必要があります。暗号形式のシークレットのみを保存すべきです。
 
 **参考情報**
 
@@ -231,7 +231,7 @@ Secrets have to be stored using proper cryptographic algorithms. Only the encryp
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 
-This test case is based on: [IOT-FW-SCRT-002](../firmware/README.md#unencrypted-storage-of-secrets-iot-fw-scrt-002).
+このテストケースは [IOT-FW-SCRT-002](../firmware/README.md#unencrypted-storage-of-secrets-iot-fw-scrt-002) をベースとしています。
 
 
 
