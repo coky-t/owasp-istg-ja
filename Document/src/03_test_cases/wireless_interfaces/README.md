@@ -485,7 +485,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 ## 入力バリデーション (Input Validation) (IOT-WRLS-INPV)
 
-In order to ensure that only valid and well-formed data enters the processing flows of a device, the input from a all untrustworthy sources, e.g., users or external systems, has to be verified and validated.
+有効かつ整形式のデータのみをデバイスの処理フローに入力することを確保するために、ユーザーや外部システムなどのすべての信頼できないソースからの入力を検証およびバリデートする必要があります。
 
 ### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-WRLS-INPV-001)
 **必要なアクセスレベル**
@@ -502,17 +502,17 @@ In order to ensure that only valid and well-formed data enters the processing fl
 
 **要旨**
 
-If no input validation is performed or only an insufficient input validation mechanism is in place an attacker might be able to submit arbitrary and malformed data. Thus, the process, which handles the user input, or another downstream component might stop working properly due to not being able to process the data. This could result in malfunctions that might enable an attacker to manipulate the device behavior or render it unavailable.
+入力バリデーションが実行されないか、不十分な入力バリデーションメカニズムしかない場合、攻撃者は任意の不正なデータを送信できるかもしれません。そのため、ユーザー入力を処理するプロセスや別のダウンストリームコンポーネントは、データを処理できないために、適切に動作しなくなるかもしれません。これにより、攻撃者がデバイスの動作を操作したり、デバイスを利用できなくするような誤動作を引き起こす可能性があります。
 
 **テスト目的**
 
-- It must be determined whether input to the wireless interface is validated.
+- 無線インタフェースへの入力がバリデートされるかどうかを判断しなければなりません。
 
-- In case that an input validation mechanism is implemented, it hast to be checked if there is a way to submit data, which does not comply with the intended data structure and value ranges.
+- 入力バリデーションメカニズムが実装されている場合、意図したデータ構造と値範囲に準拠しないデータを送信する方法があるかどうかをチェックする必要があります。
 
 **対応策**
 
-The device has to validate all input from untrustworthy sources. Malformed or otherwise invalid input must either be rejected or converted into a proper data structure, e.g., by encoding the input. However, it must be ensured that the input is not interpreted or executed when converting it.
+デバイスは信頼できないソースからのすべての入力をバリデートする必要があります。不正な入力あるいは無効な入力は、拒否するか、入力をエンコードするなどして適切なデータ構造に変換しなければなりません。ただし、変換時に入力が解釈されたり実行されることがないように確保しなければなりません。
 
 **参考情報**
 
@@ -524,7 +524,7 @@ The device has to validate all input from untrustworthy sources. Malformed or ot
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inpv-001).
+このテストケースは [IOT-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inpv-001) をベースとしています。
 
 ### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-WRLS-INPV-002)
 **必要なアクセスレベル**
@@ -541,15 +541,15 @@ This test case is based on: [IOT-DES-INPV-001](../data_exchange_services/README.
 
 **要旨**
 
-If no input validation is performed or only an insufficient input validation mechanism is in place an attacker might be able to submit code or commands, which then might be executed by the system. It strictly depends on the specific implementation of the device and the ireless interface which code and commands are potentially executable. For example, a possible injection attack is OS command injection.
+入力バリデーションが実行されないか、不十分な入力バリデーションメカニズムしかない場合、攻撃者はコードやコマンドを送信して、システムによって実行されるかもしれません。どのコードやコマンドが潜在的に実行可能であるかは、デバイスと無線インタフェースの特定の実装に完全に依存します。たとえば、考えられるインジェクション攻撃には OS コマンドインジェクションがあります。
 
 **テスト目的**
 
-- Based on [IOT-WRLS-INPV-001](#insufficient-input-validation-iot-wrls-inpv-001), it must be checked whether it is possible to submit code or commands, which are then executed by the system.
+- [IOT-WRLS-INPV-001](#insufficient-input-validation-iot-wrls-inpv-001) をベースとして、コードやコマンドを送信して、システムによって実行できるかどうかをチェックしなければなりません。
 
 **対応策**
 
-The device has to validate all input from untrustworthy sources. Malformed or otherwise invalid input must either be rejected or converted into a proper data structure, e.g., by encoding the input. However, it must be ensured that the input is not interpreted or executed when converting it.
+デバイスは信頼できないソースからのすべての入力をバリデートする必要があります。不正な入力あるいは無効な入力は、拒否するか、入力をエンコードするなどして適切なデータ構造に変換しなければなりません。ただし、変換時に入力が解釈されたり実行されることがないように確保しなければなりません。
 
 **参考情報**
 
@@ -561,7 +561,7 @@ The device has to validate all input from untrustworthy sources. Malformed or ot
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inpv-002).
+このテストケースは [IOT-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inpv-002) をベースとしています。
 
 
 
