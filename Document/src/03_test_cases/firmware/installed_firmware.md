@@ -142,7 +142,7 @@
 
 ## 暗号技術 (Cryptography) (IOT-FW[INST]-CRYPT)
 
-Many IoT devices need to implement cryptographic algorithms, e.g., to securely store sensitive data, for authentication purposes or to receive and verify encrypted data from other network nodes. Failing to implement secure, state of the art cryptography might lead to the exposure of sensitive data, device malfunctions or loss of control over the device.
+多くの IoT デバイスは、機密データの安全な保存、認証目的、他のネットワークノードからの暗号化データの受信と検証などのために、暗号アルゴリズムを実装する必要があります。安全で最先端の暗号技術を実装しないと、機密データの開示、デバイスの誤動作、デバイスの制御不能につながるかもしれません。
 
 ### ブートローダーシグネチャの不十分な検証 (Insufficient Verification of the Bootloader Signature) (IOT-FW[INST]-CRYPT-001)
 
@@ -161,15 +161,15 @@ Many IoT devices need to implement cryptographic algorithms, e.g., to securely 
 
 **要旨**
 
-Verifying the digital signature of the bootloader is an important measure to detect manipulations of the bootloader, thus preventing the execution of manipulated firmware on a device.
+ブートローダーのデジタルシグネチャを検証することはブートローダーの操作を検出するための重要な手段であり、その結果、操作されたファームウェアがデバイス上でされることを防ぎます。
 
 **テスト目的**
 
-- It must be checked if the signature of the bootloader is properly verified by the device during the boot process.
+- ブートプロセス時に、デバイスがブートローダーのシグネチャを適切に検証しているかどうかをチェックしなければなりません。
 
 **対応策**
 
-The device must properly verify the digital signature of a bootloader before it is executed. A bootloader without a valid signature should not be executed.
+デバイスはブートローダーを実行する前に、ブートローダーのデジタルシグネチャを適切に検証しなければなりません。有効なシグネチャのないブートローダーは実行すべきではありません。
 
 
 

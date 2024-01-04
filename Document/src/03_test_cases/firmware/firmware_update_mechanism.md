@@ -70,7 +70,7 @@
 
 ## 暗号技術 (Cryptography) (IOT-FW[UPDT]-CRYPT)
 
-During the firmware update process, cryptographic algorithms are used to verify the integrity of the new firmware and to ensure that no sensitive data is disclosed in transit.
+ファームウェア更新プロセスでは、暗号アルゴリズムを使用して、新しいファームウェアの完全性を検証して、転送時に機密データが漏洩しないように確保します。
 
 ### 不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (IOT-FW[UPDT]-CRYPT-001)
 
@@ -89,19 +89,19 @@ During the firmware update process, cryptographic algorithms are used to verify 
 
 **要旨**
 
-One way to manipulate a device would be to install a manipulated firmware package. In order to enable the detection of modifications, the firmware update package needs to be digitally signed. This way, the validity of the package can be verified during the installation or update process.
+デバイスを操作する方法の一つは操作されたファームウェアパッケージをインストールすることです。改変の検出を有効にするには、ファームウェア更新パッケージはデジタル署名されている必要があります。このようにして、インストールやアップデートプロセス時にパッケージの妥当性を検証できます。
 
 **テスト目的**
 
-- It must be determined if a digital signature for the firmware update package is available.
+- ファームウェア更新パッケージのデジタルシグネチャが利用可能かどうかを判断しなければなりません。
 
-- If a digital signature is available, it must be checked whether the validity of the signature can be verified.
+- デジタルシグネチャが利用可能な場合、シグネチャの妥当性を検証できるかどうかをチェックしなければなりません。
 
-- Based on [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001), the cryptographic algorithm, used for generating the digital signature, has to be assessed in order to determine whether a weak our outdated algorithm was used.
+- [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとして、デジタルシグネチャの生成に使用される暗号アルゴリズムは、脆弱な時代遅れのアルゴリズムが使用されているかどうかを判断するために評価する必要があります。
 
 **対応策**
 
-A valid digital signature must be available for the firmware update package. Furthermore, it must be possible to verify the validity of the digital signature.
+ファームウェア更新パッケージには有効なデジタルシグネチャが利用可能でなければなりません。さらに、デジタルシグネチャの妥当性を検証できなければなりません。
 
 **参考情報**
 
@@ -129,19 +129,19 @@ A valid digital signature must be available for the firmware update package. Fur
 
 **要旨**
 
-Firmware update packages might include confidential data of the soft- and hardware developer, e.g., intellectual property. Hence, it might be required to encrypt the package itself.
+ファームウェア更新パッケージにはソフトウェアおよびハードウェア開発者の知的財産などの機密データを含むかもしれません。そのため、パッケージ自体を暗号化することが必要になるかもしれません。
 
 **テスト目的**
 
-- It has to be clarified with the firmware developer whether the firmware update package needs to be encrypted.
+- ファームウェア更新パッケージを暗号化する必要があるかどうかをファームウェア開発者と明確にする必要があります。
 
-- If encryption is required, it must be determined whether the package is encrypted.
+- 暗号化が必要な場合、パッケージが暗号化されているかどうかを判断しなければなりません。
 
-- Based on [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001), it has to be determined whether proper algorithms were used for encryption.
+- [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとして、暗号化に適切なアルゴリズムが使用されているかどうかを判断する必要があります。
 
 **対応策**
 
-The firmware update package should be encrypted using state of the art cryptographic algorithms.
+ファームウェア更新パッケージは最先端の暗号アルゴリズムを使用して暗号化すべきです。
 
 **参考情報**
 
@@ -171,19 +171,19 @@ The firmware update package should be encrypted using state of the art cryptogra
 
 **要旨**
 
-If the firmware update process is not performed via a secure channel or if no further measures are in place to ensure the confidentiality and to detect modifications of the transmitted data, an attacker with access to the communication channel might be able to interfere with the update process.
+ファームウェア更新パッケージが安全なチャネルを介して実行されない場合や、機密性を確保して送信データの改変を検出するためのさらなる対策を講じていない場合、通信チャネルにアクセスできる攻撃者は更新プロセスを妨害できるかもしれません。
 
 **テスト目的**
 
-- It has to be determined whether the firmware update is performed over a secure channel.
+- ファームウェア更新が安全なチャネルで実行されているかどうかを判断する必要があります。
 
-- If the firmware update is performed over an insecure channel, like the internet, it must be checked whether proper measures in regards of confidentiality and integrity are in place.
+- ファームウェア更新がインターネットなどの安全でないチャネルで実行される場合、機密性と完全性に関して適切な対策を講じているかどうかをチェックしなければなりません。
 
-- If, for example, the communication channel is secured using TLS, it must be checked which cipher suites are supported and if the server certificate is validated by the client.
+- たとえば、通信チャネルが TLS を使用して保護されている場合、どの暗号スイートがサポートされているか、サーバー証明書がクライアントによってバリデートされているかをチェックしなければなりません。
 
 **対応策**
 
-If feasible, the firmware update should be performed via a secure channel. Otherwise, proper measures need to be implemented in order to prevent or detect interferences with potential attackers.
+可能であれば、ファームウェア更新は安全なチャネルを介して実行すべきです。そうでない場合、適切な対策を実装して、潜在的な攻撃者による妨害を防いだり検出する必要があります。
 
 **参考情報**
 
@@ -211,15 +211,15 @@ If feasible, the firmware update should be performed via a secure channel. Other
 
 **要旨**
 
-Even if the firmware update package is digitally signed, an attacker could install a manipulated firmware package on the device in case that the digital signature is not properly validated. For example, the device might not reject the update if no signature is provided.
+ファームウェア更新パッケージがデジタル署名されていたとしても、デジタルシグネチャが適切にバリデートされていない場合、攻撃者は操作されたファームウェアパッケージをデバイスにインストールする可能性があります。たとえば、シグネチャが提供されない場合、デバイスは更新を拒否しないかもしれません。
 
 **テスト目的**
 
-- Based on [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001), it must be checked if the signature of the firmware update package is properly verified by the device during the update process.
+- [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとして、ファームウェア更新パッケージのシグネチャが更新プロセス時にデバイスによって適切に検証されているかどうかをチェックしなければなりません。
 
 **対応策**
 
-The device must properly verify the digital signature of an update package before the installation process is started. Any update package without a valid signature or with no signature at all should be rejected.
+デバイスはインストールプロセスを開始する前に更新パッケージのデジタルシグネチャを適切に検証しなければなりません。有効なシグネチャがない、またはシグネチャがまったくない更新パッケージは拒否すべきです。
 
 **参考情報**
 
