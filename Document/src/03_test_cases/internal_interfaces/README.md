@@ -433,7 +433,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 ## ビジネスロジック (Business Logic) (IOT-INT-LOGIC)
 
-Even if all other aspects of the internal interface are securely implemented and configured, issues in the underlying logic itself might render the device vulnerable to attacks. Thus, it must be verified if the internal interface and its functionalities are working as intended and if exceptions are detected and properly handled.
+内部インタフェースの他のすべての側面が安全に実装および構成されていたとしても、基盤となるロジック自体に問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、内部インタフェースとその機能が意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
 ### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-INT-LOGIC-001)
 **必要なアクセスレベル**
@@ -450,15 +450,15 @@ Even if all other aspects of the internal interface are securely implemented and
 
 **要旨**
 
-Flaws in the implementation of the business logic might result in unintended behavior or malfunctions of the device. For example, if an attacker intentionally misses to provide relevant input data or tries to skip or change important steps in the processing workflow the device might end up in an unknown, potentially insecure state.
+ビジネスロジックの実装に欠陥があると、デバイスの意図しない動作や誤動作を引き起こすかもしれません。たとえば、攻撃者が意図的に関連する入力データの提供しなかったり、処理ワークフローの重要なステップをスキップしたり変更しようとすると、デバイスは未知の潜在的に安全でない状態になるかもしれません。
 
 **テスト目的**
 
-- Based on the specific business logic implementation, it has to be determined whether deviations from the defined workflows are properly detected and handled.
+- 特定のビジネスロジックの実装に基づき、定義されたワークフローからの逸脱が適切に検出され処理されるかどうかを判断する必要があります。
 
 **対応策**
 
-The device should not end up in an unknown state. Anomalies in the workflow must be detected and exceptions have to be handled properly.
+デバイスは未知の状態に陥るべきではありません。ワークフローの異常を検出しなければならず、例外を適切に処理する必要があります。
 
 **参考情報**
 
@@ -470,7 +470,7 @@ The device should not end up in an unknown state. Anomalies in the workflow must
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001).
+このテストケースは [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001) をベースとしています。
 
 
 

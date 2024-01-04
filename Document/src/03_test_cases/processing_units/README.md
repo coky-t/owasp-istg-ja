@@ -99,7 +99,7 @@
 
 ## ビジネスロジック (Business Logic) (IOT-PROC-LOGIC)
 
-Issues in the underlying logic of a processing unit might render the device vulnerable to attacks. Thus, it must be verified if the processing unit and its functionalities are working as intended and if exceptions are detected and properly handled.
+処理装置の基盤となるロジックに問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、処理装置とその機能が意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
 ### インストラクションの安全でない実装 (Insecure Implementation of Instructions) (IOT-PROC-LOGIC-001)
 
@@ -112,26 +112,26 @@ Issues in the underlying logic of a processing unit might render the device vuln
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on what level of privileges is required to successfully submit instructions to the processing unit)</td>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(処理装置に正常に命令を出すために必要な権限のレベルによる)</td>
 	</tr>
 </table>
 **要旨**
 
-Flaws in the implementation of the business logic might result in unintended behavior or malfunctions of the device. For example, if an attacker intentionally tries to skip or change important instructions in the processing workflow, the device might end up in an unknown, potentially insecure state.
+ビジネスロジックの実装に欠陥があると、デバイスの意図しない動作や誤動作を引き起こすかもしれません。たとえば、攻撃者が意図的に処理ワークフローの重要な命令をスキップしたり変更しようとすると、デバイスは未知の潜在的に安全でない状態になるかもしれません。
 
 **テスト目的**
 
-- Based on the specific implementation, it has to be determined whether instructions can be misused to manipulate the behavior of the device.
+- 特定の実装に基づいて、命令がデバイスの動作を操作するために悪用される可能性があるかどうかを判断する必要があります。
 
-- It must be checked if the processing unit in use supports undocumented, potentially vulnerable instructions. For example, this can be done by fuzzing instructions or performing research regarding the processing unit model.
+- 使用する処理装置が文書化されていない潜在的に脆弱な命令をサポートしているかどうかをチェックしなければなりません。たとえば、これは命令をファジングしたり、処理装置モデルに関する調査を実施して行うことができます。
 
 **対応策**
 
-The device should not end up in an unknown state. Anomalies in the workflow must be detected and exceptions have to be handled properly.
+デバイスは未知の状態に陥るべきではありません。ワークフローの異常を検出しなければならず、例外を適切に処理する必要があります。
 
 **参考情報**
 
-This test case is based on: [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001).
+このテストケースは [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001) をベースとしています。
 
 
 

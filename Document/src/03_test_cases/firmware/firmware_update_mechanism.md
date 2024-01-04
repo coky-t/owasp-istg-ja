@@ -234,7 +234,7 @@
 
 ## ビジネスロジック (Business Logic) (IOT-FW[UPDT]-LOGIC)
 
-Even if all other aspects of the firmware update are securely implemented, issues in the underlying logic of the update process itself might render the device vulnerable to attacks. Thus, it must be verified if the process is working as intended and if exceptions are detected and properly handled.
+ファームウェア更新の他のすべての側面が安全に実装および構成されていたとしても、更新プロセスの基盤となるロジック自体に問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、プロセスが意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
 ### 不十分なロールバック保護 (Insufficient Rollback Protection) (IOT-FW[UPDT]-LOGIC-001)
 
@@ -253,15 +253,15 @@ Even if all other aspects of the firmware update are securely implemented, issue
 
 **要旨**
 
-Some manufacturers implement a rollback protection for their devices. This rollback protection prevents updating a device firmware to an older version than the currently installed one. This way, an attacker can not install a valid but outdated firmware in order to exploit known vulnerabilities of that version.
+製造業者によってはデバイスにロールバック保護を実装しています。このロールバック保護はデバイスファームウェアが現在インストールされているバージョンよりも古いバージョンに更新されることを防止します。これにより、攻撃者は有効ではあるが古いファームウェアをインストールして、そのバージョンの既知の脆弱性を悪用できなくなります。
 
 **テスト目的**
 
-- It has to be assessed whether it is possible to install older versions of the firmware.
+- 古いバージョンのファームウェアをインストールできるかどうかを評価する必要があります。
 
 **対応策**
 
-A proper rollback protection mechanism verifying that the firmware version to be installed is newer than the currently installed version should be implemented.
+インストールされるファームウェアバージョンが現在インストールされているバージョンよりも新しいことを検証する、適切なロールバック保護メカニズムを実装すべきです。
 
 **参考情報**
 
