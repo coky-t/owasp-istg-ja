@@ -1,81 +1,80 @@
 # 1. はじめに
 
-## Motivation
+## 動機
 
-The networking of a multitude of different devices towards the Internet of Things (IoT) poses new challenges for manufacturers and operators of respective solutions. Due to the interconnection of many different technologies, standards and protocols, a considerable amount of effort is necessary to build up and maintain a homogeneous level of network security, data security and IT security in general. Additionally, since the IoT field is changing and developing quickly, manufacturers and operators must continuously monitor potential threats to their devices and networks.
+Internet of Things (IoT) に向けた多種多様なデバイスのネットワーク化は、各ソリューションの製造業者や事業者に新たな課題を突きつけます。多種多様なテクノロジ、標準、プロトコルを相互接続しているため、ネットワークセキュリティ、データセキュリティ、IT セキュリティ全般の均質なレベルを構築して維持するには、かなりの労力が必要です。さらに、IoT 分野は急速に変化し発展しているため、製造業者や事業者はデバイスやネットワークに対する潜在的な脅威を継続的に監視しなければなりません。
 
-While conventionally networked computer systems can be secured with established methods, e.g., restricting physical and authorization access to networks and important systems, these methods can be difficult to apply to IoT devices and ecosystems due to the above-mentioned heterogeneity and new network layouts. Compared to conventional computer networks, IoT infrastructures can be very wide-spread. Even though the back end infrastructure might be similar to conventional computer networks, IoT devices could be located at an arbitrary location, possibly even outside of a secure zone of the operator. In some cases, the devices are even physically accessible to third parties and potential attackers, e.g., connected cars, smart home devices or package stations. Hence, every IoT device represents a potential threat to user data and the entire infrastructure since a single manipulated device is sufficient to endanger the entire ecosystem.
+従来のネットワーク化されたコンピュータシステムは、ネットワークや重要なシステムへの物理アクセスや認可アクセスを制限するなど、確立された方法で保護できますが、上述の異質性と新しいネットワークレイアウトのため、これらの方法を IoT デバイスやエコシステムへの適用するのは困難となることがあります。従来のコンピュータネットワークと比較すると、IoT インフラストラクチャは非常に広範囲に及ぶ可能性があります。バックエンドインフラストラクチャは従来のコンピュータネットワークと同様であっても、IoT デバイスは任意の場所に配置される可能性があり、場合によっては事業者のセキュアゾーンの外側に配置されることもあります。場合によっては、コネクテッドカー、スマートホームデバイス、パッケージステーションなど、サードパーティや潜在的な攻撃者がデバイスに物理的にアクセスできることもあります。そのため、操作されたデバイス一台でもエコシステム全体を危険にさらすのに十分であるため、すべての IoT デバイスはユーザーデータやインフラストラクチャ全体への潜在的な脅威となります。
 
-In order to reduce the risk of successful attacks, manufacturers and operators should periodically assess the security level of their IoT solutions. An instrument for this purpose is penetration testing. The goal of a penetration test is to identify security vulnerabilities within IoT solutions. The results can be used to address the detected vulnerabilities and thus strengthen the security level.
-
-
-
-## Challenges
-
-Within the context of penetration tests, it is important that the test procedure is transparent. Otherwise, the manufacturer or operator might not be able to understand the meaning of the test results to the full extent and could draw wrong conclusions. Furthermore, test results have to be reproducible, so that on the one hand the developers can replicate how a vulnerability was exploited in order to craft a sufficient fix and on the other hand to enable a proper retest once the fix has been applied.
-
-Testing methodologies have been developed in order to make test procedures and results comparable and to ensure that the results of two or more testers, who perform the same test of the same target, do not differ. These well-known methodologies define a common approach for performing tests, including key aspects of testing and test cases, which have to be considered during a test. Unfortunately, only a few, not yet complete test methodologies for IoT penetration tests exist at the moment of writing this guide. Furthermore, these methodologies only focus on a specific technological area or are currently in an early development phase.
+攻撃が成功するリスクを軽減するために、製造業者や事業者は IoT ソリューションのセキュリティレベルを定期的に評価すべきです。この目的のための手段がペネトレーションテストです。ペネトレーションテストの目標は IoT ソリューション内のセキュリティ脆弱性を特定することです。その結果を使用して、検出した脆弱性を対処し、セキュリティレベルを強化できます。
 
 
 
-## Goals
+## 課題
 
-In order to solve the above-mentioned challenges, the aim of this guide is to develop a methodology for penetration tests of end devices in the IoT field, including general key aspects of testing.
+ペネトレーションテストのコンテキストでは、テスト手順が透明であることが重要です。さもないと、製造業者や事業者はテスト結果の意味を完全には理解できないかもしれず、誤った結論を導き出す可能性があります。さらに、テスト結果は再現可能にする必要があり、一方では、開発者が脆弱性がどのように悪用されたかを再現して十分な修正を作成できるように、他方では、修正が適用された後に適切な再テストを実行できるようにします。
 
-The methodology should:
-
--   be flexibly expandable so that more detailed test cases for certain technologies can be added later on (*expandability*).
-    
--   enable the comparison of test procedure (test steps/cases) and results regardless of specific technologies or device types (*comparability*).
-    
--   serve the purpose of a common language between manufacturers/operators and penetration testing service providers, meaning that it should facilitate the communication between both parties by establishing a comprehensible terminology (*comprehensibility*).
-
--   be efficient, so that it can be used as a supporting instrument by penetration testing teams without requiring major changes to any established workflows or additions of any new steps or testing phases (*efficiency*).
+テスト方法論は、テスト手順と結果を比較できるようにし、同じターゲットに対して同じテストを実行する二人以上のテスト担当者の結果に相違がないようにするために開発されてきました。これらのよく知られた方法論は、テスト中に考慮する必要があるテストとテストケースの重要な側面を含む、テストを実行するための共通のアプローチを定義しています。残念ながら、このガイドを執筆している時点では、IoT ペネトレーションテストのテスト方法論はいくつかあるもののまだ完全なものではありません。さらに、これらの方法論は特定の技術領域のみに焦点を当てているか、現在は初期開発段階にあります。
 
 
 
-## Intended Audience
+## 目標
 
-As the name suggests, the OWASP IoT Security Testing Guide is mainly intended to be used by penetration testers and security analysts in the IoT, hardware and embedded fields. However, others might benefit from the concepts and test cases introduced in this guide as well:
+上述の課題を解決するために、このガイドの目的は、テストの一般的な重要な側面を含む、IoT 分野におけるエンドデバイスのペネトレーションテストの方法論を開発することです。
 
-### **Builder**
+方法論は以下のようにあるべきです。
 
-- **Manufacturers of IoT devices** (e.g., architects, engineers, developers and managers) can use the contents of this guide to get an understanding of potential issues and vulnerabilities that might affect their products. Since vulnerable products can lead to various kinds of damages for the manufacturer (financial loss, loss of reputation, etc.), there should be an interest in understanding how a certain product could be vulnerable in any given context or operational environment. By increasing the awareness and understanding early on in the design and development process, it is possible to improve product security in the long term while keeping the respective costs as low as possible.
-### **Breaker**
+-   柔軟に拡張可能にし、特定のテクノロジに対してより詳細なテストケースを後から追加できるようにします (*拡張性 (expandability)*) 。
 
-- **Penetration testers and bug bounty researchers** can use the concepts introduced in [2. IoT Security Testing Framework](../02_framework/README.md) to plan their tests and define the test scope, test conditions and test approach. While performing the test, the test cases in [3. Test Case Catalog](../03_test_cases/README.md) and the respective [Checklists](../../checklists) can be used:
-  - a) as a guide that shows which aspects should be tested, why they should be tested, how they should be tested and how potential issues could be mitigated as well as
-  - b) to  keep track of the test completion status, making sure that all relevant aspects have been examined.
-- **Security consultants and security managers** can use this guide and its contents as a common foundation for working with their teams and clients as well as communicating with any of the stakeholders mentioned above. Especially the terminology and structure defined in this guide should help to facilitate collaboration across different teams and organizations.
-### **Defender**
+-   特定のテクノロジやデバイスタイプに関わらず、テスト手順 (テストステップ/ケース) と結果を比較できるようにします (*比較可能性 (comparability)*) 。
 
-- **Operators of IoT devices** (e.g., users) can use this guide in a similar fashion as manufacturers. However, the operators who run IoT devices usually have no or very little influence on the design and development process. Hence, their focus is more directed towards understanding how a device might be vulnerable in a particular operational environment and how this environment could be affected in case that the device is compromised or insecure.
+-   製造業者/事業者とペネトレーションテストサービスプロバイダの間の共通言語としての目的を果たします。つまり、わかりやすい用語を確立して、両者間のコミュニケーションを促進できるようにします (*理解可能性 (comprehensibility)*) 。
+
+-   効率的にし、確立されたワークフローに大きな変更を加えたり、新しいステップやテストフェーズを追加することなく、ペネトレーションテストチームがサポート手段として使用できるようします (*効率性 (efficiency)*)。
 
 
 
-## Modularity as a Key Concept
+## 想定読者
 
-This guide is not a monolithic, all-encompassing instruction manual for IoT device penetration testing. Instead, it should be seen as a dynamic and growing collection of test cases for various technologies related to IoT devices.
+その名前が示すように、OWASP IoT セキュリティテストガイドは主に IoT、ハードウェア、組み込み分野のペネトレーションテスト担当者やセキュリティアナリストが使用することを意図しています。しかし、他の人たちもこのガイドで紹介されているコンセプトとテストケースから恩恵を受けるかもしれません。
 
-In its current state, this guide comprises test cases on a very high and generic level. This is intentional since the base version of this guide should be applicable to as many different IoT devices as possible (*comparability*). However, the long-term goal is that this guide will be expanded over time by adding modules with more detailed test cases for specific technologies (*expandability*). Thereby, the guide will evolve and become more and more detailed over time.
+### **構築者 (Builder)**
+
+- **IoT デバイスの製造業者** (アーキテクト、エンジニア、開発者、管理者など) はこのガイドの内容を使用して、製品に影響を及ぼす可能性のある潜在的な問題や脆弱性を理解できます。脆弱な製品は製造業者にさまざまな種類の損害 (経済的損失、評判の低下など) をもたらす可能性があり、特定の製品が特定の状況や運用環境でどのように脆弱になる可能性があるかを理解することに関心が必要です。設計および開発プロセスの早期に意識と理解を高めることで、長期的に製品セキュリティを向上させながら、それぞれのコストを可能な限り低く抑えることができます。
+### **攻撃者 (Breaker)**
+
+- **ペネトレーションテスト担当者とバグバウンティ研究者** は [2. IoT セキュリティテストフレームワーク](../02_framework/README.md) で紹介されているコンセプトを使用して、テストを計画し、テスト範囲、テスト条件、テストアプローチを定義します。テストを実行する際、[3. テストケースカタログ](../03_test_cases/README.md) のテストケースとそれぞれの [チェックリスト](../../checklists) を使用できます。
+  - a) どの側面をテストすべきか、なぜテストすべきか、どのようにテストすべきか、潜在的な問題をどのように軽減できるかを示すガイドとして
+  - b) テスト完了ステータスを追跡し、関連するすべての側面が検査されたことを確認するため
+- **セキュリティコンサルタントとセキュリティ管理者** はこのガイドとその内容を、チームやクライアントと協働したり、上述の利害関係者とコミュニケーションする際の共通の基盤として使用できます。特に、このガイドで定義されている用語と構成は、さまざまなチームや組織間のコラボレーションを促進するのに役立つはずです。
+### **防御者 (Defender)**
+
+- **IoT デバイスの事業者** (ユーザーなど) は製造業者と同様にこのガイドを使用できます。しかし、IoT デバイスを実行する事業者は、通常、設計および開発プロセスにまったくあるいはほとんど影響力を持ちません。そのため、特定の運用環境でデバイスがどのように脆弱になる可能性があるか、デバイスが侵害されたり安全でない場合にこの環境がどのような影響を受けるかを理解することに関心が向けられます。
 
 
 
-## Solution Approach
+## キーコンセプトとしてのモジュール性
 
-During the preparation of a penetration test, a series of important decisions need to be made, which have a major impact on the test procedure and consequently the test results. Part of these decisions is to clarify what should be tested (*scope of the test*) and how the test should be performed (*test perspective*).
+このガイドは IoT デバイスペネトレーションテストのためのモノリシックで包括的な取扱説明書ではありません。それよりも、IoT デバイスに関連するさまざまなテクノロジに対する動的で成長するテストケースのコレクションとして見るべきです。
 
-In order to achieve the proposed solution, the following approach was chosen:
+現時点では、このガイドは非常に高度で一般的なレベルのテストケースで構成しています。このガイドの基本バージョンは可能な限り多くの異なる IoT デバイスに適用できるべきである (*比較可能性 (comparability)*) ため、これは意図的なものです。しかし、長期的な目標は、特定のテクノロジに対するより詳細なテストケースを含むモジュールを追加して、このガイドを時間の経過とともに拡張すること (*拡張性 (expandability)*) です。これにより、ガイドは時間とともに進化し、より詳細なものになっていきます。
 
-1. **Creation of an IoT device model, which represents an abstract, generalized IoT device:** 
 
-   Before the test scope for an IoT device penetration test can be identified, it must first be defined what an IoT device is and which parts it consists of. In order to support the test scope definition, the device model should include device components that can either be included in or excluded from the test scope. This guide will only focus on components, directly belonging to the device itself. All device-external elements, such as web applications, mobile applications and back end servers, will not be part of this guide although sister OWASP testing guides cover these areas. The device model will serve as a generalized scheme, depicting the common structure of IoT devices, thereby enhancing the comprehensibility and comparability of the methodology presented in this guide. As all further parts of the guide will rely on this basis, the creation of the device model is a mandatory and important first step.
 
-2. **Creation of an attacker model, which represents and categorizes potential attackers:** 
+## ソリューションアプローチ
 
-   The guide will comprise key aspects of testing for each component of the device model. Therefore, it will include a catalog of potential test cases for all device components. Since it might not be required to perform all of these test cases for any given kind of IoT device, a systematic approach is required, which yields a selection of applicable test cases based on the requirements and the intended operational environment of a specific device. The attacker model will support the definition of the test perspective, providing comprehensibility and comparability by defining common groups/types of attackers. In order to maintain efficiency, the attacker model will not incorporate extensive threat and risk analysis models. This also  benefits the comparability across different device implementations.
+ペネトレーションテストの準備の際に、一連の重要な決定を下す必要があり、テスト手順ひいてはテスト結果に大きな影響を与えます。これらの決定の一部として、何をテストすべきか (*テストの範囲 (scope of the test)*) およびどのようにテストを実行するか (*テスト観点 (test perspective)*) を明確にすることがあります。
 
-3. **Creation of a test methodology, which includes general key aspects of testing:** 
+提案されたソリューションを実現するために、以下のアプローチを選択しました。
 
-   Based on the IoT device model, a testing methodology including general key aspects of testing will be developed. These general key aspects represent security issues that are relevant for the device components and will be derived from more detailed test cases for specific exemplars of a given component or technology. This derivation should decouple the key aspects from specifics of the exemplar in order to enable the methodology to be used for as many different IoT device implementations as possible (*comparability*). However, the structure of the methodology will allow to add more detailed key aspects of testing for specific exemplars of a device component later on, thus providing expandability.
-   
+1. **抽象的で一般化された IoT デバイスを表す IoT デバイスモデルの作成:** 
+
+   IoT デバイスペネトレーションテストのテスト範囲を特定する前に、まず IoT デバイスとは何か、どの部品で構成されているかを定義しなければなりません。テスト範囲の定義をサポートするには、テスト範囲に含めたり除外できるデバイスコンポーネントをデバイスモデルに含める必要があります。このガイドはデバイス自体に直接属するコンポーネントのみに焦点を当てます。ウェブアプリケーション、モバイルアプリケーション、バックエンドサーバーなどのすべてのデバイス外部の要素はこのガイドの一部ではありませんが、姉妹の OWASP テストガイドでこれらの領域をカバーしています。デバイスモデルは IoT デバイスの一般的な構造を示す一般化されたスキームとして機能し、それによってこのガイドで説明されている方法論の理解可能性と比較可能性が高まります。このガイドの以降のすべての部分はこの基礎に依存するため、デバイスモデルの作成は必須かつ重要な最初のステップです。
+
+2. **潜在的な攻撃者を表現および分類する攻撃者モデルの作成:** 
+
+   このガイドはデバイスモデルの各コンポーネントに対するテストの重要な側面で構成します。したがって、すべてのデバイスコンポーネントに対する潜在的なテストケースのカタログを含みます。特定の種類の IoT デバイスに対してこれらのテストケースのすべてを実行する必要はないかもしれませんので、特定のデバイスの要件と意図された運用環境に基づいて、適用可能なテストケースを選択する体系的なアプローチが必要です。攻撃モデルはテスト観点の定義をサポートし、攻撃者の共通のグループ/タイプを定義することにより、理解可能性と比較可能性を提供します。効率性を維持するために、攻撃者モデルには広範な脅威およびリスクの分析モデルは組み込みません。これはさまざまなデバイス実装間での比較可能性にも役立ちます。
+
+3. **テストの一般的で重要な側面を含むテスト方法論の作成:** 
+
+   IoT デバイスモデルに基づいて、テストの一般的で重要な側面を含むテスト方法論を開発します。これらの一般的で重要な側面は、デバイスコンポーネントに関連するセキュリティ問題を表しており、特定のコンポーネントやテクノロジの特定の模範事例に対するより詳細なテストケースから導き出されます。この導出は、方法論をできるだけ多くの異なる IoT デバイス実装に対して使用できるようにする (*比較可能性 (comparability)*) ために、模範事例の重要な側面と特定の側面を切り離すべきです。とはいえ、方法論の構造は、デバイスコンポーネントの特定の模範事例に対するテストのより詳細な重要な側面を後から追加できるため、拡張性を提供します。
