@@ -137,7 +137,7 @@
 
 ## サイドチャネル攻撃 (Side-Channel Attacks) (IOT-PROC-SIDEC)
 
-Side-channel attacks, such as timing and glitching attacks, are usually targeted against the physical implementation of a device or more specifically a processing unit instead of the device firmware or its interfaces. The goal of such attacks is to gather information about cryptographic algorithms and operations, performed by a processing unit, in order to retrieve key material, manipulate the cryptographic calculations or gain access to protected information.
+タイミング攻撃やグリッチ攻撃などのサイドチャネル攻撃は、通常、デバイスファームウェアやそのインタフェースではなく、デバイスの物理実装、より具体的には処理装置をターゲットとしています。このような攻撃の目的は処理装置で実行する暗号アルゴリズムや操作に関する情報を収集し、鍵マテリアルの取得、暗号計算の操作、保護情報へのアクセスを行うことです。
 
 ### サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (IOT-PROC-SIDEC-001)
 
@@ -155,19 +155,19 @@ Side-channel attacks, such as timing and glitching attacks, are usually targeted
 </table>
 **要旨**
 
-As mentioned above, side-channel attacks can be used by an attacker to get access to sensitive data or to manipulate the device operation. Usually, side-channel attacks are customized attacks tailored to a specific hardware implementation.
+上述したように、攻撃者はサイドチャネル攻撃を使用して、機密データへのアクセスやデバイス動作の操作を行う可能性があります。通常、サイドチャネル攻撃は特定のハードウェア実装に合わせてカスタマイズされた攻撃です。
 
-Depending on how the attack is being performed, different levels of authorization access might be required. Some side-channel attacks, such as glitching attacks, do not require authorization access at all since the attack is performed on a physical level by manipulating the power supply. Other side-channel attack vectors, such as the Meltdown vulnerability, require the execution of code by an attacker. Thus, some kind of authorization access is necessary.
+攻撃の実行方法に応じて、さまざまなレベルの認可アクセスが必要になることがあります。グリッチ攻撃などの一部のサイドチャネル攻撃は、電力供給を操作することによって物理レベルで実行されるため、認可アクセスをまったく必要としません。メルトダウン脆弱性などの他のサイドチャネル攻撃ベクトルは攻撃者によるコードの実行が必要です。そのため、何らかの認可アクセスが必要になります。
 
 **テスト目的**
 
-- It has to be determined whether the processing unit is affected by known vulnerabilities, such as Meltdown and Spectre.
+- 処理装置がメルトダウンやスペクターなどの既知の脆弱性の影響を受けるかどうかを判断する必要があります。
 
-- During the testing period, the behavior of the processing unit has to be analyzed in order to assess the probability of successful side-channel attacks like timing or glitching attacks.
+- テスト期間中に、処理装置の動作を解析して、タイミング攻撃やグリッチ攻撃などのサイドチャネル攻撃が成功する確率を評価する必要があります。
 
 **対応策**
 
-Based on the results of the analysis, the hardware design should be adjusted to be resilient against side-channel attacks. Furthermore, if publicly known vulnerabilities exist, the latest patches should be installed.
+解析結果に基づき、ハードウェア設計を調整して、サイドチャネル攻撃に対する耐性を持つようにすべきです。さらに、一般的に既知の脆弱性が存在する場合、最新パッチをインストールすべきです。
 
 **参考情報**
 
