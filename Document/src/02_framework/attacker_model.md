@@ -1,16 +1,16 @@
 # 2.2. 攻撃者モデル (Attacker Model)
 
-In this chapter, a selection scheme for test cases will be described, which is based on potential attackers that are assumed to be a threat to a given IoT device. Contrary to a full threat and risk modeling approach, like the STRIDE model, the attacker model used in this guide presents a more streamlined procedure for defining and selecting threats to IoT devices.
+この章では、特定の IoT デバイスに対する脅威であると想定される潜在的な攻撃者に基づく、テストケースの選択方法について説明します。STRIDE モデルのような、完全な脅威およびリスクのモデリングアプローチとは対照的に、このガイドで使用する攻撃者モデルは IoT デバイスに対する定義および選択のためのより合理的な手順を示しています。
 
-The reasons for not using a formal threat and risk modeling approach are:
+フォーマルな脅威およびリスクのモデリングアプローチを使用しない理由は以下のとおりです。
 
--   Threat and risk modeling is usually focused on one specific implementation design. Thus, the identified threats and risks are based on certain conditions of a given solution or device, which makes it difficult to compare different solutions with each other.
+-   脅威およびリスクのモデリングは通常、一つの特定の実装設計に焦点を当てています。そのため、特定された脅威およびリスクは特定のソリューションやデバイスの特定の条件に基づいており、異なるソリューションを相互に比較することは困難になります。
 
--   Performing a formal threat and risk analysis requires a significant amount of time, which further increases with the complexity of the subject. Making a formal threat and risk analysis a mandatory requirement for penetration tests would result in longer testing periods and consequently higher expenses per test.
+-   フォーマルな脅威およびリスクの分析を実行するには、かなりの時間が必要になり、対象が複雑になるとさらに時間がかかります。フォーマルな脅威およびリスクの分析をペネトレーションテストの必須要件とすると、テスト期間が長くなり、その結果、テストごとの費用が高くなります。
 
-The spectrum of potential attackers reaches from anonymous global attackers to privileged individuals and users of the device. As will be explained in following sections, the list of attackers can be narrowed down by defining minimum and maximum access requirements, representing the test perspective. Every device component and test case will be tagged with the access level, which is required to perform the respective tests. Hence, the list of device components in scope of the test as well as the list of applicable test cases will be a result of applying the attacker model on the results, yielded by the device model.
+潜在的な攻撃者の全貌は匿名のグローバルな攻撃者から特権を持つ個人やデバイスのユーザーまで多岐にわたります。以下のセクションで説明するように、テストの観点を表す最小および最大のアクセス要件を定義することで、攻撃者のリストを絞り込むことができます。すべてのデバイスコンポーネントとテストケースには、それぞれのテストを実行するために必要なアクセスレベルでタグ付けされます。そのため、テスト範囲内のデバイスコンポーネントのリストと適用可能なテストケースのリストは、デバイスモデルによって得られた結果に攻撃者モデルを適用した結果になります。
 
-It must be noted that, within this chapter, the term "IoT device" refers to a single device or device type whereas, in the other chapters of this guide, it refers to IoT devices in general.
+この章では、「IoT デバイス」という用語は単一のデバイスまたはデバイスタイプを指しますが、このガイドの他の章では、IoT デバイス全般を指すことに注意しなければなりません。
 
 
 
