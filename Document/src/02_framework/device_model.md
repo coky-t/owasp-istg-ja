@@ -14,73 +14,73 @@
 
 
 
-## Device Boundaries
+## デバイスの境界
 
-In order to distinguish between components belonging to an IoT device and components of the surrounding IoT ecosystem, it is necessary to first define the boundaries of an IoT device. An IoT device is generally encompassed by an enclosure of some kind, which (physically) separates device-internal lements from device-external elements.
+IoT デバイスに属するコンポーネントと周囲の IoT エコシステムのコンポーネントを区別するためには、まず IoT デバイスの境界を定義する必要があります。IoT デバイスは一般的に何らかの筐体で囲われており、デバイス内部の要素とデバイス外部の要素を (物理的に) 分離しています。
 
-Interactions between internal and external elements are only possible via interfaces. Within this guide, these interfaces are not considered to be part of the enclosure. Instead, those interfaces will be categorized individually (see [Interfaces](#interfaces)).
+内部要素と外部要素間のやり取りはインタフェースを介してのみ可能です。このガイドでは、これらのインタフェースは筐体の一部とはみなされません。代わりに、これらのインタフェースは個別に分類されます ([インタフェース](#interfaces) 参照)。
 
-As will be explained in the next section, the term "component" refers to an item that can be the subject of a penetration test. Thus, device-internal elements and interfaces are considered components within this guide.
-
-
-
-## Components
-
-As introduced in the previous sections, the proposed device model should provide a generalized selection of parts that IoT devices consist of. These parts will be referred to as components. Every component is a piece of soft- and/or hardware that, in theory, can be tested individually. The penetration test scope for an IoT device can therefore be defined as a list of components.
-
-### Device-Internal Elements
-
-Every device-internal element is a component residing inside the device enclosure. Thus, they are part of the IoT device. IoT devices usually comprise the following internal elements, all of which are mentioned in the list of attack surfaces composed by OWASP ([source][owasp_iot_attack_surface_areas]):
-
-- **Processing unit:** The processing unit, also called processor, is responsible for managing and performing data processing tasks. These tasks are defined as a sequence of instructions that are loaded from the memory. A device has at least a central processing unit handling its core functionalities (defined by the firmware). However, more complex devices might also be equipped with further processing units that are assigned to specific subtasks. A special kind of processor are microprocessors, built on a single circuit. Microcontrollers are microprocessors, which also have analog and digital in- and outputs. They are typically used to control the behavior of a device and are often used in the embedded field. ([source][ekomp_processor])
-
-  *Examples: x86 processor, ARM processor, AVR processor*
-
-- **Memory:** Memory is used to store data, such as programs (instructions for a processing unit) and information, in binary form. Depending on the type of memory, it is used to temporarily store data while being processed by a processing unit (primary memory or cache) or to permanently store data on a device even while the device is turned off (secondary memory). A special kind of secondary memory is flash memory. It is commonly used in many devices because it is energy-saving, develops less heat and is less susceptible to vibration and magnetic fields due to the lack of moving parts. Flash memory is based on semiconductor technology and able to provide fast and permanent access to data (read, write, delete). ([source][ekomp_flash_memory], [source][ekomp_memory])
-
-  *Examples: EEPROM, flash memory*
-
-- **Firmware:** "Firmware is a software program or set of instructions programmed on a hardware device" ([source][tech_terms_firmware]). It is used to control the device and the communication between device-internal and -external elements (data in- and output via data exchange services). Firmware is stored on a memory and executed by a processing unit. In regards of device firmware, the following components might be potential targets for a penetration test:
-
-  -   **Installed firmware:** Installed firmware refers to firmware that is already installed on a device. It might be the target of dynamic analyses and usually handles the storage and processing of sensitive user data.
-
-  -   **Firmware update mechanism:** A firmware update mechanism is part of the firmware and defines how firmware updates, in the form of firmware packages, can be installed on a device. A crucial responsibility of a firmware update process is to ensure that only proper firmware packages can be installed and executed.[^1]
-
-  *Examples: OS, RTOS, bare-metal embedded firmware*
-
-- **Data exchange service:** Data exchange services refer to programs or parts of programs, used to transfer data between two or more components via an interface (e.g., network, bus). These services are part of the firmware and can be used to transmit data, receive data or both.
-
-  *Examples: network service, debug service, bus listener*
-
-[^1]: For performing a test of a firmware update mechanism, a firmware package is required. Due to the fact that a firmware package could also be inspected separately, it could be considered a component as well. However, since this guide focuses on device-internal elements and device interfaces only, firmware packages are not in scope. Contrary to installed firmware, an update package also includes the firmware header, which might include important data.
-
-### Interfaces
-
-Interfaces are required to connect two or more components with each other. Interactions between device-internal elements or between device-internal and device-external elements are only possible via interfaces. Based on which components are connected by an interface, it can be categorized as a machine-to-machine or human-to-machine interface. As long as at least one of the connected components is a device-internal element, the interface itself is also part of the device.
-
-Within this guide, the following kinds of interfaces will be differentiated, all of which are either directly or indirectly mentioned in the list of attack surfaces, composed by OWASP ([source][owasp_iot_attack_surface_areas]):
-
-- **Internal interfaces (machine-to-machine):** These interfaces are used to establish a connection between device-internal elements and are not accessible from outside the device enclosure.
-
-  *Examples: JTAG, UART, SPI*
-
-- **Physical interfaces (machine-to-machine):** Physical interfaces  are used to establish a connection between device-internal and -external elements, based on a physical connection between the components or the respective interfaces of those components. Therefore, physical interfaces require a socket or a port, built into the device enclosure and thus are accessible from outside the device.
-
-  *Examples: USB, Ethernet*
-
-- **Wireless interfaces (machine-to-machine):** Similar to physical interfaces, wireless interfaces are also used to establish a connection between device-internal and -external elements. However, the connection between wireless interfaces is not based on a physical connection, but on radio waves, optical signals or other wireless technologies. Wireless interfaces are accessible from outside the device, usually from a greater distance than physical interfaces.
-
-  *Examples: Wi-Fi, Bluetooth, BLE, ZigBee*
-
-- **User interfaces (human-to-machine):** In contrast to all other above-mentioned interfaces, user interfaces are not utilized to establish a connection between two machines. Instead, their purpose is to allow interactions between device-internal elements and a user. These interactions can either be based on a physical connection, e.g., in case of a touch display, or wireless connections, e.g., in case of a camera or microphone.
-
-  *Examples: touch display, camera, microphone, local web application (hosted on the device)*
+次のセクションで説明するように、「コンポーネント」という用語はペネトレーションテストの対象となり得るアイテムを指します。そのため、このガイドではデバイス内部要素およびインタフェースをコンポーネントとみなします。
 
 
 
-## Device Model Scheme
+## コンポーネント
 
-The device model is a combination of all above-mentioned components and can be seen in the figure below. It must be noted that, even though cardinalities were not included for better readability, more than one instance of each component might be built into an IoT device. 
+前のセクションで紹介したように、提案されたデバイスモデルは IoT デバイスを構成する部品の一般的な選択を提供する必要があります。これらの部品をコンポーネントと呼びます。すべてのコンポーネントは理論的には個別にテストできるソフトウェアやハードウェアの一部です。したがって、IoT デバイスのペネトレーションテスト範囲はコンポーネントのリストとして定義できます。
+
+### デバイス内部要素
+
+すべてのデバイス内部要素はデバイス筐体内に存在するコンポーネントです。そのため、これらは IoT デバイスの一部です。通常、IoT デバイスは以下の内部要素で構成しており、これらはすべて OWASP によって編集された攻撃対象領域のリスト ([出典][owasp_iot_attack_surface_areas]) に記載されています。
+
+- **処理装置:** 処理装置はプロセッサともよばれ、データ処理タスクの管理と実行を担当します。これらのタスクはメモリからロードされる一連の命令として定義されます。デバイスにはそのコア機能 (ファームウェアで定義される) を処理する中央処理装置を少なくとも備えています。なお、より複雑なデバイスには特定のサブタスクに割り当てられた処理装置をさらに装備していることもあります。特殊なプロセッサにはマイクロプロセッサがあり、単一回路上に構築されています。マイクロコントローラはマイクロプロセッサであり、アナログとデジタルの入出力も備えています。これらは一般的にデバイスの動作を制御するために使用され、組み込み分野でよく使用されます。 ([出典][ekomp_processor])
+
+  *例: x86 プロセッサ, ARM プロセッサ, AVR プロセッサ*
+
+- **メモリ:** メモリは、プログラム (処理装置に対する命令) や情報などのデータをバイナリ形式で保存するために使用されます。メモリの種類に応じて、処理装置で処理中にデータを一時的に保存 (一次メモリまたはキャッシュ) したり、デバイスの電源がオフの状態でもデバイスにデータを永続的に保存する (二次メモリ) ために使用されます。特殊な二次メモリはフラッシュメモリです。省エネで発熱が少なく、可動部分がないので振動や磁場の影響を受けにくいため、多くのデバイスで一般的に使用されています。フラッシュメモリは半導体技術に基づいており、データへの高速かつ永続的なアクセス (読み取り、書き込み、削除) を提供できます。([出典][ekomp_flash_memory], [出典][ekomp_memory])
+
+  *例: EEPROM, フラッシュメモリ*
+
+- **ファームウェア:** 「ファームウェアはハードウェアデバイス上にプログラムされたソフトウェアプログラムまたは一連の命令です」 ([出典][tech_terms_firmware])。これはデバイスと、デバイス内部要素と外部要素間の通信 (データ交換サービスを介したデータ入出力) を制御するために使用されます。ファームウェアはメモリに保存され、処理装置によって実行されます。デバイスファームウェアに関しては、以下のコンポーネントがペネトレーションテストのターゲットになるかもしれません。
+
+  -   **インストール済みファームウェア:** インストール済みファームウェアはデバイスに既にインストールされているファームウェアを指します。これは動的解析のターゲットになるかもしれず、通常は機密ユーザーデータの保存と処理を扱います。
+
+  -   **ファームウェア更新メカニズム:** ファームウェア更新メカニズムはファームウェアの一部であり、ファームウェアパッケージの形式でファームウェアアップデートをデバイスにインストールする方法を定義します。ファームウェア更新プロセスの重要な責任は、適切なファームウェアパッケージのみがインストールおよび実行できるようにすることです。 [^1]
+
+  *例: OS, RTOS, ベアメタル組み込みファームウェア*
+
+- **データ交換サービス:** データ交換サービスはプログラム、またはプログラムの一部を指し、インタフェース (ネットワーク、バスなど) を介して二つ以上のコンポーネント間でデータを転送するために使用されます。これらのサービスはファームウェアの一部であり、データの送信、データの受信、その両方で使用できます。
+
+  *例: ネットワークサービス、デバッグサービス、バスリスナー*
+
+[^1]: ファームウェア更新メカニズムのテストを実行するには、ファームウェアパッケージが必要です。ファームウェアパッケージも個別に検査できるため、コンポーネントとみなすこともできます。しかし、このガイドではデバイス内部要素とデバイスインタフェースのみに焦点を当てているため、ファームウェアパッケージは対象外です。インストール済みファームウェアとは異なり、アップデートパッケージにはファームウェアヘッダも含まれており、重要なデータを含むかもしれません。
+
+### インタフェース
+
+インタフェースは二つ以上のコンポーネントを互いに接続するために必要です。デバイス内部要素間や、デバイス内部要素とデバイス外部要素間のやり取りはインタフェースを介してのみ可能です。どのコンポーネントがインタフェースによって接続されているかに基づいて、マシン対マシンまたは人間対マシンのインタフェースに分類できます。接続されているコンポーネントの少なくとも一つがデバイス内部要素である限り、インタフェース自体もデバイスの一部となります。
+
+このガイドでは、以下の種類のインタフェースが区別されます。これらはすべて OWASP によって編集された攻撃対象領域のリスト ([出典][owasp_iot_attack_surface_areas]) に直接的または間接的に言及されています。
+
+- **内部インタフェース (マシン対マシン):** これらのインタフェースはデバイス内部要素間の接続を確立するために使用され、デバイス筐体の外部からはアクセスできません。
+
+  *例: JTAG, UART, SPI*
+
+- **物理インタフェース (マシン対マシン):** 物理インタフェースは、コンポーネントやそれらのコンポーネントのそれぞれのインタフェース間の物理接続に基づいて、デバイス内部要素とデバイス外部要素間の接続を確立するために使用されます。そのため、物理インタフェースはデバイス筐体に組み込まれたソケットやポートを必要とし、デバイス外部からアクセスできます。
+
+  *例: USB, イーサネット*
+
+- **無線インタフェース (マシン対マシン):** 物理インタフェースと同様に、無線インタフェースもデバイス内部要素とデバイス外部要素間の接続を確立するために使用されます。ただし、無線インタフェース間の接続は物理的な接続ではなく、電波、光信号、その他の無線技術に基づいています。無線インタフェースはデバイス外部から、通常は物理インタフェースよりも遠くからアクセスできます。
+
+  *例: Wi-Fi, Bluetooth, BLE, ZigBee*
+
+- **ユーザーインタフェース (人間対マシン):** 上述の他のすべてのインタフェースとは対照的に、ユーザーインタフェースは二つのマシン間の接続を確立するためには利用されません。そうではなく、その目的はデバイス内部要素とユーザー間のやり取りを可能にすることです。このやり取りは、タッチディスプレイの場合などの物理接続か、カメラやマイクの場合などの無線接続のいずれかに基づきます。
+
+  *例: タッチディスプレイ、カメラ、マイク、ローカルウェブアプリケーション (デバイスでホストされる)*
+
+
+
+## デバイスモデルスキーム
+
+デバイスモデルは上述のすべてのコンポーネントを組み合わせたものであり、以下の図で参照できます。読みやすくするためにカーディナリティは含まれませんが、各コンポーネントの複数のインスタンスが IoT デバイスに組み込まれているかもしれないことに注意しなければいけません。
 
 
 
@@ -88,11 +88,11 @@ The device model is a combination of all above-mentioned components and can be s
 
 
 
-Other models, e.g., the ones mentioned in [Related Work](#related-work), include sensors and actors as components of a device. Within this guide, sensors and actors are considered physical, wireless or user interfaces respectively because they enable interactions between device-internal and -external elements or users via physical (e.g., touch sensor, door control) or wireless connections (e.g., microphone, temperature sensor).
+他のモデル、たとえば [関連研究](#related-work) で言及されているモデルでは、デバイスのコンポーネントとしてセンサーとアクターを含んでいます。このガイドでは、センサーとアクターは、物理接続 (タッチセンサー、ドアコントロールなど) や無線接続 (マイク、温度センサーなど) を介して、デバイスの内部要素と外部要素やユーザー間のやり取りを可能にするため、それぞれ物理インタフェース、無線インタフェース、ユーザーインタフェースとみなされます。
 
-In some cases, it is also possible that devices comprise parts which can be considered devices themselves (i.e., nested devices). It then depends on the perspective of the observer which interfaces are classified as internal and external. The determining factor are the boundaries between the observer and the interface (see [Device Boundaries](#device-boundaries), [Device-Internal Elements](#device-internal-elements) and [Interfaces](#interfaces)).
+場合によっては、デバイスがデバイス自体とみなされる部品を含むこと (つまり、ネストされたデバイス) も可能です。その場合、どのインタフェースを内部と外部に分類するかは、観察者の視点により依存します。決定要因は観察者とインタフェースの間の境界です ([デバイスの境界](#device-boundaries), [デバイス内部要素](#device-internal-elements), [インタフェース](#interfaces) を参照) 。
 
-Overall, the device model, which was specifically developed in the context of this guide, can be used to create and share abstract representations of various different IoT devices. Contrary to other models, this one solely focuses on the IoT device and the components it is built of. Hence, the model allows to describe device implementations in a more detailed manner. In combination with the models and concepts, developed in the following chapters, it is possible to compile a list of applicable test cases for any given device regardless of the specific technologies or standards that are implemented.
+全体として、このガイドのコンテキストで特別に開発されたデバイスモデルはさまざまな異なる IoT デバイスの抽象表現を作成して共有するために使用できます。他のモデルとは対照的に、このモデルは IoT デバイスとそれを構成するコンポーネントのみに焦点を当てています。そのため、このモデルはデバイス実装をより詳細な方法で記述できます。次の章で開発されるモデルおよびコンセプトと組み合わせることで、実装されている特定のテクノロジや標準に関係なく、特定のデバイスに適用可能なテストケースのリストを作成できます。
 
 
 
