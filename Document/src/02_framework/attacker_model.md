@@ -15,7 +15,7 @@ It must be noted that, within this chapter, the term "IoT device" refers to a s
 
 
 
-## Conceptual Basis for the Attacker Model
+## 攻撃者モデルの概念的基盤
 
 This attacker model will characterize groups of potential attackers based on their access capabilities[^1]. The metrics that are used for this attacker model are based on the metrics of the [CVSS][cvss]. Even though the CVSS is primarily used to rate the severity of vulnerabilities in the web application and computer networking field, it implements a straightforward approach to assess the capabilities of attackers and the conditions that are required to exploit certain security issues. Another benefit of using a model that is similar to the CVSS is that many security professionals are already working with the CVSS. Hence, many testers and manufacturers/operators are familiar with this system, which also contributes to the acceptance of this attacker model.
 
@@ -33,7 +33,7 @@ The CVSS defines the following exploitability metrics:
 
 
 
-## Access Levels
+## アクセスレベル
 
 Within this attacker model, access levels are a measure for the relation between a certain group of individuals (access group) and the IoT device. They describe how individuals of the access group are intended to be able to interact with the device. These can either be physical interactions or logical authorization interactions.
 
@@ -65,7 +65,7 @@ The following authorization access levels are defined:
 
 
 
-## Mapping of Device Components and Access Levels
+## デバイスコンポーネントとアクセスレベルのマッピング
 
 The perspective of the testers during the test will be determined by minimal and maximal access levels, chosen as a baseline for the test. Physical and authorization access levels have different impacts on the penetration test and its scope.
 
