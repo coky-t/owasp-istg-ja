@@ -17,19 +17,19 @@
 
 ## 攻撃者モデルの概念的基盤
 
-This attacker model will characterize groups of potential attackers based on their access capabilities[^1]. The metrics that are used for this attacker model are based on the metrics of the [CVSS][cvss]. Even though the CVSS is primarily used to rate the severity of vulnerabilities in the web application and computer networking field, it implements a straightforward approach to assess the capabilities of attackers and the conditions that are required to exploit certain security issues. Another benefit of using a model that is similar to the CVSS is that many security professionals are already working with the CVSS. Hence, many testers and manufacturers/operators are familiar with this system, which also contributes to the acceptance of this attacker model.
+この攻撃モデルはアクセス能力に基づいて潜在的な攻撃者のグループを特徴付けます [^1] 。この攻撃者モデルに使用されるメトリックは [CVSS][cvss] のメトリックに基づいています。CVSS は主にウェブアプリケーションとコンピュータネットワーキングの分野で脆弱性の深刻度を評価するためにしようされますが、特定のセキュリティ問題を悪用するための攻撃者の能力と条件を評価するためのわかりやすいアプローチを実装しています。CVSS に類似したモデルを使用するもう一つの利点は、多くのセキュリティ専門家がすでに CVSS を利用していることです。そのため、多くのテスト担当者や製造業者/事業者がこのシステムに精通していることも、この攻撃者モデルの受け入れに寄与しています。
 
-The CVSS defines the following exploitability metrics:
+CVSS は以下の悪用可能性のメトリックを定義しています。
 
--   **Attack vector:** "This metric reflects the context by which vulnerability exploitation is possible" ([source][cvss]). Values for this metric are ranging from network access (e.g., via the internet) to physical access. Within the attacker model, this metric will be reflected by the physical access level.
+-   **攻撃元区分 (Attack Vector):** 「このメトリックは脆弱性悪用が可能となるコンテキストを反映しています」 ([出典][cvss])。このメトリックの値はネットワークアクセス (インターネット経由など) から物理アクセスまでの範囲になります。攻撃者モデルでは、このメトリックは物理アクセスレベルに反映されます。
 
--   **Attack complexity:** "This metric describes the conditions beyond the attacker's control that must exist in order to exploit the vulnerability" ([source][cvss]). The attack complexity is not used in the attacker model since it refers to "conditions beyond the attacker's control" ([source][cvss]) and thus is not relevant for categorizing potential attackers.
+-   **攻撃条件の複雑さ (Attack Complexity):** 「このメトリックは脆弱性を悪用するために存在しなければならない攻撃者の制御を超える条件を表しています」 ([出典][cvss])。攻撃条件の複雑さは「攻撃者の制御を超える条件」 ([出典][cvss]) を指し、潜在的な攻撃者の分類には関係ないため、攻撃者モデルでは使用されません。
 
--   **Privileges required:** "This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability" ([source][cvss]). Values for this metric are ranging from none (no privileges) to high. The required privileges are represented in the attacker model by the authorization access level.
+-   **必要な特権レベル (Privileges Required):** 「このメトリックは攻撃者が脆弱性の悪用を成功させるまでに保有しなければならない特権レベルを表しています」 ([出典][cvss])。このメトリックの値は不要 (特権なし) から高までの範囲になります。必要な特権は攻撃者モデルでは認可アクセスレベルで表しています。
 
--   **User interaction:** "This metric captures the requirement for a human user, other than the attacker, to participate in the successful compromise of the vulnerable component" ([source][cvss]). The necessity of interactions by legitimate users will not be considered in the attacker model since, while being relevant for the exploitability of a vulnerability, it is not relevant for the selection of applicable test cases.
+-   **ユーザ関与レベル (User interaction):** 「このメトリックは脆弱なコンポーネントの侵害に成功するために攻撃者以外の人間のユーザーが参加する要件を捕捉します」 ([出典][cvss])。正当なユーザーによるやり取りの必要性は脆弱性の悪用可能性に関係しますが、適用可能なテストケースの選択には関係しないため、攻撃者モデルでは考慮されません。
 
-[^1]: In regards of IT security, attackers are usually characterized based on further factors, e.g., their aggressiveness and their resources (processing power, time, money). However, these factors do not have or only have a minor impact for the selection of applicable test cases.
+[^1]: IT セキュリティに関して、攻撃者は通常、攻撃性やリソース (処理能力、時間、資金) などのさらなる要因に基づいて特徴付けられます。しかし、これらの要因は適用可能なテストケースの選択に影響を及ぼさないか、わずかな影響しか及ぼしません。
 
 
 
