@@ -1,6 +1,6 @@
 # 2.3. テスト方法 (Testing Methodology)
 
-In this chapter, a methodology for performing IoT device penetration tests will be described. It is based on the concepts, presented in [2.1. IoT Device Model](./device_model.md) and [2.2. Attacker Model](./attacker_model.md) and serves as a supplement, which can be used with pre-existing penetration testing workflows and frameworks. The methodology comprises key aspects of testing that have to be performed during an IoT device penetration test. Therefore, it includes a catalog of test cases for each individual device component. As described in the previous chapters, the specific selection of applicable test cases depends on the results of applying the device and attacker models, which have been designed in the context of this methodology.
+この章では、IoT デバイスのペネトレーションテストを実行するための方法論について説明します。これは [2.1. IoT デバイスモデル](./device_model.md) および [2.2. 攻撃者モデル](./attacker_model.md) で提示されたコンセプトに基づいており、既存のペネトレーションテストワークフローおよびフレームワークとともに使用できる補助として機能します。この方法論は IoT デバイスのペネトレーションテスト時に実行する必要があるテストの重要な側面で構成しています。したがって、各個別のデバイスコンポーネントのためのテストケースのカタログを含みます。前の章で説明したように、適用可能なテストケースの具体的な選択は、この方法論のコンテキストで設計されたデバイスモデルと攻撃者モデルを適用した結果に依存します。
 
 At first, it will be described how this methodology can be integrated into other workflows and during which steps the models and concepts of this methodology can be used. Then, selected testing techniques will be explained, which can be applied during the test and are not restricted to certain test cases. Finally, the structural concept of the catalog of test cases will be explained.
 
@@ -10,7 +10,7 @@ It must be noted that test cases, which apply to multiple components, will not b
 
 
 
-## Integration Into Other Workflows and Frameworks
+## 他のワークフローやフレームワークとの統合
 
 To achieve efficiency, no major adjustments to any pre-existing workflows should be required to incorporate this methodology. In the following, it will be shown how this methodology can be integrated into other frameworks based on the example of the BSI penetration testing model ([source][bsi_pentest]). In this case, no changes to the overall test workflow are required.
 
@@ -22,11 +22,11 @@ The methodology proposed in this guide can be used to facilitate the following s
 
 
 
-## Description of the Hierarchic Structure
+## 階層構造の説明
 
 In the following, the overall structure of the test case catalog as well as the general layout of a test case will be defined.
 
-### Structure of the Catalog of Test Cases
+### テストケースのカタログの構造
 
 The catalog of test cases will follow a hierarchic (tree) structure. Starting from a single root node (IOT), each component of the device model will be represented as a child node, thereby forming its own subtree. Subsequently, further nodes will be added as children to the component nodes, eventually resulting in each test case being a leaf node. A unique identifier, incorporating this structure, will be assigned to each node, allowing to reference it in the test report or other documents.
 
@@ -71,131 +71,131 @@ Another way to expand the catalog is to add custom components, categories and te
 <table>
     <thead>
         <tr>
-            <th>Hierarchy Level</th>
+            <th>階層レベル</th>
             <th>ID</th>
-            <th>Description</th>
+            <th>説明</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>0</td>
             <td>IOT</td>
-            <td>Root Node</td>
+            <td>ルートノード</td>
         </tr>
         <tr>
             <td rowspan="14" valign="top">1</td>
-            <td colspan="2"><b>Component</b></td>
+            <td colspan="2"><b>コンポーネント (Component)</b></td>
         </tr>
         <tr>
             <td>IOT-PROC</td>
-            <td>Processing Unit</td>
+            <td>処理装置 (Processing Unit)</td>
         </tr>
         <tr>
             <td>IOT-MEM</td>
-            <td>Memory</td>
+            <td>メモリ (Memory)</td>
         </tr>
         <tr>
             <td>IOT-FW</td>
-            <td>Firmware</td>
+            <td>ファームウェア (Firmware)</td>
         </tr>
         <tr>
             <td>IOT-DES</td>
-            <td>Data Exchange Service</td>
+            <td>データ交換サービス (Data Exchange Service)</td>
         </tr>
         <tr>
             <td>IOT-INT</td>
-            <td>Internal Interface</td>
+            <td>内部インタフェース (Internal Interface)</td>
         </tr>
         <tr>
             <td>IOT-PHY</td>
-            <td>Physical Interface</td>
+            <td>物理インタフェース (Physical Interface)</td>
         </tr>
         <tr>
             <td>IOT-WRLS</td>
-            <td>Wireless Interface</td>
+            <td>無線インタフェース (Wireless Interface)</td>
         </tr>
         <tr>
             <td>IOT-UI</td>
-            <td>User Interface</td>
+            <td>ユーザーインタフェース (User Interface)</td>
         </tr>
         <tr>
             <td>IOT-*</td>
-            <td>Custom Component <i>(placeholder for future extensions)</i></td>
+            <td>カスタムコンポーネント (Custom Component)<i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
         <tr>
-            <td colspan="2"><b>Component Specialization (Optional)</b></td>
+            <td colspan="2"><b>コンポーネントの特殊化 (Component Specialization) (オプション)</b></td>
         </tr>
         <tr>
             <td>IOT-FW[INST]</td>
-            <td>Installed Firmware</td>
+            <td>インストール済みファームウェア (Installed Firmware)</td>
         </tr>
         <tr>
             <td>IOT-FW[UPDT]</td>
-            <td>Firmware Update Mechanism</td>
+            <td>ファームウェア更新メカニズム (Firmware Update Mechanism)</td>
         </tr>
         <tr>
             <td>IOT-*[*]</td>
-            <td>Custom Component Specialization <i>(placeholder for future extensions)</i></td>
+            <td>カスタムコンポーネントの特殊化 (Custom Component Specialization)<i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
         <tr>
             <td rowspan="10" valign="top">2</td>
-            <td colspan="2"><b>Category</b></td>
+            <td colspan="2"><b>カテゴリ (Category)</b></td>
         </tr>
         <tr>
             <td>IOT-*-AUTHZ</td>
-            <td>Authorization</td>
+            <td>認可 (Authorization)</td>
         </tr>
         <tr>
             <td>IOT-*-INFO</td>
-            <td>Information Gathering</td>
+            <td>情報収集 (Information Gathering)</td>
         </tr>
         <tr>
             <td>IOT-*-CRYPT</td>
-            <td>Cryptography</td>
+            <td>暗号技術 (Cryptography)</td>
         </tr>
         <tr>
             <td>IOT-*-SCRT</td>
-            <td>Secrets</td>
+            <td>シークレット (Secrets)</td>
         </tr>
         <tr>
             <td>IOT-*-CONF</td>
-            <td>Configuration and Patch Management</td>
+            <td>構成とパッチ管理 (Configuration and Patch Management)</td>
         </tr>
         <tr>
             <td>IOT-*-LOGIC</td>
-            <td>Business Logic</td>
+            <td>ビジネスロジック (Business Logic)</td>
         </tr>
         <tr>
             <td>IOT-*-INPV</td>
-            <td>Input Validation</td>
+            <td>入力バリデーション (Input Validation)</td>
         </tr>
         <tr>
             <td>IOT-*-SIDEC</td>
-            <td>Side-Channel Attacks</td>
+            <td>サイドチャネル攻撃 (Side-Channel Attacks)</td>
         </tr>
         <tr>
             <td>IOT-*-*</td>
-            <td>Custom Category <i>(placeholder for future extensions)</i></td>
+            <td>カスタムカテゴリ (Custom Category) <i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
         <tr>
             <td rowspan="5" valign="top">3</td>
-            <td colspan="2"><b>Test Case</b></td>
+            <td colspan="2"><b>テストケース (Test Case)</b></td>
         </tr>
         <tr>
             <td>IOT-*-INFO-001</td>
-            <td>Disclosure of Source Code</td>
+            <td>ソースコードの開示 (Disclosure of Source Code)</td>
         </tr>
         <tr>
             <td>IOT-*-INFO-002</td>
-            <td>Disclosure of Implementation Details</td>
+            <td>実装内容の開示 (Disclosure of Implementation Details)</td>
         </tr>
         <tr>
             <td>IOT-*-INFO-003</td>
-            <td>Disclosure of Ecosystem Details</td>
+            <td>エコシステム内容の開示 (Disclosure of Ecosystem Details)</td>
         </tr>
         <tr>
             <td>IOT-*-*-*</td>
-            <td>Custom Test Case <i>(placeholder for future extensions)</i></td>
+            <td>カスタムテストケース (Custom Test Case) <i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
     </tbody>
 </table>
@@ -203,17 +203,17 @@ Another way to expand the catalog is to add custom components, categories and te
 
 ![image](../img/Component_Overview.png)
 
-### Structure of Test Cases
+### テストケースの構造
 
 Each individual test case, which is represented by a leaf node, is divided into the following sections:
 
--   **Requirements:** The requirements section will define which physical and authorization access levels are required to carry out the test case. Since these requirements also depend on the given test conditions, e.g., the specific implementation of the target device and its operational environment, a range of access levels might be defined which apply to the test case in general.
+-   **必要条件 (Requirements):** The requirements section will define which physical and authorization access levels are required to carry out the test case. Since these requirements also depend on the given test conditions, e.g., the specific implementation of the target device and its operational environment, a range of access levels might be defined which apply to the test case in general.
 
--   **Summary:** The summary section includes an overall description of the security issue, which the test case is based on.
+-   **要旨 (Summary):** The summary section includes an overall description of the security issue, which the test case is based on.
 
--   **Test Objectives:** In the test objectives section, a list of checks that the tester has to perform is given. By performing these checks, the tester can determine whether the device is affected by the security issue described in the summary.
+-   **テスト目的 (Test Objectives):** In the test objectives section, a list of checks that the tester has to perform is given. By performing these checks, the tester can determine whether the device is affected by the security issue described in the summary.
 
--   **Remediation:** The remediation section comprises recommendations regarding potential measures that can be applied to solve the security issue. However, these recommendations are only rough suggestions. It is the responsibility of the manufacturer/operator to derive detailed measures in regards of the device implementation.
+-   **対応策 (Remediation):** The remediation section comprises recommendations regarding potential measures that can be applied to solve the security issue. However, these recommendations are only rough suggestions. It is the responsibility of the manufacturer/operator to derive detailed measures in regards of the device implementation.
 
 
 
