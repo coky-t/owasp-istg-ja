@@ -35,73 +35,73 @@ CVSS は以下の悪用可能性のメトリックを定義しています。
 
 ## アクセスレベル
 
-Within this attacker model, access levels are a measure for the relation between a certain group of individuals (access group) and the IoT device. They describe how individuals of the access group are intended to be able to interact with the device. These can either be physical interactions or logical authorization interactions.
+この攻撃モデルにおいて、アクセスレベルは特定の個人グループ (アクセスグループ) と IoT デバイスとの関係を示す尺度です。アクセスレベルはアクセスグループの個人がどのようにデバイスとやり取りできるように意図されているかを説明します。これらは物理的なやり取りか、論理的な認可のやり取りのいずれかになります。
 
-The degree of how close individuals can get to the device is measured by the physical access level. The physical access level is an adaption of the CVSS metric "attack vector" and it reflects the physical context that is required to perform attacks against a target device. Therefore, some of the original values from the CVSS were used (network, local, physical). However, the description of local access was adjusted in regards of the focus on the physical context. Additionally, the physical access as defined in the CVSS was split into two levels: non-invasive and invasive physical access. The reason for this is that some IoT devices are protected with special measures that restrict access to device-internal elements, e.g., locked or sealed enclosures. In this case, attackers might not be able to access device-internals in a reasonable amount of time, thus they only have non-invasive physical access. Other devices have enclosures that can be opened in a short time, e.g., by removing screws. Thus, attackers could access device-internals, therefore gaining invasive physical access. Overall, the physical access level can be affected by factors like geographical location, building security or the device enclosure.
+個人がデバイスにどれくらい近づくごとができるかは、物理アクセスレベルによって測定されます。物理アクセスレベルは CVSS メトリックの「攻撃元区分 (Attack Vector)」を適用したものであり、ターゲットデバイスに対して攻撃を実行するために必要な物理コンテキストを反映します。したがって、CVSS の元の値の一部 (ネットワーク、ローカル、物理) を使用しました。しかし、物理コンテキストに焦点をあてて、ローカルアクセスの説明を調整しました。さらに、CVSS で定義されている物理アクセスは、非侵襲的物理アクセスと侵襲的物理アクセスの二つのレベルに分割しました。その理由は、IoT デバイスの一部では、ロックまたは密閉された筐体など、デバイス内部要素へのアクセスを制限する特別な手段で保護されているためです。この場合、攻撃者は妥当な時間内にデバイス内部にアクセスできないかもしれないため、非侵襲的な物理アクセスしかできません。他のデバイスにはネジを外すなどにより短時間で開けることができる筐体があります。そのため、攻撃者はデバイス内部にアクセスして、侵襲的な物理アクセスを獲得できます。全体として、物理アクセスレベルは地理的位置、建物のセキュリティ、デバイスの筐体などの要因によって影響を受ける可能性があります。
 
-The following physical access levels are defined:
+以下の物理アクセスレベルを定義しています。
 
-1.  **Remote access (*PA-1*):** There is an arbitrary physical distance between an individual and the device. An attacker with remote access can be located anywhere in the world, which usually means that the device is directly accessible via a Global Area Network (GAN).
+1.  **リモートアクセス (*PA-1*):** 個人とデバイスの間には任意の物理的な距離があります。リモートアクセスを行う攻撃者は世界中のどこにでも可能性があり、これは通常、デバイスがグローバルエリアネットワーク (GAN) 経由で直接アクセスできることを意味します。
 
-2.  **Local access (*PA-2*):** There is a limited physical distance[^2] between an individual and the device, but direct physical interactions are not possible. An attacker with local access can use the device from close proximity, which usually means that the device is directly accessible via a Local Area Network (LAN) or Wireless Local Area Network (WLAN).
+2.  **ローカルアクセス (*PA-2*):** 個人とデバイスの間には限定的な物理的な距離 [^2] がありますが、直接的な物理的やり取りはできません。ローカルアクセスを行う攻撃者は近接からデバイスを使用する可能性があり、これは通常、デバイスがローカルエリアネットワーク (LAN) やワイヤレスローカルエリアネットワーク (WLAN) 経由で直接アクセスできることを意味します。
 
-3.  **Non-invasive access (*PA-3*):** There is no physical distance between an individual and the device, but the individual cannot directly access device-internal elements in a physical manner (i.e., cannot easily open the device enclosure).
+3.  **非侵襲的アクセス (*PA-3*):** 個人とデバイスの間には物理的な距離はありませんが、個人は物理的な方法でデバイス内部要素に直接アクセスできません (つまり、デバイスの筐体を簡単に開けることができません)。
 
-4.  **Invasive access (*PA-4*):** There is no physical distance between an individual and the device and the individual can directly access device-internal elements in a physical manner (i.e., open the device enclosure).
+4.  **侵襲的アクセス (*PA-4*):** 個人とデバイスの間には物理的な距離はなく、個人は物理的な方法でデバイス内部要素に直接アクセスできます (つまり、デバイスの筐体を開けます)。
 
-The digital privileges of individuals are measured by the authorization access level. The authorization access level is an adaption of the CVSS metric "privileges required". In addition to the values, defined in the CVSS, another level of privileges, called manufacturer-level access, was added on top of the high privileges. Contrary to web applications and computer networks, which are usually operated from within the control zone of the operator (e.g., within a data center), IoT devices are often operated outside that control zone. Established methods for securing maintenance and debugging access (e.g., restricting maintenance access to pre-defined subnets, IP addresses or physical ports in the data center) can not always be applied. Hence, attacks against a device with manufacturer-level access might be possible. Overall, the authorization access level can be affected by factors like policies or role-based access models.
+個人のデジタル権限は認可アクセスレベルによって測定されます。認可アクセスレベルは CVSS メトリック「必要な特権レベル (Privileges Required)」を適応したものです。CVSS で定義された値に加えて、製造業者レベルアクセスと呼ばれる別のレベルの権限を高権限のトップに追加しました。ウェブアプリケーションやコンピュータネットワークは通常、事業者のコントロールゾーン内 (データセンタ内など) で運用されるのとは対照的に、IoT デバイスはそのコントロールゾーン外で運用されることがよくあります。メンテナンスの保護とデバッグアクセスのために確立された方法 (メンテナンスアクセスをデータセンタ内のあらかじめ定義されたサブネット、IP アドレス、物理ポートに制限するなど) を常に適用できるとは限りません。そのため、製造業者レベルアクセスでのデバイスに対する攻撃が可能になるかもしれません。全体として、認可アクセスレベルはポリシーやロールベースのアクセスモデルなどの要因によって影響を受ける可能性があります。
 
-The following authorization access levels are defined:
+以下の認可アクセスレベルを定義しています。
 
-1.  **Unauthorized access (*AA-1*):** An individual can get anonymous access to the device component. Attackers with anonymous access can be any unregistered user.
+1.  **非認可アクセス (*AA-1*):** 個人はデバイスコンポーネントに匿名でアクセスできます。匿名アクセスでの攻撃者は任意の未登録ユーザーである可能性があります。
 
-2.  **Low-privileged access (*AA-2*):** An individual can only get access to the device component, if it is authenticated and in possession of standard authorization privileges. Attackers with low-privileged access can be any registered user.
+2.  **低権限アクセス (*AA-2*):** 個人がデバイスコンポーネントにアクセスできるのは、認証されて標準的な認可権限を持つ場合に限ります。低権限アクセスでの攻撃者は任意の登録ユーザーである可能性があります。
 
-3.  **High-privileged access (*AA-3*):** An individual can only get access to the device component, if it is authenticated and in possession of extensive privileges. The term "extensive privileges" means that individuals have access to restricted functionalities that are not available to all registered users of the device component (e.g., configuration settings).
+3.  **高権限アクセス (*AA-3*):** 個人がデバイスコンポーネントにアクセスできるのは、認証されて広範な権限を持つ場合に限ります。「広範な権限」という用語は、すべての登録ユーザーが利用できるわけではない制限されたデバイスコンポーネントの機能 (構成設定など) に個人がアクセスできることを意味します。
 
-4.  **Manufacturer-level access (*AA-4*):** An individual can only get access to the device component, if it is authenticated and in possession of manufacturer-level authorization privileges. Contrary to high-privileged access, manufacturer-level access is not restricted in any way and includes, e.g., debugging access for developers of the device, access to the source code or root-level access to the firmware.
+4.  **製造業者レベルアクセス (*AA-4*):** 個人がデバイスコンポーネントにアクセスできるのは、認証されて製造業者レベルの認可権限を持つ場合に限ります。高権限アクセスとは対照的に、製造業者レベルアクセスはいかなる形でも制限されず、たとえば、デバイス開発者のためのデバッグアクセス、ソースコードへのアクセス、ファームウェアへのルートレベルのアクセスが含まれます。
 
-[^2]: Limited physical distance is not restricted to a specic maximum value per se. Depending on the technologies in use, the maximum distance might range from a few meters (e.g., in case of Bluetooth) to a few kilometers (e.g., in case of LTE).
+[^2]: 限定的な物理的な距離は特定の最大値に制限されません。使用するテクノロジによって、最大距離は数メートル (Bluetooth の場合など) から数キロメートル (LTE の場合など) の範囲になるかもしれません。
 
 
 
 ## デバイスコンポーネントとアクセスレベルのマッピング
 
-The perspective of the testers during the test will be determined by minimal and maximal access levels, chosen as a baseline for the test. Physical and authorization access levels have different impacts on the penetration test and its scope.
+テスト時のテスト担当者の観点はテストのベースラインとして選択される最小および最大のアクセスレベルによって決まります。物理アクセスと認可アクセスレベルはペネトレーションテストとその範囲にさまざまな影響を与えます。
 
-**Physical access level:**
+**物理アクセスレベル:**
 
--   The physical access level refers to the device as a whole. Thus, some physical access levels directly define that certain device components can not be tested with the given level since an attacker could not interact with these components at all. The relation between physical access levels and device components is shown in the table below.
+-   物理アクセスレベルはデバイス全体を指します。そのため、一部の物理アクセスレベルでは、攻撃者はこれらのコンポーネントとまったくやり取りできないため、特定のデバイスコンポーネントは指定されたレベルでテストできないことを直接定義します。物理アクセスレベルとデバイスコンポーネントの関係を下表に示します。
 
--   Based on the specific requirements of a manufacturer or operator, the minimal and/or maximal physical access levels might be hard boundaries for the test execution since the contractee might want to specifically exclude certain tests, e.g., those which require invasive physical access.
+-   製造業者や事業者の特定の要件に基づいて、最小や最大の物理アクセスレベルがテスト実行のための厳しい境界となるかもしれません。これは契約者が侵襲的な物理アクセスを必要とするものなどの特定のテストを特に除外したい場合があるためです。
 
-**Authorization access level:**
+**認可アクセスレベル:**
 
--   Since authorization access might be handled differently across multiple device components, the authorization access level rather refers to access to an individual component than to the device as a whole. Thus, the impact of authorization access levels on the test scope always depends on the specific implementation of the business logic and the authorization/permission scheme per component.
+-   認可アクセスは複数のデバイスコンポーネント間で異なる方法で処理されるかもしれないため、認可アクセスレベルはデバイス全体ではなく個々のコンポーネントへのアクセスを指します。そのため、テスト範囲に対する認可アクセスレベルの影響はビジネスロジックの特定の実装とコンポーネントごとの認可/パーミッションスキームに常に依存します。
 
--   There is no reason for selecting a minimal authorization access level for the test perspective since evaluating whether it is possible to get access to (parts of) the device with lower privileges than intended should be part of the test.
+-   意図したものよりも低い権限でデバイス (の一部) にアクセスできるかどうかを評価することはテストの一部であるべきなので、テストの観点から最小の認可アクセスレベルを選択する理由はありません。
 
-All in all, the attacker model can be used to create an abstract representation of potential attackers. It can be used to describe which kind of attackers is considered a threat to a given device in its operation environment. Contrary to other methodologies and models, this one can be used in a more streamlined manner, thus being more efficient, e.g., compared to full threat and risk analysis approaches. It is also takes the specifics of the IoT context more into account than the CVSS, which it is based on. In combination with the device model, it is possible to define the test scope and test perspective, thereby determining which test cases can and shall be performed.
+全体として、攻撃者モデルは潜在的な攻撃者の抽象表現を作成するために使用できます。これはどのような攻撃者が動作環境において特定のデバイスに対する脅威とみなされるかを説明するために使用できます。他の方法論やモデルとは対照的に、これはより合理的な方法で使用できるため、たとえば完全な脅威およびリスクの分析アプローチと比較して、より効率的です。また、ベースとなる CVSS よりも IoT コンテキストの特殊性を考慮しています。デバイスモデルと組み合わせることで、テスト範囲とテスト観点を定義することができ、それによってどのテストケースが実行可能で実行しなければならないかを決定できます。
 
-| Component                 | PA-4  |   PA-3    |   PA-2    |   PA-1    |
-| ------------------------- | :---: | :-------: | :-------: | :-------: |
-| Processing Unit           | **✓** |           |           |           |
-| Memory                    | **✓** |           |           |           |
-| Installed Firmware        | **✓** | **?**[^3] | **?**[^3] | **?**[^3] |
-| Firmware Update Mechanism | **✓** | **?**[^3] | **?**[^3] | **?**[^3] |
-| Data Exchange Service     | **✓** | **?**[^4] | **?**[^4] | **?**[^4] |
-| Internal Interface        | **✓** |           |           |           |
-| Physical Interface        | **✓** |   **✓**   | **?**[^5] |           |
-| Wireless Interface        | **✓** |   **✓**   |   **✓**   |           |
-| User Interface            | **✓** |   **✓**   | **?**[^6] | **?**[^6] |
+| コンポーネント                 |  PA-4  |   PA-3    |   PA-2    |   PA-1    |
+| ------------------------------ | :----: | :-------: | :-------: | :-------: |
+| 処理装置                       | **✓** |           |           |           |
+| メモリ                         | **✓** |           |           |           |
+| インストール済みファームウェア | **✓** | **?**[^3] | **?**[^3] | **?**[^3] |
+| ファームウェア更新メカニズム   | **✓** | **?**[^3] | **?**[^3] | **?**[^3] |
+| データ交換サービス             | **✓** | **?**[^4] | **?**[^4] | **?**[^4] |
+| 内部インタフェース             | **✓** |           |           |           |
+| 物理インタフェース             | **✓** |   **✓**  | **?**[^5] |           |
+| 無線インタフェース             | **✓** |   **✓**  |  **✓**   |           |
+| ユーザーインタフェース         | **✓** |   **✓**  | **?**[^6] | **?**[^6] |
 
-[^3]: Installed firmware and the firmware update mechanism might be testable with non-invasive (*PA-3*), local (*PA-2*) or remote physical access (*PA-1*), depending on how direct access to the firmware can be accomplished (e.g., via SSH).
+[^3]: インストール済みファームウェアとファームウェア更新メカニズムは、ファームウェアへの直接アクセスを行う方法 (SSH 経由など) に応じて、非侵襲的 (*PA-3*)、ローカル (*PA-2*)、リモート (*PA-1*) の物理アクセスでテスト可能かもしれません。
 
-[^4]: Data exchange services might be testable with non-invasive (*PA-3*), local (*PA-2*) or remote physical access (*PA-1*), depending on if they were designed for that kind of access, e.g., for remote control or monitoring purposes.
+[^4]: データ交換サービスは、遠隔操作や監視目的など、その種のアクセスのために設計されているかどうかに応じて、非侵襲的 (*PA-3*)、ローカル (*PA-2*)、リモート (*PA-1*) の物理アクセスでテスト可能かもしれません。
 
-[^5]: Physical interfaces might be testable with local physical access (*PA-2*) under certain circumstances, e.g., if the physical interface is connected to a local network.
+[^5]: 物理インタフェースがローカルネットワークで接続されている場合など、特定の状況下では物理インタフェースはローカル (*PA-2*) の物理アクセスでテスト可能かもしれません。
 
-[^6]: User interfaces might be testable with local (*PA-2*) or remote physical access (*PA-1*), depending on if they were designed for that kind of access, e.g., for remote control or monitoring purposes.
+[^6]: ユーザーインタフェースは、遠隔操作や監視目的など、その種のアクセスのために設計されているかどうかに応じて、ローカル (*PA-2*)、リモート (*PA-1*) の物理アクセスでテスト可能かもしれません。
 
 
 
