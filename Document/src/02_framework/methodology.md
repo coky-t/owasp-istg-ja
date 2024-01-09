@@ -2,23 +2,23 @@
 
 この章では、IoT デバイスのペネトレーションテストを実行するための方法論について説明します。これは [2.1. IoT デバイスモデル](./device_model.md) および [2.2. 攻撃者モデル](./attacker_model.md) で提示されたコンセプトに基づいており、既存のペネトレーションテストワークフローおよびフレームワークとともに使用できる補助として機能します。この方法論は IoT デバイスのペネトレーションテスト時に実行する必要があるテストの重要な側面で構成しています。したがって、各個別のデバイスコンポーネントのためのテストケースのカタログを含みます。前の章で説明したように、適用可能なテストケースの具体的な選択は、この方法論のコンテキストで設計されたデバイスモデルと攻撃者モデルを適用した結果に依存します。
 
-At first, it will be described how this methodology can be integrated into other workflows and during which steps the models and concepts of this methodology can be used. Then, selected testing techniques will be explained, which can be applied during the test and are not restricted to certain test cases. Finally, the structural concept of the catalog of test cases will be explained.
+最初に、この方法論を他のワークフローにどのように統合できるか、また、どのステップでこの方法論のモデルとコンセプトを使用できるかについて説明します。次に、テスト時に適用できて、特定のテストケースに限定されない、選択されたテスト技法について説明します。最後に、テストケースカタログの構造コンセプトについて説明します。
 
-In comparison to other IoT penetration testing frameworks, this methodology follows a more generic yet comprehensive approach. It defines test cases for certain security issues that are relevant in the IoT context (key aspects of testing) without being restricted by the details of specific technologies or standards. Thereby, this methodology is more flexible than other frameworks, which is an important benefit given the volatility of the IoT field. Nonetheless, the methodology is applicable to various technologies and provides possibilities for further particularizations.
+他の IoT ペネトレーションテストフレームワークと比較して、この方法論はより一般的でありながら包括的なアプローチに従っています。特定のテクノロジや標準の詳細に制限されることなく、IoT コンテキスト (テストの重要な側面) に関連する特定のセキュリティ問題を定義しています。そのため、この方法論は他のフレームワークよりも柔軟であり、IoT 分野の変動性を考慮すると重要な利点となります。とはいえ、この方法論はさまざまなテクノロジに適用でき、さらなる詳細化の可能性を提供します。
 
-It must be noted that test cases, which apply to multiple components, will not be included in this chapter. The full list of test cases can be found in [3. Test Case Catalog](../03_test_cases/README.md).
+複数のコンポーネントに適用されるテストケースはこの章には含まれないことに注意しなければいけません。テストケースの完全なリストは [3. テストケースカタログ](../03_test_cases/README.md) にあります。
 
 
 
 ## 他のワークフローやフレームワークとの統合
 
-To achieve efficiency, no major adjustments to any pre-existing workflows should be required to incorporate this methodology. In the following, it will be shown how this methodology can be integrated into other frameworks based on the example of the BSI penetration testing model ([source][bsi_pentest]). In this case, no changes to the overall test workflow are required.
+効率性を達成するため、この方法論を組み込むために既存のワークフローを大幅に調整する必要はありません。以下では BSI ペネトレーションテストモデル ([出典][bsi_pentest]) の例に基づいて、この方法論を他のフレームワークにどのように統合できるかを示します。この場合、テストワークフロー全体を変更する必要はありません。
 
-The methodology proposed in this guide can be used to facilitate the following steps:
+このガイドで提案されている方法論は以下のステップを容易にするために使用できます。
 
--   **Clarification of the Test Scope and Test Perspective:** The methodology supports the clarification of test objectives and conditions with the contractee during phases 1 and 3 of the BSI model ([source][bsi_pentest]) by establishing a common terminology in form of the device and attacker models, thus facilitating the communication. Furthermore, the device model supports the testing team during phase 2 by providing a generic scheme, which can be compared to the architecture of a given IoT device in order to identify potential attack vectors.
+-   **テスト範囲とテスト観点の明確化:** この方法論は、デバイスと攻撃者のモデルの形で共通の用語を確立することで、BSI モデル ([出典][bsi_pentest]) のフェーズ 1 および 3 で契約者とのテストの目的と条件の明確化をサポートし、コミュニケーションを円滑にします。さらに、デバイスモデルは、潜在的な攻撃ベクトルを特定するために、特定の IoT デバイスのアーキテクチャと比較できる汎用的なスキームを提供することで、フェーズ 2 でテストチームをサポートします。
 
--   **Test Execution and Documentation:** The catalog of test cases acts as a guideline for testers during the active test (phase 4 of the BSI model ([source][bsi_pentest])). Depending on the test scope and test perspective, applicable test cases are defined, which have to be performed during the test. Thus, the test catalog can be used as a checklist to ensure that all mandatory tests were performed. It also allows to transparently document the test procedure in a reproducible manner during phase 5, due to the fact that performed test cases can be referenced in the report.
+-   **テスト実行と文書化:** テストケースカタログはアクティブテスト (BSI モデルのフェーズ 4 ([出典][bsi_pentest])) の際にテスト担当者のガイドラインとして機能します。テスト範囲とテスト観点に応じて、適用可能なテストケースが定義され、テストで実行される必要があります。そのため、テストカタログはチェックリストとして使用して、必須テストがすべて実行されたことを確認します。また、実行したテストケースをレポートで参照できるため、フェーズ 5 において再現可能な方法でテスト手順を透過的に文書化できます。
 
 
 
