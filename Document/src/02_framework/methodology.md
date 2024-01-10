@@ -24,49 +24,49 @@
 
 ## 階層構造の説明
 
-In the following, the overall structure of the test case catalog as well as the general layout of a test case will be defined.
+以下では、テストケースカタログの全体的な構造とテストケースの一般的なレイアウトを定義します。
 
 ### テストケースのカタログの構造
 
-The catalog of test cases will follow a hierarchic (tree) structure. Starting from a single root node (IOT), each component of the device model will be represented as a child node, thereby forming its own subtree. Subsequently, further nodes will be added as children to the component nodes, eventually resulting in each test case being a leaf node. A unique identifier, incorporating this structure, will be assigned to each node, allowing to reference it in the test report or other documents.
+テストケースのカタログは階層 (ツリー) 構造に従います。単一のルートノード (IOT) から始まり、デバイスモデルの各コンポーネントは子ノードとして表現され、それによってそれ自体のサブツリーを形成します。それから、さらにノードがコンポーネントノードの子として追加され、最終的に各テストケースがリーフノードになります。この構造を取り入れた一意の識別子が各ノードに割り当てられ、テストレポートや他の文書で参照できるようになります。
 
-The following hierarchic levels and types of nodes are defined:
+以下の階層レベルとノードの種類が定義されています。
 
-- **Component:** The first main hierarchy level is the component (see [2.1. IoT Device Model](./device_model.md)). The type of component (device-internal element/interface) was not included in the hierarchy for the sake of simplicity and due to the lack of added value.
+- **コンポーネント (Component):** 最初の主要な階層レベルはコンポーネントです ([2.1. IoT デバイスモデル](./device_model.md) 参照)。コンポーネントの種類 (デバイス内部要素/インタフェース) は単純化のため、および付加価値がないため、階層に含めませんでした。
 
-  *Short representation: 2 - 5 uppercase alphabetic characters*
+  *簡易表記: 英大文字 2 ～ 5 文字*
 
-  *Examples: IOT-PROC, IOT-MEM, IOT-FW, IOT-DES, IOT-INT, IOT-PHY, IOT-WRLS, IOT-UI*
+  *例: IOT-PROC, IOT-MEM, IOT-FW, IOT-DES, IOT-INT, IOT-PHY, IOT-WRLS, IOT-UI*
 
-- **Component Specialization (Optional):** Optional component specializations can be used to define test cases that are only relevant for certain parts or exemplars of a component (e.g., installed firmware - IOT-FW[INST] - as specialization for the component firmware - IOT-FW - or SPI - IOT-INT[SPI] - as specialization for the component internal interface - IOT-INT).
+- **コンポーネントの特殊化 (Component Specialization) (オプション):** オプションのコンポーネントの特殊化を使用して、コンポーネントの特定部品やサンプルにのみ関連するテストケースを定義できます (例: インストール済みファームウェア - IOT-FW[INST] - ファームウェアコンポーネント IOT-FW の特殊化として、SPI - IOT-INT[SPI] - 内部インタフェースコンポーネント IOT-INT の特殊化として)。
 
-  By default, component specializations inherit all categories and test cases, defined for their parent node (e.g., all test cases defined for the component firmware - IOT-FW - are inherited by the specialization installed firmware - IOT-FW[INST]).
+  デフォルトでは、コンポーネントの特殊化は親ノードに対して定義されたすべてのカテゴリとテストケースを継承します (ファームウェアコンポーネント IOT-FW に対して定義されたすべてのテストケースは、特殊化されたインストール済みファームウェア IOT-FW[INST] に継承されます)。
 
-  If required, it is allowed to chain specializations, for example over-the-air firmware updates - IOT-FW\[UPDT][OTA] - as specialization of firmware update - IOT-FW[UPDT]. In this case, the second specialization inherits all categories and test cases, defined for the first specialization, thus also inheriting all test cases, defined for the component in general.
+  必要に応じて、たとえばファームウェア更新 IOT-FW[UPDT] の特殊化として、Over The Air ファームウェア更新 IOT-FW\[UPDT][OTA] など、特殊化を連鎖できます。この場合、二番目の特殊化は最初の特殊化に対して定義されたすべてのカテゴリとテストケースを継承するため、コンポーネント全般に対して定義されたすべてのテストケースも継承します。
 
-  Furthermore, if required, it is also allowed to define a list of categories or test cases, which should be excluded from being inherited by a component specialization.
+  さらに、必要に応じて、コンポーネントの特殊化による継承から除外する必要があるカテゴリやテストケースのリストを定義することもできます。
 
-  *Short representation: 2 - 5 uppercase alphabetic characters in square brackets*
+  *簡易表記: 角かっこ内に英大文字 2 ～ 5 文字*
 
-  *Examples: IOT-FW[INST], IOT-FW[UPDT]*
+  *例: IOT-FW[INST], IOT-FW[UPDT]*
 
-- **Category:** The second main hierarchy level is the category, which can be used to group test cases, e.g., all test cases related to authorization can be grouped in the category AUTHZ.
+- **カテゴリ (Category):** 二番目の主要な階層レベルはカテゴリで、テストケースをグループ化するために使用できます。たとえば、認可に関連するすべてのテストケースをカテゴリ AUTHZ にグループ化できます。
 
-  *Short representation: 2 - 5 uppercase alphabetic characters*
+  *簡易表記: 英大文字 2 ～ 5 文字*
 
-  *Examples: IOT-\*-AUTHZ, IOT-\*-INFO, IOT-\*-CONF*
+  *例: IOT-\*-AUTHZ, IOT-\*-INFO, IOT-\*-CONF*
 
-- **Test Case:** The third main hierarchy level is the test case. See [3. Test Case Catalog](../03_test_cases/README.md) for more details.
+- **テストケース (Test Case):** 三番目の主要な階層レベルはテストケースです。詳しくは [3. テストケースカタログ](../03_test_cases/README.md) を参照してください。
 
-  *Short representation: three-digit incremental number of the test case.*
+  *簡易表記: テストケースの三桁の連番*
 
-  *Examples: IOT-FW-INFO-001, IOT-FW-INFO-002, IOT-FW-INFO-003*
+  *例: IOT-FW-INFO-001, IOT-FW-INFO-002, IOT-FW-INFO-003*
 
-This kind of structure allows to efficiently determine applicable subtrees by deselecting nodes (e.g., components, component specializations and categories) that are not relevant for a given device or test scenario. The table below shows an exemplary list of nodes for each hierarchy level. An overview of all components and categories that are included in this guide can be seen in the figure below the table.
+このような構造により、特定のデバイスやテストシナリオに関連しないノード (コンポーネント、コンポーネントの特殊化、カテゴリなど) を選択解除することで、適用可能なサブツリーを効率的に決定できます。以下の表は、各階層レベルのノードのリストの一例を示しています。このガイドに含まれるすべてのコンポーネントとカテゴリの概要を表の下の図に示しています。
 
-The usage of component and category specializations allows to expand the catalog of general test cases to include test cases for specific standards and technologies. By inheriting test cases from their parent nodes, it is ensured that these test cases are also applied to the child nodes by default. However, at the time of writing this guide, the possibility that test cases of a parent node might not be applicable to a child node in particular cases could not be precluded. Thus, it is allowed to specify a list of test cases, which are excluded from being inherited by a certain child node.
+コンポーネントとカテゴリの特殊化を使用すると、一般的なテストケースのカタログを拡張して、特定の標準やテクノロジのテストケースを含めることができます。親ノードからテストケースを継承することにより、これらのテストケースがデフォルトで子ノードにも適用されることを確保します。ただし、このガイドの執筆時点では、親ノードのテストケースが特定のケースで子ノードに適用できない可能性を排除できませんでした。そのため、特定の子ノードによる継承から除外されるテストケースのリストを指定できます。
 
-Another way to expand the catalog is to add custom components, categories and test cases. This way, the methodology could also be expanded to include further components, e.g., device-external elements of the IoT ecosystem.
+カテゴリを拡張するもう一つの方法はカスタムのコンポーネント、カテゴリ、テストケースを追加することです。こうすることで、この方法論を拡張して、IoT エコシステムのデバイス外部要素などのさらなるコンポーネントを含めることもできます。
 
 <table>
     <thead>
