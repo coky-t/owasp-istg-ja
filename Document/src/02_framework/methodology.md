@@ -205,15 +205,15 @@
 
 ### テストケースの構造
 
-Each individual test case, which is represented by a leaf node, is divided into the following sections:
+リーフノードで表現される個々のテストケースは以下のセクションに分割されます。
 
--   **必要条件 (Requirements):** The requirements section will define which physical and authorization access levels are required to carry out the test case. Since these requirements also depend on the given test conditions, e.g., the specific implementation of the target device and its operational environment, a range of access levels might be defined which apply to the test case in general.
+-   **必要条件 (Requirements):** 必要条件セクションではテストケースを実行するために必要な物理および認可アクセスレベルを定義します。これらの必要条件は、ターゲットデバイスの特定の実装とその運用環境など、特定のテスト条件に依存するため、一般にテストケースに適用されるアクセスレベルの範囲が定義されるかもしれません。
 
--   **要旨 (Summary):** The summary section includes an overall description of the security issue, which the test case is based on.
+-   **要旨 (Summary):** 要旨セクションはテストケースのベースとなるセキュリティ問題の全体的な説明を含みます。
 
--   **テスト目的 (Test Objectives):** In the test objectives section, a list of checks that the tester has to perform is given. By performing these checks, the tester can determine whether the device is affected by the security issue described in the summary.
+-   **テスト目的 (Test Objectives):** テスト目的セクションでは、テスト担当者が実施する必要があるチェックのリストを示します。これらのチェックを実行することで、テスト担当者はデバイスが要旨に記されたセキュリティ問題の影響を受けるかどうかを判断できます。
 
--   **対応策 (Remediation):** The remediation section comprises recommendations regarding potential measures that can be applied to solve the security issue. However, these recommendations are only rough suggestions. It is the responsibility of the manufacturer/operator to derive detailed measures in regards of the device implementation.
+-   **対応策 (Remediation):** 対応策セクッションはセキュリティ問題を解決するために適用できる可能性のある対策に関する推奨事項で構成しています。ただし、これらの推奨事項は大まかな提案にすぎません。デバイスの実装に関して詳細な対策を導き出すのは製造業者や事業者の責任です。
 
 
 
