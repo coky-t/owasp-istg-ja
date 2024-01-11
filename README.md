@@ -10,6 +10,16 @@ This is the unofficial Japanese translation of the [OWASP IoT Security Testing G
 
 ## OWASP IoT セキュリティテストガイド 日本語版
 
+1. [**はじめに**](./Document/src/01_introduction/README.md)
+
+2. [**IoT セキュリティテストフレームワーク**](./Document/src/02_framework/README.md)
+
+   2.1. [IoT デバイスモデル](./Document/src/02_framework/device_model.md)
+
+   2.2. [攻撃者モデル](./Document/src/02_framework/attacker_model.md)
+
+   2.3. [テスト方法](./Document/src/02_framework/methodology.md)
+
 3. [**テストケースカタログ**](./Document/src/03_test_cases/README.md)
 
    3.1. [処理装置 (IOT-PROC)](./Document/src/03_test_cases/processing_units/README.md)
