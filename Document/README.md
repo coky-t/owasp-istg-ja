@@ -2,7 +2,7 @@
 
 # OWASP IoT セキュリティテストガイド (OWASP IoT Security Testing Guide)
 
-[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa] [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8419/badge)](https://www.bestpractices.dev/projects/8419)
 
 OWASP IoT セキュリティテストガイドは IoT 分野におけるペネトレーションテストのための包括的な方法論を提供し、IoT 市場における革新と発展に柔軟に適応できるようにすると同時に、テスト結果の比較可能性を確保します。このガイドは IoT デバイスの製造者と運用者、並びにペネトレーションテストチームとの間のコミュニケーションを理解するためのものであり、共通の用語を確立することによって促進されます。
 
