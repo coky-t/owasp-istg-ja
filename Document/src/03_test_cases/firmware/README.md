@@ -1,27 +1,27 @@
-# 3.3. ファームウェア (Firmware) (IOT-FW)
+# 3.3. ファームウェア (Firmware) (ISTG-FW)
 
 ## 目次
 * [概要](#overview)
-* [情報収集 (Information Gathering) (IOT-FW-INFO)](#information-gathering-iot-fw-info)
-  * [ソースコードの開示 (Disclosure of Source Code) (IOT-FW-INFO-001)](#disclosure-of-source-code-iot-fw-info-001)
-  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-FW-INFO-002)](#disclosure-of-implementation-details-iot-fw-info-002)
-  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-FW-INFO-003)](#disclosure-of-ecosystem-details-iot-fw-info-003)
-* [構成とパッチ管理 (Configuration and Patch Management) (IOT-FW-CONF)](#configuration-and-patch-management-iot-fw-conf)
-  * [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-FW-CONF-001)](#usage-of-outdated-software-iot-fw-conf-001)
-  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-FW-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-fw-conf-002)
-* [シークレット (Secrets) (IOT-FW-SCRT)](#secrets-iot-fw-scrt)
-  * [パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (IOT-FW-SCRT-001)](#secrets-stored-in-public-storage-iot-fw-scrt-001)
-  * [シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-FW-SCRT-002)](#unencrypted-storage-of-secrets-iot-fw-scrt-002)
-  * [ハードコードされたシークレットの使用 (Usage of Hardcoded Secrets) (IOT-FW-SCRT-003)](#usage-of-hardcoded-secrets-iot-fw-scrt-003)
-* [暗号技術 (Cryptography) (IOT-FW-CRYPT)](#cryptography-iot-fw-crypt)
-  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-FW-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001)
+* [情報収集 (Information Gathering) (ISTG-FW-INFO)](#information-gathering-istg-fw-info)
+  * [ソースコードとバイナリの開示 (Disclosure of Source Code and Binaries) (ISTG-FW-INFO-001)](#disclosure-of-source-code-and-binaries-istg-fw-info-001)
+  * [実装内容の開示 (Disclosure of Implementation Details) (ISTG-FW-INFO-002)](#disclosure-of-implementation-details-istg-fw-info-002)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-FW-INFO-003)](#disclosure-of-ecosystem-details-istg-fw-info-003)
+* [構成とパッチ管理 (Configuration and Patch Management) (ISTG-FW-CONF)](#configuration-and-patch-management-istg-fw-conf)
+  * [古いソフトウェアの使用 (Usage of Outdated Software) (ISTG-FW-CONF-001)](#usage-of-outdated-software-istg-fw-conf-001)
+  * [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (ISTG-FW-CONF-002)](#presence-of-unnecessary-software-and-functionalities-istg-fw-conf-002)
+* [シークレット (Secrets) (ISTG-FW-SCRT)](#secrets-istg-fw-scrt)
+  * [パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (ISTG-FW-SCRT-001)](#secrets-stored-in-public-storage-istg-fw-scrt-001)
+  * [シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (ISTG-FW-SCRT-002)](#unencrypted-storage-of-secrets-istg-fw-scrt-002)
+  * [ハードコードされたシークレットの使用 (Usage of Hardcoded Secrets) (ISTG-FW-SCRT-003)](#usage-of-hardcoded-secrets-istg-fw-scrt-003)
+* [暗号技術 (Cryptography) (ISTG-FW-CRYPT)](#cryptography-istg-fw-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-FW-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001)
 
 
 
 
-## 概要
+## 概要 <a name="overview"></a>
 
-このセクションではコンポーネントのファームウェアとコンポーネントに特化したインストール済みファームウェア ([IOT-FW[INST]](./installed_firmware.md)) とファームウェア更新メカニズム ([IOT-FW[UPDT]](./firmware_update_mechanism.md)) それぞれのテストケースとカテゴリが含まれます。ファームウェアはこのアクセスがどのように実装されるかの詳細に応じて、すべての物理アクセスレベルでアクセスできる可能性があります。
+このセクションではコンポーネントのファームウェアとコンポーネントに特化したインストール済みファームウェア ([ISTG-FW[INST]](./installed_firmware.md)) とファームウェア更新メカニズム ([ISTG-FW[UPDT]](./firmware_update_mechanism.md)) それぞれのテストケースとカテゴリが含まれます。ファームウェアはこのアクセスがどのように実装されるかの詳細に応じて、すべての物理アクセスレベルでアクセスできる可能性があります。
 
 処理装置に関連するテストケースカテゴリには、以下のものが特定されています。
 
@@ -37,15 +37,15 @@
 
 - **ビジネスロジック (Business Logic) (ファームウェア更新プロセス):** ファームウェア更新プロセスの設計と実装における脆弱性に焦点を当てています。
 
-コンポーネント [IOT-FW](./README.md) のすべてのテストケースとカテゴリはこのコンポーネントに特化した仕様には関係なく、一般的なファームウェア解析の側面に焦点を当てています。
+コンポーネント [ISTG-FW](./README.md) のすべてのテストケースとカテゴリはこのコンポーネントに特化した仕様には関係なく、一般的なファームウェア解析の側面に焦点を当てています。
 
 
 
-## 情報収集 (Information Gathering) (IOT-FW-INFO)
+## 情報収集 (Information Gathering) (ISTG-FW-INFO) <a name="information-gathering-istg-fw-info"></a>
 
 IoT デバイスのファームウェアはさまざまな情報を含む可能性があり、開示された場合、デバイスの内部動作や周囲の IoT エコシステムに関する詳細を潜在的な攻撃者に明らかにする可能性があります。これにより、さらに高度な攻撃が可能になり、より容易になります。
 
-### ソースコードの開示 (Disclosure of Source Code) (IOT-FW-INFO-001)
+### ソースコードとバイナリの開示 (Disclosure of Source Code and Binaries) (ISTG-FW-INFO-001) <a name="disclosure-of-source-code-and-binaries-istg-fw-info-001"></a>
 
 **必要なアクセスレベル**
 
@@ -70,7 +70,7 @@ IoT デバイスのファームウェアはさまざまな情報を含む可能�
 
 - コンパイルされていないソースコードがファームウェア内にあるかどうかをチェックしなければなりません。
 
-- コンパイルされていないソースコードが検出された場合、その内容に機密データの存在するかどうかを分析しなければなりません。これは潜在的な攻撃者に有用かもしれません ([IOT-FW-SCRT-003](#usage-of-hardcoded-secrets-iot-fw-scrt-003) も参照してください)。
+- コンパイルされていないソースコードが検出された場合、その内容に機密データの存在するかどうかを分析しなければなりません。これは潜在的な攻撃者に有用かもしれません ([ISTG-FW-SCRT-003](#usage-of-hardcoded-secrets-istg-fw-scrt-003) も参照してください)。
 
 - ファームウェア実装と機密データの処理に関する有用な情報を取得するには、選択したバイナリのリバースエンジニアリングを実行すべきです。
 
@@ -91,7 +91,7 @@ IoT デバイスのファームウェアはさまざまな情報を含む可能�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### 実装内容の開示 (Disclosure of Implementation Details) (IOT-FW-INFO-002)
+### 実装内容の開示 (Disclosure of Implementation Details) (ISTG-FW-INFO-002) <a name="disclosure-of-implementation-details-istg-fw-info-002"></a>
 
 **必要なアクセスレベル**
 
@@ -137,7 +137,7 @@ IoT デバイスのファームウェアはさまざまな情報を含む可能�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-FW-INFO-003)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-FW-INFO-003) <a name="disclosure-of-ecosystem-details-istg-fw-info-003"></a>
 
 **必要なアクセスレベル**
 
@@ -179,11 +179,11 @@ IoT デバイスのファームウェアはさまざまな情報を含む可能�
 
 
 
-## 構成とパッチ管理 (Configuration and Patch Management) (IOT-FW-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (ISTG-FW-CONF) <a name="configuration-and-patch-management-istg-fw-conf"></a>
 
-IoT デバイスは存続期間が長いため、最新のセキュリティパッチを適用して、デバイスで実行しているソフトウェアが定期的に更新されていることを確保することが重要です。ファームウェア自体の更新プロセスは [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md) でカバーされます。なお、ファームウェアに含まれるソフトウェアパッケージが最新であることも検証しなければなりません。
+IoT デバイスは存続期間が長いため、最新のセキュリティパッチを適用して、デバイスで実行しているソフトウェアが定期的に更新されていることを確保することが重要です。ファームウェア自体の更新プロセスは [ISTG-FW[UPDT]](../firmware/firmware_update_mechanism.md) でカバーされます。なお、ファームウェアに含まれるソフトウェアパッケージが最新であることも検証しなければなりません。
 
-### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-FW-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (ISTG-FW-CONF-001) <a name="usage-of-outdated-software-istg-fw-conf-001"></a>
 
 **必要なアクセスレベル**
 
@@ -225,7 +225,7 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-FW-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (ISTG-FW-CONF-002) <a name="presence-of-unnecessary-software-and-functionalities-istg-fw-conf-002"></a>
 
 **必要なアクセスレベル**
 
@@ -267,11 +267,11 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 
 
 
-## シークレット (Secrets) (IOT-FW-SCRT)
+## シークレット (Secrets) (ISTG-FW-SCRT) <a name="secrets-istg-fw-scrt"></a>
 
 IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
-### パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (IOT-FW-SCRT-001)
+### パブリックストレージに保存されたシークレット (Secrets Stored in Public Storage) (ISTG-FW-SCRT-001) <a name="secrets-stored-in-public-storage-istg-fw-scrt-001"></a>
 
 **必要なアクセスレベル**
 
@@ -309,7 +309,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-FW-SCRT-002)
+### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (ISTG-FW-SCRT-002) <a name="unencrypted-storage-of-secrets-istg-fw-scrt-002"></a>
 
 **必要なアクセスレベル**
 
@@ -328,7 +328,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 機密データやシークレットは暗号化して保存すべきであり、その結果、たとえ攻撃者がアクセスできたとしても、それぞれのプレーンテキストデータにはアクセスできなくなります。
 
-[IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001) とは異なり、アクセス制限を回避したり、制限されたストレージにアクセスするプロセスを悪用して、攻撃者はすでにデータにアクセスしていると想定しているため、シークレットがパブリックストレージ領域に保存されるか制限されたストレージ領域に保存されるかは問題ではありません。さらに、使用する暗号アルゴリズムの強度は [IOT-FW-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) でカバーされ、このテストケースには関係しません。
+[ISTG-FW-SCRT-001](#secrets-stored-in-public-storage-istg-fw-scrt-001) とは異なり、アクセス制限を回避したり、制限されたストレージにアクセスするプロセスを悪用して、攻撃者はすでにデータにアクセスしていると想定しているため、シークレットがパブリックストレージ領域に保存されるか制限されたストレージ領域に保存されるかは問題ではありません。さらに、使用する暗号アルゴリズムの強度は [ISTG-FW-CRYPT-001](#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001) でカバーされ、このテストケースには関係しません。
 
 **テスト目的**
 
@@ -349,7 +349,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### ハードコードされたシークレットの使用 (Usage of Hardcoded Secrets) (IOT-FW-SCRT-003)
+### ハードコードされたシークレットの使用 (Usage of Hardcoded Secrets) (ISTG-FW-SCRT-003) <a name="usage-of-hardcoded-secrets-istg-fw-scrt-003"></a>
 
 **必要なアクセスレベル**
 
@@ -376,11 +376,11 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 **テスト目的**
 
-- [IOT-FW-INFO-001](#disclosure-of-source-code-iot-fw-info-001) をベースとして、ハードコードされたシークレットを特定できるかどうかをチェックしなければなりません。
+- [ISTG-FW-INFO-001](#disclosure-of-source-code-istg-fw-info-001) をベースとして、ハードコードされたシークレットを特定できるかどうかをチェックしなければなりません。
 
 **対応策**
 
-シークレットはソースコードにハードコードすべきではありません。代わりに、シークレットを安全な方法 ([IOT-FW-SCRT-001](#secrets-stored-in-public-storage-iot-fw-scrt-001) および [IOT-FW-SCRT-002](#unencrypted-storage-of-secrets-iot-fw-scrt-002) を参照) で保存すべきであり、ソフトウェアプロセスは実行時にセキュアストレージから動的にシークレットを取得すべきです。
+シークレットはソースコードにハードコードすべきではありません。代わりに、シークレットを安全な方法 ([ISTG-FW-SCRT-001](#secrets-stored-in-public-storage-istg-fw-scrt-001) および [ISTG-FW-SCRT-002](#unencrypted-storage-of-secrets-istg-fw-scrt-002) を参照) で保存すべきであり、ソフトウェアプロセスは実行時にセキュアストレージから動的にシークレットを取得すべきです。
 
 **参考情報**
 
@@ -395,11 +395,11 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 
 
-## 暗号技術 (Cryptography) (IOT-FW-CRYPT)
+## 暗号技術 (Cryptography) (ISTG-FW-CRYPT) <a name="cryptography-istg-fw-crypt"></a>
 
 多くの IoT デバイスは、機密データの安全な保存、認証目的、他のネットワークノードからの暗号化データの受信と検証などのために、暗号アルゴリズムを実装する必要があります。安全で最先端の暗号技術を実装しないと、機密データの開示、デバイスの誤動作、デバイスの制御不能につながるかもしれません。
 
-### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-FW-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-FW-CRYPT-001) <a name="usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001"></a>
 
 **必要なアクセスレベル**
 
@@ -424,7 +424,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 - ファームウェアによって、またはファームウェア内に保存されるデータは暗号化されたデータセグメントの存在をチェックしなければなりません。暗号化されたデータセグメントが見つかった場合、使用する暗号アルゴリズムが特定できるかどうかをチェックしなければなりません。
 
-- さらに、[IOT-FW-INFO-001](#disclosure-of-source-code-iot-fw-info-001) と [IOT-FW-INFO-002](#disclosure-of-implementation-details-iot-fw-info-002) をベースとして、ソースコード、設定ファイルなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
+- さらに、[ISTG-FW-INFO-001](#disclosure-of-source-code-istg-fw-info-001) と [ISTG-FW-INFO-002](#disclosure-of-implementation-details-istg-fw-info-002) をベースとして、ソースコード、設定ファイルなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
 
 - 暗号アルゴリズムを特定できる場合、BSI による技術ガイドライン [TR-02102-1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10) などの暗号ガイドラインを参照するなどして、使用するアルゴリズムやその構成がテスト時に十分なレベルのセキュリティを提供しているかどうかを判断しなければなりません。
 

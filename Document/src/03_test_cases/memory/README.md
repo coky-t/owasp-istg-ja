@@ -1,21 +1,21 @@
-# 3.2. メモリ (Memory) (IOT-MEM)
+# 3.2. メモリ (Memory) (ISTG-MEM)
 
 ## 目次
 * [概要](#overview)
-* [情報収集 (Information Gathering) (IOT-MEM-INFO)](#information-gathering-iot-mem-info)
-  * [ソースコードの開示 (Disclosure of Source Code) (IOT-MEM-INFO-001)](#disclosure-of-source-code-iot-mem-info-001)
-  * [実装内容の開示 (Disclosure of Implementation Details) (IOT-MEM-INFO-002)](#disclosure-of-implementation-details-iot-mem-info-002)
-  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-MEM-INFO-003)](#disclosure-of-ecosystem-details-iot-mem-info-003)
-  * [ユーザーデータの開示 (Disclosure of User Data) (IOT-MEM-INFO-004)](#disclosure-of-user-data-iot-mem-info-004)
-* [シークレット (Secrets) (IOT-MEM-SCRT)](#secrets-iot-mem-scrt)
-  * [シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-MEM-SCRT-001)](#unencrypted-storage-of-secrets-iot-mem-scrt-001)
-* [暗号技術 (Cryptography) (IOT-MEM-CRYPT)](#cryptography-iot-mem-crypt)
-  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-MEM-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-mem-crypt-001)
+* [情報収集 (Information Gathering) (ISTG-MEM-INFO)](#information-gathering-istg-mem-info)
+  * [ソースコードとバイナリの開示 (Disclosure of Source Code and Binaries) (ISTG-MEM-INFO-001)](#disclosure-of-source-code-and-binaries-istg-mem-info-001)
+  * [実装内容の開示 (Disclosure of Implementation Details) (ISTG-MEM-INFO-002)](#disclosure-of-implementation-details-istg-mem-info-002)
+  * [エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-MEM-INFO-003)](#disclosure-of-ecosystem-details-istg-mem-info-003)
+  * [ユーザーデータの開示 (Disclosure of User Data) (ISTG-MEM-INFO-004)](#disclosure-of-user-data-istg-mem-info-004)
+* [シークレット (Secrets) (ISTG-MEM-SCRT)](#secrets-istg-mem-scrt)
+  * [シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (ISTG-MEM-SCRT-001)](#unencrypted-storage-of-secrets-istg-mem-scrt-001)
+* [暗号技術 (Cryptography) (ISTG-MEM-CRYPT)](#cryptography-istg-mem-crypt)
+  * [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-MEM-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-istg-mem-crypt-001)
 
 
 
 
-## 概要
+## 概要 <a name="overview"></a>
 
 このセクションにはコンポーネントのメモリに関するテストケースとカテゴリが含まれます。処理装置と同様に、メモリは *PA-4* でのみアクセスできるデバイス内部要素です。メモリへの直接接続を確立するには特定のハードウェア機器 (デバッグボードやテストプローブ) を必要とすることがあります。
 
@@ -29,13 +29,13 @@
 
 
 
-## 情報収集 (Information Gathering) (IOT-MEM-INFO)
+## 情報収集 (Information Gathering) (ISTG-MEM-INFO) <a name="information-gathering-istg-mem-info"></a>
 
 IoT デバイスのメモリにはさまざまな情報を含む可能性があり、開示された場合、デバイスの内部動作や基盤となる IoT エコシステムに関する詳細を潜在的な攻撃者に明らかにする可能性があります。これにより、さらに高度な攻撃が可能になり、より容易になります。
 
 デバイスメモリのテストはメモリチップに直接アクセスすることで実行されます。したがって、ユーザーアカウントは使用されず (*AA-1*)、侵入的な物理アクセス (*PA-4*) が必要になります。
 
-### ソースコードの開示 (Disclosure of Source Code) (IOT-MEM-INFO-001)
+### ソースコードとバイナリの開示 (Disclosure of Source Code and Binaries) (ISTG-MEM-INFO-001) <a name="disclosure-of-source-code-and-binaries-istg-mem-info-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -76,9 +76,9 @@ IoT デバイスのメモリにはさまざまな情報を含む可能性があ�
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["The IoT Hacker's Handbook"][iot_hackers_handbook] by Aditya Gupta
 
-This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-of-source-code-iot-fw-info-001).
+This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-of-source-code-istg-fw-info-001).
 
-### 実装内容の開示 (Disclosure of Implementation Details) (IOT-MEM-INFO-002)
+### 実装内容の開示 (Disclosure of Implementation Details) (ISTG-MEM-INFO-002) <a name="disclosure-of-implementation-details-istg-mem-info-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -117,9 +117,9 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["The IoT Hacker's Handbook"][iot_hackers_handbook] by Aditya Gupta
 
-このテストケースは [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002) をベースとしています。
+このテストケースは [ISTG-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-istg-fw-info-002) をベースとしています。
 
-### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-MEM-INFO-003)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-MEM-INFO-003) <a name="disclosure-of-ecosystem-details-istg-mem-info-003"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -154,9 +154,9 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["The IoT Hacker's Handbook"][iot_hackers_handbook] by Aditya Gupta
 
-このテストケースは [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003) をベースとしています。
+このテストケースは [ISTG-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-istg-fw-info-003) をベースとしています。
 
-### ユーザーデータの開示 Disclosure of User Data (IOT-MEM-INFO-004)
+### ユーザーデータの開示 Disclosure of User Data (ISTG-MEM-INFO-004) <a name="disclosure-of-user-data-istg-mem-info-004"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -189,15 +189,15 @@ This test case is based on: [IOT-FW-INFO-001](../firmware/README.md#disclosure-o
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["The IoT Hacker's Handbook"][iot_hackers_handbook] by Aditya Gupta
 
-このテストケースは [IOT-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-iot-fw[inst]-info-001) をベースとしています。
+このテストケースは [ISTG-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-istg-fw[inst]-info-001) をベースとしています。
 
 
 
-## シークレット (Secrets) (IOT-MEM-SCRT)
+## シークレット (Secrets) (ISTG-MEM-SCRT) <a name="secrets-istg-mem-scrt"></a>
 
 IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
-### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (IOT-MEM-SCRT-001)
+### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (ISTG-MEM-SCRT-001) <a name="unencrypted-storage-of-secrets-istg-mem-scrt-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -214,7 +214,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 機密データやシークレットは暗号化して保存すべきであり、その結果、たとえ攻撃者がメモリにアクセスできたとしても、それぞれのプレーンテキストデータにはアクセスできなくなります。
 
-使用する暗号アルゴリズムの強度は [IOT-MEM-CRYPT-001](#usage-of-weak-cryptographic-algorithms-iot-mem-crypt-001) でカバーされ、このテストケースには関係しません。
+使用する暗号アルゴリズムの強度は [ISTG-MEM-CRYPT-001](#usage-of-weak-cryptographic-algorithms-istg-mem-crypt-001) でカバーされ、このテストケースには関係しません。
 
 **テスト目的**
 
@@ -231,15 +231,15 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 
-このテストケースは [IOT-FW-SCRT-002](../firmware/README.md#unencrypted-storage-of-secrets-iot-fw-scrt-002) をベースとしています。
+このテストケースは [ISTG-FW-SCRT-002](../firmware/README.md#unencrypted-storage-of-secrets-istg-fw-scrt-002) をベースとしています。
 
 
 
-## 暗号技術 (Cryptography) (IOT-MEM-CRYPT)
+## 暗号技術 (Cryptography) (ISTG-MEM-CRYPT) <a name="cryptography-istg-mem-crypt"></a>
 
 多くの IoT デバイスは、機密データの安全な保存、認証目的、他のネットワークノードからの暗号化データの受信と検証などのために、暗号アルゴリズムを実装する必要があります。安全で最先端の暗号技術を実装しないと、機密データの開示、デバイスの誤動作、デバイスの制御不能につながるかもしれません。
 
-### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-MEM-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-MEM-CRYPT-001) <a name="usage-of-weak-cryptographic-algorithms-istg-mem-crypt-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -262,7 +262,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 - デバイス上に保存されるデータは暗号化されたデータセグメントの存在をチェックしなければなりません。暗号化されたデータセグメントが見つかった場合、使用する暗号アルゴリズムが特定できるかどうかをチェックしなければなりません。
 
-- さらに、[IOT-MEM-INFO-001](#disclosure-of-source-code-iot-mem-info-001) と [IOT-MEM-INFO-002](#disclosure-of-implementation-details-iot-mem-info-002) をベースとして、ソースコード、設定ファイルなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
+- さらに、[ISTG-MEM-INFO-001](#disclosure-of-source-code-istg-mem-info-001) と [ISTG-MEM-INFO-002](#disclosure-of-implementation-details-istg-mem-info-002) をベースとして、ソースコード、設定ファイルなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
 
 - 暗号アルゴリズムを特定できる場合、BSI による技術ガイドライン [TR-02102-1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10) などの暗号ガイドラインを参照するなどして、使用するアルゴリズムやその構成がテスト時に十分なレベルのセキュリティを提供しているかどうかを判断しなければなりません。
 
@@ -277,7 +277,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 
-このテストケースは [IOT-FW-CRYPT-001](../firmware/README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとしています。
+このテストケースは [ISTG-FW-CRYPT-001](../firmware/README.md#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001) をベースとしています。
 
 
 

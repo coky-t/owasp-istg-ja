@@ -1,36 +1,36 @@
-# 3.3.2. ファームウェア更新メカニズム (Firmware Update Mechanism) (IOT-FW[UPDT])
+# 3.3.2. ファームウェア更新メカニズム (Firmware Update Mechanism) (ISTG-FW[UPDT])
 
 ## 目次
 * [概要](#overview)
-* [認可 (Authorization) (IOT-FW-AUTHZ)](#authorization-iot-fw[updt]-authz)
-  * [認可されていないファームウェア更新 (Unauthorized Firmware Update) (IOT-FW-AUTHZ-001)](#unauthorized-firmware-update-iot-fw[updt]-authz-001)
-* [暗号技術 (Cryptography) (IOT-FW-CRYPT)](#cryptography-iot-fw[updt]-crypt)
-  * [不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (IOT-FW-CRYPT-001)](#insufficient-firmware-update-signature-iot-fw[updt]-crypt-001)
-  * [不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (IOT-FW-CRYPT-002)](#insufficient-firmware-update-encryption-iot-fw[updt]-crypt-002)
-  * [ファームウェア更新の安全でない転送 (Insecure Transmission of the Firmware Update) (IOT-FW-CRYPT-003)](#insecure-transmission-of-the-firmware-update-iot-fw[updt]-crypt-003)
-  * [ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (IOT-FW-CRYPT-004)](#insufficient-verification-of-the-firmware-update-signature-iot-fw[updt]-crypt-004)
-* [ビジネスロジック (Business Logic) (IOT-FW-LOGIC)](#business-logic-iot-fw[updt]-logic)
-  * [不十分なロールバック保護 (Insufficient Rollback Protection) (IOT-FW-LOGIC-001)](#insufficient-rollback-protection-iot-fw[updt]-logic-001)
+* [認可 (Authorization) (ISTG-FW-AUTHZ)](#authorization-istg-fw[updt]-authz)
+  * [認可されていないファームウェア更新 (Unauthorized Firmware Update) (ISTG-FW-AUTHZ-001)](#unauthorized-firmware-update-istg-fw[updt]-authz-001)
+* [暗号技術 (Cryptography) (ISTG-FW-CRYPT)](#cryptography-istg-fw[updt]-crypt)
+  * [不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (ISTG-FW-CRYPT-001)](#insufficient-firmware-update-signature-istg-fw[updt]-crypt-001)
+  * [不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (ISTG-FW-CRYPT-002)](#insufficient-firmware-update-encryption-istg-fw[updt]-crypt-002)
+  * [ファームウェア更新の安全でない転送 (Insecure Transmission of the Firmware Update) (ISTG-FW-CRYPT-003)](#insecure-transmission-of-the-firmware-update-istg-fw[updt]-crypt-003)
+  * [ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (ISTG-FW-CRYPT-004)](#insufficient-verification-of-the-firmware-update-signature-istg-fw[updt]-crypt-004)
+* [ビジネスロジック (Business Logic) (ISTG-FW-LOGIC)](#business-logic-istg-fw[updt]-logic)
+  * [不十分なロールバック保護 (Insufficient Rollback Protection) (ISTG-FW-LOGIC-001)](#insufficient-rollback-protection-istg-fw[updt]-logic-001)
 
 
 
-## 概要
+## 概要 <a name="overview"></a>
 
 デバイスファームウェアのもう一つの重要な側面はファームウェア更新メカニズムです。安全な更新メカニズムの実装に失敗すると、攻撃者がデバイスにカスタムの操作されたファームウェアをインストールすることが可能になり、その結果、デバイスを完全に制御できるようになるかもしれません。
 
-以下のカテゴリは特化した [IOT-FW[UPDT]](./firmware_update_mechanism.md) には継承されません。
+以下のカテゴリは特化した [ISTG-FW[UPDT]](./firmware_update_mechanism.md) には継承されません。
 
-- **構成とパッチ管理 (Configuration and Patch Management) ([IOT-FW-CONF](./README.md#configuration-and-patch-management-iot-fw-conf))**: このカテゴリはファームウェアファイルの構成とパッチ管理の側面に焦点を当てています。[IOT-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
+- **構成とパッチ管理 (Configuration and Patch Management) ([ISTG-FW-CONF](./README.md#configuration-and-patch-management-istg-fw-conf))**: このカテゴリはファームウェアファイルの構成とパッチ管理の側面に焦点を当てています。[ISTG-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
 
-- **シークレット (Secrets) ([IOT-FW-SCRT](./README.md#secrets-iot-fw-scrt))**: このカテゴリはファームウェアファイル内のシークレットの処理に焦点を当てています。[IOT-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
+- **シークレット (Secrets) ([ISTG-FW-SCRT](./README.md#secrets-istg-fw-scrt))**: このカテゴリはファームウェアファイル内のシークレットの処理に焦点を当てています。[ISTG-FW[UPDT]](./firmware_update_mechanism.md) は特定のファームウェアファイルではなくファームウェア更新メカニズムに焦点を当てているため、それぞれのテストケースは適用できません。
 
 
 
-## 認可 (Authorization) (IOT-FW[UPDT]-AUTHZ)
+## 認可 (Authorization) (ISTG-FW[UPDT]-AUTHZ) <a name="authorization-istg-fw[updt]-authz"></a>
 
 ファームウェア更新メカニズムのテストは動的解析でもあるため、認可された個人のみが初期化および更新を実行できるかどうかをチェックすべきです。
 
-### 認可されていないファームウェア更新 (Unauthorized Firmware Update) (IOT-FW[UPDT]-AUTHZ-001)
+### 認可されていないファームウェア更新 (Unauthorized Firmware Update) (ISTG-FW[UPDT]-AUTHZ-001) <a name="unauthorized-firmware-update-istg-fw[updt]-authz-001"></a>
 
 **必要なアクセスレベル**
 
@@ -68,11 +68,11 @@
 
 
 
-## 暗号技術 (Cryptography) (IOT-FW[UPDT]-CRYPT)
+## 暗号技術 (Cryptography) (ISTG-FW[UPDT]-CRYPT) <a name="cryptography-istg-fw[updt]-crypt"></a>
 
 ファームウェア更新プロセスでは、暗号アルゴリズムを使用して、新しいファームウェアの完全性を検証して、転送時に機密データが漏洩しないように確保します。
 
-### 不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (IOT-FW[UPDT]-CRYPT-001)
+### 不十分なファームウェア更新シグネチャ (Insufficient Firmware Update Signature) (ISTG-FW[UPDT]-CRYPT-001) <a name="insufficient-firmware-update-signature-istg-fw[updt]-crypt-001"></a>
 
 **必要なアクセスレベル**
 
@@ -97,7 +97,7 @@
 
 - デジタルシグネチャが利用可能な場合、シグネチャの妥当性を検証できるかどうかをチェックしなければなりません。
 
-- [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとして、デジタルシグネチャの生成に使用される暗号アルゴリズムは、脆弱な時代遅れのアルゴリズムが使用されているかどうかを判断するために評価する必要があります。
+- [ISTG-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001) をベースとして、デジタルシグネチャの生成に使用される暗号アルゴリズムは、脆弱な時代遅れのアルゴリズムが使用されているかどうかを判断するために評価する必要があります。
 
 **対応策**
 
@@ -112,7 +112,7 @@
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### 不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (IOT-FW[UPDT]-CRYPT-002)
+### 不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (ISTG-FW[UPDT]-CRYPT-002) <a name="insufficient-firmware-update-encryption-istg-fw[updt]-crypt-002"></a>
 
 **必要なアクセスレベル**
 
@@ -137,7 +137,7 @@
 
 - 暗号化が必要な場合、パッケージが暗号化されているかどうかを判断しなければなりません。
 
-- [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとして、暗号化に適切なアルゴリズムが使用されているかどうかを判断する必要があります。
+- [ISTG-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001) をベースとして、暗号化に適切なアルゴリズムが使用されているかどうかを判断する必要があります。
 
 **対応策**
 
@@ -154,7 +154,7 @@
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### ファームウェア更新の安全でない転送 (Insecure Transmission of the Firmware Update) (IOT-FW[UPDT]-CRYPT-003)
+### ファームウェア更新の安全でない転送 (Insecure Transmission of the Firmware Update) (ISTG-FW[UPDT]-CRYPT-003) <a name="insecure-transmission-of-the-firmware-update-istg-fw[updt]-crypt-003"></a>
 
 **必要なアクセスレベル**
 
@@ -194,7 +194,7 @@
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-### ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (IOT-FW[UPDT]-CRYPT-004)
+### ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (ISTG-FW[UPDT]-CRYPT-004) <a name="insufficient-verification-of-the-firmware-update-signature-istg-fw[updt]-crypt-004"></a>
 
 **必要なアクセスレベル**
 
@@ -215,7 +215,7 @@
 
 **テスト目的**
 
-- [IOT-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとして、ファームウェア更新パッケージのシグネチャが更新プロセス時にデバイスによって適切に検証されているかどうかをチェックしなければなりません。
+- [ISTG-FW-CRYPT-001](./README.md#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001) をベースとして、ファームウェア更新パッケージのシグネチャが更新プロセス時にデバイスによって適切に検証されているかどうかをチェックしなければなりません。
 
 **対応策**
 
@@ -232,11 +232,11 @@
 
 
 
-## ビジネスロジック (Business Logic) (IOT-FW[UPDT]-LOGIC)
+## ビジネスロジック (Business Logic) (ISTG-FW[UPDT]-LOGIC) <a name="business-logic-istg-fw[updt]-logic"></a>
 
 ファームウェア更新の他のすべての側面が安全に実装および構成されていたとしても、更新プロセスの基盤となるロジック自体に問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、プロセスが意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
-### 不十分なロールバック保護 (Insufficient Rollback Protection) (IOT-FW[UPDT]-LOGIC-001)
+### 不十分なロールバック保護 (Insufficient Rollback Protection) (ISTG-FW[UPDT]-LOGIC-001) <a name="insufficient-rollback-protection-istg-fw[updt]-logic-001"></a>
 
 **必要なアクセスレベル**
 

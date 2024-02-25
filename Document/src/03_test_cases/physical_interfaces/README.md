@@ -1,33 +1,33 @@
-# 3.6. 物理インタフェース (Physical Interfaces) (IOT-PHY)
+# 3.6. 物理インタフェース (Physical Interfaces) (ISTG-PHY) <a name="36-physical-interfaces-istg-phy"></a>
 
-## 目次
-- [3.6. 物理インタフェース (Physical Interfaces) (IOT-PHY)](#36-physical-interfaces-iot-phy)
+## 目次 <a name="table-of-contents"></a>
+- [3.6. 物理インタフェース (Physical Interfaces) (ISTG-PHY)](#36-physical-interfaces-istg-phy)
 	- [目次](#table-of-contents)
 	- [概要](#overview)
-	- [認可 (Authorization) (IOT-PHY-AUTHZ)](#authorization-iot-phy-authz)
-	  - [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-phy-authz-001)
-	  - [権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)](#privilege-escalation-iot-phy-authz-002)
-	- [情報収集 (Information Gathering) (IOT-PHY-INFO)](#information-gathering-iot-phy-info)
-	  - [実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)](#disclosure-of-implementation-details-iot-phy-info-001)
-	  - [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)](#disclosure-of-ecosystem-details-iot-phy-info-002)
-	  - [ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)](#disclosure-of-user-data-iot-phy-info-003)
-	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-PHY-CONF)](#configuration-and-patch-management-iot-phy-conf)
-	  - [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)](#usage-of-outdated-software-iot-phy-conf-001)
-	  - [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-phy-conf-002)
-	- [シークレット (Secrets) (IOT-PHY-SCRT)](#secrets-iot-phy-scrt)
-	  - [機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)](#access-to-confidential-data-iot-phy-scrt-001)
-	- [暗号技術 (Cryptography) (IOT-PHY-CRYPT)](#cryptography-iot-phy-crypt)
-	  - [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-phy-crypt-001)
-	- [ビジネスロジック (Business Logic) (IOT-PHY-LOGIC)](#business-logic-iot-phy-logic)
-	  - [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-phy-logic-001)
-	- [入力バリデーション (Input Validation) (IOT-PHY-INPV)](#input-validation-iot-phy-inpv)
-	  - [不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INPV-001)](#insufficient-input-validation-iot-phy-inpv-001)
-	  - [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INPV-002)](#code-or-command-injection-iot-phy-inpv-002)
+	- [認可 (Authorization) (ISTG-PHY-AUTHZ)](#authorization-istg-phy-authz)
+	  - [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (ISTG-PHY-AUTHZ-001)](#unauthorized-access-to-the-interface-istg-phy-authz-001)
+	  - [権限昇格 (Privilege Escalation) (ISTG-PHY-AUTHZ-002)](#privilege-escalation-istg-phy-authz-002)
+	- [情報収集 (Information Gathering) (ISTG-PHY-INFO)](#information-gathering-istg-phy-info)
+	  - [実装内容の開示 (Disclosure of Implementation Details) (ISTG-PHY-INFO-001)](#disclosure-of-implementation-details-istg-phy-info-001)
+	  - [エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-PHY-INFO-002)](#disclosure-of-ecosystem-details-istg-phy-info-002)
+	  - [ユーザーデータの開示 (Disclosure of User Data) (ISTG-PHY-INFO-003)](#disclosure-of-user-data-istg-phy-info-003)
+	- [構成とパッチ管理 (Configuration and Patch Management) (ISTG-PHY-CONF)](#configuration-and-patch-management-istg-phy-conf)
+	  - [古いソフトウェアの使用 (Usage of Outdated Software) (ISTG-PHY-CONF-001)](#usage-of-outdated-software-istg-phy-conf-001)
+	  - [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (ISTG-PHY-CONF-002)](#presence-of-unnecessary-software-and-functionalities-istg-phy-conf-002)
+	- [シークレット (Secrets) (ISTG-PHY-SCRT)](#secrets-istg-phy-scrt)
+	  - [機密データへのアクセス (Access to Confidential Data) (ISTG-PHY-SCRT-001)](#access-to-confidential-data-istg-phy-scrt-001)
+	- [暗号技術 (Cryptography) (ISTG-PHY-CRYPT)](#cryptography-istg-phy-crypt)
+	  - [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-PHY-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-istg-phy-crypt-001)
+	- [ビジネスロジック (Business Logic) (ISTG-PHY-LOGIC)](#business-logic-istg-phy-logic)
+	  - [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (ISTG-PHY-LOGIC-001)](#circumvention-of-the-intended-business-logic-istg-phy-logic-001)
+	- [入力バリデーション (Input Validation) (ISTG-PHY-INPV)](#input-validation-istg-phy-inpv)
+	  - [不十分な入力バリデーション (Insufficient Input Validation) (ISTG-PHY-INPV-001)](#insufficient-input-validation-istg-phy-inpv-001)
+	  - [コードインジェクションやコマンドインジェクション (Code or Command Injection) (ISTG-PHY-INPV-002)](#code-or-command-injection-istg-phy-inpv-002)
 
 
 
 
-## 概要
+## 概要 <a name="overview"></a>
 
 このセクションにはコンポーネントの物理インタフェースに関するテストケースとカテゴリが含まれます。インタフェースがネットワークに接続されているかどうかに応じて、*PA-2*, *PA-3*, *PA-4* でアクセスできるかもしれません。物理インタフェースへの直接接続を確立するには特定のハードウェア機器 (コネクタやアダプタケーブルなど) を必要とすることがあります。
 
@@ -49,11 +49,11 @@
 
 
 
-## 認可 (Authorization) (IOT-PHY-AUTHZ)
+## 認可 (Authorization) (ISTG-PHY-AUTHZ) <a name="authorization-istg-phy-authz"></a>
 
 特定のデバイスのアクセスモデルによっては、特定の個人のみが物理インタフェースへのアクセスを許可されるかもしれません。そのため、適切な認証と認可の手順を設け、認可されたユーザーのみがアクセスできるようにする必要があります。
 
-### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-PHY-AUTHZ-001)
+### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (ISTG-PHY-AUTHZ-001) <a name="unauthorized-access-to-the-interface-istg-phy-authz-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -88,9 +88,9 @@
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001) をベースとしています。
+このテストケースは [ISTG-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-istg-des-authz-001) をベースとしています。
 
-### 権限昇格 (Privilege Escalation) (IOT-PHY-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (ISTG-PHY-AUTHZ-002) <a name="privilege-escalation-istg-phy-authz-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -109,7 +109,7 @@
 
 **テスト目的**
 
-- [IOT-PHY-AUTHZ-001](#unauthorized-access-to-the-interface-iot-phy-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
+- [ISTG-PHY-AUTHZ-001](#unauthorized-access-to-the-interface-istg-phy-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
@@ -122,15 +122,15 @@
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002) をベースとしています。
+このテストケースは [ISTG-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-istg-des-authz-002) をベースとしています。
 
 
 
-## 情報収集 (Information Gathering) (IOT-PHY-INFO)
+## 情報収集 (Information Gathering) (ISTG-PHY-INFO) <a name="information-gathering-istg-phy-info"></a>
 
 物理インタフェースはさまざまな情報を開示する可能性があり、デバイスの内部動作や周囲の IoT エコシステムに関する詳細を潜在的な攻撃者に明らかにする可能性があります。これにより、さらに高度な攻撃が可能になり、より容易になります。
 
-### 実装内容の開示 (Disclosure of Implementation Details) (IOT-PHY-INFO-001)
+### 実装内容の開示 (Disclosure of Implementation Details) (ISTG-PHY-INFO-001) <a name="disclosure-of-implementation-details-istg-phy-info-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -170,9 +170,9 @@
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002) をベースとしています。
+このテストケースは [ISTG-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-istg-fw-info-002) をベースとしています。
 
-### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-PHY-INFO-002)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-PHY-INFO-002) <a name="disclosure-of-ecosystem-details-istg-phy-info-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -206,9 +206,9 @@
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003) をベースとしています。
+このテストケースは [ISTG-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-istg-fw-info-003) をベースとしています。
 
-### ユーザーデータの開示 (Disclosure of User Data) (IOT-PHY-INFO-003)
+### ユーザーデータの開示 (Disclosure of User Data) (ISTG-PHY-INFO-003) <a name="disclosure-of-user-data-istg-phy-info-003"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -240,15 +240,15 @@
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-iot-fw[inst]-info-001) をベースとしています。
+このテストケースは [ISTG-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-istg-fw[inst]-info-001) をベースとしています。
 
 
 
-## 構成とパッチ管理 (Configuration and Patch Management) (IOT-PHY-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (ISTG-PHY-CONF) <a name="configuration-and-patch-management-istg-phy-conf"></a>
 
-IoT デバイスは存続期間が長いため、最新のセキュリティパッチを適用して、デバイスで実行しているソフトウェアが定期的に更新されていることを確保することが重要です。ファームウェア自体の更新プロセスは [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md) でカバーされます。なお、デバイス上で実行され、インタフェースで受信するソフトウェアパッケージが最新であることも検証しなければなりません。
+IoT デバイスは存続期間が長いため、最新のセキュリティパッチを適用して、デバイスで実行しているソフトウェアが定期的に更新されていることを確保することが重要です。ファームウェア自体の更新プロセスは [ISTG-FW[UPDT]](../firmware/firmware_update_mechanism.md) でカバーされます。なお、デバイス上で実行され、インタフェースで受信するソフトウェアパッケージが最新であることも検証しなければなりません。
 
-### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-PHY-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (ISTG-PHY-CONF-001) <a name="usage-of-outdated-software-istg-phy-conf-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -286,9 +286,9 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-iot-fw-conf-001) をベースとしています。
+このテストケースは [ISTG-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-istg-fw-conf-001) をベースとしています。
 
-### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-PHY-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (ISTG-PHY-CONF-002) <a name="presence-of-unnecessary-software-and-functionalities-istg-phy-conf-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -324,15 +324,15 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-CONF-002](../firmware/README.md#presence-of-unnecessary-software-and-functionalities-iot-fw-conf-002) をベースとしています。
+このテストケースは [ISTG-FW-CONF-002](../firmware/README.md#presence-of-unnecessary-software-and-functionalities-istg-fw-conf-002) をベースとしています。
 
 
 
-## シークレット (Secrets) (IOT-PHY-SCRT)
+## シークレット (Secrets) (ISTG-PHY-SCRT) <a name="secrets-istg-phy-scrt"></a>
 
 IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
-### 機密データへのアクセス (Access to Confidential Data) (IOT-PHY-SCRT-001)
+### 機密データへのアクセス (Access to Confidential Data) (ISTG-PHY-SCRT-001) <a name="access-to-confidential-data-istg-phy-scrt-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -364,15 +364,15 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-SCRT-001](../data_exchange_services/README.md#access-to-confidential-data-iot-des-scrt-001) をベースとしています。
+このテストケースは [ISTG-DES-SCRT-001](../data_exchange_services/README.md#access-to-confidential-data-istg-des-scrt-001) をベースとしています。
 
 
 
-## 暗号技術 (Cryptography) (IOT-PHY-CRYPT)
+## 暗号技術 (Cryptography) (ISTG-PHY-CRYPT) <a name="cryptography-istg-phy-crypt"></a>
 
 多くの IoT デバイスは、機密データの安全な保存、認証目的、他のネットワークノードからの暗号化データの受信と検証などのために、暗号アルゴリズムを実装する必要があります。安全で最先端の暗号技術を実装しないと、機密データの開示、デバイスの誤動作、デバイスの制御不能につながるかもしれません。
 
-### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-PHY-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-PHY-CRYPT-001) <a name="usage-of-weak-cryptographic-algorithms-istg-phy-crypt-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -395,7 +395,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 - インタフェースによって処理されるデータは暗号化されたデータセグメントの存在をチェックしなければなりません。暗号化されたデータセグメントが見つかった場合、使用する暗号アルゴリズムが特定できるかどうかをチェックしなければなりません。
 
-- さらに、[IOT-PHY-INFO-001](#disclosure-of-implementation-details-iot-phy-info-001) をベースとして、ヘッダ、システムメッセージなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
+- さらに、[ISTG-PHY-INFO-001](#disclosure-of-implementation-details-istg-phy-info-001) をベースとして、ヘッダ、システムメッセージなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
 
 - 暗号アルゴリズムを特定できる場合、BSI による技術ガイドライン [TR-02102-1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10) などの暗号ガイドラインを参照するなどして、使用するアルゴリズムやその構成がテスト時に十分なレベルのセキュリティを提供しているかどうかを判断しなければなりません。
 
@@ -410,15 +410,15 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-CRYPT-001](../firmware/README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとしています。
+このテストケースは [ISTG-FW-CRYPT-001](../firmware/README.md#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001) をベースとしています。
 
 
 
-## ビジネスロジック (Business Logic) (IOT-PHY-LOGIC)
+## ビジネスロジック (Business Logic) (ISTG-PHY-LOGIC) <a name="business-logic-istg-phy-logic"></a>
 
 物理インタフェースの他のすべての側面が安全に実装および構成されていたとしても、基盤となるロジック自体に問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、物理インタフェースとその機能が意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
-### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-PHY-LOGIC-001)
+### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (ISTG-PHY-LOGIC-001) <a name="circumvention-of-the-intended-business-logic-istg-phy-logic-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -450,15 +450,15 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001) をベースとしています。
+このテストケースは [ISTG-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-istg-des-logic-001) をベースとしています。
 
 
 
-## 入力バリデーション (Input Validation) (IOT-PHY-INPV)
+## 入力バリデーション (Input Validation) (ISTG-PHY-INPV) <a name="input-validation-istg-phy-inpv"></a>
 
 有効かつ整形式のデータのみをデバイスの処理フローに入力することを確保するために、ユーザーや外部システムなどのすべての信頼できないソースからの入力を検証およびバリデートする必要があります。
 
-### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-PHY-INPV-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (ISTG-PHY-INPV-001) <a name="insufficient-input-validation-istg-phy-inpv-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -492,9 +492,9 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inpv-001) をベースとしています。
+このテストケースは [ISTG-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-istg-des-inpv-001) をベースとしています。
 
-### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-PHY-INPV-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (ISTG-PHY-INPV-002) <a name="code-or-command-injection-istg-phy-inpv-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -513,7 +513,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 **テスト目的**
 
-- [IOT-PHY-INPV-001](#insufficient-input-validation-iot-phy-inpv-001) をベースとして、コードやコマンドを送信して、システムによって実行できるかどうかをチェックしなければなりません。
+- [ISTG-PHY-INPV-001](#insufficient-input-validation-istg-phy-inpv-001) をベースとして、コードやコマンドを送信して、システムによって実行できるかどうかをチェックしなければなりません。
 
 **対応策**
 
@@ -526,7 +526,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inpv-002) をベースとしています。
+このテストケースは [ISTG-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-istg-des-inpv-002) をベースとしています。
 
 
 

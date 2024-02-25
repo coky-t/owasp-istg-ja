@@ -1,19 +1,19 @@
-# 3.1. 処理装置 (Processing Units) (IOT-PROC)
+# 3.1. 処理装置 (Processing Units) (ISTG-PROC)
 
 ## 目次
 * [概要](#overview)
-* [認可 (Authorization) (IOT-PROC-AUTHZ)](#authorization-iot-proc-authz)
-  * [処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (IOT-PROC-AUTHZ-001)](#unauthorized-access-to-the-processing-unit-iot-proc-authz-001)
-  * [権限昇格 (Privilege Escalation) (IOT-PROC-AUTHZ-002)](#privilege-escalation-iot-proc-authz-002)
-* [ビジネスロジック (Business Logic) (IOT-PROC-LOGIC)](#business-logic-iot-proc-logic)
-  * [インストラクションの安全でない実装 (Insecure Implementation of Instructions) (IOT-PROC-LOGIC-001)](#insecure-implementation-of-instructions-iot-proc-logic-001)
-* [サイドチャネル攻撃 (Side-Channel Attacks) (IOT-PROC-SIDEC)](#side-channel-attacks-iot-proc-sidec)
-  * [サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (IOT-PROC-SIDEC-001)](#insufficient-protection-against-side-channel-attacks-iot-proc-sidec-001)
+* [認可 (Authorization) (ISTG-PROC-AUTHZ)](#authorization-istg-proc-authz)
+  * [処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (ISTG-PROC-AUTHZ-001)](#unauthorized-access-to-the-processing-unit-istg-proc-authz-001)
+  * [権限昇格 (Privilege Escalation) (ISTG-PROC-AUTHZ-002)](#privilege-escalation-istg-proc-authz-002)
+* [ビジネスロジック (Business Logic) (ISTG-PROC-LOGIC)](#business-logic-istg-proc-logic)
+  * [インストラクションの安全でない実装 (Insecure Implementation of Instructions) (ISTG-PROC-LOGIC-001)](#insecure-implementation-of-instructions-istg-proc-logic-001)
+* [サイドチャネル攻撃 (Side-Channel Attacks) (ISTG-PROC-SIDEC)](#side-channel-attacks-istg-proc-sidec)
+  * [サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (ISTG-PROC-SIDEC-001)](#insufficient-protection-against-side-channel-attacks-istg-proc-sidec-001)
 
 
 
 
-## 概要
+## 概要 <a name="overview"></a>
 
 このセクションにはコンポーネントの処理装置に関するテストケースとカテゴリが含まれます。処理装置は *PA-4* でのみアクセスできるデバイス内部要素です。処理装置への直接接続を確立するには特定のハードウェア機器 (デバッグボード、オシロスコープ、テストプローブなど) を必要とすることがあります。
 
@@ -27,11 +27,11 @@
 
 
 
-## 認可 (Authorization) (IOT-PROC-AUTHZ)
+## 認可 (Authorization) (ISTG-PROC-AUTHZ) <a name="authorization-istg-proc-authz"></a>
 
 特定のデバイスのアクセスモデルによっては、特定の個人のみが処理装置への直接アクセスを許可されるかもしれません。そのため、適切な認証と認可の手順を設け、認可されたエンティティのみがアクセスできるようにする必要があります。
 
-### 処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (IOT-PROC-AUTHZ-001)
+### 処理装置への認可されていないアクセス (Unauthorized Access to the Processing Unit) (ISTG-PROC-AUTHZ-001) <a name="unauthorized-access-to-the-processing-unit-istg-proc-authz-001"></a>
 
 **必要なアクセスレベル**
 
@@ -62,9 +62,9 @@
 
 **参考情報**
 
-このテストケースは [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001) をベースとしています。
+このテストケースは [ISTG-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-istg-des-authz-001) をベースとしています。
 
-### 権限昇格 (Privilege Escalation) (IOT-PROC-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (ISTG-PROC-AUTHZ-002) <a name="privilege-escalation-istg-proc-authz-002"></a>
 
 **必要なアクセスレベル**
 
@@ -85,7 +85,7 @@
 
 **テスト目的**
 
-- [IOT-PROC-AUTHZ-001](#unauthorized-access-to-the-processing-unit-iot-proc-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
+- [ISTG-PROC-AUTHZ-001](#unauthorized-access-to-the-processing-unit-istg-proc-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
@@ -93,15 +93,15 @@
 
 **参考情報**
 
-このテストケースは [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002) をベースとしています。
+このテストケースは [ISTG-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-istg-des-authz-002) をベースとしています。
 
 
 
-## ビジネスロジック (Business Logic) (IOT-PROC-LOGIC)
+## ビジネスロジック (Business Logic) (ISTG-PROC-LOGIC) <a name="business-logic-istg-proc-logic"></a>
 
 処理装置の基盤となるロジックに問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、処理装置とその機能が意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
-### インストラクションの安全でない実装 (Insecure Implementation of Instructions) (IOT-PROC-LOGIC-001)
+### インストラクションの安全でない実装 (Insecure Implementation of Instructions) (ISTG-PROC-LOGIC-001) <a name="insecure-implementation-of-instructions-istg-proc-logic-001"></a>
 
 **必要なアクセスレベル**
 
@@ -131,15 +131,15 @@
 
 **参考情報**
 
-このテストケースは [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001) をベースとしています。
+このテストケースは [ISTG-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-istg-des-logic-001) をベースとしています。
 
 
 
-## サイドチャネル攻撃 (Side-Channel Attacks) (IOT-PROC-SIDEC)
+## サイドチャネル攻撃 (Side-Channel Attacks) (ISTG-PROC-SIDEC) <a name="side-channel-attacks-istg-proc-sidec"></a>
 
 タイミング攻撃やグリッチ攻撃などのサイドチャネル攻撃は、通常、デバイスファームウェアやそのインタフェースではなく、デバイスの物理実装、より具体的には処理装置をターゲットとしています。このような攻撃の目的は処理装置で実行する暗号アルゴリズムや操作に関する情報を収集し、鍵マテリアルの取得、暗号計算の操作、保護情報へのアクセスを行うことです。
 
-### サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (IOT-PROC-SIDEC-001)
+### サイドチャネル攻撃に対する不十分な保護 (Insufficient Protection Against Side-Channel Attacks) (ISTG-PROC-SIDEC-001) <a name="insufficient-protection-against-side-channel-attacks-istg-proc-sidec-001"></a>
 
 **必要なアクセスレベル**
 

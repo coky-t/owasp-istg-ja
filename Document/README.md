@@ -35,25 +35,25 @@ OWASP IoT セキュリティテストガイドは IoT 分野におけるペネ�
 
 3. [**テストケースカタログ**](./src/03_test_cases/README.md)
 
-   3.1. [処理装置 (IOT-PROC)](./src/03_test_cases/processing_units/README.md)
+   3.1. [処理装置 (ISTG-PROC)](./src/03_test_cases/processing_units/README.md)
 
-   3.2. [メモリ (IOT-MEM)](./src/03_test_cases/memory/README.md)
+   3.2. [メモリ (ISTG-MEM)](./src/03_test_cases/memory/README.md)
 
-   3.3. [ファームウェア (IOT-FW)](./src/03_test_cases/firmware/README.md)
+   3.3. [ファームウェア (ISTG-FW)](./src/03_test_cases/firmware/README.md)
 
-      3.3.1. [インストール済みファームウェア (IOT-FW[INST])](./src/03_test_cases/firmware/installed_firmware.md)
+      3.3.1. [インストール済みファームウェア (ISTG-FW[INST])](./src/03_test_cases/firmware/installed_firmware.md)
 
-      3.3.1. [ファームウェア更新メカニズム (IOT-FW[UPDT])](./src/03_test_cases/firmware/firmware_update_mechanism.md)
+      3.3.1. [ファームウェア更新メカニズム (ISTG-FW[UPDT])](./src/03_test_cases/firmware/firmware_update_mechanism.md)
 
-   3.4. [データ交換サービス (IOT-DES)](./src/03_test_cases/data_exchange_services/README.md)
+   3.4. [データ交換サービス (ISTG-DES)](./src/03_test_cases/data_exchange_services/README.md)
 
-   3.5. [内部インタフェース (IOT-INT)](./src/03_test_cases/internal_interfaces/README.md)
+   3.5. [内部インタフェース (ISTG-INT)](./src/03_test_cases/internal_interfaces/README.md)
 
-   3.6. [物理インタフェース (IOT-PHY)](./src/03_test_cases/physical_interfaces/README.md)
+   3.6. [物理インタフェース (ISTG-PHY)](./src/03_test_cases/physical_interfaces/README.md)
 
-   3.7. [無線インタフェース (IOT-WRLS)](./src/03_test_cases/wireless_interfaces/README.md)
+   3.7. [無線インタフェース (ISTG-WRLS)](./src/03_test_cases/wireless_interfaces/README.md)
 
-   3.8. [ユーザーインタフェース (IOT-UI)](./src/03_test_cases/user_interfaces/README.md)
+   3.8. [ユーザーインタフェース (ISTG-UI)](./src/03_test_cases/user_interfaces/README.md)
 
 
 

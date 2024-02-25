@@ -36,31 +36,31 @@
 
   *簡易表記: 英大文字 2 ～ 5 文字*
 
-  *例: IOT-PROC, IOT-MEM, IOT-FW, IOT-DES, IOT-INT, IOT-PHY, IOT-WRLS, IOT-UI*
+  *例: ISTG-PROC, ISTG-MEM, ISTG-FW, ISTG-DES, ISTG-INT, ISTG-PHY, ISTG-WRLS, ISTG-UI*
 
-- **コンポーネントの特殊化 (Component Specialization) (オプション):** オプションのコンポーネントの特殊化を使用して、コンポーネントの特定部品やサンプルにのみ関連するテストケースを定義できます (例: インストール済みファームウェア - IOT-FW[INST] - ファームウェアコンポーネント IOT-FW の特殊化として、SPI - IOT-INT[SPI] - 内部インタフェースコンポーネント IOT-INT の特殊化として)。
+- **コンポーネントの特殊化 (Component Specialization) (オプション):** オプションのコンポーネントの特殊化を使用して、コンポーネントの特定部品やサンプルにのみ関連するテストケースを定義できます (例: インストール済みファームウェア - ISTG-FW[INST] - ファームウェアコンポーネント ISTG-FW の特殊化として、SPI - ISTG-INT[SPI] - 内部インタフェースコンポーネント ISTG-INT の特殊化として)。
 
-  デフォルトでは、コンポーネントの特殊化は親ノードに対して定義されたすべてのカテゴリとテストケースを継承します (ファームウェアコンポーネント IOT-FW に対して定義されたすべてのテストケースは、特殊化されたインストール済みファームウェア IOT-FW[INST] に継承されます)。
+  デフォルトでは、コンポーネントの特殊化は親ノードに対して定義されたすべてのカテゴリとテストケースを継承します (ファームウェアコンポーネント ISTG-FW に対して定義されたすべてのテストケースは、特殊化されたインストール済みファームウェア ISTG-FW[INST] に継承されます)。
 
-  必要に応じて、たとえばファームウェア更新 IOT-FW[UPDT] の特殊化として、Over The Air ファームウェア更新 IOT-FW\[UPDT][OTA] など、特殊化を連鎖できます。この場合、二番目の特殊化は最初の特殊化に対して定義されたすべてのカテゴリとテストケースを継承するため、コンポーネント全般に対して定義されたすべてのテストケースも継承します。
+  必要に応じて、たとえばファームウェア更新 ISTG-FW[UPDT] の特殊化として、Over The Air ファームウェア更新 ISTG-FW\[UPDT][OTA] など、特殊化を連鎖できます。この場合、二番目の特殊化は最初の特殊化に対して定義されたすべてのカテゴリとテストケースを継承するため、コンポーネント全般に対して定義されたすべてのテストケースも継承します。
 
   さらに、必要に応じて、コンポーネントの特殊化による継承から除外する必要があるカテゴリやテストケースのリストを定義することもできます。
 
   *簡易表記: 角かっこ内に英大文字 2 ～ 5 文字*
 
-  *例: IOT-FW[INST], IOT-FW[UPDT]*
+  *例: ISTG-FW[INST], ISTG-FW[UPDT]*
 
 - **カテゴリ (Category):** 二番目の主要な階層レベルはカテゴリで、テストケースをグループ化するために使用できます。たとえば、認可に関連するすべてのテストケースをカテゴリ AUTHZ にグループ化できます。
 
   *簡易表記: 英大文字 2 ～ 5 文字*
 
-  *例: IOT-\*-AUTHZ, IOT-\*-INFO, IOT-\*-CONF*
+  *例: ISTG-\*-AUTHZ, ISTG-\*-INFO, ISTG-\*-CONF*
 
 - **テストケース (Test Case):** 三番目の主要な階層レベルはテストケースです。詳しくは [3. テストケースカタログ](../03_test_cases/README.md) を参照してください。
 
   *簡易表記: テストケースの三桁の連番*
 
-  *例: IOT-FW-INFO-001, IOT-FW-INFO-002, IOT-FW-INFO-003*
+  *例: ISTG-FW-INFO-001, ISTG-FW-INFO-002, ISTG-FW-INFO-003*
 
 このような構造により、特定のデバイスやテストシナリオに関連しないノード (コンポーネント、コンポーネントの特殊化、カテゴリなど) を選択解除することで、適用可能なサブツリーを効率的に決定できます。以下の表は、各階層レベルのノードのリストの一例を示しています。このガイドに含まれるすべてのコンポーネントとカテゴリの概要を表の下の図に示しています。
 
@@ -87,54 +87,54 @@
             <td colspan="2"><b>コンポーネント (Component)</b></td>
         </tr>
         <tr>
-            <td>IOT-PROC</td>
+            <td>ISTG-PROC</td>
             <td>処理装置 (Processing Unit)</td>
         </tr>
         <tr>
-            <td>IOT-MEM</td>
+            <td>ISTG-MEM</td>
             <td>メモリ (Memory)</td>
         </tr>
         <tr>
-            <td>IOT-FW</td>
+            <td>ISTG-FW</td>
             <td>ファームウェア (Firmware)</td>
         </tr>
         <tr>
-            <td>IOT-DES</td>
+            <td>ISTG-DES</td>
             <td>データ交換サービス (Data Exchange Service)</td>
         </tr>
         <tr>
-            <td>IOT-INT</td>
+            <td>ISTG-INT</td>
             <td>内部インタフェース (Internal Interface)</td>
         </tr>
         <tr>
-            <td>IOT-PHY</td>
+            <td>ISTG-PHY</td>
             <td>物理インタフェース (Physical Interface)</td>
         </tr>
         <tr>
-            <td>IOT-WRLS</td>
+            <td>ISTG-WRLS</td>
             <td>無線インタフェース (Wireless Interface)</td>
         </tr>
         <tr>
-            <td>IOT-UI</td>
+            <td>ISTG-UI</td>
             <td>ユーザーインタフェース (User Interface)</td>
         </tr>
         <tr>
-            <td>IOT-*</td>
+            <td>ISTG-*</td>
             <td>カスタムコンポーネント (Custom Component)<i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
         <tr>
             <td colspan="2"><b>コンポーネントの特殊化 (Component Specialization) (オプション)</b></td>
         </tr>
         <tr>
-            <td>IOT-FW[INST]</td>
+            <td>ISTG-FW[INST]</td>
             <td>インストール済みファームウェア (Installed Firmware)</td>
         </tr>
         <tr>
-            <td>IOT-FW[UPDT]</td>
+            <td>ISTG-FW[UPDT]</td>
             <td>ファームウェア更新メカニズム (Firmware Update Mechanism)</td>
         </tr>
         <tr>
-            <td>IOT-*[*]</td>
+            <td>ISTG-*[*]</td>
             <td>カスタムコンポーネントの特殊化 (Custom Component Specialization)<i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
         <tr>
@@ -142,39 +142,39 @@
             <td colspan="2"><b>カテゴリ (Category)</b></td>
         </tr>
         <tr>
-            <td>IOT-*-AUTHZ</td>
+            <td>ISTG-*-AUTHZ</td>
             <td>認可 (Authorization)</td>
         </tr>
         <tr>
-            <td>IOT-*-INFO</td>
+            <td>ISTG-*-INFO</td>
             <td>情報収集 (Information Gathering)</td>
         </tr>
         <tr>
-            <td>IOT-*-CRYPT</td>
+            <td>ISTG-*-CRYPT</td>
             <td>暗号技術 (Cryptography)</td>
         </tr>
         <tr>
-            <td>IOT-*-SCRT</td>
+            <td>ISTG-*-SCRT</td>
             <td>シークレット (Secrets)</td>
         </tr>
         <tr>
-            <td>IOT-*-CONF</td>
+            <td>ISTG-*-CONF</td>
             <td>構成とパッチ管理 (Configuration and Patch Management)</td>
         </tr>
         <tr>
-            <td>IOT-*-LOGIC</td>
+            <td>ISTG-*-LOGIC</td>
             <td>ビジネスロジック (Business Logic)</td>
         </tr>
         <tr>
-            <td>IOT-*-INPV</td>
+            <td>ISTG-*-INPV</td>
             <td>入力バリデーション (Input Validation)</td>
         </tr>
         <tr>
-            <td>IOT-*-SIDEC</td>
+            <td>ISTG-*-SIDEC</td>
             <td>サイドチャネル攻撃 (Side-Channel Attacks)</td>
         </tr>
         <tr>
-            <td>IOT-*-*</td>
+            <td>ISTG-*-*</td>
             <td>カスタムカテゴリ (Custom Category) <i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
         <tr>
@@ -182,19 +182,19 @@
             <td colspan="2"><b>テストケース (Test Case)</b></td>
         </tr>
         <tr>
-            <td>IOT-*-INFO-001</td>
-            <td>ソースコードの開示 (Disclosure of Source Code)</td>
+            <td>ISTG-*-INFO-001</td>
+            <td>ソースコードとバイナリの開示 (Disclosure of Source Code and Binaries)</td>
         </tr>
         <tr>
-            <td>IOT-*-INFO-002</td>
+            <td>ISTG-*-INFO-002</td>
             <td>実装内容の開示 (Disclosure of Implementation Details)</td>
         </tr>
         <tr>
-            <td>IOT-*-INFO-003</td>
+            <td>ISTG-*-INFO-003</td>
             <td>エコシステム内容の開示 (Disclosure of Ecosystem Details)</td>
         </tr>
         <tr>
-            <td>IOT-*-*-*</td>
+            <td>ISTG-*-*-*</td>
             <td>カスタムテストケース (Custom Test Case) <i>(将来の拡張用のプレースホルダ)</i></td>
         </tr>
     </tbody>

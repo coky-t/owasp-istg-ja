@@ -1,32 +1,32 @@
-# 3.5. 内部インタフェース (Internal Interfaces) (IOT-INT)
+# 3.5. 内部インタフェース (Internal Interfaces) (ISTG-INT) <a name="35-internal-interfaces-istg-int"></a>
 
-## 目次
-- [3.5. 内部インタフェース (Internal Interfaces) (IOT-INT)](#35-internal-interfaces-iot-int)
+## 目次 <a name="table-of-contents"></a>
+- [3.5. 内部インタフェース (Internal Interfaces) (ISTG-INT)](#35-internal-interfaces-istg-int)
 	- [目次](#table-of-contents)
 	- [概要](#overview)
-	- [認可 (Authorization) (IOT-INT-AUTHZ)](#authorization-iot-int-authz)
-	  - [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-INT-AUTHZ-001)](#unauthorized-access-to-the-interface-iot-int-authz-001)
-	  - [権限昇格 (Privilege Escalation) (IOT-INT-AUTHZ-002)](#privilege-escalation-iot-int-authz-002)
-	- [情報収集 (Information Gathering) (IOT-INT-INFO)](#information-gathering-iot-int-info)
-	  - [実装内容の開示 (Disclosure of Implementation Details) (IOT-INT-INFO-001)](#disclosure-of-implementation-details-iot-int-info-001)
-	  - [エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-INT-INFO-002)](#disclosure-of-ecosystem-details-iot-int-info-002)
-	  - [ユーザーデータの開示 (Disclosure of User Data) (IOT-INT-INFO-003)](#disclosure-of-user-data-iot-int-info-003)
-	- [構成とパッチ管理 (Configuration and Patch Management) (IOT-INT-CONF)](#configuration-and-patch-management-iot-int-conf)
-	  - [古いソフトウェアの使用 (Usage of Outdated Software) (IOT-INT-CONF-001)](#usage-of-outdated-software-iot-int-conf-001)
-	  - [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-INT-CONF-002)](#presence-of-unnecessary-software-and-functionalities-iot-int-conf-002)
-	- [シークレット (Secrets) (IOT-INT-SCRT)](#secrets-iot-int-scrt)
-	  - [機密データへのアクセス (Access to Confidential Data) (IOT-INT-SCRT-001)](#access-to-confidential-data-iot-int-scrt-001)
-	- [暗号技術 (Cryptography) (IOT-INT-CRYPT)](#cryptography-iot-int-crypt)
-	  - [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-INT-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-iot-int-crypt-001)
-	- [ビジネスロジック (Business Logic) (IOT-INT-LOGIC)](#business-logic-iot-int-logic)
-	  - [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-INT-LOGIC-001)](#circumvention-of-the-intended-business-logic-iot-int-logic-001)
-	- [入力バリデーション (Input Validation) (IOT-INT-INPV)](#input-validation-iot-int-inpv)
-	  - [不十分な入力バリデーション (Insufficient Input Validation) (IOT-INT-INPV-001)](#insufficient-input-validation-iot-int-inpv-001)
-	  - [コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-INT-INPV-002)](#code-or-command-injection-iot-int-inpv-002)
+	- [認可 (Authorization) (ISTG-INT-AUTHZ)](#authorization-istg-int-authz)
+	  - [インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (ISTG-INT-AUTHZ-001)](#unauthorized-access-to-the-interface-istg-int-authz-001)
+	  - [権限昇格 (Privilege Escalation) (ISTG-INT-AUTHZ-002)](#privilege-escalation-istg-int-authz-002)
+	- [情報収集 (Information Gathering) (ISTG-INT-INFO)](#information-gathering-istg-int-info)
+	  - [実装内容の開示 (Disclosure of Implementation Details) (ISTG-INT-INFO-001)](#disclosure-of-implementation-details-istg-int-info-001)
+	  - [エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-INT-INFO-002)](#disclosure-of-ecosystem-details-istg-int-info-002)
+	  - [ユーザーデータの開示 (Disclosure of User Data) (ISTG-INT-INFO-003)](#disclosure-of-user-data-istg-int-info-003)
+	- [構成とパッチ管理 (Configuration and Patch Management) (ISTG-INT-CONF)](#configuration-and-patch-management-istg-int-conf)
+	  - [古いソフトウェアの使用 (Usage of Outdated Software) (ISTG-INT-CONF-001)](#usage-of-outdated-software-istg-int-conf-001)
+	  - [不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (ISTG-INT-CONF-002)](#presence-of-unnecessary-software-and-functionalities-istg-int-conf-002)
+	- [シークレット (Secrets) (ISTG-INT-SCRT)](#secrets-istg-int-scrt)
+	  - [機密データへのアクセス (Access to Confidential Data) (ISTG-INT-SCRT-001)](#access-to-confidential-data-istg-int-scrt-001)
+	- [暗号技術 (Cryptography) (ISTG-INT-CRYPT)](#cryptography-istg-int-crypt)
+	  - [脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-INT-CRYPT-001)](#usage-of-weak-cryptographic-algorithms-istg-int-crypt-001)
+	- [ビジネスロジック (Business Logic) (ISTG-INT-LOGIC)](#business-logic-istg-int-logic)
+	  - [意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (ISTG-INT-LOGIC-001)](#circumvention-of-the-intended-business-logic-istg-int-logic-001)
+	- [入力バリデーション (Input Validation) (ISTG-INT-INPV)](#input-validation-istg-int-inpv)
+	  - [不十分な入力バリデーション (Insufficient Input Validation) (ISTG-INT-INPV-001)](#insufficient-input-validation-istg-int-inpv-001)
+	  - [コードインジェクションやコマンドインジェクション (Code or Command Injection) (ISTG-INT-INPV-002)](#code-or-command-injection-istg-int-inpv-002)
 
 
 
-## 概要
+## 概要 <a name="overview"></a>
 
 このセクションにはコンポーネントの内部インタフェースに関するテストケースとカテゴリが含まれます。処理装置やメモリと同様に、内部インタフェースは *PA-4* でのみアクセスできるデバイス内部要素です。内部インタフェースへの直接接続を確立するには特定のハードウェア機器 (デバッグボード、オシロスコープ、テストプローブなど) を必要とすることがあります。
 
@@ -48,11 +48,11 @@
 
 
 
-## 認可 (Authorization) (IOT-INT-AUTHZ)
+## 認可 (Authorization) (ISTG-INT-AUTHZ) <a name="authorization-istg-int-authz"></a>
 
 特定のデバイスのアクセスモデルによっては、特定の個人のみが内部インタフェースへのアクセスを許可されるかもしれません。そのため、適切な認証と認可の手順を設け、認可されたユーザーのみがアクセスできるようにする必要があります。
 
-### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (IOT-INT-AUTHZ-001)
+### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (ISTG-INT-AUTHZ-001) <a name="unauthorized-access-to-the-interface-istg-int-authz-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -89,9 +89,9 @@
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-iot-des-authz-001) をベースとしています。
+このテストケースは [ISTG-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-istg-des-authz-001) をベースとしています。
 
-### 権限昇格 (Privilege Escalation) (IOT-INT-AUTHZ-002)
+### 権限昇格 (Privilege Escalation) (ISTG-INT-AUTHZ-002) <a name="privilege-escalation-istg-int-authz-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -110,7 +110,7 @@
 
 **テスト目的**
 
-- [IOT-INT-AUTHZ-001](#unauthorized-access-to-the-interface-iot-int-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
+- [ISTG-INT-AUTHZ-001](#unauthorized-access-to-the-interface-istg-int-authz-001) をベースとして、与えられたアクセス権限を昇格して制限された機能にアクセスする方法があるかどうかを判断しなければなりません。
 
 **対応策**
 
@@ -118,15 +118,15 @@
 
 **参考情報**
 
-このテストケースは [IOT-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-iot-des-authz-002) をベースとしています。
+このテストケースは [ISTG-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-istg-des-authz-002) をベースとしています。
 
 
 
-## 情報収集 (Information Gathering) (IOT-INT-INFO)
+## 情報収集 (Information Gathering) (ISTG-INT-INFO) <a name="information-gathering-istg-int-info"></a>
 
 内部インタフェースはさまざまな情報を開示する可能性があり、デバイスの内部動作や周囲の IoT エコシステムに関する詳細を潜在的な攻撃者に明らかにする可能性があります。これにより、さらに高度な攻撃が可能になり、より容易になります。
 
-### 実装内容の開示 (Disclosure of Implementation Details) (IOT-INT-INFO-001)
+### 実装内容の開示 (Disclosure of Implementation Details) (ISTG-INT-INFO-001) <a name="disclosure-of-implementation-details-istg-int-info-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -169,9 +169,9 @@
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-iot-fw-info-002) をベースとしています。
+このテストケースは [ISTG-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-istg-fw-info-002) をベースとしています。
 
-### エコシステム内容の開示 (Disclosure of Ecosystem Details) (IOT-INT-INFO-002)
+### エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-INT-INFO-002) <a name="disclosure-of-ecosystem-details-istg-int-info-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -208,9 +208,9 @@
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-iot-fw-info-003) をベースとしています。
+このテストケースは [ISTG-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-istg-fw-info-003) をベースとしています。
 
-### ユーザーデータの開示 (Disclosure of User Data) (IOT-INT-INFO-003)
+### ユーザーデータの開示 (Disclosure of User Data) (ISTG-INT-INFO-003) <a name="disclosure-of-user-data-istg-int-info-003"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -245,15 +245,15 @@
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-iot-fw[inst]-info-001) をベースとしています。
+このテストケースは [ISTG-FW[INST]-INFO-001](../firmware/installed_firmware.md#disclosure-of-user-data-istg-fw[inst]-info-001) をベースとしています。
 
 
 
-## 構成とパッチ管理 (Configuration and Patch Management) (IOT-INT-CONF)
+## 構成とパッチ管理 (Configuration and Patch Management) (ISTG-INT-CONF) <a name="configuration-and-patch-management-istg-int-conf"></a>
 
-IoT デバイスは存続期間が長いため、最新のセキュリティパッチを適用して、デバイスで実行しているソフトウェアが定期的に更新されていることを確保することが重要です。ファームウェア自体の更新プロセスは [IOT-FW[UPDT]](../firmware/firmware_update_mechanism.md) でカバーされます。なお、デバイス上で実行され、インタフェースで受信するソフトウェアパッケージが最新であることも検証しなければなりません。
+IoT デバイスは存続期間が長いため、最新のセキュリティパッチを適用して、デバイスで実行しているソフトウェアが定期的に更新されていることを確保することが重要です。ファームウェア自体の更新プロセスは [ISTG-FW[UPDT]](../firmware/firmware_update_mechanism.md) でカバーされます。なお、デバイス上で実行され、インタフェースで受信するソフトウェアパッケージが最新であることも検証しなければなりません。
 
-### 古いソフトウェアの使用 (Usage of Outdated Software) (IOT-INT-CONF-001)
+### 古いソフトウェアの使用 (Usage of Outdated Software) (ISTG-INT-CONF-001) <a name="usage-of-outdated-software-istg-int-conf-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -294,9 +294,9 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-iot-fw-conf-001) をベースとしています。
+このテストケースは [ISTG-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-istg-fw-conf-001) をベースとしています。
 
-### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (IOT-INT-CONF-002)
+### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (ISTG-INT-CONF-002) <a name="presence-of-unnecessary-software-and-functionalities-istg-int-conf-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -335,15 +335,15 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-CONF-002](../firmware/README.md#presence-of-unnecessary-software-and-functionalities-iot-fw-conf-002) をベースとしています。
+このテストケースは [ISTG-FW-CONF-002](../firmware/README.md#presence-of-unnecessary-software-and-functionalities-istg-fw-conf-002) をベースとしています。
 
 
 
-## シークレット (Secrets) (IOT-INT-SCRT)
+## シークレット (Secrets) (ISTG-INT-SCRT) <a name="secrets-istg-int-scrt"></a>
 
 IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
-### 機密データへのアクセス (Access to Confidential Data) (IOT-INT-SCRT-001)
+### 機密データへのアクセス (Access to Confidential Data) (ISTG-INT-SCRT-001) <a name="access-to-confidential-data-istg-int-scrt-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -378,15 +378,15 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-SCRT-001](../data_exchange_services/README.md#access-to-confidential-data-iot-des-scrt-001) をベースとしています。
+このテストケースは [ISTG-DES-SCRT-001](../data_exchange_services/README.md#access-to-confidential-data-istg-des-scrt-001) をベースとしています。
 
 
 
-## 暗号技術 (Cryptography) (IOT-INT-CRYPT)
+## 暗号技術 (Cryptography) (ISTG-INT-CRYPT) <a name="cryptography-istg-int-crypt"></a>
 
 多くの IoT デバイスは、機密データの安全な保存、認証目的、他のネットワークノードからの暗号化データの受信と検証などのために、暗号アルゴリズムを実装する必要があります。安全で最先端の暗号技術を実装しないと、機密データの開示、デバイスの誤動作、デバイスの制御不能につながるかもしれません。
 
-### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (IOT-INT-CRYPT-001)
+### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-INT-CRYPT-001) <a name="usage-of-weak-cryptographic-algorithms-istg-int-crypt-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -409,7 +409,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 - インタフェースによって処理されるデータは暗号化されたデータセグメントの存在をチェックしなければなりません。暗号化されたデータセグメントが見つかった場合、使用する暗号アルゴリズムが特定できるかどうかをチェックしなければなりません。
 
-- さらに、[IOT-INT-INFO-001](#disclosure-of-implementation-details-iot-int-info-001) をベースとして、ヘッダ、システムメッセージなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
+- さらに、[ISTG-INT-INFO-001](#disclosure-of-implementation-details-istg-int-info-001) をベースとして、ヘッダ、システムメッセージなどが特定の暗号アルゴリズムの使用を開示しているかどうかをチェックしなければなりません。
 
 - 暗号アルゴリズムを特定できる場合、BSI による技術ガイドライン [TR-02102-1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=10) などの暗号ガイドラインを参照するなどして、使用するアルゴリズムやその構成がテスト時に十分なレベルのセキュリティを提供しているかどうかを判断しなければなりません。
 
@@ -427,15 +427,15 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-FW-CRYPT-001](../firmware/README.md#usage-of-weak-cryptographic-algorithms-iot-fw-crypt-001) をベースとしています。
+このテストケースは [ISTG-FW-CRYPT-001](../firmware/README.md#usage-of-weak-cryptographic-algorithms-istg-fw-crypt-001) をベースとしています。
 
 
 
-## ビジネスロジック (Business Logic) (IOT-INT-LOGIC)
+## ビジネスロジック (Business Logic) (ISTG-INT-LOGIC) <a name="business-logic-istg-int-logic"></a>
 
 内部インタフェースの他のすべての側面が安全に実装および構成されていたとしても、基盤となるロジック自体に問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、内部インタフェースとその機能が意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
-### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (IOT-INT-LOGIC-001)
+### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (ISTG-INT-LOGIC-001) <a name="circumvention-of-the-intended-business-logic-istg-int-logic-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -470,15 +470,15 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-iot-des-logic-001) をベースとしています。
+このテストケースは [ISTG-DES-LOGIC-001](../data_exchange_services/README.md#circumvention-of-the-intended-business-logic-istg-des-logic-001) をベースとしています。
 
 
 
-## 入力バリデーション (Input Validation) (IOT-INT-INPV)
+## 入力バリデーション (Input Validation) (ISTG-INT-INPV) <a name="input-validation-istg-int-inpv"></a>
 
 有効かつ整形式のデータのみをデバイスの処理フローに入力することを確保するために、ユーザーや外部システムなどのすべての信頼できないソースからの入力を検証およびバリデートする必要があります。
 
-### 不十分な入力バリデーション (Insufficient Input Validation) (IOT-INT-INPV-001)
+### 不十分な入力バリデーション (Insufficient Input Validation) (ISTG-INT-INPV-001) <a name="insufficient-input-validation-istg-int-inpv-001"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -515,9 +515,9 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-iot-des-inpv-001) をベースとしています。
+このテストケースは [ISTG-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-istg-des-inpv-001) をベースとしています。
 
-### コードインジェクションやコマンドインジェクション (Code or Command Injection) (IOT-INT-INPV-002)
+### コードインジェクションやコマンドインジェクション (Code or Command Injection) (ISTG-INT-INPV-002) <a name="code-or-command-injection-istg-int-inpv-002"></a>
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -536,7 +536,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 
 **テスト目的**
 
-- [IOT-INT-INPV-001](#insufficient-input-validation-iot-int-inpv-001) をベースとして、コードやコマンドを送信して、システムによって実行できるかどうかをチェックしなければなりません。
+- [ISTG-INT-INPV-001](#insufficient-input-validation-istg-int-inpv-001) をベースとして、コードやコマンドを送信して、システムによって実行できるかどうかをチェックしなければなりません。
 
 **対応策**
 
@@ -552,7 +552,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
 
-このテストケースは [IOT-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-iot-des-inpv-002) をベースとしています。
+このテストケースは [ISTG-DES-INPV-002](../data_exchange_services/README.md#code-or-command-injection-istg-des-inpv-002) をベースとしています。
 
 
 
