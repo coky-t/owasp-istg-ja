@@ -1,12 +1,9 @@
 # サマリー
 
 [OWASP IoT セキュリティテストガイド](../README.md)
-[謝辞](../acknowledgements.md)
-[ライセンス](../LICENSE.md)
 
 # はじめに
 - [はじめに](./01_introduction/README.md)
-  - [ロードマップ](./01_introduction/roadmap.md)
 
 
 # IoT セキュリティテストフレームワーク
@@ -27,3 +24,6 @@
   - [物理インタフェース (ISTG-PHY)](./03_test_cases/physical_interfaces/README.md)
   - [無線インタフェース (ISTG-WRLS)](./03_test_cases/wireless_interfaces/README.md)
   - [ユーザーインタフェース (ISTG-UI)](./03_test_cases/user_interfaces/README.md)
+
+[謝辞](../acknowledgements.md)
+[ライセンス](../LICENSE.md)
