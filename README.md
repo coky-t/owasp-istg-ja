@@ -2,6 +2,9 @@
 
 This is the unofficial Japanese translation of the [OWASP IoT Security Testing Guide](https://github.com/OWASP/owasp-istg).
 
+- Document Site - <https://coky-t.gitbook.io/owasp-istg-ja/>
+- Document Repository - <https://github.com/coky-t/owasp-istg-ja>
+
 ### Originator
 
 - Project Site - <https://owasp.org/www-project-iot-security-testing-guide/>
@@ -49,3 +52,6 @@ This is the unofficial Japanese translation of the [OWASP IoT Security Testing G
 ## Translator (Japanese)
 
 [Koki Takeyama](https://github.com/coky-t)
+
+- Document Site - <https://coky-t.gitbook.io/owasp-docs-ja/>
+- Document Repository - <https://github.com/coky-t/owasp-docs-ja>
