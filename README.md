@@ -9,6 +9,7 @@ This is the unofficial Japanese translation of the [OWASP IoT Security Testing G
 
 - Project Site - <https://owasp.org/www-project-iot-security-testing-guide/>
 - Project Repository - <https://github.com/OWASP/www-project-iot-security-testing-guide>
+- Document Site - <https://owasp.org/owasp-istg/>
 - Document Repository - <https://github.com/OWASP/owasp-istg>
 
 ## OWASP IoT セキュリティテストガイド 日本語版
