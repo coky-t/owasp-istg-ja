@@ -116,6 +116,30 @@
 |ISTG-INT-INPV-001|不十分な入力バリデーション (Insufficient Input Validation)|||
 |ISTG-INT-INPV-002|コードインジェクションやコマンドインジェクション (Code or Command Injection)|||
 
+### I2C (Inter-Integrated Circuit) (ISTG-INT[I2C])
+|テスト ID|テスト名|ステータス|備考|
+|-|-|-|-|
+|**ISTG-INT[I2C]-AUTHZ**|**認可 (Authorization)**|||
+|ISTG-INT[I2C]-AUTHZ-001|認可されていないデバイスとのバスインタラクション (Bus Interaction with Unauthorized Devices)|||
+|**ISTG-INT[I2C]-INFO**|**情報収集 (Information Gathering)**|||
+|ISTG-INT[I2C]-INFO-001|スレーブ列挙 (Slave Enumeration)|||
+|ISTG-INT[I2C]-INFO-002|通信傍受 (Communication Sniffing)|||
+|ISTG-INT[I2C]-INFO-003|EEPROM/メモリ抽出 (EEPROM/Memory Extraction)|||
+|**ISTG-INT[I2C]-INPV**|**入力バリデーション (Input Validation)**|||
+|ISTG-INT[I2C]-INPV-001|無効なデータの不十分な処理 (Insufficient Handling of Invalid Data)|||
+
+### UART (Universal Asynchronous Receiver-Transmitter) (ISTG-INT[UART])
+|テスト ID|テスト名|ステータス|備考|
+|-|-|-|-|
+|**ISTG-INT[UART]-AUTHZ**|**認可 (Authorization)**|||
+|ISTG-INT[UART]-AUTHZ-001|シリアルコンソールへの認可されていないアクセス (Unauthenticated Access to Serial Console)|||
+|ISTG-INT[UART]-AUTHZ-002|シリアルコンソールを介したブートローダー割込み (Bootloader Interrupt via Serial Console)|||
+|**ISTG-INT[UART]-INFO**|**情報収集 (Information Gathering)**|||
+|ISTG-INT[UART]-INFO-001|UART インタフェースとボーレートの特定 (UART Interface and Baud Rate Identification)|||
+|ISTG-INT[UART]-INFO-002|シリアル出力での機密データの開示 (Disclosure of Sensitive Data in Serial Output)|||
+|**ISTG-INT[UART]-INPV**|**入力バリデーション (Input Validation)**|||
+|ISTG-INT[UART]-INPV-001|シリアルインタフェースを介したコマンドインジェクション (Command Injection via Serial Interface)|||
+
 ## 物理インタフェース (Physical Interfaces) (ISTG-PHY)
 |テスト ID|テスト名|ステータス|備考|
 |-|-|-|-|
