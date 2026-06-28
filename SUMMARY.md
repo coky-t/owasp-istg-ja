@@ -21,6 +21,8 @@
     - [ファームウェア更新メカニズム (ISTG-FW[UPDT])](./Document/src/03_test_cases/firmware/firmware_update_mechanism.md)
   - [データ交換サービス (ISTG-DES)](./Document/src/03_test_cases/data_exchange_services/README.md)
   - [内部インタフェース (ISTG-INT)](./Document/src/03_test_cases/internal_interfaces/README.md)
+    - [I2C (Inter-Integrated Circuit) (ISTG-INT[I2C])](./Document/src/03_test_cases/internal_interfaces/inter_integrated_circuit.md)
+    - [UART (Universal Asynchronous Receiver-Transmitter) (ISTG-INT[UART])](./Document/src/03_test_cases/internal_interfaces/universal_asynchronous_receiver_transmitter.md)
   - [物理インタフェース (ISTG-PHY)](./Document/src/03_test_cases/physical_interfaces/README.md)
   - [無線インタフェース (ISTG-WRLS)](./Document/src/03_test_cases/wireless_interfaces/README.md)
   - [ユーザーインタフェース (ISTG-UI)](./Document/src/03_test_cases/user_interfaces/README.md)
