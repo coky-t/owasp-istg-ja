@@ -40,6 +40,10 @@ This is the unofficial Japanese translation of the [OWASP IoT Security Testing G
 
    3.5. [内部インタフェース (ISTG-INT)](./Document/src/03_test_cases/internal_interfaces/README.md)
 
+      3.5.1. [I2C (Inter-Integrated Circuit) (ISTG-INT[I2C])](./Document/src/03_test_cases/internal_interfaces/inter_integrated_circuit.md)
+
+      3.5.2. [UART (Universal Asynchronous Receiver-Transmitter) (ISTG-INT[UART])](./Document/src/03_test_cases/internal_interfaces/universal_asynchronous_receiver_transmitter.md)
+
    3.6. [物理インタフェース (ISTG-PHY)](./Document/src/03_test_cases/physical_interfaces/README.md)
 
    3.7. [無線インタフェース (ISTG-WRLS)](./Document/src/03_test_cases/wireless_interfaces/README.md)
