@@ -14,6 +14,10 @@
 
 3.5. [**内部インタフェース (ISTG-INT)**](./internal_interfaces/README.md)
 
+   3.5.1. [I2C (Inter-Integrated Circuit) (ISTG-INT[I2C])](./internal_interfaces/inter_integrated_circuit.md)
+
+   3.5.2. [UART (Universal Asynchronous Receiver-Transmitter) (ISTG-INT[UART])](./internal_interfaces/universal_asynchronous_receiver_transmitter.md)
+
 3.6. [**物理インタフェース (ISTG-PHY)**](./physical_interfaces/README.md)
 
 3.7. [**無線インタフェース (ISTG-WRLS)**](./wireless_interfaces/README.md)
