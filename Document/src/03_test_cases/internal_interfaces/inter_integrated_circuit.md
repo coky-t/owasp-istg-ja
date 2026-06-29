@@ -1,18 +1,18 @@
-# 3.5.1. Inter-Integrated Circuit (ISTG-INT[I2C])
+# 3.5.1. I2C (Inter-Integrated Circuit) (ISTG-INT[I2C])
 
-## Table of Contents
+## 目次 <a name="table-of-contents"></a>
 
-- [Overview](#overview)
-- [Authorization (ISTG-INT\[I2C\]-AUTHZ)](#authorization-istg-inti2c-authz)
-	- [Bus Interaction with Unauthorized Devices (ISTG-INT\[I2C\]-AUTHZ-001)](#bus-interaction-with-unauthorized-devices-istg-inti2c-authz-001)
-- [Information Gathering (ISTG-INT\[I2C\]-INFO)](#information-gathering-istg-inti2c-info)
-	- [Slave Enumeration (ISTG-INT\[I2C\]-INFO-001)](#slave-enumeration-istg-inti2c-info-001)
-	- [Communication Sniffing (ISTG-INT\[I2C\]-INFO-002)](#communication-sniffing-istg-inti2c-info-002)
-	- [EEPROM/Memory Extraction (ISTG-INT\[I2C\]-INFO-003)](#eeprommemory-extraction-istg-inti2c-info-003)
-- [Input Validation (ISTG-INT\[I2C\]-INPV)](#input-validation-istg-inti2c-inpv)
-	- [Insufficient Handling of Invalid Data (ISTG-INT\[I2C\]-INPV-001)](#insufficient-handling-of-invalid-data-istg-inti2c-inpv-001)
+- [概要](#overview)
+- [認可 (Authorization) (ISTG-INT\[I2C\]-AUTHZ)](#authorization-istg-inti2c-authz)
+	- [認可されていないデバイスとのバスインタラクション (Bus Interaction with Unauthorized Devices) (ISTG-INT\[I2C\]-AUTHZ-001)](#bus-interaction-with-unauthorized-devices-istg-inti2c-authz-001)
+- [情報収集 (Information Gathering) (ISTG-INT\[I2C\]-INFO)](#information-gathering-istg-inti2c-info)
+	- [スレーブ列挙 (Slave Enumeration) (ISTG-INT\[I2C\]-INFO-001)](#slave-enumeration-istg-inti2c-info-001)
+	- [通信傍受 (Communication Sniffing) (ISTG-INT\[I2C\]-INFO-002)](#communication-sniffing-istg-inti2c-info-002)
+	- [EEPROM/メモリ抽出 (EEPROM/Memory Extraction) (ISTG-INT\[I2C\]-INFO-003)](#eeprommemory-extraction-istg-inti2c-info-003)
+- [入力バリデーション (Input Validation) (ISTG-INT\[I2C\]-INPV)](#input-validation-istg-inti2c-inpv)
+	- [無効なデータの不十分な処理 (Insufficient Handling of Invalid Data) (ISTG-INT\[I2C\]-INPV-001)](#insufficient-handling-of-invalid-data-istg-inti2c-inpv-001)
 
-## Overview
+## 概要 <a name="overview"></a>
 
 One specialization of the internal interface component is Inter-Integrated Circuit (I2C). I2C is a synchronous serial communication protocol widely used in embedded systems for connecting microcontrollers and peripherals. It has a master-slave architecture and data transmission/reception cannot be done simultaneously. It does not offer security features like authentication, authorization, or encryption by default. Therefore, a higher level protocol should be used on top of I2C to enable secure communication.
 
@@ -25,13 +25,13 @@ The following categories are not inherited by the specialization [ISTG-INT[I2C]]
 - **Cryptography ([ISTG-INT-CRYPT](./README.md#cryptography-istg-int-crypt))**: This category focuses on the use of strong encryption algorithms. As I2C is a low level protocol that does not offer encryption by default, these test cases are not applicable.
 - **Business Logic ([ISTG-INT-LOGIC](./README.md#business-logic-istg-int-logic))**: This category focuses on the circumvention of the intended business logic that might result in unintended behavior or malfunctions of the device. As I2C is a communication protocol rather than a high level software/application, traditional business logic test cases are not applicable. However, testing for unintended behavior is covered by the input validation test case [ISTG-INT\[I2C\]-INPV-001](#insufficient-handling-of-invalid-data-istg-inti2c-inpv-001).
 
-## Authorization (ISTG-INT[I2C]-AUTHZ)
+## 認可 (Authorization) (ISTG-INT[I2C]-AUTHZ) <a name="authorization-istg-inti2c-authz"></a>
 
 Authorization in the context of I2C communication focuses on ensuring that only authorized devices or users can interact via the I2C bus, and unauthorized access is prevented. Since I2C typically lacks an authentication mechanism, it is critical to evaluate how access is controlled.
 
-### Bus Interaction with Unauthorized Devices (ISTG-INT[I2C]-AUTHZ-001)
+### 認可されていないデバイスとのバスインタラクション (Bus Interaction with Unauthorized Devices) (ISTG-INT[I2C]-AUTHZ-001) <a name="bus-interaction-with-unauthorized-devices-istg-inti2c-authz-001"></a>
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -44,24 +44,24 @@ Authorization in the context of I2C communication focuses on ensuring that only 
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 The I2C communication bus supports multiple masters and multiple slaves. In IoT hardware, different components on a circuit board (PCB) can communicate with each other over the I2C bus to exchange data and perform tasks. When assessing the system, it's important not only to monitor the communication, but also to actively interact with it. This can be done by acting as an additional master on the bus, for example, to engage with the slaves and control the communication.
 
 To minimize interference with other masters, these can be isolated by cutting the circuit traces. However, this typically requires invasive intervention (access level PA-4).
 
-**Test Objectives**
+**テスト目的**
 
 - The master and slave components on the IoT device must be identified.
 - Information about the messages and actions supported by those components must be collected (vendor datasheets).
 - In order to interact with the I2C components, a dedicated hardware tool (e.g., Bus Pirate, HydraBus) or a microcontroller (e.g., Raspberry Pi with smbus2, Arduino with Wire.h) should be used.
 - The reaction/response of the components must be analyzed.
 
-**Remediation**
+**対応策**
 
 Proper checks need to be implemented to prevent unauthorized interaction with I2C components. As I2C does not feature authentication/authorization mechanisms by design, the bus and interfaces must be protected physically to be only accessible for authorized individuals.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -76,13 +76,13 @@ For this test case, data from the following sources was consolidated:
 - [Bus Pirate I2C Guide](http://dangerousprototypes.com/docs/I2C)
 - [HydraBus Open-Source Hardware Tool](https://hydrabus.com)
 
-## Information Gathering (ISTG-INT[I2C]-INFO)
+## 情報収集 (Information Gathering) (ISTG-INT[I2C]-INFO) <a name="information-gathering-istg-inti2c-info"></a>
 
 The information-gathering section aims to identify the details of the I2C implementation, including device addresses and available resources. This is crucial in understanding the attack surface.
 
-### Slave Enumeration (ISTG-INT[I2C]-INFO-001)
+### スレーブ列挙 (Slave Enumeration) (ISTG-INT[I2C]-INFO-001) <a name="slave-enumeration-istg-inti2c-info-001"></a>
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -95,7 +95,7 @@ The information-gathering section aims to identify the details of the I2C implem
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 I2C uses a two wire serial interface. One wire is the Serial Clock (SCL), the other one is the Serial Data (SDA). The master generates the clock signal and starts the communication with the slave. The slave receives the clock signal on the SCL wire and communicates with the master it was addressed by.
 
@@ -103,7 +103,7 @@ Each I2C device has a unique I2C address within the local connection. The I2C re
 
 The detection of slaves can also be achieved passively by sniffing the communication (see [(ISTG-INT\[I2C\]-INFO-002)](#communication-sniffing-istg-inti2c-info-002)).
 
-**Test Objectives**
+**テスト目的**
 
 - The SCL and SDA pins/wires on the target device must be identified.
 - A separate device (e.g., an Arduino, Bus Pirate, or HydraBus) or a Linux host with i2c-tools must be connected to the I2C data bus for scanning.
@@ -111,11 +111,11 @@ The detection of slaves can also be achieved passively by sniffing the communica
 - The general call address (0x00) should also be probed, as it broadcasts to all slaves and may expose devices that do not respond to normal address enumeration.
 - Identified device addresses should be cross-referenced against datasheets to determine the component type and supported register map.
 
-**Remediation**
+**対応策**
 
 While the discoverability of slave components is not considered a vulnerability, it helps understanding the design of the IoT device and preparing more targeted attacks.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -129,9 +129,9 @@ For this test case, data from the following sources was consolidated:
 - [I2C Scanning Tool for Arduino](https://learn.adafruit.com/scanning-i2c-addresses/arduino)
 - [i2c-tools Package](https://i2c.wiki.kernel.org/index.php/I2C_Tools)
 
-### Communication Sniffing (ISTG-INT[I2C]-INFO-002)
+### 通信傍受 (Communication Sniffing) (ISTG-INT[I2C]-INFO-002) <a name="communication-sniffing-istg-inti2c-info-002"></a>
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -144,22 +144,22 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 I2C uses a two wire serial interface. One wire is the Serial Clock (SCL), the other one is the Serial Data (SDA). The communication between different components can be sniffed by connecting a data analyzer to the SCL and SDA lines of the data bus. I2C is often used by onboard storage components, such as EEPROMs. It is possible that sensitive information will be exchanged between PCB components on the data bus.
 
-**Test Objectives**
+**テスト目的**
 
 - The SCL and SDA pins/wires on the target device must be identified.
 - A logic analyzer or dedicated hardware tool (e.g., Bus Pirate in I2C sniffer mode, HydraBus, Saleae) must be connected to the I2C data bus and the capture settings (e.g., sampling rate, threshold voltage) have to be configured accordingly.
 - The I2C communication of the target device must be captured and analyzed in different states (e.g., startup, normal operation, firmware update).
 - Captured traffic must be inspected for sensitive data, including keys, credentials, or configuration parameters.
 
-**Remediation**
+**対応策**
 
 The transmission of sensitive data should be reduced to the minimum which is required for operating the device. As I2C does not feature protective measures by design, the bus and interfaces must be secured physically to be only accessible for authorized individuals.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -173,9 +173,9 @@ For this test case, data from the following sources was consolidated:
 - [sigrok Signal Analysis Software](https://sigrok.org/wiki/Main_Page)
 - [Bus Pirate I2C Documentation](http://dangerousprototypes.com/docs/Bus_Pirate_I2C)
 
-### EEPROM/Memory Extraction (ISTG-INT[I2C]-INFO-003)
+### EEPROM/メモリ抽出 (EEPROM/Memory Extraction) (ISTG-INT[I2C]-INFO-003) <a name="eeprommemory-extraction-istg-inti2c-info-003"></a>
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -188,11 +188,11 @@ For this test case, data from the following sources was consolidated:
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 I2C is frequently used to connect EEPROMs and other non-volatile memory devices to a microcontroller. These memory chips often store sensitive data such as firmware, configuration parameters, cryptographic keys, or device credentials. Since the I2C bus provides no authentication or encryption by default, an attacker with physical access to the bus can directly read the contents of attached memory devices using standard tooling.
 
-**Test Objectives**
+**テスト目的**
 
 - Based on [ISTG-INT\[I2C\]-INFO-001](#slave-enumeration-istg-inti2c-info-001), I2C devices at known EEPROM address ranges (e.g., 0x50-0x57 for 24Cxx series EEPROMs) must be identified.
 - The contents of identified memory devices must be extracted using tools such as `i2cdump` (from the i2c-tools package) or a hardware tool (e.g., Bus Pirate, HydraBus). Note: `i2cdump` uses 8-bit internal addressing by default and will wrap at 256 bytes; for EEPROMs with 16-bit internal addressing (e.g., 24C256, 24C512), word-addressed mode (`i2cdump -y <bus> <addr> w`) or a scripted multi-page read must be used to obtain a complete dump.
@@ -200,11 +200,11 @@ I2C is frequently used to connect EEPROMs and other non-volatile memory devices 
 - It must be determined whether the extracted data is stored in plaintext or is protected by encryption.
 - If write access to the EEPROM is possible, the state of the write-protect (WP) pin must be verified. An improperly grounded WP pin allows an attacker to overwrite EEPROM contents, which may enable persistent compromise of device configuration or credentials.
 
-**Remediation**
+**対応策**
 
 Sensitive data stored in EEPROM or other I2C-attached memory must be encrypted. Cryptographic keys and credentials should not be stored on devices accessible via an unprotected bus. Where possible, cryptographic memory modules with built-in access control (e.g., Microchip ATECC608) should be used instead of general-purpose EEPROMs.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
@@ -220,13 +220,13 @@ For this test case, data from the following sources was consolidated:
 
 
 
-## Input Validation (ISTG-INT[I2C]-INPV)
+## 入力バリデーション (Input Validation) (ISTG-INT[I2C]-INPV) <a name="input-validation-istg-inti2c-inpv"></a>
 
 Input validation is critical to ensure that only valid, expected, and safe data is accepted by the I2C components. Malformed input or invalid commands could potentially compromise the device's security or stability.
 
-### Insufficient Handling of Invalid Data (ISTG-INT[I2C]-INPV-001)
+### 無効なデータの不十分な処理 (Insufficient Handling of Invalid Data) (ISTG-INT[I2C]-INPV-001) <a name="insufficient-handling-of-invalid-data-istg-inti2c-inpv-001"></a>
 
-**Required Access Levels**
+**必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
@@ -239,11 +239,11 @@ Input validation is critical to ensure that only valid, expected, and safe data 
 	</tr>
 </table>
 
-**Summary**
+**要旨**
 
 I2C uses a master-slave architecture where the master generates a clock signal and initializes the communication with slaves. If any of the components does not properly validate the received data or commands, an attacker might be able to manipulate the device's behavior or render it unavailable.
 
-**Test Objectives**
+**テスト目的**
 
 - The SCL and SDA pins/wires on the target device must be identified.
 - A separate device (e.g., an Arduino, Bus Pirate, or HydraBus) must be connected to the I2C data bus for sending malformed data.
@@ -256,11 +256,11 @@ I2C uses a master-slave architecture where the master generates a clock signal a
 - The general call address (0x00) must be used to broadcast commands to all slaves simultaneously to test whether slaves respond unexpectedly to global resets or other general call commands.
 - The reaction and recovery behavior of target components after receiving malformed input must be documented and assessed.
 
-**Remediation**
+**対応策**
 
 The I2C components should reject and not further process invalid data or commands, as they could harm the device's integrity and availability. Proper error handling should prevent the system from crashing or behaving unexpectedly.
 
-**References**
+**参考情報**
 
 For this test case, data from the following sources was consolidated:
 
