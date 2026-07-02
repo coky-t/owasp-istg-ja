@@ -14,16 +14,16 @@
 
 ## 概要 <a name="overview"></a>
 
-One specialization of the internal interface component is Inter-Integrated Circuit (I2C). I2C is a synchronous serial communication protocol widely used in embedded systems for connecting microcontrollers and peripherals. It has a master-slave architecture and data transmission/reception cannot be done simultaneously. It does not offer security features like authentication, authorization, or encryption by default. Therefore, a higher level protocol should be used on top of I2C to enable secure communication.
+内部インタフェースコンポーネントの一つの特化に Inter-Integrated Circuit (I2C) があります。I2C は、組込みシステムでマイクロコントローラと周辺機器を接続するために広く使用されている、同期式シリアル通信プロトコルです。これはマスタースレーブアーキテクチャを持ち、データ送受信を同時に行うことはできません。デフォルトでは認証、認可、暗号技術などのセキュリティ機能を提供しません。そのため、安全な通信を有効にするには、I2C の上位でより高度なプロトコルを使用する必要があります。
 
-This specialization module aims to provide a structured approach for testing the security of I2C interfaces in IoT devices by adding specific test cases relevant to I2C. Some categories from the parent guide, like Business Logic, Cryptography, or Secrets, are not applicable to I2C due to its nature as a low-level communication protocol.
+この専門モジュールは、I2C に特化したテストケースを追加することで、IoT デバイスにおける I2C インタフェースのセキュリティをテストするための体系的なアプローチを提供することを目的としています。ビジネスロジック、暗号技術、シークレットなど、親ガイドの一部のカテゴリは、低レベル通信プロトコルであるという I2C の性質上、I2C には適用できません。
 
-The following categories are not inherited by the specialization [ISTG-INT[I2C]](./inter_integrated_circuit.md):
+以下のカテゴリは特化した [ISTG-INT[I2C]](./inter_integrated_circuit.md) には継承されません。
 
-- **Configuration and Patch Management ([ISTG-INT-CONF](./README.md#configuration-and-patch-management-istg-int-conf))**: This category focuses on the configuration and patch management aspects of internal interfaces. Since this specialization focuses on the communication protocol I2C rather than high level software/applications, the respective test cases are not applicable.
-- **Secrets ([ISTG-INT-SCRT](./README.md#secrets-istg-int-scrt))**: This category focuses on the accessibility of secrets via an internal interface. Since the I2C data bus may be used to transmit secrets and secrets may be stored in I2C-attached memory, this is already covered by the communication sniffing test case [(ISTG-INT\[I2C\]-INFO-002)](#communication-sniffing-istg-inti2c-info-002) and the EEPROM/memory extraction test case [(ISTG-INT\[I2C\]-INFO-003)](#eeprommemory-extraction-istg-inti2c-info-003).
-- **Cryptography ([ISTG-INT-CRYPT](./README.md#cryptography-istg-int-crypt))**: This category focuses on the use of strong encryption algorithms. As I2C is a low level protocol that does not offer encryption by default, these test cases are not applicable.
-- **Business Logic ([ISTG-INT-LOGIC](./README.md#business-logic-istg-int-logic))**: This category focuses on the circumvention of the intended business logic that might result in unintended behavior or malfunctions of the device. As I2C is a communication protocol rather than a high level software/application, traditional business logic test cases are not applicable. However, testing for unintended behavior is covered by the input validation test case [ISTG-INT\[I2C\]-INPV-001](#insufficient-handling-of-invalid-data-istg-inti2c-inpv-001).
+- **構成とパッチ管理 (Configuration and Patch Management) ([ISTG-INT-CONF](./README.md#configuration-and-patch-management-istg-int-conf))**: このカテゴリは内部インタフェースの構成とパッチ管理の側面に焦点を当てています。この特化は、上位のソフトウェアやアプリケーションではなく、通信プロトコル I2C に焦点を当てているため、それぞれのテストケースは適用できません。
+- **シークレット (Secrets) ([ISTG-INT-SCRT](./README.md#secrets-istg-int-scrt))**: このカテゴリは内部インタフェースを介したシークレットのアクセシビリティに焦点を当てています。I2C データバスはシークレットの送信に使用される可能性があり、またシークレットは I2C 接続のメモリに格納される可能性もあるため、これはすでに通信傍受のテストケース [(ISTG-INT\[I2C\]-INFO-002)](#communication-sniffing-istg-inti2c-info-002) とEEPROM/メモリ抽出のテストケース [(ISTG-INT\[I2C\]-INFO-003)](#eeprommemory-extraction-istg-inti2c-info-003) でカバーされています。
+- **暗号技術 (Cryptography) ([ISTG-INT-CRYPT](./README.md#cryptography-istg-int-crypt))**: このカテゴリは強力な暗号アルゴリズムの使用に焦点を当てています。I2C はデフォルトでは暗号化を提供しない低レベルプロトコルであるため、これらのテストケースは適用できません。
+- **ビジネスロジック (Business Logic) ([ISTG-INT-LOGIC](./README.md#business-logic-istg-int-logic))**: このカテゴリは、意図されたビジネスロジックの回避に焦点を当てており、デバイスの予期しない動作や誤動作につながる可能性があります。I2C は上位のソフトウェアやアプリケーションではなく通信プロトコルであるため、従来のビジネスロジックのテストケースは適用できません。しかしながら、意図しない動作のテストは入力バリデーションのテストケース [ISTG-INT\[I2C\]-INPV-001](#insufficient-handling-of-invalid-data-istg-inti2c-inpv-001) でカバーされています。
 
 ## 認可 (Authorization) (ISTG-INT[I2C]-AUTHZ) <a name="authorization-istg-inti2c-authz"></a>
 
