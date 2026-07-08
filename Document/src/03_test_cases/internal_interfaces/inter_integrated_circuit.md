@@ -27,7 +27,7 @@
 
 ## 認可 (Authorization) (ISTG-INT[I2C]-AUTHZ) <a name="authorization-istg-inti2c-authz"></a>
 
-Authorization in the context of I2C communication focuses on ensuring that only authorized devices or users can interact via the I2C bus, and unauthorized access is prevented. Since I2C typically lacks an authentication mechanism, it is critical to evaluate how access is controlled.
+I2C 通信での認可は、認可されたデバイスやユーザーのみが I2C バスを介してやり取りできるようにし、不正アクセスを防止することに重点を置いています。I2C は一般的に認証メカニズムを欠いているため、アクセスがどのように制御されているかを評価することが極めて重要です。
 
 ### 認可されていないデバイスとのバスインタラクション (Bus Interaction with Unauthorized Devices) (ISTG-INT[I2C]-AUTHZ-001) <a name="bus-interaction-with-unauthorized-devices-istg-inti2c-authz-001"></a>
 
