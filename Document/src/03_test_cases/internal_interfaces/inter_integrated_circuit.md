@@ -35,11 +35,11 @@ I2C 通信での認可は、認可されたデバイスやユーザーのみが 
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether an I2C interface is accessible non-invasively somewhere on the device)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-3</i> - <i>PA-4</i><br>(I2C インタフェースがデバイス上のどこかで非侵襲的にアクセス可能であるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -86,11 +86,11 @@ The information-gathering section aims to identify the details of the I2C implem
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether an I2C interface is accessible non-invasively somewhere on the device)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-3</i> - <i>PA-4</i><br>(I2C インタフェースがデバイス上のどこかで非侵襲的にアクセス可能であるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -135,11 +135,11 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether an I2C interface is accessible non-invasively somewhere on the device)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-3</i> - <i>PA-4</i><br>(I2C インタフェースがデバイス上のどこかで非侵襲的にアクセス可能であるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -179,11 +179,11 @@ For this test case, data from the following sources was consolidated:
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether an I2C interface is accessible non-invasively somewhere on the device)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -230,11 +230,11 @@ Input validation is critical to ensure that only valid, expected, and safe data 
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether an I2C interface is accessible non-invasively somewhere on the device)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-3</i> - <i>PA-4</i><br>(I2C インタフェースがデバイス上のどこかで非侵襲的にアクセス可能であるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
