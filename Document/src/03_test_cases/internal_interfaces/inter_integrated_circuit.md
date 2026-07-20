@@ -46,9 +46,9 @@ I2C 通信での認可は、認可されたデバイスやユーザーのみが 
 
 **要旨**
 
-The I2C communication bus supports multiple masters and multiple slaves. In IoT hardware, different components on a circuit board (PCB) can communicate with each other over the I2C bus to exchange data and perform tasks. When assessing the system, it's important not only to monitor the communication, but also to actively interact with it. This can be done by acting as an additional master on the bus, for example, to engage with the slaves and control the communication.
+I2C 通信バスは複数のマスターと複数のスレーブをサポートしています。IoT ハードウェアでは、回路基板 (PCB) 上のさまざまなコンポーネントが I2C バスを介して互いに通信を行い、データをやり取りしたりタスクを実行します。システムを評価する際には、単に通信を監視するだけでなく、通信で能動的にやり取りすることも重要です。これはバス上の追加のマスターとして振る舞うことで、たとえば、スレーブとやり取りしたり通信を制御することが行われます。
 
-To minimize interference with other masters, these can be isolated by cutting the circuit traces. However, this typically requires invasive intervention (access level PA-4).
+他のマスターとの干渉を最小限に抑えるために、回路トレースを切断することでこれらを分離できます。しかしながら、これは一般的に侵襲的な介入 (アクセスレベル PA-4) を必要とします。
 
 **テスト目的**
 
