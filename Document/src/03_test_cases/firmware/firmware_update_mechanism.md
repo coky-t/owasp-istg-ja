@@ -65,6 +65,7 @@
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
+* OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V3.4.10 (デバイスはアップデートをダウンロードする前にアップデートサーバーについて認証している)
 
 
 
@@ -111,6 +112,7 @@
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
+* OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V2.4.2 (十分な鍵サイズでの強力で標準的な暗号アルゴリズムの適切な使用); V3.4.13 (2030 年を超えて運用するデバイスに対する耐量子またはハイブリッドのアップデート署名)
 
 ### 不十分なファームウェア更新暗号化 (Insufficient Firmware Update Encryption) (ISTG-FW[UPDT]-CRYPT-002) <a name="insufficient-firmware-update-encryption-istg-fw[updt]-crypt-002"></a>
 
@@ -193,6 +195,7 @@
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
+* OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V3.4.12 (暗号化されたチャネル経由で送信されるアップデート); V4.1.2 (強力な TLS 暗号スイートのみが有効化されている); V4.1.3 (デバイスは X.509 証明書を暗号学的に検証している)
 
 ### ファームウェア更新シグネチャの不十分な検証 (Insufficient Verification of the Firmware Update Signature) (ISTG-FW[UPDT]-CRYPT-004) <a name="insufficient-verification-of-the-firmware-update-signature-istg-fw[updt]-crypt-004"></a>
 
@@ -229,6 +232,7 @@
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * ["Practical IoT Hacking"][practical_iot_hacking] by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
+* OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V3.4.3 (アップデートは信頼できるソースにより署名され、実行前に検証されている)
 
 
 
@@ -269,6 +273,7 @@
 
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
 * Key aspects of testing of the T-Systems Multimedia Solutions GmbH
+* OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V3.4.6 (デバイスは既知の脆弱なバージョンにダウングレードできない — アンチロールバック)
 
 
 
