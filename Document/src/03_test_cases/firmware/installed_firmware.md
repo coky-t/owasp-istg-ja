@@ -95,6 +95,8 @@
 
 このテストケースは [ISTG-DES-AUTHZ-002](../data_exchange_services/README.md#privilege-escalation-istg-des-authz-002) をベースとしています。
 
+* OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V2.2.2 (最小権限 — ルートとして実行するアプリケーションやサービスを制限する); V3.3.3 (昇格されたアクセスを必要とするプロセスに対する最小カーネル機能)
+
 
 
 ## 情報収集 (Information Gathering) (ISTG-FW[INST]-INFO) <a name="information-gathering-istg-fw[inst]-info"></a>
@@ -171,7 +173,9 @@
 
 デバイスはブートローダーを実行する前に、ブートローダーのデジタルシグネチャを適切に検証しなければなりません。有効なシグネチャのないブートローダーは実行すべきではありません。
 
+**参考情報**
 
+* OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V3.1.4 (ファーストステージブートローダーの真正性が不変の ROM ベースの Root of Trust によって検証されている); V3.1.5 (ブートステージは実行前に暗号学的に検証されている)
 
 [owasp_fstm]: https://github.com/scriptingxss/owasp-fstm	"OWASP Firmware Security Testing Methodology"
 [iot_penetration_testing_cookbook]: https://www.packtpub.com/product/iot-penetration-testing-cookbook/9781787280571	"IoT Penetration Testing Cookbook"
