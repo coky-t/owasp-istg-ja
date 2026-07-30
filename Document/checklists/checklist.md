@@ -24,6 +24,7 @@
 |ISTG-MEM-INFO-002|実装内容の開示 (Disclosure of Implementation Details)|||
 |ISTG-MEM-INFO-003|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
 |ISTG-MEM-INFO-004|ユーザーデータの開示 (Disclosure of User Data)|||
+|ISTG-MEM-INFO-005|安全でないバイナリコンパイルオプション (Insecure Binary Compilation Options)|||
 |**ISTG-MEM-SCRT**|**シークレット (Secrets)**|||
 |ISTG-MEM-SCRT-001|シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets)|||
 |**ISTG-MEM-CRYPT**|**暗号技術 (Cryptography)**|||
@@ -36,6 +37,7 @@
 |ISTG-FW-INFO-001|ソースコードとバイナリの開示 (Disclosure of Source Code and Binaries)|||
 |ISTG-FW-INFO-002|実装内容の開示 (Disclosure of Implementation Details)|||
 |ISTG-FW-INFO-003|エコシステム内容の開示 (Disclosure of Ecosystem Details)|||
+|ISTG-FW-INFO-004|安全でないバイナリコンパイルオプション (Insecure Binary Compilation Options)|||
 |**ISTG-FW-CONF**|**構成とパッチ管理 (Configuration and Patch Management)**|||
 |ISTG-FW-CONF-001|古いソフトウェアの使用 (Usage of Outdated Software)|||
 |ISTG-FW-CONF-002|不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities)|||
