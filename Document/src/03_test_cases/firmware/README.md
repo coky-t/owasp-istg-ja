@@ -186,12 +186,12 @@ IoT デバイスのファームウェアはさまざまな情報を含む可能�
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
- <td><i>PA-1</i> - <i>PA-4</i><br>(depending on how the firmware can be accessed, e.g., via an internal/physical debugging interface or remotely via SSH)</td>
+		<th width="1%" align="left">物理 (Physical)</th>
+ <td><i>PA-1</i> - <i>PA-4</i><br>(ファームウェアへのアクセス方法による。たとえば、内部/物理デバッグインタフェースを介してや、リモートで SSH を介して。)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-4</i><br>(depending on the access model for the given device) </td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-4</i><br>(特定のデバイスのアクセスモデルによる) </td>
 	</tr>
 </table>
 
