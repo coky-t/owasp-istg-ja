@@ -54,6 +54,7 @@
 特定のデバイスのアクセスモデルによっては、特定の個人のみが物理インタフェースへのアクセスを許可されるかもしれません。そのため、適切な認証と認可の手順を設け、認可されたユーザーのみがアクセスできるようにする必要があります。
 
 ### インタフェースへの認可されていないアクセス (Unauthorized Access to the Interface) (ISTG-PHY-AUTHZ-001) <a name="unauthorized-access-to-the-interface-istg-phy-authz-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -63,7 +64,8 @@
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 
@@ -91,6 +93,7 @@
 このテストケースは [ISTG-DES-AUTHZ-001](../data_exchange_services/README.md#unauthorized-access-to-the-data-exchange-service-istg-des-authz-001) をベースとしています。
 
 ### 権限昇格 (Privilege Escalation) (ISTG-PHY-AUTHZ-002) <a name="privilege-escalation-istg-phy-authz-002"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -131,6 +134,7 @@
 物理インタフェースはさまざまな情報を開示する可能性があり、デバイスの内部動作や周囲の IoT エコシステムに関する詳細を潜在的な攻撃者に明らかにする可能性があります。これにより、さらに高度な攻撃が可能になり、より容易になります。
 
 ### 実装内容の開示 (Disclosure of Implementation Details) (ISTG-PHY-INFO-001) <a name="disclosure-of-implementation-details-istg-phy-info-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -173,6 +177,7 @@
 このテストケースは [ISTG-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-istg-fw-info-002) をベースとしています。
 
 ### エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-PHY-INFO-002) <a name="disclosure-of-ecosystem-details-istg-phy-info-002"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -209,6 +214,7 @@
 このテストケースは [ISTG-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-istg-fw-info-003) をベースとしています。
 
 ### ユーザーデータの開示 (Disclosure of User Data) (ISTG-PHY-INFO-003) <a name="disclosure-of-user-data-istg-phy-info-003"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -249,6 +255,7 @@
 IoT デバイスは存続期間が長いため、最新のセキュリティパッチを適用して、デバイスで実行しているソフトウェアが定期的に更新されていることを確保することが重要です。ファームウェア自体の更新プロセスは [ISTG-FW[UPDT]](../firmware/firmware_update_mechanism.md) でカバーされます。なお、デバイス上で実行され、インタフェースで受信するソフトウェアパッケージが最新であることも検証しなければなりません。
 
 ### 古いソフトウェアの使用 (Usage of Outdated Software) (ISTG-PHY-CONF-001) <a name="usage-of-outdated-software-istg-phy-conf-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -289,6 +296,7 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 このテストケースは [ISTG-FW-CONF-001](../firmware/README.md#usage-of-outdated-software-istg-fw-conf-001) をベースとしています。
 
 ### 不必要なソフトウェアや機能の存在 (Presence of Unnecessary Software and Functionalities) (ISTG-PHY-CONF-002) <a name="presence-of-unnecessary-software-and-functionalities-istg-phy-conf-002"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -333,6 +341,7 @@ IoT デバイスは存続期間が長いため、最新のセキュリティパ�
 IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
 ### 機密データへのアクセス (Access to Confidential Data) (ISTG-PHY-SCRT-001) <a name="access-to-confidential-data-istg-phy-scrt-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -373,6 +382,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 多くの IoT デバイスは、機密データの安全な保存、認証目的、他のネットワークノードからの暗号化データの受信と検証などのために、暗号アルゴリズムを実装する必要があります。安全で最先端の暗号技術を実装しないと、機密データの開示、デバイスの誤動作、デバイスの制御不能につながるかもしれません。
 
 ### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-PHY-CRYPT-001) <a name="usage-of-weak-cryptographic-algorithms-istg-phy-crypt-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -419,6 +429,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 物理インタフェースの他のすべての側面が安全に実装および構成されていたとしても、基盤となるロジック自体に問題があると、デバイスが攻撃に対して脆弱になるかもしれません。そのため、物理インタフェースとその機能が意図したように動作しているかどうか、例外を検出して適切に処理しているかどうかを検証しなければなりません。
 
 ### 意図したビジネスロジックの迂回 (Circumvention of the Intended Business Logic) (ISTG-PHY-LOGIC-001) <a name="circumvention-of-the-intended-business-logic-istg-phy-logic-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -459,6 +470,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 有効かつ整形式のデータのみをデバイスの処理フローに入力することを確保するために、ユーザーや外部システムなどのすべての信頼できないソースからの入力を検証およびバリデートする必要があります。
 
 ### 不十分な入力バリデーション (Insufficient Input Validation) (ISTG-PHY-INPV-001) <a name="insufficient-input-validation-istg-phy-inpv-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -495,6 +507,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 このテストケースは [ISTG-DES-INPV-001](../data_exchange_services/README.md#insufficient-input-validation-istg-des-inpv-001) をベースとしています。
 
 ### コードインジェクションやコマンドインジェクション (Code or Command Injection) (ISTG-PHY-INPV-002) <a name="code-or-command-injection-istg-phy-inpv-002"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
