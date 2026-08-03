@@ -37,6 +37,7 @@ IoT デバイスのメモリにはさまざまな情報を含む可能性があ�
 デバイスメモリのテストはメモリチップに直接アクセスすることで実行されます。したがって、ユーザーアカウントは使用されず (*AA-1*)、侵入的な物理アクセス (*PA-4*) が必要になります。
 
 ### ソースコードとバイナリの開示 (Disclosure of Source Code and Binaries) (ISTG-MEM-INFO-001) <a name="disclosure-of-source-code-and-binaries-istg-mem-info-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -46,7 +47,8 @@ IoT デバイスのメモリにはさまざまな情報を含む可能性があ�
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 **要旨**
@@ -80,6 +82,7 @@ IoT デバイスのメモリにはさまざまな情報を含む可能性があ�
 This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-of-source-code-istg-fw-info-001).
 
 ### 実装内容の開示 (Disclosure of Implementation Details) (ISTG-MEM-INFO-002) <a name="disclosure-of-implementation-details-istg-mem-info-002"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -89,7 +92,8 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 **要旨**
@@ -121,6 +125,7 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 このテストケースは [ISTG-FW-INFO-002](../firmware/README.md#disclosure-of-implementation-details-istg-fw-info-002) をベースとしています。
 
 ### エコシステム内容の開示 (Disclosure of Ecosystem Details) (ISTG-MEM-INFO-003) <a name="disclosure-of-ecosystem-details-istg-mem-info-003"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -130,7 +135,8 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 **要旨**
@@ -158,6 +164,7 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 このテストケースは [ISTG-FW-INFO-003](../firmware/README.md#disclosure-of-ecosystem-details-istg-fw-info-003) をベースとしています。
 
 ### ユーザーデータの開示 Disclosure of User Data (ISTG-MEM-INFO-004) <a name="disclosure-of-user-data-istg-mem-info-004"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -167,7 +174,8 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 **要旨**
@@ -195,6 +203,7 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 
 
 ### 安全でないバイナリコンパイルオプション (Insecure Binary Compilation Options) (ISTG-MEM-INFO-005) <a name="insecure-binary-compilation-options-istg-mem-info-005"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -204,7 +213,8 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 	</tr>
 	<tr valign="top">
 		<th align="left">Authorization</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 **要旨**
@@ -253,6 +263,7 @@ This test case is based on: [ISTG-FW-INFO-004](../firmware/README.md#insecure-bi
 IoT デバイスは製造業者の制御空間の外で操作されることがよくあります。さらに、ファームウェアアップデートのリクエストおよび受信やクラウド API へのデータ送信などのために、IoT エコシステム内の他のネットワークノードへの接続を確立する必要があります。そのため、デバイスが何らかの認証情報やシークレットを提供する必要があるかもしれません。これらのシークレットは安全な方法でデバイスに保存し、そのデバイスになりすますために盗まれて使用されることを防ぐ必要があります。
 
 ### シークレットの暗号化無しでの保存 (Unencrypted Storage of Secrets) (ISTG-MEM-SCRT-001) <a name="unencrypted-storage-of-secrets-istg-mem-scrt-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -262,7 +273,8 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 **要旨**
@@ -295,6 +307,7 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 多くの IoT デバイスは、機密データの安全な保存、認証目的、他のネットワークノードからの暗号化データの受信と検証などのために、暗号アルゴリズムを実装する必要があります。安全で最先端の暗号技術を実装しないと、機密データの開示、デバイスの誤動作、デバイスの制御不能につながるかもしれません。
 
 ### 脆弱な暗号アルゴリズムの使用 (Usage of Weak Cryptographic Algorithms) (ISTG-MEM-CRYPT-001) <a name="usage-of-weak-cryptographic-algorithms-istg-mem-crypt-001"></a>
+
 **必要なアクセスレベル**
 
 <table width="100%">
@@ -304,7 +317,8 @@ IoT デバイスは製造業者の制御空間の外で操作されることが�
 	</tr>
 	<tr valign="top">
 		<th align="left">認可 (Authorization)</th>
-		<td><i>AA-1</i></tr>
+		<td><i>AA-1</i></td>
+	</tr>
 </table>
 
 **要旨**
