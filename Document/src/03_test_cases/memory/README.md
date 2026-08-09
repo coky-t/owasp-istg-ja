@@ -208,11 +208,11 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
+		<th width="1%" align="left">物理 (Physical)</th>
  <td><i>PA-4</i></td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
