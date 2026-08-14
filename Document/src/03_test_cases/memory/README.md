@@ -219,7 +219,7 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 
 **要旨**
 
-Binaries recovered from device memory may lack standard exploit mitigation features enabled through compiler and linker security flags. When binaries are extracted directly from memory chips, their compilation security properties can be assessed to understand the device's exploitability posture. The absence of protections such as PIE, stack canaries, NX, RELRO, and FORTIFY_SOURCE reduces the complexity of developing exploits for identified vulnerabilities in the extracted binaries, enabling techniques such as Return-Oriented Programming (ROP) or direct shellcode injection. Real-world impact is demonstrated by vulnerabilities such as CVE-2022-48174, a stack buffer overflow in BusyBox affecting millions of embedded and IoT devices, where missing stack canaries and ASLR significantly lowered the exploitation barrier.
+デバイスのメモリから復元したバイナリは、コンパイラやリンカのセキュリティフラグを通じて有効化される標準的なエクスプロイト緩和機能を欠如していることがあります。バイナリがメモリチップから直接抽出される際に、コンパイル時のセキュリティプロパティが評価され、デバイスのエクスプロイト態勢を理解します。PIE、スタックカナリア、NX、RELRO、FORTIFY_SOURCE などの保護がないと、抽出されたバイナリ内にある特定された脆弱性に対するエクスプロイトを開発することの複雑さを低減し、Return-Oriented Programming (ROP) やシェルコードインジェクションなどの技法を可能にします。実際の影響は、数百万台の組み込み機器や IoT デバイスに影響を及ぼした BusyBox でのスタックオーバーフローの脆弱性 CVE-2022-48174 などで実証されており、スタックカナリアや ASLR の欠如がエクスプロイト実行の障壁を著しく下げていました。
 
 **テスト目的**
 
