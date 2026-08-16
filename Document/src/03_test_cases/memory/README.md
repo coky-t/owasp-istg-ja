@@ -240,7 +240,7 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 
 **対応策**
 
-Firmware build processes should enable security hardening features at the compiler and linker level. See [ISTG-FW-INFO-004](../firmware/README.md#insecure-binary-compilation-options-istg-fw-info-004) for detailed remediation guidance.
+ファームウェアのビルドプロセスは、コンパイラおよびリンカのレベルでセキュリティ堅牢化機能を有効にする必要があります。詳細な対応策ガイダンスについては [ISTG-FW-INFO-004](../firmware/README.md#insecure-binary-compilation-options-istg-fw-info-004) を参照してください。
 
 **参考情報**
 
