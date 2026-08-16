@@ -244,7 +244,7 @@ This test case is based on: [ISTG-FW-INFO-001](../firmware/README.md#disclosure-
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
@@ -254,7 +254,7 @@ For this test case, data from the following sources was consolidated:
 * [CWE-121][cwe_121]: Stack-based Buffer Overflow
 * [CWE-693][cwe_693]: Protection Mechanism Failure
 
-This test case is based on: [ISTG-FW-INFO-004](../firmware/README.md#insecure-binary-compilation-options-istg-fw-info-004).
+このテストケースは [ISTG-FW-INFO-004](../firmware/README.md#insecure-binary-compilation-options-istg-fw-info-004) をベースとしています。
 
 
 
