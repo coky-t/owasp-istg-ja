@@ -220,7 +220,7 @@ IoT ファームウェア内のコンパイル済みバイナリは、コンパ�
 
 **対応策**
 
-The firmware build process should enable the exploit mitigations supported by the toolchain — PIE, stack canaries, full RELRO, and FORTIFY_SOURCE — and apply them consistently across all compiled components, including bundled third-party libraries. Note that toolchain defaults for cross-compiled targets may differ from those of desktop platforms and should be verified explicitly rather than assumed.
+ファームウェアのビルドプロセスは、ツールチェーンでサポートされているエクスプロイト緩和策 (PIE、スタックカナリア、完全 RELRO、FORTIFY_SOURCE) を有効にし、バンドルされるサードパーティライブラリを含むすべてのコンパイル済みコンポーネントにわたって一貫して適用する必要があります。クロスコンパイルされるターゲットに対するツールチェーンのデフォルトはデスクトップのそれとは異なることがあることに注意し、仮定ではなく明示的に検証する必要があります。
 
 **参考情報**
 
