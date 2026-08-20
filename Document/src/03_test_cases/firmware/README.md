@@ -201,22 +201,22 @@ IoT ファームウェア内のコンパイル済みバイナリは、コンパ�
 
 **テスト目的**
 
-- Compiled binaries within the firmware must be identified and analyzed for the presence or absence of common exploit mitigation features, including:
-  - **PIE (Position Independent Executable):** enables ASLR at the binary level, randomizing load addresses and complicating return-oriented programming (ROP) attacks
+- ファームウェア内のコンパイル済みバイナリを特定し、一般的なエクスプロイト緩和機能の有無を解析する必要があります。以下を含みます。
+  - **PIE (Position Independent Executable):** バイナリレベルで ASLR を有効にし、ロードアドレスをランダム化して、Return-Oriented Programming (ROP) 攻撃を困難にします。
 
-  - **NX/W^X (No-Execute):** prevents execution of code injected into writable memory regions such as the stack or heap
+  - **NX/W^X (No-eXecute/Write XOR Execute):** スタックやヒープなどの書き込み可能なメモリ領域に注入されたコードの実行を防止します。
 
-  - **Stack canaries (Stack Smashing Protector, SSP):** detect stack-based buffer overflows prior to function return
+  - **スタックカナリア (Stack Smashing Protector, SSP):** 関数のリターン前にスタックベースのバッファオーバーフローを検出します。
 
-  - **RELRO (Relocation Read-Only):** hardens the Global Offset Table (GOT) against overwrite attacks by marking it read-only after dynamic linking
+  - **RELRO (Relocation Read-Only):** 動的リンク後に Global Offset Table (GOT) を読み取り専用にマーク付けすることで、上書き攻撃に対して堅牢化します。
 
-  - **FORTIFY_SOURCE:** replaces unsafe C standard library functions with bounds-checked variants at compile time
+  - **FORTIFY_SOURCE:** コンパイル時に、安全でない C 標準ライブラリ関数を、境界チェック付きのものに置き換えます。
 
-- Tools such as `checksec`, `readelf`, `objdump`, and `rabin2` should be used to assess binary hardening properties.
+- `checksec`, `readelf`, `objdump`, `rabin2` などのツールを使用して、バイナリ堅牢化特性を評価する必要があります。
 
-- Identified missing mitigations must be documented and assessed in the context of the binary's role and potential exploitability.
+- 欠落している緩和策を特定したら、文書化して、バイナリの役割や潜在的な悪用可能性のコンテキストで評価する必要があります。
 
-- Results should be used to inform further binary analysis and exploitation testing (also see [ISTG-FW-INFO-001](#disclosure-of-source-code-and-binaries-istg-fw-info-001)).
+- 結果はその後のバイナリ解析やエクスプロイトテストに役立てるべきです ([ISTG-FW-INFO-001](#disclosure-of-source-code-and-binaries-istg-fw-info-001) も参照してください)。
 
 **対応策**
 
