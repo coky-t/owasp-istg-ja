@@ -224,7 +224,7 @@ IoT ファームウェア内のコンパイル済みバイナリは、コンパ�
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * OWASP ["Firmware Security Testing Methodology"][owasp_fstm]
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
