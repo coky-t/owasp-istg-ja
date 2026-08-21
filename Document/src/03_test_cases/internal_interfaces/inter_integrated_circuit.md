@@ -59,7 +59,7 @@ I2C 通信バスは複数のマスターと複数のスレーブをサポート�
 
 **対応策**
 
-Proper checks need to be implemented to prevent unauthorized interaction with I2C components. As I2C does not feature authentication/authorization mechanisms by design, the bus and interfaces must be protected physically to be only accessible for authorized individuals.
+I2C コンポーネントでの不正なインタラクションを防ぐために、適切なチェックを実装する必要があります。I2C は設計上、認証/認可メカニズムを備えていないため、認可された個人だけがアクセスできるように、バスやインタフェースを物理的に保護しなければなりません。
 
 **参考情報**
 
