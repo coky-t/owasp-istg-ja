@@ -78,7 +78,7 @@ I2C コンポーネントでの不正なインタラクションを防ぐため�
 
 ## 情報収集 (Information Gathering) (ISTG-INT[I2C]-INFO) <a name="information-gathering-istg-inti2c-info"></a>
 
-The information-gathering section aims to identify the details of the I2C implementation, including device addresses and available resources. This is crucial in understanding the attack surface.
+情報収集のセクションは、デバイスアドレスや利用可能なリソースなど、I2C 実装の詳細を特定することを目指します。これは攻撃対象領域を理解する上で極めて重要です。
 
 ### スレーブ列挙 (Slave Enumeration) (ISTG-INT[I2C]-INFO-001) <a name="slave-enumeration-istg-inti2c-info-001"></a>
 
