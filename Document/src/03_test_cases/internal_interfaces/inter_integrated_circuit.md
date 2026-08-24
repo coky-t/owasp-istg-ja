@@ -97,11 +97,11 @@ I2C コンポーネントでの不正なインタラクションを防ぐため�
 
 **要旨**
 
-I2C uses a two wire serial interface. One wire is the Serial Clock (SCL), the other one is the Serial Data (SDA). The master generates the clock signal and starts the communication with the slave. The slave receives the clock signal on the SCL wire and communicates with the master it was addressed by.
+I2C は二線式シリアルインタフェースを使用します。一方の線はシリアルクロック (Serial Clock, SCL)、もう一方はシリアルデータ (Serial Data, SDA) です。マスターはクロック信号を生成し、スレーブとの通信を開始します。スレーブは SCL 線でクロック信号を受信し、自身を宛先としたマスターと通信します。
 
-Each I2C device has a unique I2C address within the local connection. The I2C reference design has a 7 bit address space, which is sometimes extended up to 10 bits. A 7 bit address space allows a range of 128 distinct addresses. However, 16 of those are reserved for special tasks (0x00-0x07 and 0x78-0x7F), leaving only 112 addresses for the enumeration.
+各 I2C デバイスはローカル接続内に固有の I2C アドレスを持ちます。I2C リファレンス設計は 7 ビットアドレス空間を持ち、10 ビットに拡張されることもあります。7 ビットアドレス空間は 128 通りのアドレスが可能です。しかし、そのうち 16 個 (0x00-0x07 および 0x78-0x7F) は特殊な用途のために予約されており、その列挙には 112 アドレスのみ残ります。
 
-The detection of slaves can also be achieved passively by sniffing the communication (see [(ISTG-INT\[I2C\]-INFO-002)](#communication-sniffing-istg-inti2c-info-002)).
+スレーブの検出は通信をスニッフィングすることによって受動的に成し遂げることも可能です ([(ISTG-INT\[I2C\]-INFO-002)](#communication-sniffing-istg-inti2c-info-002) を参照)。
 
 **テスト目的**
 
