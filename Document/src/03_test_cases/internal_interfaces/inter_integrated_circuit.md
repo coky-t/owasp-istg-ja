@@ -105,11 +105,11 @@ I2C は二線式シリアルインタフェースを使用します。一方の�
 
 **テスト目的**
 
-- The SCL and SDA pins/wires on the target device must be identified.
-- A separate device (e.g., an Arduino, Bus Pirate, or HydraBus) or a Linux host with i2c-tools must be connected to the I2C data bus for scanning.
-- A scanning tool (e.g., `i2cdetect -r` from the i2c-tools package) should be used to probe all 112 non-reserved addresses using read probes, which avoids accidental write transactions that could disturb or corrupt sensitive devices (e.g., EEPROMs, DACs) on the bus. The default write-probe mode (`i2cdetect` without `-r`) must only be used when the device types present on the bus are already known.
-- The general call address (0x00) should also be probed, as it broadcasts to all slaves and may expose devices that do not respond to normal address enumeration.
-- Identified device addresses should be cross-referenced against datasheets to determine the component type and supported register map.
+- ターゲットデバイスの SCL および SDA ピン/配線を特定しなければなりません。
+- スキャン実行には、I2C データバスに別のデバイス (Arduino, Bus Pirate, HydraBus など) または i2c-tools を備えた Linux ホストを接続しなければなりません。
+- スキャンツール (i2c-tools パッケージの `i2cdetect -r` など) を使用して、予約済みではない全 112 アドレスを読み取りプローブを使用して調査し、バス上の機密性の高いデバイス (EEPROM, DAC など) を妨害したり破損する恐れのある不慮の書き込みトランザクションを避けます。デフォルトの書き込みプローブモード (`-r` なしでの `i2cdetect`) は、バス上のデバイスの種類がすでに判明している場合にのみ使用しなければなりません。
+- ジェネラルコールアドレス (0x00) も調査すべきです。すべてのスレーブにブロードキャストするため、通常のアドレス列挙では応答しないデバイスを示す可能性があります。
+- 特定されたデバイスアドレスはデータシートと照らし合わせ、コンポーネントの種類やサポートされているレジスタマップを突き止める必要があります。
 
 **対応策**
 
