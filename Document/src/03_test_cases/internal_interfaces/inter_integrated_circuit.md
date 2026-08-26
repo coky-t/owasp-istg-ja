@@ -157,7 +157,7 @@ I2C は二線式シリアルインタフェースを使用します。一方の�
 
 **対応策**
 
-The transmission of sensitive data should be reduced to the minimum which is required for operating the device. As I2C does not feature protective measures by design, the bus and interfaces must be secured physically to be only accessible for authorized individuals.
+機密データの送信はデバイスの動作に必要な最小限に抑える必要があります。I2C は設計上、保護機能を備えていないため、認可された個人だけがアクセスできるように、バスやインタフェースを物理的に保護しなければなりません。
 
 **参考情報**
 
