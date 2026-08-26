@@ -146,7 +146,7 @@ I2C は二線式シリアルインタフェースを使用します。一方の�
 
 **要旨**
 
-I2C uses a two wire serial interface. One wire is the Serial Clock (SCL), the other one is the Serial Data (SDA). The communication between different components can be sniffed by connecting a data analyzer to the SCL and SDA lines of the data bus. I2C is often used by onboard storage components, such as EEPROMs. It is possible that sensitive information will be exchanged between PCB components on the data bus.
+I2C は二線式シリアルインタフェースを使用します。一方の線はシリアルクロック (Serial Clock, SCL)、もう一方はシリアルデータ (Serial Data, SDA) です。さまざまなコンポーネント間の通信は、データバスの SCL および SDA ラインにデータアナライザを接続することで、スニッフィング可能です。I2C は EEPROM などのオンボードストレージコンポーネントでよく使用されています。データバス上の PCB コンポーネント間で機密情報がやり取りされる可能性があります。
 
 **テスト目的**
 
