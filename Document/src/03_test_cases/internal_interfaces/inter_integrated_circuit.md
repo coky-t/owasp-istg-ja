@@ -113,7 +113,7 @@ I2C は二線式シリアルインタフェースを使用します。一方の�
 
 **対応策**
 
-While the discoverability of slave components is not considered a vulnerability, it helps understanding the design of the IoT device and preparing more targeted attacks.
+スレーブコンポーネントの発見可能性は脆弱性とはみなされませんが、IoT デバイスの設計を理解し、より標的を絞った攻撃を準備するのに役立ちます。
 
 **参考情報**
 
