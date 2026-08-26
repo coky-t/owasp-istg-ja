@@ -150,10 +150,10 @@ I2C は二線式シリアルインタフェースを使用します。一方の�
 
 **テスト目的**
 
-- The SCL and SDA pins/wires on the target device must be identified.
-- A logic analyzer or dedicated hardware tool (e.g., Bus Pirate in I2C sniffer mode, HydraBus, Saleae) must be connected to the I2C data bus and the capture settings (e.g., sampling rate, threshold voltage) have to be configured accordingly.
-- The I2C communication of the target device must be captured and analyzed in different states (e.g., startup, normal operation, firmware update).
-- Captured traffic must be inspected for sensitive data, including keys, credentials, or configuration parameters.
+- ターゲットデバイスの SCL および SDA ピン/配線を特定しなければなりません。
+- ロジックアナライザや専用のハードウェアツール (I2C スニファーモードの Bus Pirate, HydraBus, Saleae など) を I2C データバスに接続しなければならず、キャプチャ設定 (サンプリングレート、閾値電圧など) を適切に構成する必要があります。
+- さまざまな状態 (起動時、通常動作時、ファームウェア更新時など) でのターゲットデバイスの I2C 通信をキャプチャし、解析しなければなりません。
+- キー、クレデンシャル、設定パラメータなどの機密データについてキャプチャしたトラフィックを調査しなければなりません。
 
 **対応策**
 
