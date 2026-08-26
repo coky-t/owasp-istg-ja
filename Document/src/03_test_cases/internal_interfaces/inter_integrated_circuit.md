@@ -161,7 +161,7 @@ I2C は二線式シリアルインタフェースを使用します。一方の�
 
 **参考情報**
 
-For this test case, data from the following sources was consolidated:
+このテストケースでは、以下の情報源からのデータを整理統合しました。
 
 * ["IoT Pentesting Guide"][iot_pentesting_guide] by Aditya Gupta
 * ["IoT Penetration Testing Cookbook"][iot_penetration_testing_cookbook] by Aaron Guzman and Aditya Gupta
