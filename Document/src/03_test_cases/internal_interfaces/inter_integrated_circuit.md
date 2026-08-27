@@ -190,7 +190,7 @@ I2C は二線式シリアルインタフェースを使用します。一方の�
 
 **要旨**
 
-I2C is frequently used to connect EEPROMs and other non-volatile memory devices to a microcontroller. These memory chips often store sensitive data such as firmware, configuration parameters, cryptographic keys, or device credentials. Since the I2C bus provides no authentication or encryption by default, an attacker with physical access to the bus can directly read the contents of attached memory devices using standard tooling.
+I2C は EEPROM やその他の不揮発性メモリデバイスをマイクロコントローラに接続する際によく使用されます。これらのメモリチップは、ファームウェア、設定パラメータ、暗号鍵、デバイスクレデンシャルといった機密データを格納していることがよくあります。I2C バスはデフォルトで認証や暗号化を提供していないため、バスに物理アクセスできる攻撃者は、標準的なツールを使用して、アタッチされたメモリデバイスの内容を直接読み取ることが可能です。
 
 **テスト目的**
 
