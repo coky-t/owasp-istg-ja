@@ -194,11 +194,11 @@ I2C は EEPROM やその他の不揮発性メモリデバイスをマイクロ�
 
 **テスト目的**
 
-- Based on [ISTG-INT\[I2C\]-INFO-001](#slave-enumeration-istg-inti2c-info-001), I2C devices at known EEPROM address ranges (e.g., 0x50-0x57 for 24Cxx series EEPROMs) must be identified.
-- The contents of identified memory devices must be extracted using tools such as `i2cdump` (from the i2c-tools package) or a hardware tool (e.g., Bus Pirate, HydraBus). Note: `i2cdump` uses 8-bit internal addressing by default and will wrap at 256 bytes; for EEPROMs with 16-bit internal addressing (e.g., 24C256, 24C512), word-addressed mode (`i2cdump -y <bus> <addr> w`) or a scripted multi-page read must be used to obtain a complete dump.
-- Extracted data must be analyzed for sensitive information, including firmware images, configuration files, cryptographic keys, and credentials.
-- It must be determined whether the extracted data is stored in plaintext or is protected by encryption.
-- If write access to the EEPROM is possible, the state of the write-protect (WP) pin must be verified. An improperly grounded WP pin allows an attacker to overwrite EEPROM contents, which may enable persistent compromise of device configuration or credentials.
+- [ISTG-INT\[I2C\]-INFO-001](#slave-enumeration-istg-inti2c-info-001) に基づいて、既知の EEPROM アドレス範囲 (例: 24Cxx シリーズ EEPROM では 0x50-0x57) にある I2C デバイスを特定しなければなりません。
+- 特定されたメモリデバイスの内容は `i2cdump` (i2c-tools パッケージから) やハードウェアツール (Bus Pirate, HydraBus など) といったツールを使用して抽出しなければなりません。注: `i2cdump` はデフォルトで 8 ビット内部アドレス指定を使用し、256 バイトで折り返します。16 ビット内部アドレス指定の EEPROM (24C256, 24C512 など) では、完全なダンプを取得するには、ワードアドレスモード (`i2cdump -y <bus> <addr> w`) またはスクリプトによるマルチページ読み取りを使用しなければなりません。
+- 抽出されたデータは、ファームウェアイメージ、設定ファイル、暗号鍵、クレデンシャルなどの機密情報について解析しなければなりません。
+- 抽出されたデータが平文で保存されているか、暗号化によって保護されているかを確認しなければなりません。
+- EEPROM への書き込みアクセスが可能な場合、ライトプロテクト (WP) ピンの状態を検証しなければなりません。適切に接地されていない WP ピンは、攻撃者が EEPROM の内容を上書きでき、デバイスの設定やクレデンシャルの永続的な侵害を可能にする恐れがあります。
 
 **対応策**
 
