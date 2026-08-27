@@ -202,7 +202,7 @@ I2C は EEPROM やその他の不揮発性メモリデバイスをマイクロ�
 
 **対応策**
 
-Sensitive data stored in EEPROM or other I2C-attached memory must be encrypted. Cryptographic keys and credentials should not be stored on devices accessible via an unprotected bus. Where possible, cryptographic memory modules with built-in access control (e.g., Microchip ATECC608) should be used instead of general-purpose EEPROMs.
+EEPROM やその他の I2C にアタッチされたメモリに格納される機密データは暗号化されなければなりません。暗号鍵やクレデンシャルは保護されていないバスを介してアクセス可能なデバイス上に格納すべきではありません。可能であれば、汎用 EEPROM の代わりに、ビルトインのアクセス制御を持つ暗号メモリモジュール (例: Microchip ATECC608) を使用すべきです。
 
 **参考情報**
 
