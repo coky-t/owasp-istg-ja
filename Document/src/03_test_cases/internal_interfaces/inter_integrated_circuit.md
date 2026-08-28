@@ -222,7 +222,7 @@ EEPROM やその他の I2C にアタッチされたメモリに格納される�
 
 ## 入力バリデーション (Input Validation) (ISTG-INT[I2C]-INPV) <a name="input-validation-istg-inti2c-inpv"></a>
 
-Input validation is critical to ensure that only valid, expected, and safe data is accepted by the I2C components. Malformed input or invalid commands could potentially compromise the device's security or stability.
+妥当で、想定通りで、安全なデータのみが I2C コンポーネントによって受け入れられるようにするには、入力バリデーションが不可欠です。不正な形式の入力や無効なコマンドはデバイスのセキュリティや安定性を損なう恐れがあります。
 
 ### 無効なデータの不十分な処理 (Insufficient Handling of Invalid Data) (ISTG-INT[I2C]-INPV-001) <a name="insufficient-handling-of-invalid-data-istg-inti2c-inpv-001"></a>
 
