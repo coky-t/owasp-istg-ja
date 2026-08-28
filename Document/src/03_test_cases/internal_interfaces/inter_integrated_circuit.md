@@ -241,7 +241,7 @@ EEPROM やその他の I2C にアタッチされたメモリに格納される�
 
 **要旨**
 
-I2C uses a master-slave architecture where the master generates a clock signal and initializes the communication with slaves. If any of the components does not properly validate the received data or commands, an attacker might be able to manipulate the device's behavior or render it unavailable.
+I2C は、マスターがクロック信号を生成し、スレーブとの通信を開始する、マスタースレーブアーキテクチャを使用します。いずれかのコンポーネントが受信したデータやコマンドを適切に検証しない場合、攻撃者はデバイスの動作を操作したり、それを利用不能にする恐れがあります。
 
 **テスト目的**
 
