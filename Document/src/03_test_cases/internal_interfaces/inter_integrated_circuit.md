@@ -258,7 +258,7 @@ I2C は、マスターがクロック信号を生成し、スレーブとの通�
 
 **対応策**
 
-The I2C components should reject and not further process invalid data or commands, as they could harm the device's integrity and availability. Proper error handling should prevent the system from crashing or behaving unexpectedly.
+I2C コンポーネントは、デバイスの完全性や可用性を損なう恐れがあるため、無効なデータやコマンドを拒否し、それ以降処理しないようにする必要があります。適切なエラー処理はシステムをクラッシュや予期しない動作から防ぎます。
 
 **参考情報**
 
