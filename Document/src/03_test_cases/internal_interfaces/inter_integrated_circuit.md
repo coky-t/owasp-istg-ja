@@ -245,16 +245,16 @@ I2C は、マスターがクロック信号を生成し、スレーブとの通�
 
 **テスト目的**
 
-- The SCL and SDA pins/wires on the target device must be identified.
-- A separate device (e.g., an Arduino, Bus Pirate, or HydraBus) must be connected to the I2C data bus for sending malformed data.
-- An appropriate software library should be used to craft and send malformed data or invalid commands to I2C slave components. Examples of conditions to test include:
-  - Out-of-range register addresses or command bytes not defined in the device datasheet.
-  - Payloads that exceed the expected data length for a given register write.
-  - NAK flooding: repeatedly sending START conditions without completing transactions.
-  - Repeated START (Sr) condition abuse: chaining transactions without releasing the bus to detect improper bus state handling.
-- Clock stretching behavior must be tested where applicable: a slave that holds SCL low indefinitely can stall the master and cause a denial-of-service condition. The master's timeout handling for clock stretching must be verified.
-- The general call address (0x00) must be used to broadcast commands to all slaves simultaneously to test whether slaves respond unexpectedly to global resets or other general call commands.
-- The reaction and recovery behavior of target components after receiving malformed input must be documented and assessed.
+- ターゲットデバイスの SCL および SDA ピン/配線を特定しなければなりません。
+- 不正な形式のデータを送信するには、I2C データバスに別のデバイス (Arduino, Bus Pirate, HydraBus など) を接続しなければなりません。
+- I2C スレーブコンポーネントに不正なデータや無効なコマンドを作成して送信するには、適切なソフトウェアライブラリを使用する必要があります。テストのための条件の例には以下があります。
+  - デバイスのデータシートに定義されていない範囲外のレジスタアドレスやコマンドバイト。
+  - 特定のレジスタ書き込みに対して想定されるデータ長を超えるペイロード。
+  - NAK フラッディング: トランザクションを完了せずに START コンディションを繰り返し送信します。
+  - Repeated START (Sr) コンディションの悪用: バスを解放せずにトランザクションを連鎖して、不適切なバス状態処理を検出します。
+- 適用できる場合にはクロックストレッチングの挙動をテストする必要があります。SCL を無期限に Low に保持するスレーブは、マスターを失速し、サービス拒否コンディションを引き起こす可能性があります。クロックストレッチングに対するマスターのタイムアウト処理を検証する必要があります。
+- すべてのスレーブにコマンドをブロードキャストするためのジェネラルコールアドレス (0x00) を使用して、スレーブがグローバルリセットやその他のジェネラルコールコマンドに予期しない応答をするかどうかをテストする必要があります。
+- 不正な形式の入力を受信した後のターゲットコンポーネントのリアクションおよびリカバリの挙動が文書化され評価される必要があります。
 
 **対応策**
 
