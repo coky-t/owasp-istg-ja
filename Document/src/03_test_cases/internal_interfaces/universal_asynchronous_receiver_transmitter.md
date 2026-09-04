@@ -14,20 +14,20 @@
 
 ## 概要 <a name="overview"></a>
 
-One specialization of the internal interface component is Universal Asynchronous Receiver-Transmitter (UART). UART is a serial communication protocol widely used in IoT devices for debug consoles, bootloader interaction, and inter-component communication. Unlike synchronous protocols such as I2C or SPI, UART operates asynchronously without a shared clock signal, using two lines — TX (transmit) and RX (receive) — along with a common GND reference.
+内部インタフェースコンポーネントの一つの特化に Universal Asynchronous Receiver-Transmitter (UART) があります。UART は、IoT デバイスでデバッグコンソール、ブートローダーとのやり取り、コンポーネント間通信に広く使用されるシリアル通信プロトコルです。I2C や SPI といった同期式プロトコルとは異なり、UART は共有クロック信号なしで非同期に動作し、TX (transmit) と RX (receive) の二本の線と、共通の GND リファレンスを使用します。
 
-UART interfaces are among the most commonly exposed debug surfaces on IoT hardware. They frequently provide direct access to a device's serial console or bootloader, often without any authentication. UART does not offer security features such as authentication, authorization, or encryption by design. Protections must therefore be implemented at the firmware or physical level.
+UART インタフェースは IoT ハードウェア上で最も一般的に露出しているデバッグサーフェイスの一つです。それらは多くの場合に認証なしでデバイスのシリアルコンソールやブートローダーへの直接アクセスを提供します。UART は、設計上、認証、認可、暗号化といったセキュリティ機能を提供しません。そのため、ファームウェアや物理的なレベルで保護を講じる必要があります。
 
-Where UART test points or connector headers are externally accessible on the device enclosure without disassembly, physical access level *PA-3* may be sufficient. In most cases, however, access to internal UART pads requires opening the device, corresponding to *PA-4*. The applicable access level is noted per test case and must be assessed for each specific device under test.
+UART テストポイントやコネクタヘッダがデバイス筐体上で分解なしに外部的にアクセスできる場合、物理アクセスレベル *PA-3* で十分かもしれません。しかし、ほとんどのケースでは、内部 UART パッドへのアクセスはデバイスを開ける必要があり、*PA-4* に該当します。適用可能なアクセスレベルはテストケースごとに記載されており、テスト下にある個別のデバイスについて評価する必要があります。
 
-This specialization module provides a structured approach for testing the security of UART interfaces in IoT devices. Some categories from the parent guide are not applicable to UART due to its nature as a low-level asynchronous communication protocol.
+この専門モジュールは IoT デバイスでの UART インタフェースのセキュリティをテストするための体系的なアプローチを提供します。親ガイドの一部のカテゴリは、低レベル非同期通信プロトコルという UART の性質上、UART に適用できません。
 
-The following categories are not inherited by the specialization [ISTG-INT[UART]](./universal_asynchronous_receiver_transmitter.md):
+以下のカテゴリは特化した [ISTG-INT[UART]](./universal_asynchronous_receiver_transmitter.md) には継承されません。
 
-- **Configuration and Patch Management ([ISTG-INT-CONF](./README.md#configuration-and-patch-management-istg-int-conf))**: This category focuses on the configuration and patch management of internal interface software. Since this specialization focuses on the UART communication protocol rather than high-level software or applications, the respective test cases are not applicable.
-- **Secrets ([ISTG-INT-SCRT](./README.md#secrets-istg-int-scrt))**: This category focuses on the accessibility of secrets via an internal interface. Since sensitive data such as credentials, keys, and configuration parameters may be disclosed via UART serial output, this is already covered by the disclosure test case [(ISTG-INT\[UART\]-INFO-002)](#disclosure-of-sensitive-data-in-serial-output-istg-intuart-info-002).
-- **Cryptography ([ISTG-INT-CRYPT](./README.md#cryptography-istg-int-crypt))**: This category focuses on the use of strong cryptographic algorithms. As UART is a low-level transport protocol that does not offer encryption by design, these test cases are not applicable.
-- **Business Logic ([ISTG-INT-LOGIC](./README.md#business-logic-istg-int-logic))**: This category focuses on the circumvention of the intended business logic that might result in unintended behavior or malfunctions of the device. As UART is a communication protocol rather than a high-level application, traditional business logic test cases are not applicable. However, testing for unintended behavior resulting from malformed input is covered by [(ISTG-INT\[UART\]-INPV-001)](#command-injection-via-serial-interface-istg-intuart-inpv-001).
+- **構成とパッチ管理 (Configuration and Patch Management) ([ISTG-INT-CONF](./README.md#configuration-and-patch-management-istg-int-conf))**: このカテゴリは内部インタフェースソフトウェアの構成とパッチ管理に焦点を当てています。この特化は、上位のソフトウェアやアプリケーションではなく UART 通信プロトコルに焦点を当てており、それぞれのテストケースは適用できません。
+- **シークレット (Secrets) ([ISTG-INT-SCRT](./README.md#secrets-istg-int-scrt))**: このカテゴリは内部インタフェースを介したシークレットのアクセシビリティに焦点を当てています。クレデンシャル、キー、設定パラメータは UART シリアル出力を介して開示される恐れがあるため、これはすでに開示に関するテストケース [(ISTG-INT\[UART\]-INFO-002)](#disclosure-of-sensitive-data-in-serial-output-istg-intuart-info-002) でカバーされています。
+- **暗号技術 (Cryptography) ([ISTG-INT-CRYPT](./README.md#cryptography-istg-int-crypt))**: このカテゴリは強力な暗号アルゴリズムの使用に焦点を当てています。UART は設計上、暗号化を提供しない低レベルのトランスポートプロトコルであるため、これらのテストケースは適用できません。
+- **ビジネスロジック (Business Logic) ([ISTG-INT-LOGIC](./README.md#business-logic-istg-int-logic))**: このカテゴリは、意図されたビジネスロジックの回避に焦点を当てており、デバイスの予期しない動作や誤動作につながる可能性があります。UART は上位のソフトウェアやアプリケーションではなく通信プロトコルであるため、従来のビジネスロジックのテストケースは適用できません。しかしながら、不正な形式の入力に起因する意図しない動作のテストは [(ISTG-INT\[UART\]-INPV-001)](#command-injection-via-serial-interface-istg-intuart-inpv-001) でカバーされています。
 
 ## 認可 (Authorization) (ISTG-INT[UART]-AUTHZ) <a name="authorization-istg-intuart-authz"></a>
 
