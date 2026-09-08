@@ -31,7 +31,7 @@ UART テストポイントやコネクタヘッダがデバイス筐体上で分
 
 ## 認可 (Authorization) (ISTG-INT[UART]-AUTHZ) <a name="authorization-istg-intuart-authz"></a>
 
-Authorization in the context of UART communication focuses on ensuring that access to the serial console and bootloader is restricted to authorized individuals. Since UART interfaces frequently expose privileged shells or bootloader prompts without any authentication, evaluating access controls is critical.
+UART 通信の文脈での認可は、シリアルコンソールやブートローダーへのアクセスが認可された者に限定されることを確保することに重点を置いています。UART インタフェースは認証なしで特権シェルやブートローダープロンプトをさらすことがよくあり、アクセス制御の評価が極めて重要です。
 
 ### シリアルコンソールへの認可されていないアクセス (Unauthenticated Access to Serial Console) (ISTG-INT[UART]-AUTHZ-001) <a name="unauthenticated-access-to-serial-console-istg-intuart-authz-001"></a>
 
