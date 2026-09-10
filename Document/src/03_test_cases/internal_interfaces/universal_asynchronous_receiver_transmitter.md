@@ -4,7 +4,7 @@
 
 - [概要](#overview)
 - [認可 (Authorization) (ISTG-INT\[UART\]-AUTHZ)](#authorization-istg-intuart-authz)
-	- [シリアルコンソールへの認可されていないアクセス (Unauthenticated Access to Serial Console) (ISTG-INT\[UART\]-AUTHZ-001)](#unauthenticated-access-to-serial-console-istg-intuart-authz-001)
+	- [シリアルコンソールへの認証されていないアクセス (Unauthenticated Access to Serial Console) (ISTG-INT\[UART\]-AUTHZ-001)](#unauthenticated-access-to-serial-console-istg-intuart-authz-001)
 	- [シリアルコンソールを介したブートローダー割込み (Bootloader Interrupt via Serial Console) (ISTG-INT\[UART\]-AUTHZ-002)](#bootloader-interrupt-via-serial-console-istg-intuart-authz-002)
 - [情報収集 (Information Gathering) (ISTG-INT\[UART\]-INFO)](#information-gathering-istg-intuart-info)
 	- [UART インタフェースとボーレートの特定 (UART Interface and Baud Rate Identification) (ISTG-INT\[UART\]-INFO-001)](#uart-interface-and-baud-rate-identification-istg-intuart-info-001)
@@ -33,17 +33,17 @@ UART テストポイントやコネクタヘッダがデバイス筐体上で分
 
 UART 通信の文脈での認可は、シリアルコンソールやブートローダーへのアクセスが認可された者に限定されることを確保することに重点を置いています。UART インタフェースは認証なしで特権シェルやブートローダープロンプトをさらすことがよくあり、アクセス制御の評価が極めて重要です。
 
-### シリアルコンソールへの認可されていないアクセス (Unauthenticated Access to Serial Console) (ISTG-INT[UART]-AUTHZ-001) <a name="unauthenticated-access-to-serial-console-istg-intuart-authz-001"></a>
+### シリアルコンソールへの認証されていないアクセス (Unauthenticated Access to Serial Console) (ISTG-INT[UART]-AUTHZ-001) <a name="unauthenticated-access-to-serial-console-istg-intuart-authz-001"></a>
 
 **必要なアクセスレベル**
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
-		<td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether UART test points or headers are accessible without opening the device)</td>
+		<th width="1%" align="lleft">物理 (Physical)</th>
+		<td><i>PA-3</i> - <i>PA-4</i><br>(UART テストポイントまたはヘッダがデバイスを開くことなくアクセスできるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -82,11 +82,11 @@ Serial console access must require authentication in production firmware. If a c
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
-		<td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether UART test points or headers are accessible without opening the device)</td>
+		<th width="1%" align="lleft">物理 (Physical)</th>
+		<td><i>PA-3</i> - <i>PA-4</i><br>(UART テストポイントまたはヘッダがデバイスを開くことなくアクセスできるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -130,11 +130,11 @@ The information-gathering section aims to identify the UART interface parameters
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
-		<td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether UART test points or headers are accessible without opening the device)</td>
+		<th width="1%" align="lleft">物理 (Physical)</th>
+		<td><i>PA-3</i> - <i>PA-4</i><br>(UART テストポイントまたはヘッダがデバイスを開くことなくアクセスできるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -174,11 +174,11 @@ While the identification of UART interface parameters is not a vulnerability in 
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
-		<td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether UART test points or headers are accessible without opening the device)</td>
+		<th width="1%" align="lleft">物理 (Physical)</th>
+		<td><i>PA-3</i> - <i>PA-4</i><br>(UART テストポイントまたはヘッダがデバイスを開くことなくアクセスできるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
+		<th align="left">認可 (Authorization)</th>
 		<td><i>AA-1</i></td>
 	</tr>
 </table>
@@ -220,12 +220,12 @@ Input validation testing via the UART interface focuses on whether commands or d
 
 <table width="100%">
 	<tr valign="top">
-		<th width="1%" align="left">Physical</th>
-		<td><i>PA-3</i> - <i>PA-4</i><br>(depending on whether UART test points or headers are accessible without opening the device)</td>
+		<th width="1%" align="lleft">物理 (Physical)</th>
+		<td><i>PA-3</i> - <i>PA-4</i><br>(UART テストポイントまたはヘッダがデバイスを開くことなくアクセスできるかどうかによる)</td>
 	</tr>
 	<tr valign="top">
-		<th align="left">Authorization</th>
-		<td><i>AA-1</i> - <i>AA-2</i><br>(depending on whether the serial console requires authentication)</td>
+		<th align="left">認可 (Authorization)</th>
+		<td><i>AA-1</i> - <i>AA-2</i><br>(シリアルコンソールが認証を必要とするかどうかによる)</td>
 	</tr>
 </table>
 
