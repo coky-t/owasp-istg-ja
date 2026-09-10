@@ -50,7 +50,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 **要旨**
 
-Many IoT devices expose a UART serial console that drops directly to a privileged shell — often root — without requiring any authentication. This allows any individual with physical access to the UART interface to gain full control of the operating system, read and modify the filesystem, extract credentials and keys, and install persistent backdoors. This is one of the most frequently encountered vulnerabilities in IoT hardware security assessments and continues to affect devices across consumer, industrial, and carrier-grade product categories. Recent examples include CVE-2025-53914 (unauthenticated root access via UART on Calix GigaCenter ONT devices) and CVE-2024-28326 (unauthenticated UART root access on the ASUS RT-N12 D1 router).
+多くの IoT デバイスは、認証を必要とせずに、特権シェル (多くは root) に直接ドロップする UART シリアルコンソールを公開しています。これは、UART インタフェースに物理アクセスできる人は誰でも、オペレーティングシステムの完全な制御を獲得し、ファイルシステムを読み取りおよび改変し、クレデンシャルやキーを抽出し、永続的なバックドアをインストールすることが可能になります。これは、IoT ハードウェアのセキュリティ評価で最も頻繁に遭遇する脆弱性の一つであり、コンシューマ、産業、キャリアグレードにわたる製品カテゴリのデバイスに影響を及ぼし続けます。最近の事例としては、CVE-2025-53914 (Calix GigaCenter ONT デバイス上の UART を介した認証なしの root アクセス) や CVE-2024-28326 (ASUS RT-N12 D1 ルーター上の認証なしの UART root アクセス) などがあります。
 
 **テスト目的**
 
