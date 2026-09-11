@@ -64,7 +64,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 **対応策**
 
-Serial console access must require authentication in production firmware. If a console is required for manufacturing or support purposes, strong authentication must be enforced and access must be logged. Where no operational requirement exists, the UART console should be disabled in production firmware (e.g., by redirecting the kernel console to `/dev/null` and removing interactive shell spawning from init). Physical removal or depopulation of UART headers and test point pads prior to shipping provides the strongest protection.
+本番ファームウェアでは、シリアルコンソールへのアクセスは認証を必須とする必要があります。製造やサポートの目的でコンソールが必要な場合、強力な認証を強制し、アクセスをログ記録する必要があります。運用上の必要性がない場合、本番ファームウェアでは UART コンソールを無効化すべきです (カーネルコンソールを `/dev/null` にリダイレクトし、init から起動する対話型シェルを削除するなどによって)。出荷前に UART ヘッダやテストポイントのパッドを物理的に取り外したり、実装しないことが、最も強力な保護を提供します。
 
 **参考情報**
 
