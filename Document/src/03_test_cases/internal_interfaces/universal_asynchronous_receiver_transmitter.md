@@ -54,13 +54,13 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 **テスト目的**
 
-- The UART TX, RX, and GND pins must be identified on the target device (see [ISTG-INT\[UART\]-INFO-001](#uart-interface-and-baud-rate-identification-istg-intuart-info-001)).
-- A USB-UART adapter (e.g., based on FT232RL, CP2102, or CH340G) must be connected to the device at the identified baud rate. The adapter voltage must match the device's logic level (typically 3.3V for modern IoT devices).
-- A serial terminal (e.g., minicom, screen, picocom) must be opened at the correct baud rate and settings (typically 8N1: 8 data bits, no parity, 1 stop bit).
-- It must be determined whether the serial console provides a shell or login prompt upon device boot and during normal operation.
-- Where relevant to the device boot flow, repeated interrupt inputs such as Ctrl+C or Ctrl+D during kernel initialization or early userspace startup must be assessed to determine whether they expose an unintended fallback shell, recovery console, debug prompt, or other unauthenticated state.
-- If a login prompt is present, it must be assessed whether it can be bypassed (e.g., via bootloader access, single-user mode, or kernel parameter modification).
-- The privilege level of any accessible shell must be documented.
+- ターゲットデバイス上の UART TX, RX, GND ピンを特定する必要があります ([ISTG-INT\[UART\]-INFO-001](#uart-interface-and-baud-rate-identification-istg-intuart-info-001) 参照)。
+- USB-UART アダプタ (FT232RL, CP2102, CH340G を搭載したものなど) を、特定されたボーレートでデバイスに接続する必要があります。アダプタの電圧はデバイスのロジックレベル (近年の IoT デバイスでは通常 3.3V) と一致する必要があります。
+- シリアルターミナル (minicom, screen, picocom など) を、正しいボーレートと設定 (通常は 8N1: 8 データビット、パリティなし、1 ストップビット) で開く必要があります。
+- デバイスブート時や通常動作時に、シリアルコンソールがシェルやログインプロンプトを提供するかどうかを判断する必要があります。
+- デバイスブートフローに関連する場合、カーネル初期化時やユーザー空間の起動初期時に Ctrl+C や Ctrl+D のような割込み入力を繰り返した際、意図しないフォールバックシェル、リカバリコンソール、デバッグプロンプト、その他の認証を要しない状態を露出するかどうかを突き止めるために評価する必要があります。
+- ログインプロンプトがある場合、それがバイパスできるかどうか (ブートローダーへのアクセス、シングルユーザーモード、カーネルパラメータの改変などのよって) を評価する必要があります。
+- アクセス可能なすべてのシェルの特権レベルを文書化する必要があります。
 
 **対応策**
 
