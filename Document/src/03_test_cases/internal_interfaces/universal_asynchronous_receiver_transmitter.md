@@ -74,7 +74,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 - [CP2102 USB-UART Bridge - Silicon Labs](https://www.silabs.com/interface/usb-bridges/classic/device.cp2102)
 - [CVE-2025-53914 - Calix GigaCenter ONT Unauthenticated UART Root Access](https://www.cve.org/CVERecord?id=CVE-2025-53914)
 - [CVE-2024-28326 - ASUS RT-N12 D1 Unauthenticated UART Root Access](https://www.cvedetails.com/cve/CVE-2024-28326/)
-- OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — Related requirements: V2.2.4 (debug capabilities accessible only to approved staff, with access monitored or logged)
+- OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連要件: V2.2.4 (デバッグ機能にアクセスできるのは承認されたスタッフのみであり、アクセスは監視またはログ記録されている)
 
 ### シリアルコンソールを介したブートローダー割込み (Bootloader Interrupt via Serial Console) (ISTG-INT[UART]-AUTHZ-002) <a name="bootloader-interrupt-via-serial-console-istg-intuart-authz-002"></a>
 
