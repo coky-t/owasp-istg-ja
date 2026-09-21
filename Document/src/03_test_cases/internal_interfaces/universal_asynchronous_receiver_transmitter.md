@@ -93,7 +93,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 **要旨**
 
-Many IoT devices use bootloaders such as U-Boot that can be interrupted via the UART serial console during the boot sequence. If no interrupt protection is in place, an attacker can halt the boot process and access the bootloader prompt within the first few seconds of power-on. From the bootloader prompt, an attacker can enumerate flash layout and environment variables, modify kernel boot arguments, load and execute arbitrary code, and dump or overwrite flash memory — effectively bypassing all operating system-level access controls. Recent examples include CVE-2023-48426 (U-Boot shell accessible via UART interrupt on Chromecast devices, CVSS 10.0), CVE-2024-22013 (U-Boot environment read from an unauthenticated partition), and CVE-2023-39902 (unauthenticated code execution via a crafted FIT image in the U-Boot Secondary Program Loader).
+多くの IoT デバイスは、ブートシーケンス時に UART シリアルコンソールを介して割込み可能な、U-Boot などのブートローダーを使用しています。割込みに対する保護が講じられていない場合、攻撃者は、電源投入後の最初の数秒以内にブートプロセスを停止して、ブートローダープロンプトにアクセスできます。ブートローダープロンプトから、攻撃者はフラッシュのレイアウトや環境変数を列挙し、カーネルブート引数を変更し、任意のコードをロードおよび実行し、フラッシュメモリをダンプや上書きすることが可能になり、事実上、すべてのオペレーティングシステムレベルのアクセス制御をバイパスできます。近年の事例には、CVE-2023-48426 (Chromecast デバイス上の UART 割込みを介してアクセス可能な U-Boot シェル, CVSS 10.0)、CVE-2024-22013 (認証なしのパーティションから読み取れる U-Boot 環境)、CVE-2023-39902 (U-Boot Secondary Program Loader での、細工された FIT イメージを介した認証なしのコード実行) があります。
 
 **テスト目的**
 
