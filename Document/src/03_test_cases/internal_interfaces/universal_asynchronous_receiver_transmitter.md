@@ -97,15 +97,15 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 **テスト目的**
 
-- Based on [ISTG-INT\[UART\]-AUTHZ-001](#unauthenticated-access-to-serial-console-istg-intuart-authz-001), a serial terminal must be connected and monitoring output before device power-on.
-- During the boot sequence, interrupt signals must be sent (commonly Ctrl+C, spacebar, or a device-specific key combination) within the bootloader's autoboot window to attempt to halt the boot process.
-- If a bootloader prompt is obtained, the following must be assessed:
-  - Environment variables must be inspected (e.g., `printenv` in U-Boot) for sensitive data including credentials, boot commands, and partition layouts.
-  - Whether boot arguments can be modified to alter the operating system's security posture (e.g., appending `init=/bin/sh` to the kernel command line).
-  - Whether arbitrary code can be loaded and executed (e.g., via `fatload` and `go` commands in U-Boot).
-  - Whether flash memory can be read or written directly (e.g., via `md`, `mw`, `nand read`, or `sf read` commands).
-  - Whether UART-based firmware loading commands are available (e.g., `loady` for Y-Modem or `loadx` for X-Modem in U-Boot), which would allow an attacker to load and execute arbitrary firmware images over the serial interface.
-- It must be determined whether the bootloader requires authentication to access its prompt or execute privileged commands.
+- [ISTG-INT\[UART\]-AUTHZ-001](#unauthenticated-access-to-serial-console-istg-intuart-authz-001) に基づいて、デバイスの電源を入れる前に、シリアルターミナルを接続し、出力を監視しなければなりません。
+- ブートシーケンス時に、ブートプロセスを停止しようとするには、ブートローダーの自動起動ウィンドウ内に割込みシグナル (一般的には Ctrl+C、スペースバー、またはデバイス固有のキーの組み合わせ) を送信しなければなりません。
+- ブートローダープロンプトを取得した場合、以下を評価しなければなりません。
+  - クレデンシャル、ブートコマンド、パーティションレイアウトなどの機密データについて、環境変数を検査 (U-Boot の `printenv` など) しなければなりません。
+  - オペレーティングシステムのセキュリティ態勢を改変するためにブート引数を変更できるかどうか (カーネルのコマンドラインに `init=/bin/sh` を追加するなど)。
+  - 任意のコードをロードして実行できるかどうか (U-Boot の `fatload` や `go` コマンドなどを介して)。
+  - フラッシュメモリを直接読み書きできるかどうか (`md`, `mw`, `nand read`, `sf read` コマンドなどを介して)。
+  - UART ベースのファームウェアローディングコマンドが利用できるかどうか (U-Boot での Y-Modem 向けの `loady` や X-Modem 向けの `loadx` など)。これらは攻撃者がシリアルインタフェース経由で任意のファームウェアイメージをロードして実行できる可能性があります。
+- ブートローダーがそのプロンプトへのアクセスや特権コマンドの実行に認証を必要とするかどうかを判断しなければなりません。
 
 **対応策**
 
