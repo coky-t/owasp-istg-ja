@@ -109,7 +109,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 **対応策**
 
-The bootloader autoboot delay should be set to zero (`CONFIG_BOOTDELAY=0` in U-Boot) to eliminate the interrupt window in production builds. If bootloader access is required for manufacturing, password authentication should be enforced using `CONFIG_AUTOBOOT_KEYED_CTRLC` or HMAC-based protection via `CONFIG_AUTOBOOT_ENCRYPTION` (U-Boot v2023+). Dangerous commands such as `md`, `mw`, `go`, `loady`, and `loadx` should be removed from production bootloader builds to prevent arbitrary code and firmware loading. Verified boot must be enabled using `CONFIG_FIT_SIGNATURE` to cryptographically verify FIT images before execution, preventing unsigned firmware from being loaded via the bootloader. Secure boot should additionally be implemented at the SoC level to verify the bootloader itself before execution.
+本番ビルドでは割込みウィンドウを排除するために、ブートローダーのオートブートディレイをゼロ (U-Boot では `CONFIG_BOOTDELAY=0`) に設定する必要があります。ブートローダーアクセスが製造に必要とされる場合、パスワード認証には `CONFIG_AUTOBOOT_KEYED_CTRLC` を使用、または、`CONFIG_AUTOBOOT_ENCRYPTION` (U-Boot v2023 以降) を介した HMAC ベースの保護を使用することを適用すべきです。`md`, `mw`, `go`, `loady`, `loadx` といった危険なコマンドは、任意のコードやファームウェアのロードを防ぐために、本番ブートローダービルドから削除する必要があります。`CONFIG_FIT_SIGNATURE` を使用して検証済みブートを有効にし、実行前に FIT イメージを暗号論的に検証して、署名のないファームウェアがブートローダーを介してロードされることを防ぐ必要があります。さらに、実行前にブートローダー自体を検証するために、SoC レベルでセキュアブートを実装すべきです。
 
 **参考情報**
 
