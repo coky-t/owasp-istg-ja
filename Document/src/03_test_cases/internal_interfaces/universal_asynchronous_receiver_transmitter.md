@@ -118,7 +118,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 - [CVE-2023-48426 - U-Boot Shell Accessible via UART Interrupt (CVSS 10.0)](https://www.tenable.com/cve/CVE-2023-48426)
 - [CVE-2024-22013 - U-Boot Environment Read from Unauthenticated Partition](https://github.com/advisories/GHSA-7j8v-7qw4-w29q)
 - [CVE-2023-39902 - U-Boot SPL Unauthenticated Code Execution via FIT Image](https://community.nxp.com/t5/i-MX-Security/U-Boot-Secondary-Program-Loader-Authentication-Vulnerability-CVE/ta-p/1736196)
-- OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — Related requirements: V2.2.4 (debug capabilities accessible only to approved staff, with access monitored or logged); V3.1.3 (communication interfaces such as USB and UART disabled or protected at every boot stage); V5.1.1 (platform supports disabling or protecting access to debug interfaces such as JTAG, SWD and UART)
+- OWASP [IoT Security Verification Standard (ISVS)](https://owasp.org/IoT-Security-Verification-Standard-ISVS/) — 関連する要件: V2.2.4 (デバッグ機能は承認されたスタッフにのみアクセス可能であり、アクセスは監視またはログ記録されている); V3.1.3 (USB や UART などの通信インタフェースはすべてのブートステージで無効化または保護されている); V5.1.1 (プラットフォームは JTAG, SQD, UART などのデバッグインタフェースへのアクセスの無効化または保護をサポートしている)
 
 ## 情報収集 (Information Gathering) (ISTG-INT[UART]-INFO) <a name="information-gathering-istg-intuart-info"></a>
 
