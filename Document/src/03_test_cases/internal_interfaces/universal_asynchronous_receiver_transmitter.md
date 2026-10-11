@@ -122,7 +122,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 ## 情報収集 (Information Gathering) (ISTG-INT[UART]-INFO) <a name="information-gathering-istg-intuart-info"></a>
 
-The information-gathering section aims to identify the UART interface parameters and assess what data is disclosed via the serial interface. This is a prerequisite for all subsequent UART test cases and provides critical intelligence about the device's software stack and potential attack surface.
+情報収集のセクションでは、UART インタフェースパラメータを特定し、シリアルインタフェースを介してどのようなデータが公開されているかを評価することを目的としています。これは、後続のすべての UART テストケースのための前提条件であり、デバイスのソフトウェアスタックや潜在的な攻撃対象領域に関する重要な情報を提供します。
 
 ### UART インタフェースとボーレートの特定 (UART Interface and Baud Rate Identification) (ISTG-INT[UART]-INFO-001) <a name="uart-interface-and-baud-rate-identification-istg-intuart-info-001"></a>
 
