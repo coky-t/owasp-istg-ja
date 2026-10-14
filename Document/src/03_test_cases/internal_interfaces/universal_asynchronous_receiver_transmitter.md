@@ -141,7 +141,7 @@ UART 通信の文脈での認可は、シリアルコンソールやブートロ
 
 **要旨**
 
-Before interacting with a UART interface, the physical pin locations and communication parameters must be identified. UART interfaces on IoT devices are commonly exposed as through-hole headers, surface-mount test points, or unpopulated pads on the PCB. The TX line can be identified by its idle-high state (held at VCC — typically 3.3V on modern IoT devices — when no data is being transmitted). The baud rate must be determined to decode serial output correctly; connecting at the wrong baud rate produces garbled output.
+UART インタフェースとやり取りする前に、物理ピン配置と通信パラメータを特定しなければなりません。IoT デバイス上の UART インタフェースは一般的に、PCB 上のスルーホールヘッダ、表面実装のテストポイント、あるいは未実装のパッドとして露出しています。TX ラインは、アイドルハイ状態 (データが送信されていないときに、VCC、最新の IoT デバイスでは一般的に 3.3V、に維持される) によって特定できます。シリアル出力を正しくデコードするにはボーレートを決定する必要があります。誤ったボーレートで接続すると、文字化けした出力を生み出します。
 
 **テスト目的**
 
