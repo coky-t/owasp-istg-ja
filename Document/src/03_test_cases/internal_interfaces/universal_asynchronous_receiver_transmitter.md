@@ -145,15 +145,15 @@ UART インタフェースとやり取りする前に、物理ピン配置と通
 
 **テスト目的**
 
-- The PCB must be inspected for UART indicators including silkscreen labels (TX, RX, GND, UART, J1, CON1), unpopulated header pads, or test points near the main SoC or processor.
-- A multimeter must be used to identify the GND pin (continuity to device ground plane) and any VCC pin (static DC voltage). The TX pin can be identified by its idle-high voltage (approximately 3.3V or 5V) relative to GND.
-- An oscilloscope or logic analyzer should be used to confirm UART activity on suspected TX pins by observing digital transitions during device boot.
-- The baud rate must be determined using one of the following methods:
-  - **Automated**: JTAGulator or a logic analyzer with protocol auto-detection (e.g., sigrok/Pulseview).
-  - **Semi-automated**: baudrate.py connected to a logic capture device.
-  - **Manual**: Measuring the duration of the shortest pulse on the TX line with an oscilloscope; the baud rate equals the reciprocal of the bit period (e.g., 8.68 µs per bit = 115200 baud).
-- Common baud rates to test if automated detection is unavailable: 115200, 57600, 38400, 19200, 9600.
-- The logic voltage level of the UART interface must be confirmed (3.3V or 5V) before connecting a USB-UART adapter to avoid damaging the device.
+- シルクスクリーンラベル (TX, RX, GND, UART, J1, CON1) などの UART インジケータ、未実装のヘッダパッド、メイン SoC やプロセッサ付近のテストポイントについて、PCB を検査しなければなりません。
+- マルチメータを使用して、GND ピン (デバイスのグランドプレーンにつながるもの) と VCC ピン (一定の DC 電圧) を特定しなければなりません。TX ピンは GND に対してアイドルハイ電圧 (約 3.3V または 5V) によって特定できます。
+- オシロスコープやロジックアナライザを使用して、デバイスの起動時にデジタル推移を観察することで、推測された TX ピンの UART の動作を確認する必要があります。
+- ボーレートは以下のいずれかの手法を使用して判断しなければなりません。
+  - **自動**: JTAGulator または、プロトコル自動検出を備えたロジックアナライザ (例: sigrok/Pulseview)
+  - **半自動**: ロジックキャプチャデバイスに接続した baudrate.py
+  - **手動**: オシロスコープで TX ライン上の最短パルス幅を測定します。ボーレートはビット周期の逆数になります (例: ビット当たり 8.68 µs = 115200 ボー)。
+- 自動検出が利用できない場合にテストする一般的なボーレート: 115200, 57600, 38400, 19200, 9600
+- デバイスの損傷を避けるために、USB-UART アダプタを接続する前に、UART インタフェースのロジック電圧レベルを確認しなければなりません (3.3V または 5V)。
 
 **対応策**
 
