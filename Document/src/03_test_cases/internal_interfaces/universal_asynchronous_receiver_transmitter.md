@@ -157,7 +157,7 @@ UART インタフェースとやり取りする前に、物理ピン配置と通
 
 **対応策**
 
-While the identification of UART interface parameters is not a vulnerability in itself, it is a prerequisite for further attacks. Manufacturers should depopulate UART headers and test point pads in production hardware and avoid silkscreen labeling that identifies debug interfaces. These measures increase the effort required for an attacker to locate and connect to the interface.
+UART インタフェースパラメータを特定すること自体は脆弱性ではありませんが、さらなる攻撃のための前提条件となります。製造業者は製造段階のハードウェアに UART ヘッダやテストポイントパッドを設けないようにし、デバッグインタフェースを示すシルクスクリーンラベルを避けるべきです。これらの対策は攻撃者がインタフェースを見つけ出して接続するために要する労力を増大します。
 
 **参考情報**
 
