@@ -185,7 +185,7 @@ UART インタフェースパラメータを特定すること自体は脆弱性
 
 **要旨**
 
-IoT devices commonly output diagnostic and debug information over the UART serial interface during boot and normal operation. This output frequently contains sensitive data that should not be accessible in production devices, including firmware version strings and build timestamps (enabling targeted exploitation of known vulnerabilities), credentials and API keys, cryptographic key material, MAC addresses and internal network configuration, memory addresses and kernel symbols (facilitating memory corruption exploitation), and filesystem paths.
+IoT デバイスは、一般的に、ブート時や通常動作時に、UART シリアルインタフェースを介して診断情報やデバッグ情報を出力します。この出力には、製品デバイスではアクセス可能であってはならない機密データを含むことがよくあります。これには、ファームウェアのバージョン文字列やビルドのタイムスタンプ (既知の脆弱性を標的とした悪用を可能にする)、クレデンシャルや API キー、暗号鍵マテリアル、MAC アドレスや内部ネットワーク構成、メモリアドレスやカーネルシンボル (メモリ破損の悪用を容易にする)、ファイルシステムのパスがあります。
 
 **テスト目的**
 
