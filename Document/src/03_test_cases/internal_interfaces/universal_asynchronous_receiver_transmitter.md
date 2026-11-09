@@ -189,16 +189,16 @@ IoT デバイスは、一般的に、ブート時や通常動作時に、UART �
 
 **テスト目的**
 
-- Based on [ISTG-INT\[UART\]-INFO-001](#uart-interface-and-baud-rate-identification-istg-intuart-info-001), a serial terminal must be connected and capturing output before device power-on.
-- The full boot sequence output must be captured and inspected for sensitive data including:
-  - Firmware version strings, build dates, and compiler information.
-  - Bootloader environment variables printed during boot.
-  - Kernel messages referencing memory addresses, loaded modules, or mount points.
-  - Credentials, API tokens, or cryptographic key material printed in plaintext.
-  - MAC addresses, IP addresses, or network interface configuration.
-  - WiFi SSIDs, passwords, or provisioning data.
-- Serial output must also be captured during normal device operation and across different device states (e.g., during network activity, firmware update, error conditions) to identify runtime data disclosure.
-- The sensitivity and exploitability of any disclosed data must be assessed.
+- [ISTG-INT\[UART\]-INFO-001](#uart-interface-and-baud-rate-identification-istg-intuart-info-001) に基づき、デバイスの電源を入れる前にシリアルターミナルを接続し、出力をキャプチャしなければなりません。
+- ブートシーケンス全体の出力をキャプチャし、以下のような機密データについて検査しなければなりません。
+  - ファームウェアのバージョン文字列、ビルド日付、コンパイラ情報。
+  - ブート時に表示されるブートローダー環境変数。
+  - メモリアドレス、ロードされたモジュール、マウントポイントを参照するカーネルメッセージ。
+  - プレーンテキストで表示されるクレデンシャル、API トークン、暗号鍵マテリアル。
+  - MAC アドレス、IP アドレス、ネットワークインタフェース設定。
+  - WiFi の SSID、パスワード、プロビジョニングデータ。
+- 通常のデバイス操作時や、さまざまなデバイスの状態 (ネットワークアクティビティ、ファームウェア更新、エラー状態など) においてもシリアル出力をキャプチャし、実行時データ開示を特定しなければなりません。
+- 開示されたデータの機密性と悪用可能性を評価しなければなりません。
 
 **対応策**
 
